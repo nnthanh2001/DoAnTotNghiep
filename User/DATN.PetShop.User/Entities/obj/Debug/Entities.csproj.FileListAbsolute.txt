@@ -1,0 +1,12 @@
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\bin\Debug\Entities.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\bin\Debug\Entities.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\bin\Debug\MongoDB.Bson.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\bin\Debug\Newtonsoft.Json.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\bin\Debug\MongoDB.Bson.xml
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\obj\Debug\Entities.csproj.AssemblyReference.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\obj\Debug\Entities.csproj.CopyComplete
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\obj\Debug\Entities.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\obj\Debug\Entities.pdb

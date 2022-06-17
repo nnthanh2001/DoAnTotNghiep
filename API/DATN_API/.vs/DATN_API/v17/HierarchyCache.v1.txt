@@ -1,0 +1,380 @@
+﻿++Solution 'DATN_API' ‎(6 of 6 projects)
+i:{00000000-0000-0000-0000-000000000000}:DATN_API.sln
+++DATN_API
+i:{00000000-0000-0000-0000-000000000000}:DATN_API
+++Connected Services 
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>938
+++Dependencies
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>937
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:>653
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:>654
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:>786
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:>652
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:>655
+++Properties
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\properties\
+++Controllers
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\
+++PetHotel
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\pethotel\
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\
+++CategoryController.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\pethotel\categorycontroller.cs
+++InvoiceController.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\pethotel\invoicecontroller.cs
+++ProductController.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\pethotel\productcontroller.cs
+++ServiceController.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\pethotel\servicecontroller.cs
+++UserController.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\pethotel\usercontroller.cs
+++Services
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\services\
+++appsettings.json
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\appsettings.json
+++Program.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\program.cs
+++Startup.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\startup.cs
+++No service dependencies discovered
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>939
+++Analyzers
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:analyzers
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:analyzers
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:analyzers
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:analyzers
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:analyzers
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:analyzers
+++Frameworks
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:frameworks
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:frameworks
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:frameworks
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:frameworks
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:frameworks
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:frameworks
+++Packages
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:packages
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:packages
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:packages
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:packages
+++Projects
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:projects
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:projects
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:projects
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:projects
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:projects
+++launchSettings.json
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\properties\launchsettings.json
+++AppConfig.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\services\appconfig.cs
+++appsettings.Development.json
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\appsettings.development.json
+++Microsoft.AspNetCore.Analyzers
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\program files\dotnet\sdk\6.0.203\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\.nuget\packages\microsoft.entityframeworkcore.analyzers\5.0.17\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.AspNetCore.App
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\microsoft.netcore.app
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\microsoft.netcore.app
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\microsoft.netcore.app
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\microsoft.netcore.app
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\microsoft.netcore.app
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\microsoft.netcore.app
+++Microsoft.AspNetCore.Mvc.NewtonsoftJson (5.0.17)
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>963
+++Microsoft.EntityFrameworkCore.SqlServer (5.0.17)
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>959
+++Microsoft.EntityFrameworkCore.Tools (5.0.17)
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>964
+++MongoDB.Driver (2.15.1)
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>962
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:>946
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:>976
+++Newtonsoft.Json (13.0.1)
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>961
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:>985
+++Swashbuckle.AspNetCore (5.6.3)
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:>960
+++BusinessLogicLayer
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\businesslogiclayer.csproj
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\businesslogiclayer.csproj
+i:{00000000-0000-0000-0000-000000000000}:BusinessLogicLayer
+++Contracts
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\contracts.csproj
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\bin\debug\net5.0\contracts.dll
+i:{00000000-0000-0000-0000-000000000000}:Contracts
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\contracts.csproj
+++DataAccessLayer
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\dataaccesslayer.csproj
+i:{00000000-0000-0000-0000-000000000000}:DataAccessLayer
+++Repository
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\repository.csproj
+i:{00000000-0000-0000-0000-000000000000}:Repository
+++AQL
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\aql\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\aql\
+++Owners
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\
+++Category
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\category\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\category\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\category\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\category\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\category\
+++Condition
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\condition\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\condition\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\condition\
+++Invoice
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\invoice\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\invoice\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\invoice\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\invoice\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\invoice\
+++Login
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\login\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\login\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\login\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\login\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\login\
+++Page
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\page\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\page\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\page\
+++Product
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\product\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\product\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\product\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\product\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\product\
+++Service
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\service\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\service\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\service\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\service\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\service\
+++Status
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\status\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\status\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\status\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\status\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\status\
+++User
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\user\
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\user\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\user\
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\user\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\user\
+++RepositoryBase
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\repositorybase\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\repositorybase\
+++RepositoryWrapper
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\repositorywrapper\
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\repositorywrapper\
+++Query.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\aql\query.cs
+++CategoryRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\category\categoryrepository.cs
+++ConditionRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\condition\conditionrepository.cs
+++InvoiceDetailRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\invoice\invoicedetailrepository.cs
+++InvoiceRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\invoice\invoicerepository.cs
+++LoginRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\login\loginrepository.cs
+++PageRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\page\pagerepository.cs
+++PetTypeRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\product\pettyperepository.cs
+++ProductRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\product\productrepository.cs
+++ProductTypeRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\product\producttyperepository.cs
+++ServiceRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\service\servicerepository.cs
+++StatusRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\status\statusrepository.cs
+++RoleRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\user\rolerepository.cs
+++UserRepository.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\owners\pethotel\user\userrepository.cs
+++RepositoryBase.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\repositorybase\repositorybase.cs
+++RepositoryWrapper.cs
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\repository\repositorywrapper\repositorywrapper.cs
+++Entities
+i:{7ee968a5-c20c-4f43-87a3-5d7119e6b17d}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\bin\debug\net5.0\entities.dll
+i:{00000000-0000-0000-0000-000000000000}:Entities
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\bin\debug\net5.0\entities.dll
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\entities.csproj
+++Database
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\database\
+++OwnerModels
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\
+++MongoDbSetting
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\mongodbsetting\
+++PetHotelModel
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\
+++Base
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\base\
+++PetTypeModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\product\pettypemodel.cs
+++ProductModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\product\productmodel.cs
+++ProductTypeModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\product\producttypemodel.cs
+++RoleModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\user\rolemodel.cs
+++UserModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\user\usermodel.cs
+++Request
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\request\
+++Currency.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\currency.cs
+++DigitalCollection.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\digitalcollection.cs
+++Nfttoken.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\nfttoken.cs
+++Database.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\database\database.cs
+++Table.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\database\table.cs
+++Mongo.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\mongodbsetting\mongo.cs
+++BaseModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\base\basemodel.cs
+++CategoryModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\category\categorymodel.cs
+++ConditionModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\condition\conditionmodel.cs
+++InvoiceModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\invoice\invoicemodel.cs
+++LoginModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\login\loginmodel.cs
+++PageModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\page\pagemodel.cs
+++ServiceModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\service\servicemodel.cs
+++StatusModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\pethotelmodel\status\statusmodel.cs
+++RequestModel.cs
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\entities\ownermodels\request\requestmodel.cs
+++MongoDB.Bson (2.15.1)
+i:{4eafdfe7-bd63-4437-a200-a37fba3be398}:>986
+++IRoleRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\user\irolerepository.cs
+++IUserRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\user\iuserrepository.cs
+++IQuery.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\aql\iquery.cs
+++ICategoryRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\category\icategoryrepository.cs
+++IConditionRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\condition\iconditionrepository.cs
+++IInvoiceDetailRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\invoice\iinvoicedetailrepository.cs
+++IInvoiceRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\invoice\iinvoicerepository.cs
+++ILoginRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\login\iloginrepository.cs
+++IPageRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\page\ipagerepository.cs
+++IPetTypeRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\product\ipettyperepository.cs
+++IProductRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\product\iproductrepository.cs
+++IProductTypeRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\product\iproducttyperepository.cs
+++IServiceRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\service\iservicerepository.cs
+++IStatusRepository.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\owners\pethotel\status\istatusrepository.cs
+++IRepositoryBase.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\repositorybase\irepositorybase.cs
+++IRepositoryWrapper.cs
+i:{76250cb0-57ea-477a-986e-bae77a35857f}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\contracts\repositorywrapper\irepositorywrapper.cs
+++BusinessWrapper
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\businesswrapper\
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\businesswrapper\
+++CategoryDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\category\categorydal.cs
+++PetTypeDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\product\pettypedal.cs
+++ProductDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\product\productdal.cs
+++ProductTypeDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\product\producttypedal.cs
+++RoleDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\user\roledal.cs
+++UserDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\user\userdal.cs
+++BusinessWrapper.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\businesswrapper\businesswrapper.cs
+++InvoiceDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\invoice\invoicedal.cs
+++LoginDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\login\logindal.cs
+++ServiceDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\service\servicedal.cs
+++StatusDal.cs
+i:{7dd0ca1c-0a42-406e-a037-2892b78eaa5b}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\dataaccesslayer\owners\pethotel\status\statusdal.cs
+++IBusinessWrapper.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\businesswrapper\ibusinesswrapper.cs
+++ICategoryBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\category\icategorybal.cs
+++IInvoiceBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\invoice\iinvoicebal.cs
+++ILoginBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\login\iloginbal.cs
+++IPetTypeBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\product\ipettypebal.cs
+++IProductBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\product\iproductbal.cs
+++IProductTypeBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\product\iproducttypebal.cs
+++IServiceBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\service\iservicebal.cs
+++IStatusBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\status\istatusbal.cs
+++IRoleBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\user\irolebal.cs
+++IUserBal.cs
+i:{ed2bc21d-4523-4fdf-93fe-f8548f44d192}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\businesslogiclayer\owners\pethotel\user\iuserbal.cs
+++Script Documents
+++VM5
+++index.html
+++swagger-ui-bundle.js
+++swagger-ui-standalone-preset.js
+++aspnetcore-browser-refresh.js
+++browserLink
+++RoleController.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\pethotel\rolecontroller.cs
+++StatusController.cs
+i:{c6e9c886-fd4d-4c05-a989-e4fd360479d4}:c:\users\leo\onedrive\máy tính\eshop\doan\project\api\datn_api\datn_api\controllers\pethotel\statuscontroller.cs

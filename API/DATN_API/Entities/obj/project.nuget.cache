@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "HR25GyG6EyZmjH1X8nrvojqwTX7Yt6z2UoZFnaENh7xqweTl6A7xoFzvuCDAr8JeKIw0H6JcR9wwowOs/EM/yQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\leo\\OneDrive\\Máy tính\\Eshop\\DoAn\\Project\\API\\DATN_API\\Entities\\Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\leo\\.nuget\\packages\\mongodb.bson\\2.15.1\\mongodb.bson.2.15.1.nupkg.sha512",
+    "C:\\Users\\leo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\leo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

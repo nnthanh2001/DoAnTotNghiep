@@ -1,0 +1,15 @@
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\bin\Debug\net5.0\BusinessLogicLayer.deps.json
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\bin\Debug\net5.0\BusinessLogicLayer.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\bin\Debug\net5.0\BusinessLogicLayer.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.csproj.AssemblyReference.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.AssemblyInfoInputs.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.AssemblyInfo.cs
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\refint\BusinessLogicLayer.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\ref\BusinessLogicLayer.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\bin\Debug\net5.0\Entities.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\bin\Debug\net5.0\Entities.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.csproj.CopyComplete

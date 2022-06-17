@@ -1,0 +1,12 @@
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\bin\Debug\HttpClient_API.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\bin\Debug\HttpClient_API.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\bin\Debug\Newtonsoft.Json.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\bin\Debug\Newtonsoft.Json.xml
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\obj\Debug\HttpClient_API.csproj.AssemblyReference.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\obj\Debug\HttpClient_API.csproj.CoreCompileInputs.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\obj\Debug\HttpClient_API.csproj.CopyComplete
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\obj\Debug\HttpClient_API.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\obj\Debug\HttpClient_API.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\bin\Debug\HttpClient_API.dll.config
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\HttpClient_API\bin\Debug\System.Net.Http.Formatting.xml

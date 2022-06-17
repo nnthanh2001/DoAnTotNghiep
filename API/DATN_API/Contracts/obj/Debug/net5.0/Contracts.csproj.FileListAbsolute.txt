@@ -1,0 +1,15 @@
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\bin\Debug\net5.0\Contracts.deps.json
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\bin\Debug\net5.0\Contracts.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\bin\Debug\net5.0\Contracts.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\Contracts.csproj.AssemblyReference.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\Contracts.AssemblyInfoInputs.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\Contracts.AssemblyInfo.cs
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\Contracts.csproj.CoreCompileInputs.cache
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\Contracts.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\refint\Contracts.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\Contracts.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\ref\Contracts.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\bin\Debug\net5.0\Entities.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\bin\Debug\net5.0\Entities.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\API\DATN_API\Contracts\obj\Debug\net5.0\Contracts.csproj.CopyComplete
