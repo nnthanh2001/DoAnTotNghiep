@@ -17,12 +17,12 @@ namespace DATN_API.Controllers.PetHotel
         [HttpGet("GetCategoryParent")]
         public async Task<IActionResult> GetCategoryParent()
         {
-            return Ok(await businessWrapper.category.GetParent());
+            return Ok(await businessWrapper.category.GetCategoryParent());
         }
         [HttpGet("GetCategoryChild")]
         public async Task<IActionResult> GetCategoryChild()
         {
-            return Ok(await businessWrapper.category.GetChild());
+            return Ok(await businessWrapper.category.GetCategoryChild());
         }
         [HttpGet("GetCategoryByOderNo")]
         public async Task<IActionResult> GetCategoryByOderNo()

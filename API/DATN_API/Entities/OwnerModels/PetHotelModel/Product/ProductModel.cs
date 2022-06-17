@@ -24,11 +24,8 @@ namespace Entities.OwnerModels.PetHotelModel.Product
         public string petTypeName { get; set; }
         public string productTypeName { get; set; }
         public string statusName { get; set; }
-        public int bestProduct { get; set; }
-        public string bestProductExpired { get; set; }
-        public bool usingExpired { get; set; }
+       
         public string categoryName { get; set; }
-        public int productTypeID { get; set; }
         public string productHandle { get; set; }
     }
     [BsonIgnoreExtraElements]
@@ -42,7 +39,10 @@ namespace Entities.OwnerModels.PetHotelModel.Product
         public int price { get; set; }
         public int statusID { get; set; }
         public int categoryID { get; set; }
-        
+        public int bestProduct { get; set; }
+        public string bestProductExpired { get; set; }
+        public bool usingExpired { get; set; }
+
 
     }
 }

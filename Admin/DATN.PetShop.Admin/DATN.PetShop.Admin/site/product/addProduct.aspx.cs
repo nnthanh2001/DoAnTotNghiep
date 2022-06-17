@@ -147,6 +147,25 @@ namespace DATN.PetShop.Admin.site.products.product
                                                                 </select>
                                                             </div>
                                                         </div>
+                                                        <div class='mb-3 row'>
+                                                            <label for='example-email-input' class='col-sm-2 col-form-label text-end'>Handle Request</label>
+                                                            <div class='col-sm-10'>
+                                                                <input class='form-control' type='text' data_value='productHandle' placeholder='Handle Request Name' value='" + product.productHandle + @"'>
+                                                            </div>
+                                                        </div>
+                                                        <div class='mb-3 row'>
+                                                           <label class='col-sm-4 col-form-label text-end'>Sản phẩm tốt nhất</label>
+                                                           <div class='col-sm-1'>
+                                                               <div class='form-check form-switch form-switch-success' style='margin-left:auto;margin-right:auto;display:block;margin-top:22%;margin-bottom:0%'>
+                                                                    <input class='form-check-input' type='checkbox' id='customSwitchSuccess' data_value='usingExpired'>
+                                                               </div>
+                                                           </div>
+                                                           <label class='col-sm-2 col-form-label text-end'>Thời hạn:</label>
+                                                           <div class='col-sm-4'>
+                                                                    <input type='date' data_value='bestProductExpired'>
+                                                            </div>
+                                                        </div>          
+                                                       
                                                     </div>
                                                 </div>
                                             </div>

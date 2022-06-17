@@ -894,6 +894,7 @@
     <Content Include="Global.asax" />
     <Content Include="handleRequest\Authentication\signIn\signIn.aspx" />
     <Content Include="handleRequest\Product\AddProduct\addProduct.aspx" />
+    <Content Include="handleRequest\Product\DeleteProduct\deleteProduct.aspx" />
     <Content Include="handleRequest\Product\EditProduct\editProduct.aspx" />
     <Content Include="site\dashboard\dashboard.aspx" />
     <Content Include="site\invoices\invoice.aspx" />
@@ -932,6 +933,13 @@
     </Compile>
     <Compile Include="handleRequest\Product\AddProduct\addProduct.aspx.designer.cs">
       <DependentUpon>addProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="handleRequest\Product\DeleteProduct\deleteProduct.aspx.cs">
+      <DependentUpon>deleteProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="handleRequest\Product\DeleteProduct\deleteProduct.aspx.designer.cs">
+      <DependentUpon>deleteProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="handleRequest\Product\EditProduct\editProduct.aspx.cs">
       <DependentUpon>editProduct.aspx</DependentUpon>

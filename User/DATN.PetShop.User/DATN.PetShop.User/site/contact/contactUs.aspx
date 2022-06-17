@@ -22,8 +22,9 @@
                         </div>
                         <div class="contact-info-content">
                             <h4>Địa điểm</h4>
-                            <p>Điện thoại: 0769899125</p>
-                            <p><a href="#">Email: nguyennhuthanh2001@gmail.com</a></p>
+                            <p>Cơ sở 1: 46 Kim Mã, Ba Đình, HN</p>
+                            <p>Cơ sở 2: 34/360 Xã Đàn, Đống Đa, HN</p>
+                            <p>Cơ sở 3: 77 Trần Khánh Dư, P Tân Định, Q1, Hồ Chí Minh</p>
                         </div>
                     </div>
                 </div>
@@ -35,7 +36,8 @@
                         <div class="contact-info-content">
                             <h4>Liên hệ</h4>
                             <p>Điện thoại: 0769899125</p>
-                            <p><a href="#">Email: nguyennhuthanh2001@gmail.com</a></p>
+                            <p>Zalo: 0769899125</p>
+
                         </div>
                     </div>
                 </div>
@@ -46,8 +48,9 @@
                         </div>
                         <div class="contact-info-content">
                             <h4>Gửi tin nhắn</h4>
-                             <p><a href="#">Email: nguyennhuthanh2001@gmail.com</a></p>
-                             <p><a href="https://www.facebook.com/nguyennhuthanh24.10.2001/">FaceBook: Nguyễn Như Thành </a></p>
+                            <p><a href="#">Email: nguyennhuthanh2001@gmail.com</a></p>
+                            <p>Facebook: Cửa hàng chăm sóc thú cưng NTPET</p>
+                            <p>Instagram: NTPET_Shop</p>
                         </div>
                     </div>
                 </div>

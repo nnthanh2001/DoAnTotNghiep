@@ -1,5 +1,5 @@
 ﻿;
-var Product = function () {
+var editProduct = function () {
     var that = this;
     var productHandlerUrl = "handleRequest/Product/EditProduct/editProduct.aspx";
     var vars = {
@@ -20,7 +20,7 @@ var Product = function () {
             var data = { "request": "edit", "data": json };
             var option = { url: productHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
-            request.post();
+            request.put();
         });
 
         
@@ -35,8 +35,11 @@ var Product = function () {
         var statusID = $.trim($('[data_value="statusID"]').val());
         var categoryID = $.trim($('[data_value="categoryID"]').val());
         var description = $.trim($('[data_value="description"]').val());
+        var productHandle = $.trim($('[data_value="productHandle"]').val());
+        var usingExpired = $('[data_value="usingExpired"]')[0].checked;
+        var bestProductExpired = $.trim($('[data_value="bestProductExpired"]').val());
         
-        var json = { "productName": productName, "productID": productID, "quantity": quantity, "price": price, "petTypeID": petTypeID, "statusID": statusID, "categoryID": categoryID, "description": description,};
+        var json = { "productName": productName, "productID": productID, "quantity": quantity, "price": price, "petTypeID": petTypeID, "statusID": statusID, "categoryID": categoryID, "description": description, "productHandle": productHandle, "usingExpired": usingExpired, "bestProductExpired": bestProductExpired, };
         var doc = JSON.stringify(json);
         return doc;
     };

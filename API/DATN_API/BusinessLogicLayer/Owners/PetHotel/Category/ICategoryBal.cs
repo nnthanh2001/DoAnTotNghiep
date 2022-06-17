@@ -9,8 +9,8 @@ namespace BusinessLogicLayer.Owners.PetHotel.Category
 {
     public interface ICategoryBal
     {
-        Task<List<CategoryModel>> GetParent();
-        Task<List<CategoryModel>> GetChild();
+        Task<List<CategoryModel>> GetCategoryParent();
+        Task<List<CategoryModel>> GetCategoryChild();
         Task<List<CategoryModel>> GetCategoryByOderNo();
     }
 }

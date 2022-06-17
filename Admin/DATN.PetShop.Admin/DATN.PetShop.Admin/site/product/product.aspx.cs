@@ -35,12 +35,13 @@ namespace DATN.PetShop.Admin.site.products.product
                 strBody.Append("<td> <img src = '" + product.imageID + "' alt ='' height = '40'/></td>");
                 strBody.Append("<td>" + product.productName + "</td>");
                 strBody.Append("<td>" + product.petTypeName + "</td>");
-                strBody.Append("<td>" + product.productTypeName + "</td>");
+                strBody.Append("<td>" + product.categoryName + "</td>");
                 strBody.Append("<td>" + product.description + "</td>");
                 strBody.Append("<td>" + product.quantity + "</td>");
-                strBody.Append("<td>" + product.price + ".000đ</td>");
+                strBody.Append("<td>" + product.price + "</td>");
                 strBody.Append("<td>" + product.statusName + "</td>");
-                strBody.Append("<td><a href='/san-pham/chinh-sua-san-pham-" + product.productHandle + "-" + product._id + "'><i class='las la-pen text-secondary font-16'></i></a> <a href='#'><i class='las la-trash-alt text-secondary font-16 onclick='executeExample('warningConfirm')''></i></a></td>");
+                strBody.Append("<td><a href='/san-pham/chinh-sua-san-pham-" + product.productHandle + "-" + product._id + "'><i class='las la-pen text-secondary font-16'></i></a> ");
+                strBody.Append("<button type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton'></i></button></td>");
                 strBody.Append("</tr>");
             }
 

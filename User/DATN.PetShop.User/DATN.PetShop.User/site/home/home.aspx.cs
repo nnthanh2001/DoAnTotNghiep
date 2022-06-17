@@ -164,7 +164,7 @@ namespace DATN.PetShop.User.site.home
                 strBodyProduct.Append(" <div class='product-content'>");
                 strBodyProduct.Append("<h4><a href='/san-pham/" + product.productHandle + "-" + product._id + "'>" + product.productName + "</a></h4>");
                 strBodyProduct.Append(" <div class='product-price'>");
-                strBodyProduct.Append("<span class='new'>" + product.price + ".000đ</span>");
+                strBodyProduct.Append("<span class='new'>" + product.price + "đ</span>");
                 strBodyProduct.Append("</div>");
                 strBodyProduct.Append("</div>");
                 strBodyProduct.Append("</div>");
@@ -189,7 +189,7 @@ namespace DATN.PetShop.User.site.home
                             <div class='deal-pro-price'>
                                 <span class='deal-old-price'>9700.000đ</span>
                                    
-                                 <span>{2}.000đ</span>
+                                 <span>{2}đ</span>
                                  <span>{3}</span>
                             </div>
                             <p>{4} </p>

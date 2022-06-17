@@ -178,4 +178,6 @@
         <!--end Rightbar/offcanvas-->
         <!--end Rightbar-->
     </div>
+
+      <script src="assets/pages/sweet-alert.init.js"></script>  
 </asp:Content>

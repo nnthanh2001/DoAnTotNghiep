@@ -114,6 +114,7 @@
         <script src="assets/js/owner/restful/Restful.min.js"></script>
         <script src="assets/js/owner/view/Authentication/signIn/signIn.js"></script>
         <script src="assets/js/owner/view/product/editProduct/editProduct.js"></script>
+        <script src="assets/js/owner/view/product/addProduct/addProduct.js"></script>
         <script src="assets/js/owner/wrapper/wrapper.js"></script>
 
         <%-- <script>

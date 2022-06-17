@@ -78,7 +78,7 @@ namespace DATN.PetShop.User.site.products
                 strBodyProduct.Append("<div class='product-content'>");
                 strBodyProduct.Append("<h4><a href='/san-pham/" + product.productHandle + "-" + product._id + "'>" + product.productName + "</a></h4>");
                 strBodyProduct.Append("<div class='product-price'>");
-                strBodyProduct.Append("<span class='new'>" + product.price +".000đ</span>");
+                strBodyProduct.Append("<span class='new'>" + product.price +"đ</span>");
                 //strBodyProduct.Append(" <span class='old'>$50.00</span>");
                 strBodyProduct.Append("</div>");
                 strBodyProduct.Append("</div>");
@@ -259,7 +259,7 @@ namespace DATN.PetShop.User.site.products
                             <div class='qwick-view-content'>
                                 <h3>" + productDetail.productName + @"</h3>
                                 <div class='product-price'>
-                                    <span>" + productDetail.price + @".000đ</span>
+                                    <span>" + productDetail.price + @"đ</span>
                                 </div>
                                 <div class='product-rating'>
                                     <i class='ion-star theme-color'></i>
@@ -272,7 +272,7 @@ namespace DATN.PetShop.User.site.products
                                 
                                 <div class='quickview-plus-minus'>
                                     <div class='cart-plus-minus'>
-                                        <input type = 'text' value='2' name='qtybutton' class='cart-plus-minus-box'>
+                                        <input type = 'text' value='1' name='qtybutton' class='cart-plus-minus-box'>
                                     </div>
                                     <div class='quickview-btn-cart'>
                                         <a class='btn-style' href='#'>Thêm vào giỏ hàng</a>
