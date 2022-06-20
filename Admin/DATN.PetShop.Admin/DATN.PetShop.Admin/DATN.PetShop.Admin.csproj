@@ -325,6 +325,7 @@
     <Content Include="assets\js\owner\view\authentication\signIn\signIn.js" />
     <Content Include="assets\js\owner\view\product\addProduct\addProduct.js" />
     <Content Include="assets\js\owner\view\product\editProduct\editProduct.js" />
+    <Content Include="assets\js\owner\view\user\addUser\addUser.js" />
     <Content Include="assets\js\owner\wrapper\wrapper.js" />
     <Content Include="assets\pages\analytics-customers.init.js" />
     <Content Include="assets\pages\analytics-index.init.js" />
@@ -896,6 +897,7 @@
     <Content Include="handleRequest\Product\AddProduct\addProduct.aspx" />
     <Content Include="handleRequest\Product\DeleteProduct\deleteProduct.aspx" />
     <Content Include="handleRequest\Product\EditProduct\editProduct.aspx" />
+    <Content Include="handleRequest\User\AddUser\addUser.aspx" />
     <Content Include="site\dashboard\dashboard.aspx" />
     <Content Include="site\invoices\invoice.aspx" />
     <Content Include="site\login\login-backup.aspx" />
@@ -909,6 +911,7 @@
     <Content Include="site\service\service.aspx" />
     <Content Include="site\user\addUser.aspx" />
     <Content Include="site\user\editUser.aspx" />
+    <Content Include="site\user\listCustomer.aspx" />
     <Content Include="site\user\listUser.aspx" />
     <Content Include="template\invoice\invoice.html" />
     <Content Include="template\products\product.html" />
@@ -947,6 +950,13 @@
     </Compile>
     <Compile Include="handleRequest\Product\EditProduct\editProduct.aspx.designer.cs">
       <DependentUpon>editProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="handleRequest\User\AddUser\addUser.aspx.cs">
+      <DependentUpon>addUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="handleRequest\User\AddUser\addUser.aspx.designer.cs">
+      <DependentUpon>addUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1047,6 +1057,13 @@
     </Compile>
     <Compile Include="site\user\editUser.aspx.designer.cs">
       <DependentUpon>editUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\user\listCustomer.aspx.cs">
+      <DependentUpon>listCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\user\listCustomer.aspx.designer.cs">
+      <DependentUpon>listCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\user\listUser.aspx.cs">
       <DependentUpon>listUser.aspx</DependentUpon>

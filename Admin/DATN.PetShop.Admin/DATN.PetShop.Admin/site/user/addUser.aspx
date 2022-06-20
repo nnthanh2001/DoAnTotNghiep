@@ -3,7 +3,7 @@
     
     <div class="page-content-tab" id="main" runat="server">
 
-        <div class="container-fluid">
+        <%--<div class="container-fluid">
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
@@ -33,12 +33,7 @@
                         <!--end card-header-->
                         <div class="card-body">
                             <div margin="text-align: left">
-                                <%-- <div class="col-lg-3">
-                                    <img src="assets/img_product/01.jpg" alt="" height="400" width="400">
-                                    <button class="btn-de-blue" type="submit">Chọn ảnh</button>
-                                </div>--%>
                                 <div class="col-lg-12">
-
                                     <div class="mb-3 row">
                                         <label for="example-email-input" class="col-sm-2 col-form-label text-end">Tên nhân viên</label>
                                         <div class="col-sm-10">
@@ -125,8 +120,8 @@
             <button class="btn btn-primary" type="submit" onclick="executeExample('threeButtons')">Xác nhận thêm</button>
 
             <!--end card-->
-        </div>
-        <!--end col-->
+        </div>--%>
+       
     </div>
 
 </asp:Content>

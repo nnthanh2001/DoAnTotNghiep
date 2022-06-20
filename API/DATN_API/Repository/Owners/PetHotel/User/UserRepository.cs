@@ -38,11 +38,12 @@ namespace Repository.Owners.PetHotel.User
         {
             this.query = query;
         }
-        public Task<UserModel> Add(UserModel doc) => query.Add(db, table, doc);
+        public Task<UserBaseModel> Add(UserBaseModel doc) => query.Add(db, table, doc);
         public Task<bool> Delete(FilterDefinition<UserModel> filter) => query.Delete(db, table, filter);
         public Task<List<UserModel>> GetAll() => query.GetAll<UserModel>(db, table);
         public Task<UserModel> GetId(FilterDefinition<UserModel> filter) => query.GetId(db, table, filter);
         public Task<bool> Update(FilterDefinition<UserModel> filter, UpdateDefinition<UserModel> update) => query.Update(db, table, filter, update);
         public Task<UserFormModel> GetUserFormById(FilterDefinition<UserFormModel> filter) => query.GetId(db, table, filter);
+        public Task<List<UserModel>> GetUserByCondition(FilterDefinition<UserModel> filter) => query.GetByCondition(db, table, filter);
     }
 }

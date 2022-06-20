@@ -18,8 +18,7 @@ namespace Entities.OwnerModels.PetHotelModel.User
     {
         public string roleName { get; set; }
         public string statusName { get; set; }
-        public string userHandle { get; set; }
-        public string password { get; set; }
+       
     }
 
     [BsonIgnoreExtraElements]
@@ -32,7 +31,8 @@ namespace Entities.OwnerModels.PetHotelModel.User
         public string address { get; set; }
         public string phone { get; set; }
         public int statusID { get; set; }
-       
+        public string userHandle { get; set; }
+        public string password { get; set; }
     }
 
 }

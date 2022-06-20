@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace DATN_API.Controllers.PetHotel
@@ -26,9 +28,9 @@ namespace DATN_API.Controllers.PetHotel
             return Ok(get);
         }
         [HttpPost]
-        public async Task<IActionResult> AddUser(UserFormModel doc)
+        public async Task<IActionResult> AddUser(UserBaseModel doc)
         {
-            var add = await BusinessWrapper.userForm.Add(doc);
+            var add = await BusinessWrapper.user.Add(doc);
             return Ok(add);
         }
         [HttpPut]
@@ -55,7 +57,6 @@ namespace DATN_API.Controllers.PetHotel
         public async Task<IActionResult> SignIn(LoginModel login)
         {
             var add = await BusinessWrapper.login.GetId(login);
-
             return Ok(add);
         }
         [HttpGet("EditUser/{_id}")]
@@ -63,6 +64,34 @@ namespace DATN_API.Controllers.PetHotel
         {
             var get = await BusinessWrapper.userForm.EditUser(_id);
             return Ok(get);
+        }
+        [HttpGet("AddUser")]
+        public async Task<IActionResult> AddUser()
+        {
+            var get = await BusinessWrapper.userForm.AddUser();
+            return Ok(get);
+        }
+        [HttpGet("GetCustomer")]
+        public async Task<IActionResult> GetRole()
+        {
+            int roleID = 5;
+            var get = await BusinessWrapper.userForm.GetByCondition(roleID);
+            return Ok(get);
+        }
+        // Convert pasword
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = Encoding.UTF8.GetBytes(str);
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x2");
+
+            }
+            return byte2String;
         }
     }
 }

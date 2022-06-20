@@ -176,7 +176,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                            <label class='col-sm-2 col-form-label text-end'>Thời hạn:</label>
                                                            <div class='col-sm-4'>
                                                                 <form action='/action_page.php' data_value='bestProductExpried'>
-                                                                    <input type='date' data_value='bestProductExpired' value='" + product.bestProductExpired+@"'>
+                                                                    <input type='date' data_value='bestProductExpired' value='" + product.bestProductExpired + @"'>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -216,7 +216,7 @@ namespace DATN.PetShop.Admin.site.products.product
 
 ";
 
-            var htmlEditProductDetail = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price*=1000, product.statusName, product.description);
+            var htmlEditProductDetail = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price, product.statusName, product.description);
             strBodyEditProduct.Append(htmlEditProductDetail);
 
             html = string.Concat(strBodyEditProduct.ToString());

@@ -19,7 +19,9 @@ namespace HttpClient_API.Core.Global
         
 
         public static string userAPI = "api/User";
+        public static string customerAPI = "api/User/GetCustomer";
         public static string editUserAPI = "api/User/EditUser";
+        public static string addUserAPI = "api/User/AddUser";
 
         public static string serviceAPI = "api/Service";
         public static string editServiceAPI = "api/Service/EditService";

@@ -77,5 +77,13 @@ namespace Repository.AQL
             var collection = db.GetCollection<TEntity>(table);
             return collection.UpdateOne(filter, update).IsAcknowledged;
         }
+
+        public async Task<List<TEntity>> GetByCondition<TEntity>(string database, string table, FilterDefinition<TEntity> filter)
+        {
+            var db = _mongoClient.GetDatabase(database);
+            var collection = db.GetCollection<TEntity>(table);
+            var data =  collection.Find(filter).ToList();
+            return data;
+        }
     }
 }

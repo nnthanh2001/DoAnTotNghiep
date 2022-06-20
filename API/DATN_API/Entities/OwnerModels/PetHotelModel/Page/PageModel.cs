@@ -9,8 +9,14 @@ namespace DataAccessLayer.Owners.PetHotel.Page
     public class PageModel
     {
         public int pageID { get; set; }
-        public int  pagePrevious { get; set; }
-        public int pageNext { get; set; }
+        public int pagePrevious { get; set; }
+        public int pageNext { get; set; }   
         public int number { get; set; }
     }
+    [System.Runtime.Versioning.UnsupportedOSPlatform("browser")]
+    public abstract class MD5 : System.Security.Cryptography.HashAlgorithm
+    {
+
+    }
+
 }

@@ -18,11 +18,12 @@ namespace Contracts.Owners.PetHotel.Staff
     }
     public interface IUserRepository
     {
-        Task<UserModel> Add(UserModel doc);
+        Task<UserBaseModel> Add(UserBaseModel doc);
         Task<bool> Update(FilterDefinition<UserModel> filter, UpdateDefinition<UserModel> update);
         Task<bool> Delete(FilterDefinition<UserModel> filter);
         Task<List<UserModel>> GetAll();
         Task<UserModel> GetId(FilterDefinition<UserModel> filter);
         Task<UserFormModel> GetUserFormById(FilterDefinition<UserFormModel> filter);
+        Task<List<UserModel>> GetUserByCondition(FilterDefinition<UserModel> filter);
     }
 }

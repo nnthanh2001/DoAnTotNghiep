@@ -14,13 +14,17 @@ namespace BusinessLogicLayer.Owners.PetHotel
         Task<List<UserModel>> GetAll();
         Task<UserModel> GetId(string _id);
         Task<UserFormModel> EditUser(string _id);
+        Task<UserFormModel> AddUser();
+        Task<List<UserModel>> GetByCondition(int condition);
+
     }
     public interface IUserBal
     {
-        Task<UserModel> Add(UserModel doc);
+        Task<UserBaseModel> Add(UserBaseModel doc);
         Task<bool> Update(UserModel doc, string _id);
         Task<bool> Delete(string _id);
         Task<List<UserModel>> GetAll();
         //Task<UserModel> GetId(string _id);
+       
     }
 }

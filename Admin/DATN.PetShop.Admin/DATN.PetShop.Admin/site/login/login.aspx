@@ -115,6 +115,7 @@
         <script src="assets/js/owner/view/Authentication/signIn/signIn.js"></script>
         <script src="assets/js/owner/view/product/editProduct/editProduct.js"></script>
         <script src="assets/js/owner/view/product/addProduct/addProduct.js"></script>
+        <script src="assets/js/owner/view/user/addUser/addUser.js"></script>
         <script src="assets/js/owner/wrapper/wrapper.js"></script>
 
         <%-- <script>

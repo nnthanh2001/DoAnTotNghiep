@@ -222,7 +222,9 @@ namespace DataAccessLayer.Owners.PetHotel
         {
             var statusList = await repository.statusRepository.GetAll();
             var petTypeList = await repository.petTypeRepository.GetAll();
-            var categoryList = await repository.categoryRepository.GetAll();
+            var limit = 15;
+            var sort = Builders<CategoryModel>.Sort.Descending("categoryID");
+            var categoryList = await repository.categoryRepository.GetTopCategory(sort, limit);
 
             var addProduct = new ProductFormModel
             {
@@ -231,7 +233,7 @@ namespace DataAccessLayer.Owners.PetHotel
                 statusList = statusList
             };
 
-
+           
             return addProduct;
         }
     }

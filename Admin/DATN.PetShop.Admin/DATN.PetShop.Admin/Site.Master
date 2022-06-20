@@ -31,19 +31,16 @@
         <div class="brand">
             <a href="index.html" class="logo">
                 <span>
-                    <img src="../../assets/images/logos/NT.svg "" alt="logo-small" height="40">
+                    <img src="../../assets/images/logos/NT.svg "" alt="logo-small" height="50">
                 </span>
                 <span>
-                    <img src="assets/images/Layer 2.svg" alt="logo-large" class="logo-lg logo-light">
+                    <img src="assets/images/Layer 2.svg" alt="logo-small" class="logo-lg logo-light">
                     <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
                 </span>
             </a>
         </div>
         <div class="sidebar-user-pro media border-end">
-            <div class="position-relative mx-auto">
-                <img src="assets/images/users/user-4.jpg" alt="user" class="rounded-circle thumb-md">
-                <span class="online-icon position-absolute end-0"><i class="mdi mdi-record text-success"></i></span>
-            </div>
+           
             <div class="media-body ms-2 user-detail align-self-center">
                 <h5 class="font-14 m-0 fw-bold">Nguyễn Như Thành </h5>
                 <p class="opacity-50 mb-0">Quản lí</p>
@@ -72,13 +69,16 @@
                             <a class="nav-link" href="#sidebarProjects" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarProjects">
                                 <i class="ti ti-brand-asana menu-icon"></i>
-                                <span>Nhân viên</span>
+                                <span>Nhân viên_Khách hàng</span>
                             </a>
                             <div class="collapse " id="sidebarProjects">
                                 <ul class="nav flex-column">
                                     <!--end nav-item-->
                                     <li class="nav-item">
                                         <a class="nav-link" href="/nhan-vien">Danh sách nhân viên</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/khach-hang">Danh sách khách hàng</a>
                                     </li>
                                     <!--end nav-item-->
                                 </ul>
@@ -111,27 +111,7 @@
                             </div>
                             <!--end sidebarEcommerce-->
                         </li>
-                        <!--end nav-item-->
-                        <%--<li class="nav-item">
-                            <a class="nav-link" href="#order" data-bs-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="sidebarEcommerce">
-                                <i class="ti ti-file-invoice menu-icon"></i>
-                                <span>Đơn hàng</span>
-                            </a>
-                            <div class="collapse " id="order">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="site/order/order.aspx"><span>Đơn hàng</span></a>
-                                    </li>
-                                    <!--end nav-item-->
-                                    
-                                   
-                                </ul>
-                                <!--end nav-->
-                            </div>
-                            <!--end sidebarEcommerce-->
-                        </li>--%>
-                        <!--end nav-item-->
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarTables" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarTables">
@@ -155,8 +135,7 @@
                             <!--end sidebarTables-->
                         </li>
                         <!--end nav-item-->
-                       <%-- <li class="menu-label mt-0 text-primary font-12 fw-semibold">C<span>rafted</span><br>
-                            <span class="font-10 text-secondary fw-normal">Unique Extra Pages</span></li>--%>
+                       
 
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarAuthentication" data-bs-toggle="collapse" role="button"
@@ -169,9 +148,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="/dang-nhap">Tài khoản nhân viên</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Danh sách tài khoản khách hàng</a>
-                                    </li>
+                                    
                                     <!--end nav-item-->
                                 </ul>
                                 <!--end nav-->
@@ -181,17 +158,7 @@
                         </li>
                         <!--end nav-item-->
                     </ul>
-                   <%-- <ul class="navbar-nav tab-pane" id="Extra" role="tabpanel">
-                        <li>
-                            <div class="update-msg text-center position-relative">
-                                <button type="button" class="btn-close position-absolute end-0 me-2" aria-label="Close"></button>
-                                <img src="assets/images/speaker-light.png" alt="" class="" height="110">
-                                <h5 class="mt-0">Mannat Themes</h5>
-                                <p class="mb-3">We Design and Develop Clean and High Quality Web Applications</p>
-                                <a href="javascript: void(0);" class="btn btn-outline-warning btn-sm">Upgrade your plan</a>
-                            </div>
-                        </li>
-                    </ul>--%>
+                  
                     <!--end navbar-nav--->
                 </div>
                 <!--end sidebarCollapse-->
@@ -258,6 +225,7 @@
     <script src="assets/js/owner/view/Authentication/signIn/signIn.js"></script>
     <script src="assets/js/owner/view/product/editProduct/editProduct.js"></script>
     <script src="assets/js/owner/view/product/addProduct/addProduct.js"></script>
+    <script src="assets/js/owner/view/user/addUser/addUser.js"></script>
     <script src="assets/js/owner/wrapper/wrapper.js"></script>
     <form runat="server" id="frm"></form>
 </body>

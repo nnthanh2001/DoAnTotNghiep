@@ -17,20 +17,7 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
             var apiUrl = Globals.loginAPI;
 
 
-
-
-            //   var Route = HttpContext.Current.Request.RequestContext.RouteData;
-            //   if (Route.Route == null) return;
-            //   var request = Route.Values;
-            //   var rq = request["request"] != null && request["request"].ToString() != ""
-            //      ? request["request"].ToString().ToLower().Trim()
-            //      : "";
-            //   var id = request["_id"] != null && request["_id"].ToString() != ""
-            //  ? request["_id"].ToString()
-            //  : "";
-            //   var data = request["data"] != null && request["data"].ToString() != ""
-            //? request["data"].ToString()
-            //: "";
+           
             var result = "";
             var type = Request["type"] != null && Request["type"].ToString() != ""
                  ? Request["type"].ToString().ToLower().Trim()
@@ -62,8 +49,7 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
                             {"href","site/product/product.aspx"}
                         };
                             result = JsonConvert.SerializeObject(dicResult);
-                            //Response.Redirect("~/site/product/product.aspx");
-                            //Response.End();
+                            
                         }
 
 
@@ -80,9 +66,6 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
 
             Response.StatusCode = 200;
             Response.Write(result);
-
-            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-            //Response.Write("<script>alert('Đăng nhập sai')</script>");
             Response.End();
         }
 

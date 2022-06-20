@@ -36,7 +36,6 @@ namespace DataAccessLayer.Owners.PetHotel.Category
         {
             var limit = 3;
             var sort = Builders<CategoryModel>.Sort.Ascending("categoryParent");
-
             return repository.categoryRepository.GetTopCategory(sort, limit);
         }
 

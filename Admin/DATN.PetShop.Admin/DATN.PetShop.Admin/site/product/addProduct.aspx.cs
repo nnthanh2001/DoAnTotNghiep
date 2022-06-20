@@ -15,11 +15,11 @@ namespace DATN.PetShop.Admin.site.products.product
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var addProduct = AddProducts();
+            var addProduct = AddProduct();
             main.InnerHtml = addProduct;
         }
 
-        public string AddProducts()
+        public string AddProduct()
         {
 
             var baseUrl = Globals.baseAPI;
@@ -127,7 +127,6 @@ namespace DATN.PetShop.Admin.site.products.product
                                                             <label class='col-sm-2 col-form-label text-end'>Loài</label>
                                                             <div class='col-sm-4'>
                                                                 <select class='form-select' aria-label='Default select example' placeholder='Chó' data_value='petTypeID'>
-                                                                   
                                                                    " + strPetType.ToString() + @"
                                                                 </select>
                                                             </div>
@@ -142,7 +141,6 @@ namespace DATN.PetShop.Admin.site.products.product
                                                             <label class='col-sm-2 col-form-label text-end'>Trạng thái</label>
                                                             <div class='col-sm-4'>
                                                                 <select class='form-select' aria-label='Default select example' placeholder='Còn hàng' data_value='statusID'>
-                                                                   
                                                                     " + strListStatus.ToString() + @"
                                                                 </select>
                                                             </div>
@@ -197,7 +195,6 @@ namespace DATN.PetShop.Admin.site.products.product
                 </div>
             </div>
             <button class='btn btn-primary' type='submit' jsaction='addProductButton' value='" + product._id + @"'>Xác nhận thêm mới</button>
-           
         </div>
 
 ";

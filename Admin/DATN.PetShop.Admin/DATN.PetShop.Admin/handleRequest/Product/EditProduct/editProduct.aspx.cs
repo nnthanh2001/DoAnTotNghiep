@@ -54,7 +54,7 @@ namespace DATN.PetShop.Admin.handleRequest.Product.EditProduct
                     break;
                 case "put":
                     var editProduct = JsonConvert.DeserializeObject<ProductModel>(data);
-                    var str = Restful.Post(baseUrl, apiUrl, editProduct);
+                    var str = Restful.Put(baseUrl, apiUrl, editProduct);
                     if (str != null && str != "")
                     {
                         if (str != null)

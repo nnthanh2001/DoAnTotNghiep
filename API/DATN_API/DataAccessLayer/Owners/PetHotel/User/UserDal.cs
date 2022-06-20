@@ -36,6 +36,7 @@ namespace DataAccessLayer.Owners.PetHotel
             var statusList = await repository.statusRepository.GetAll();
             var roleList = await repository.roleRepository.GetAll();
             var userList = await repository.userRepository.GetAll();
+           
 
             foreach (var user in userList)
             {
@@ -57,15 +58,10 @@ namespace DataAccessLayer.Owners.PetHotel
                         user.statusName = status.statusName;
                     }
                 }
+               
+               
             }
-            //var userForm = new UserFormModel
-            //{
-            //    roleList = roleList,
-            //    statusList = statusList,
-            //    userList = userList
-            //};
-
-            return userList;
+            return userList.Where(x=>x.roleID != 5).ToList();
         }
 
         public async Task<UserModel> GetId(string _id)
@@ -95,7 +91,40 @@ namespace DataAccessLayer.Owners.PetHotel
             }
             return user;
         }
+        public async Task<List<UserModel>> GetByCondition(int condition)
+        {
 
+            var statusList = await repository.statusRepository.GetAll();
+            var roleList = await repository.roleRepository.GetAll();
+            var filter = Builders<UserModel>.Filter.Eq(q => q.roleID, condition);
+            var userList = await repository.userRepository.GetUserByCondition(filter);
+
+
+            foreach (var user in userList)
+            {
+                var roleID = user.roleID;
+                var statusID = user.statusID;
+                if (roleList.Count > 0)
+                {
+                    var role = roleList.Where(x => x.roleID == roleID).FirstOrDefault();
+                    if (role != null)
+                    {
+                        user.roleName = role.roleName;
+                    }
+                }
+                if (statusList.Count > 0)
+                {
+                    var status = statusList.Where(x => x.statusID == statusID).FirstOrDefault();
+                    if (status != null)
+                    {
+                        user.statusName = status.statusName;
+                    }
+                }
+
+
+            }
+            return userList;
+        }
         public async Task<UserFormModel> EditUser(string _id)
         {
             var statusList = await repository.statusRepository.GetAll();
@@ -141,6 +170,21 @@ namespace DataAccessLayer.Owners.PetHotel
 
             return repository.userRepository.Update(checkid, update);
         }
+
+        public async Task<UserFormModel> AddUser()
+        {
+            var statusList = await repository.statusRepository.GetAll();
+            var roleList = await repository.roleRepository.GetAll();
+
+            var addUser = new UserFormModel
+            {
+                statusList = statusList,
+                roleList = roleList,
+            };
+
+
+            return addUser;
+        }
     }
     public class UserDal : IUserBal
     {
@@ -153,9 +197,9 @@ namespace DataAccessLayer.Owners.PetHotel
 
         }
 
-        public Task<UserModel> Add(UserModel doc)
+        public async Task<UserBaseModel> Add(UserBaseModel doc)
         {
-            return repository.userRepository.Add(doc);
+            return await repository.userRepository.Add(doc);
         }
 
         public Task<bool> Delete(string _id)

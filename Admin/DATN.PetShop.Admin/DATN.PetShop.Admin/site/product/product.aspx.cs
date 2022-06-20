@@ -40,8 +40,8 @@ namespace DATN.PetShop.Admin.site.products.product
                 strBody.Append("<td>" + product.quantity + "</td>");
                 strBody.Append("<td>" + product.price + "</td>");
                 strBody.Append("<td>" + product.statusName + "</td>");
-                strBody.Append("<td><a href='/san-pham/chinh-sua-san-pham-" + product.productHandle + "-" + product._id + "'><i class='las la-pen text-secondary font-16'></i></a> ");
-                strBody.Append("<button type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton'></i></button></td>");
+                strBody.Append("<td><a href='/san-pham/" + product.productHandle + "-" + product._id + "'><i class='las la-pen text-secondary font-16'></i></a> ");
+                strBody.Append("<a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton'></i></a></td>");
                 strBody.Append("</tr>");
             }
 

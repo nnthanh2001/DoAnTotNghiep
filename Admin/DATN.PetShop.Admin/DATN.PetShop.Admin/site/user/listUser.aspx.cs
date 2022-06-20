@@ -134,7 +134,7 @@ namespace DATN.PetShop.Admin.site.users.user
                                             </thead>
                                             <tbody>";
 
-            //html = string.Format(formatter, "trrr", "hghghghg");
+           
 
             //footer
             var footer = @"</tbody>
