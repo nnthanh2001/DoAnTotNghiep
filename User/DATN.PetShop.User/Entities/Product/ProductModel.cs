@@ -1,4 +1,5 @@
 ﻿using Entities.Base;
+using Entities.Category;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -8,29 +9,29 @@ using System.Threading.Tasks;
 
 namespace Entities.Product
 {
+    public class ProductPage
+    {
+        public List<CategoryModel> category { get; set; }
+        public List<ProductModel> product { get; set; }
+    }
+
     public class ProductFormModel : ProductModel
     {
-        //public List<PetTypeModel> petTypeList { get; set; }
-        //public List<ProductTypeModel> productTypeList { get; set; }
+       
         public List<ProductModel> productList { get; set; }
-        //public List<StatusModel> statusList { get; set; }
+        
     }
 
     [Serializable]
     [BsonIgnoreExtraElements]
-    public class ProductModel : BaseModel
+    public class ProductModel : ProductOnCart
     {
-
+        public int categoryID { get; set; }
         public int productID { get; set; }
-        public int imageID { get; set; }
-        public string productName { get; set; }
         public int petTypeID { get; set; }
         public string petTypeName { get; set; }
-        public int productTypeID { get; set; }
-        public string productTypeName { get; set; }
         public string description { get; set; }
         public int quantity { get; set; }
-        public int price { get; set; }
         public int statusID { get; set; }
         public string statusName { get; set; }
         public int bestProduct { get; set; }
@@ -38,5 +39,12 @@ namespace Entities.Product
         public bool usingExpired { get; set; }
         public string productHandle { get; set; }
 
+    }
+    [BsonIgnoreExtraElements]
+    public class ProductOnCart : BaseModel
+    {
+        public string image { get; set; }
+        public string productName { get; set; }
+        public int price { get; set; }
     }
 }

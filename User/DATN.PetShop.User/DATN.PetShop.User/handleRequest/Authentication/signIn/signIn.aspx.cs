@@ -1,4 +1,6 @@
 ﻿using Entities.login;
+using Entities.Request;
+using Entities.User;
 using HttpClient_API;
 using HttpClient_API.Core.Global;
 using Newtonsoft.Json;
@@ -16,24 +18,11 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
         protected void Page_Load(object sender, EventArgs e)
         {
             var baseUrl = Globals.baseAPI;
-            var apiUrl = Globals.loginAPI;
+            var apiLoginUrl = Globals.loginAPI;
+            var apiRegisterUrl = Globals.userAPI;
+            var response = new RequestModel<UserModel> { HttpStatusCode = 400 };
 
 
-
-
-            //   var Route = HttpContext.Current.Request.RequestContext.RouteData;
-            //   if (Route.Route == null) return;
-            //   var request = Route.Values;
-            //   var rq = request["request"] != null && request["request"].ToString() != ""
-            //      ? request["request"].ToString().ToLower().Trim()
-            //      : "";
-            //   var id = request["_id"] != null && request["_id"].ToString() != ""
-            //  ? request["_id"].ToString()
-            //  : "";
-            //   var data = request["data"] != null && request["data"].ToString() != ""
-            //? request["data"].ToString()
-            //: "";
-            var result = "";
             var type = Request["type"] != null && Request["type"].ToString() != ""
                  ? Request["type"].ToString().ToLower().Trim()
                  : "";
@@ -52,26 +41,70 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
 
                     break;
                 case "post":
-                    var login = JsonConvert.DeserializeObject<LoginModel>(data);
-                    var str = Restful.Post(baseUrl, apiUrl, login);
-                    if (str != null && str != "")
+                    if (rq == "signin")
                     {
-                        if (str != null)
+                        if (data != "false")
                         {
-                            Session["login"] = str;
-                            var dicResult = new Dictionary<string, object> {
+                           
+                            var login = JsonConvert.DeserializeObject<LoginModel>(data);
+                            var strLogin = Restful.Post(baseUrl, apiLoginUrl, login);
+
+                            var user = JsonConvert.DeserializeObject<UserModel>(strLogin);
+                            if (strLogin != null && strLogin != "")
+                            {
+                                if (strLogin != null)
+                                {
+                                    Session["login"] = strLogin;
+                                    var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","site/home/home.aspx"}
+                            {"href","tai-khoan/"+user._id}
                         };
-                            result = JsonConvert.SerializeObject(dicResult);
-                            //Response.Redirect("~/site/product/product.aspx");   
-                            //Response.End();
+                                    response.HttpStatusCode = 200;
+                                    response.message = JsonConvert.SerializeObject(dicResult);
+
+                                }
+                            }
+                            else
+                            {
+
+
+                                response.HttpStatusCode = 400;
+                                response.message = "Tài khoản không tồn tại vui lòng nhập lại!";
+
+                            }
                         }
-                       
+
 
                     }
-                    
-                        break;
+                    else
+                    {
+                        if (data != "false")
+                        {
+                            var register = JsonConvert.DeserializeObject<UserModel>(data);
+                            var strRegister = Restful.Post(baseUrl, apiRegisterUrl, register);
+                            if (strRegister != null && strRegister != "")
+                            {
+                                if (strRegister != null)
+                                {
+                                    Session["register"] = strRegister;
+                                    var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",200 },
+                            {"href","dang-nhap"}
+                        };
+                                    response.HttpStatusCode = 200;
+                                    response.message = JsonConvert.SerializeObject(dicResult);
+
+                                }
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+
+
+                    break;
                 case "put":
 
                     break;
@@ -80,11 +113,9 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
                     break;
             }
 
-            Response.StatusCode = 200;
-            Response.Write(result);
 
-            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-            //Response.Write("<script>alert('Đăng nhập sai')</script>");
+            Response.StatusCode = response.HttpStatusCode;
+            Response.Write(response.message);
             Response.End();
         }
     }

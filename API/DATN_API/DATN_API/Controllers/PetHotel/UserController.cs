@@ -33,7 +33,7 @@ namespace DATN_API.Controllers.PetHotel
             var add = await BusinessWrapper.user.Add(doc);
             return Ok(add);
         }
-        [HttpPut]
+        [HttpPut("{_id}")]
         public async Task<IActionResult> UpdateUser(UserBaseModel doc, string _id)
         {
             var upd = await BusinessWrapper.userForm.Update(doc, _id);
@@ -46,7 +46,7 @@ namespace DATN_API.Controllers.PetHotel
             var getUserID = await BusinessWrapper.userForm.GetId(_id);
             return Ok(getUserID);
         }
-        [HttpDelete]
+        [HttpDelete("{_id}")]
         public async Task<IActionResult> DeleteUser(string _id)
         {
             var del = await BusinessWrapper.userForm.Delete(_id);
@@ -78,20 +78,6 @@ namespace DATN_API.Controllers.PetHotel
             var get = await BusinessWrapper.userForm.GetByCondition(roleID);
             return Ok(get);
         }
-        // Convert pasword
-        public static string GetMD5(string str)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] fromData = Encoding.UTF8.GetBytes(str);
-            byte[] targetData = md5.ComputeHash(fromData);
-            string byte2String = null;
-
-            for (int i = 0; i < targetData.Length; i++)
-            {
-                byte2String += targetData[i].ToString("x2");
-
-            }
-            return byte2String;
-        }
+        
     }
 }

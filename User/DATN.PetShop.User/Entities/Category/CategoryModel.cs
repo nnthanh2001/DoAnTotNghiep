@@ -11,6 +11,7 @@ namespace Entities.Category
     {
         public int categoryID { get; set; }
         public string categoryName { get; set; }
+        public string image { get; set; }
         public string categoryHandle { get; set; }
         public int categoryParent { get; set; }
         public int oderNo { get; set; }

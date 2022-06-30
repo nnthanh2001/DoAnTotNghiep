@@ -86,7 +86,7 @@ namespace DATN.PetShop.Admin.site.users.user
                         <!--end card-header-->
                         <div class='card-body'>
                             <div margin='text-align: left'>
-                               
+
                                 <div class='col-lg-12'>
 
                                     <div class='mb-3 row'>
@@ -98,12 +98,11 @@ namespace DATN.PetShop.Admin.site.users.user
                                     <div class='mb-3 row'>
                                         <label class='col-sm-2 col-form-label text-end'>Mã</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='userID' placehoder='Nhập mã nhân viên' value='{1}'/>
+                                            <input class='form-control' data_value='userID' placehoder='Nhập mã nhân viên' value='{1}' />
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Vai trò</label>
                                         <div class='col-sm-4'>
                                             <select class='form-select' aria-label='Default select example' data_value='roleID'>
-                                                
                                                 " + strRoleList.ToString() + @"
                                                 
                                             </select>
@@ -111,47 +110,43 @@ namespace DATN.PetShop.Admin.site.users.user
 
                                     </div>
                                     <div class='mb-3 row'>
-                                       <label class='col-sm-2 col-form-label text-end'>Email</label>
+                                        <label class='col-sm-2 col-form-label text-end'>Email</label>
                                         <div class='col-sm-10'>
-                                            <input class='form-control' data_value='email' placehoder='Nhập email ' value='{3}'/>
+                                            <input class='form-control' data_value='email' placehoder='Nhập email ' value='{3}' />
                                         </div>
                                     </div>
 
                                     <div class='mb-3 row'>
-                                       <label class='col-sm-2 col-form-label text-end'>Địa chỉ</label>
+                                        <label class='col-sm-2 col-form-label text-end'>Địa chỉ</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='address' placehoder='Nhập địa chỉ ' value='{4}'/>
+                                            <input class='form-control' data_value='address' placehoder='Nhập địa chỉ ' value='{4}' />
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Liên hệ</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='phone' placehoder='Nhập số điện thoại' value='{5}'/>
+                                            <input class='form-control' data_value='phone' placehoder='Nhập số điện thoại' value='{5}' />
                                         </div>
                                     </div>
 
                                     <div class='mb-3 row'>
                                         <label class='col-sm-2 col-form-label text-end'>Tạo mật khẩu</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='password' placehoder='Nhập mật khẩu' value='{7}'/>
+                                            <input class='form-control' data_value='password' placehoder='Nhập mật khẩu' value='{7}' />
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Trạng thái</label>
-                                         <div class='col-sm-4'>
-                                           <select class='form-select' aria-label='Default select example' data_value='statusID'>
-                                              " + strStatusList.ToString() + @"
-                                           </select>
-                                       </div>
+                                        <div class='col-sm-4'>
+                                            <select class='form-select' aria-label='Default select example' data_value='statusID'>
+                                                " + strStatusList.ToString() + @"
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                
                 <!--end card-body-->
             </div>
-
-            <button class='btn btn-primary' type='submit' jsaction='addUserButton'  value='" + user._id + @"'> Xác nhận thêm mới</button>
-            <!--end card-->
+            <button class='btn btn-primary' type='submit' jsaction='addUserButton'>Xác nhận thêm mới</button>
         </div>";
 
 

@@ -1,4 +1,4 @@
-using DATN_API.Services;
+﻿using DATN_API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +24,8 @@ namespace DATN_API
         {
             services.AddControllersWithViews().AddJsonOptions(x =>
    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
+            services.AddSession();
 
             services.AddCors(options =>
             {
@@ -61,6 +63,7 @@ namespace DATN_API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DATN_API v1"));
             }
+            app.UseSession();
 
             app.UseHttpsRedirection();
 

@@ -10,3 +10,4 @@ C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entit
 C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\obj\Debug\Entities.csproj.CopyComplete
 C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\obj\Debug\Entities.dll
 C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\obj\Debug\Entities.pdb
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\Entities\bin\Debug\Newtonsoft.Json.xml

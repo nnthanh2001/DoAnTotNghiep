@@ -85,5 +85,15 @@ namespace Repository.AQL
             var data =  collection.Find(filter).ToList();
             return data;
         }
+
+        public async Task<List<TEntity>> GetListById<TEntity>(string database, string table, FilterDefinition<TEntity> filter)
+        {
+            var db = _mongoClient.GetDatabase(database);
+            var collection = db.GetCollection<TEntity>(table);
+
+            var data = collection.Find(filter).ToList();
+            
+            return data;
+        }
     }
 }

@@ -344,42 +344,37 @@ namespace HttpClient_API
 
 
 
-                        //if (request.Result.StatusCode == System.Net.HttpStatusCode.OK)
+                        if (request.Result.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            var result = request.Result.EnsureSuccessStatusCode();
+                            if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                            {
+                                var json = result.Content.ReadAsStringAsync().Result;
+                                response = json;
+                            }
+                            else
+                            {
+                                //response.HttpStatusCode = (int)result.StatusCode;
+                                //response.Message = result.Content.ReadAsStringAsync().Result;
+                            }
+                        }
+                        //else
                         //{
-                        //    var result = request.Result.EnsureSuccessStatusCode();
-                        //    if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                        //    var content = request.Result.Content.ReadAsStringAsync().Result;
+                        //    if (content != null && content != "")
                         //    {
-                        //        var json = result.Content.ReadAsStringAsync().Result;
-                        //        if (json != null && json != "")
+                        //        response = ConvertHelper.Deserialize<ResponseModel<TEntity>>(content);
+                        //        if (response.Model == null && response.Message == null)
                         //        {
-                        //            var model = JsonConvert.DeserializeObject<TEntity>(json);
-                        //            //response.Model = model;
-                        //            //response.HttpStatusCode = 200;
+                        //            response.HttpStatusCode = (int)request.Result.StatusCode;
+                        //            response.Message = content;
                         //        }
                         //    }
                         //    else
                         //    {
-                        //        //response.HttpStatusCode = (int)result.StatusCode;
-                        //        //response.Message = result.Content.ReadAsStringAsync().Result;
+                        //        response.HttpStatusCode = (int)request.Result.StatusCode;
+                        //        response.Message = request.Result.Content.ReadAsStringAsync().Result;
                         //    }
-                        //}
-                        //else
-                        //{
-                        //    //var content = request.Result.Content.ReadAsStringAsync().Result;
-                        //    //if (content != null && content != "")
-                        //    //{
-                        //    //    response = ConvertHelper.Deserialize<ResponseModel<TEntity>>(content);
-                        //    //    if (response.Model == null && response.Message == null)
-                        //    //    {
-                        //    //        response.HttpStatusCode = (int)request.Result.StatusCode;
-                        //    //        response.Message = content;
-                        //    //    }
-                        //    //}
-                        //    //else
-                        //    //{
-                        //    //    response.HttpStatusCode = (int)request.Result.StatusCode;
-                        //    //    response.Message = request.Result.Content.ReadAsStringAsync().Result;
-                        //    //}
                         //}
                     }
                 }

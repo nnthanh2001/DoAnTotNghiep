@@ -9,7 +9,7 @@
     <meta content="Coderthemes" name="author" />
     App favicon
     <link rel="shortcut icon" href="assets/images/favicon.ico"> -->
-         <base href="/" />
+        <base href="/" />
         <meta charset="utf-8" />
         <title>Unikit - Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -113,49 +113,11 @@
         <script src="assets/js/app.js"></script>
         <script src="assets/js/owner/restful/Restful.min.js"></script>
         <script src="assets/js/owner/view/Authentication/signIn/signIn.js"></script>
-        <script src="assets/js/owner/view/product/editProduct/editProduct.js"></script>
-        <script src="assets/js/owner/view/product/addProduct/addProduct.js"></script>
-        <script src="assets/js/owner/view/user/addUser/addUser.js"></script>
+        <script src="assets/js/owner/view/owner/product/product.js"></script>
+        <script src="assets/js/owner/view/owner/user/user.js"></script>
         <script src="assets/js/owner/wrapper/wrapper.js"></script>
 
-        <%-- <script>
-     $(function () {
-         event();
-     });
-     function event() {
-         $("#username").off("keyup").on("keyup", function () {
-             var value = $(this).val();
-             alert(value)
-         })
-     }
- </script>
-
-        <script>
-
-            function getdata() {
-                let x = document.getElementById("username").value;
-                let y = document.getElementById("userpassword").value;
-                console.log({ x })
-                console.log({ y })
-
-            }
-            function myFunction() {
-                let x = document.getElementById("username").value;
-                let y = document.getElementById("userpassword").value;
-                if (x.trim() == "") {
-                    document.getElementById("username").style.border = "1px solid red"
-                } else {
-                    document.getElementById("username").style.border = ""
-                }
-                var regex = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
-                if (regex.Test(y) == "") {
-                    document.getElementById("userpassword").style.border = "1px solid red"
-
-                } else {
-                    document.getElementById("userpassword").style.border = ""
-                }
-            }
-        </script>--%>
+       
     </body>
 
     </html>

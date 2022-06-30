@@ -2,7 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph" runat="server">
     <div class="page-content-tab" id="main" runat="server">
-        <div class="slider-area">
+
+
+       <%-- <div class="slider-area">
             <div class="slider-active owl-dot-style owl-carousel">
                 <div class="single-slider pt-100 pb-100 yellow-bg">
                     <div class="container">
@@ -564,7 +566,7 @@
         </div>
 
         <footer class="footer-area">
-        <%-- <div class="testimonial-area pt-90 pb-70 bg-img" style="background-image: url(assets/img/banner/banner-7.png);">--%>
+        <div class="testimonial-area pt-90 pb-70 bg-img" style="background-image: url(assets/img/banner/banner-7.png);">
         <div class="footer-top pt-80 pb-50 gray-bg-2">
             <div class="container">
                 <div class="row">
@@ -657,6 +659,8 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>--%>
+
+
     </div>
 </asp:Content>

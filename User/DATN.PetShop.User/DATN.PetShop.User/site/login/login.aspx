@@ -32,17 +32,16 @@
                                     <div class="login-form-container">
                                         <div class="login-register-form">
                                             <form action="#" method="post">
-                                                <input type="text" id="username" name="username" data_value="userName" placeholder="Tên người dùng">
-                                                <input type="password" name="password" id="userpassword" data_value="password" placeholder="Mật khẩu">
+                                                <input type="text" data_value="userName" placeholder="Email / Số điện thoại">
+                                                <input type="password" data_value="password" placeholder="Mật khẩu">
                                                 <div class="button-box">
                                                     <div class="login-toggle-btn">
                                                         <input type="checkbox">
                                                         <label>Nhớ mật khẩu</label>
                                                         <a href="#">Quên mật khẩu?</a>
                                                     </div>
-                                                    <p id="err"></p>
-                                                    <button type="button" jsaction="signIn" class="bts">Đăng nhập</button>
-                                                    
+                                                    <button type="button" jsaction="signIn" value ="_id">Đăng nhập</button>
+
                                                 </div>
                                             </form>
                                         </div>
@@ -52,11 +51,14 @@
                                     <div class="login-form-container">
                                         <div class="login-register-form">
                                             <form action="#" method="post">
-                                                <input type="text" name="user-name" placeholder="Tên người dùng">
-                                                <input type="password" name="user-password" placeholder="Mật khẩu">
-                                                <input name="user-email" placeholder="Email" type="email">
+                                                <input type="text" data_value="userNameRegister" placeholder="Tên người dùng">
+                                                <input type="email" data_value="email" placeholder="Email">
+                                                <input type="password" data_value="passwordRegister" placeholder="Mật khẩu">
+                                                <input type="number" data_value="phone" placeholder="Số điện thoại">
+                                                <input type="text" data_value="address" placeholder="Địa chỉ">
+
                                                 <div class="button-box">
-                                                    <button type="submit"><span>Đăng ký</span></button>
+                                                    <button type="button" jsaction="register"><span>Đăng ký</span></button>
                                                 </div>
                                             </form>
                                         </div>
@@ -69,8 +71,6 @@
             </div>
         </div>
 
-        <script src="../../assets/js/owner/restful/Restful.min.js"></script>
-        <script src="../../assets/js/owner/view/Authentication/signIn/signIn.js"></script>
-        <script src="../../assets/js/owner/wrapper/wrapper.js"></script>
+
     </div>
 </asp:Content>

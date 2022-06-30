@@ -105,7 +105,6 @@
                                     </div>
                                     <div class="shopping-cart-btn">
                                         <a href="/gio-hang">Giỏ hàng</a>
-                                        <a href="/thanh-toan">Thanh toán</a>
                                     </div>
                                 </div>
                             </div>
@@ -117,103 +116,96 @@
         </div>
     </header>
     <asp:ContentPlaceHolder ID="cph" runat="server"></asp:ContentPlaceHolder>
-
-
-
-
     <form id="frm" runat="server">
     </form>
 
-    <footer class="footer-area">
-        <%-- <div class="testimonial-area pt-90 pb-70 bg-img" style="background-image: url(assets/img/banner/banner-7.png);">--%>
-        <div class="footer-top pt-80 pb-50 gray-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div class="footer-widget mb-30">
-                            <div class="footer-info-wrapper">
-                                <div class="footer-logo">
-                                    <a href="/trang-chu">
-                                        <img src="assets/img/logo/NT.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div class="footer-widget mb-30 pl-50">
-                            <h4 class="footer-title">Liên hệ</h4>
-                            <div class="footer-content">
-                                <ul>
-                                    <li><a href="#"><i class="icon-social-twitter"></i>Twitter</a></li>
-                                    <li><a href="#"><i class="icon-social-instagram"></i>Instagram</a></li>
-                                    <li><a href="#"><i class="icon-social-skype"></i>Skype</a></li>
-                                    <li><a href="#"><i class="icon-social-facebook">Facebook</i></a></li>
-                                    <li><a href="#">Zalo : 07698999125</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-2 col-md-6 col-sm-6">
-                        <div class="footer-widget mb-30 pl-70">
-                            <h4 class="footer-title">Hỗ trợ</h4>
-                            <div class="footer-content">
-                                <ul>
-                                    <li><a href="/lien-he">Đặt câu hỏi</a></li>
-                                    <li><a href="/thanh-toan">Phương thức thanh toán</a></li>
-                                    <li><a href="#">Đặt lịch</a></li>
-                                    <li><a href="/trang-chu">Quay lại trang chính </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="footer-widget">
-                            <div class="newsletter-wrapper">
-                                <p>Đăng ký và theo dõi trang để được nhận phiếu giảm giá 30% khi mua hàng lần đầu tiên</p>
-                                <div class="newsletter-style">
-                                    <div id="mc_embed_signup" class="subscribe-form">
-                                        <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                            <div id="mc_embed_signup_scroll" class="mc-form">
-                                                <input type="email" value="" name="EMAIL" class="email" placeholder="Nhập tài khoản email" required>
-                                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                                <div class="mc-news" aria-hidden="true">
-                                                    <input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value="">
-                                                </div>
-                                                <div class="clear">
-                                                    <input type="submit" value="Gửi" name="subscribe" id="mc-embedded-subscribe" class="button">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="payment-img">
-                                <a href="index.html">
-                                    <img src="assets/img/icon-img/payment.png" alt="">
+</body>
+<footer class="footer-area">
+    <div class="footer-top pt-80 pb-50 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-widget mb-30">
+                        <div class="footer-info-wrapper">
+                            <div class="footer-logo">
+                                <a href="/trang-chu">
+                                    <img src="assets/img/logo/NT.svg" alt="">
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="footer-bottom gray-bg-3 pt-17 pb-15">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="copyright text-center">
-                            <p>Pet Shop <a href="/trang-chu">NTPET.</a> Dịch vụ chăm sóc pet hàng đầu thế giới.</p>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-widget mb-30 pl-50">
+                        <h4 class="footer-title">Liên hệ</h4>
+                        <div class="footer-content">
+                            <ul>
+                                <li><a href="#"><i class="icon-social-twitter"></i>Twitter</a></li>
+                                <li><a href="#"><i class="icon-social-instagram"></i>Instagram</a></li>
+                                <li><a href="#"><i class="icon-social-skype"></i>Skype</a></li>
+                                <li><a href="#"><i class="icon-social-facebook">Facebook</i></a></li>
+                                <li><a href="#">Zalo : 07698999125</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-2 col-md-6 col-sm-6">
+                    <div class="footer-widget mb-30 pl-70">
+                        <h4 class="footer-title">Hỗ trợ</h4>
+                        <div class="footer-content">
+                            <ul>
+                                <li><a href="/lien-he">Đặt câu hỏi</a></li>
+                                <li><a href="/thanh-toan">Phương thức thanh toán</a></li>
+                                <li><a href="#">Đặt lịch</a></li>
+                                <li><a href="/trang-chu">Quay lại trang chính </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <div class="newsletter-wrapper">
+                            <p>Đăng ký và theo dõi trang để được nhận phiếu giảm giá 30% khi mua hàng lần đầu tiên</p>
+                            <div class="newsletter-style">
+                                <div id="mc_embed_signup" class="subscribe-form">
+                                    <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                        <div id="mc_embed_signup_scroll" class="mc-form">
+                                            <input type="email" value="" name="EMAIL" class="email" placeholder="Nhập tài khoản email" required>
+                                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                            <div class="mc-news" aria-hidden="true">
+                                                <input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value="">
+                                            </div>
+                                            <div class="clear">
+                                                <input type="submit" value="Gửi" name="subscribe" id="mc-embedded-subscribe" class="button">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-img">
+                            <a href="index.html">
+                                <img src="assets/img/icon-img/payment.png" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-
-
-
+    </div>
+    <div class="footer-bottom gray-bg-3 pt-17 pb-15">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyright text-center">
+                        <p>Pet Shop <a href="/trang-chu">NTPET.</a> Dịch vụ chăm sóc pet hàng đầu thế giới.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- all js here -->
     <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
     <script src="assets/js/popper.js"></script>
@@ -226,8 +218,14 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
 
+    <script src="assets/js/owner/restful/Restful.min.js"></script>
+    <script src="assets/js/owner/view/Authentication/signIn/signIn.js"></script>
+    <script src="assets/js/owner/view/Cart/cart.js"></script>
+    <script src="assets/js/owner/view/Product/product.js"></script>
+    <script src="assets/js/owner/wrapper/wrapper.js"></script>
     <!-- Sweet-Alert  -->
-    <script src="assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
+    <%--<script src="assets/plugins/sweet-alert2/sweetalert2.min.js"></script>--%>
     <%--<script src="assets/pages/sweet-alert.init.js"></script>--%>
-</body>
+</footer>
+
 </html>

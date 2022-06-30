@@ -3,6 +3,7 @@ using Contracts.AQL;
 using Contracts.Owners.PetHotel.Category;
 using Contracts.Owners.PetHotel.Invoice;
 using Contracts.Owners.PetHotel.Login;
+using Contracts.Owners.PetHotel.Order;
 using Contracts.Owners.PetHotel.Page;
 using Contracts.Owners.PetHotel.Product;
 using Contracts.Owners.PetHotel.Service;
@@ -14,6 +15,7 @@ using Repository.Owners.PetHotel.Category;
 using Repository.Owners.PetHotel.Condition;
 using Repository.Owners.PetHotel.Invoice;
 using Repository.Owners.PetHotel.Login;
+using Repository.Owners.PetHotel.Order;
 using Repository.Owners.PetHotel.Page;
 using Repository.Owners.PetHotel.Product;
 using Repository.Owners.PetHotel.Service;
@@ -32,7 +34,7 @@ namespace Repository.RepositoryWrapper
         IStatusRepository _statusRepository;
         IUserFormRepository _userFormRepository;
         IPetTypeRepository _petTypeRepository;
-        
+        IOrderRepository _orderRepository;
         IPageRepository _pageRepository;
         IConditionRepository _conditionRepository;
         ICategoryRepository _categoryRepository;
@@ -54,7 +56,6 @@ namespace Repository.RepositoryWrapper
                 return _userRepository;
             }
         }
-
         public IProductRepository productRepository
         {
             get
@@ -66,7 +67,6 @@ namespace Repository.RepositoryWrapper
                 return _productRepository;
             }
         }
-
         public IServiceRepository serviceRepository
         {
             get
@@ -78,7 +78,6 @@ namespace Repository.RepositoryWrapper
                 return _serviceRepository;
             }
         }
-
         public IInvoiceRepository invoiceRepository
         {
             get
@@ -101,7 +100,6 @@ namespace Repository.RepositoryWrapper
                 return _roleRepository;
             }
         }
-
         public IStatusRepository statusRepository
         {
             get
@@ -113,7 +111,6 @@ namespace Repository.RepositoryWrapper
                 return _statusRepository;
             }
         }
-
         public IUserFormRepository userFormRepository
         {
             get
@@ -125,7 +122,6 @@ namespace Repository.RepositoryWrapper
                 return _userFormRepository;
             }
         }
-
         public IPetTypeRepository petTypeRepository
         {
             get
@@ -137,9 +133,6 @@ namespace Repository.RepositoryWrapper
                 return _petTypeRepository;
             }
         }
-
-       
-
         public IPageRepository pageRepository
         {
             get
@@ -151,7 +144,6 @@ namespace Repository.RepositoryWrapper
                 return _pageRepository;
             }
         }
-
         public IConditionRepository conditionRepository
         {
             get
@@ -163,7 +155,6 @@ namespace Repository.RepositoryWrapper
                 return _conditionRepository;
             }
         }
-
         public ICategoryRepository categoryRepository
         {
             get
@@ -176,7 +167,6 @@ namespace Repository.RepositoryWrapper
 
             }
         }
-
         public ILoginRepository loginRepository
         {
             get
@@ -186,6 +176,18 @@ namespace Repository.RepositoryWrapper
                     _loginRepository = new LoginRepository(query);
                 }
                 return _loginRepository;
+
+            }
+        }
+        public IOrderRepository orderRepository
+        {
+            get
+            {
+                if (_orderRepository == null)
+                {
+                    _orderRepository = new OrderRepository(query);
+                }
+                return _orderRepository;
 
             }
         }

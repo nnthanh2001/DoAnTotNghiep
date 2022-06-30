@@ -23,12 +23,15 @@
                 <div class="col-lg-6 col-md-6 d-flex align-items-center">
                     <div class="about-us-content">
                         <h2>Giới thiệu về NTPET</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim  quis nostrud exercitat ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h3>Tại sao chọn chúng tôi?</h3>
+                        <h4></h4>
+                        
                         <div class="about-us-list">
                             <ul>
-                                <li>There are many variations of passages</li>
-                                <li>Contrary to popular belief is not simply</li>
-                                <li>But I must explain to you how all this mistaken </li>
+                                <li>Dịch vụ tốt nhất</li>
+                                <li>Thời gian nhanh chóng</li>
+                                <li>Chăm sóc đặc biệt</li>
+                                <li>Hỗ trợ khách hàng 24/7</li>
                             </ul>
                         </div>
                         <div class="about-us-btn">

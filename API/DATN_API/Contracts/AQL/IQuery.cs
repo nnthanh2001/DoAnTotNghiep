@@ -12,6 +12,7 @@ namespace Contracts.AQL
         Task<List<TEntity>> GetAll<TEntity>(string database, string table, FilterDefinition<TEntity> filter = null, SortDefinition<TEntity> sort = null, int limit = 0);
         Task<List<TEntity>> GetPaging<TEntity>(string database, string table, FilterDefinition<TEntity> filter, FilterDefinition<TEntity> sort, int pageIndex = 1, int pageSize = 10);
         Task<TEntity> GetId<TEntity>(string database, string table, FilterDefinition<TEntity> filter);
+        Task<List<TEntity>> GetListById<TEntity>(string database, string table, FilterDefinition<TEntity> filter);
         Task<List<TEntity>> GetByCondition<TEntity>(string database, string table, FilterDefinition<TEntity> filter);
     }
 }

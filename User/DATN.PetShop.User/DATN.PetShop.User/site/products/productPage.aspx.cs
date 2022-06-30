@@ -22,102 +22,100 @@ namespace DATN.PetShop.User.site.products
             {
                 var handle = request["handle"] != null && request["handle"].ToString() != ""
                 ? request["handle"].ToString().ToLower().Trim()
-                : "";               
-                
-                var getProduct = GetDataProduct();
-                main.InnerHtml = getProduct;
+                : "";
+                var id = request["_id"] != null && request["_id"].ToString() != ""
+                ? request["_id"].ToString().ToLower().Trim()
+                : "";
+                if (id == null || id == "")
+                {
+                    var categoryID = 0;
+                    var getProduct = GetDataProduct(categoryID);
+                    main.InnerHtml = getProduct;
+                }
+                else
+                {
+                    var categoryId = int.Parse(id);
+                    var getProduct = GetDataProduct(categoryId);
+                    main.InnerHtml = getProduct;
+                }
             }
 
         }
-        public string GetDataProduct()
+        public string GetDataProduct(int categoryId)
         {
+
             var baseUrl = Globals.baseAPI;
-            var apiUrl = Globals.productAPI;
-            var apiCategory = Globals.categoryAPI;
+            var apiUrl = Globals.productPageAPI + "?id=" + categoryId;
 
-
-
-
+            var productPage = Restful.Get<ProductPage>(baseUrl, apiUrl).Result;
 
             var strBodyProduct = new StringBuilder();
             var strBodyCategory = new StringBuilder();
 
-
-            var strProduct = Restful.Get<List<ProductModel>>(baseUrl, apiUrl).Result;
-            var strCategory = Restful.Get<List<CategoryModel>>(baseUrl, apiCategory).Result;
-
-
-            var html = "";
-
-
-
             //body
 
-            foreach (var product in strProduct)
+            if(productPage.product.Count == 0)
             {
-                strBodyProduct.Append("<div class='product-width col-lg-6 col-xl-4 col-md-6 col-sm-6'>");
-                strBodyProduct.Append("<div class='product-wrapper mb-10'>");
-                strBodyProduct.Append(" <div class='product-img'>");
-                strBodyProduct.Append("<a href='/san-pham/" + product.productHandle + "-" + product._id + "'>");
-                strBodyProduct.Append("<img src='assets/img/product/product-5.jpg' alt=''>");
-                strBodyProduct.Append(" </a>");
-                strBodyProduct.Append("<div class='product-action'>");
-                strBodyProduct.Append("<a title='Xem nhanh' data-toggle='modal' data-target='#" + product._id + "' href='" + product._id + "'>");
-                strBodyProduct.Append("<i class='ti-plus'></i>");
-                strBodyProduct.Append("</a>");
-                strBodyProduct.Append("<a title='Thêm vào giỏ han' href='#'>");
-                strBodyProduct.Append("<i class='ti-shopping-cart'></i>");
-                strBodyProduct.Append("</a>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append("<div class='product-action-wishlist'>");
-                strBodyProduct.Append("<a title='Wishlist' href='#'>");
-                strBodyProduct.Append("<i class='ti-heart'></i>");
-                strBodyProduct.Append("</a>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append("<div class='product-content'>");
-                strBodyProduct.Append("<h4><a href='/san-pham/" + product.productHandle + "-" + product._id + "'>" + product.productName + "</a></h4>");
-                strBodyProduct.Append("<div class='product-price'>");
-                strBodyProduct.Append("<span class='new'>" + product.price +"đ</span>");
-                //strBodyProduct.Append(" <span class='old'>$50.00</span>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append("  <div class='product-list-content'>");
-                strBodyProduct.Append(" <h4><a href='#'>Dog</a></h4>");
-                strBodyProduct.Append("<div class='product-price'>");
-                strBodyProduct.Append("<span class='new'>$19.00 </span>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append(" <p>Lorem ipsum dolor sit amet, consect adipis elit, sed do eiusmod tempor incididu ut labore et dolore magna aliqua. Ut enim ad quis nostrud exerci ullamco laboris nisi ut aliquip ex ea commodo consequat, Duis aute irure dolor.</p>");
-                strBodyProduct.Append(" <div class='product-list-action'>");
-                strBodyProduct.Append("<div class='product-list-action-left'>");
-                strBodyProduct.Append("<a class='addtocart-btn' title='Add to cart' href='#'><i class='ion-bag'></i>Add to cart</a>");
-                strBodyProduct.Append(" </div>");
-                strBodyProduct.Append("<div class='product-list-action-right'>");
-                strBodyProduct.Append(" <a title='Wishlist' href='#'><i class='ti-heart'></i></a>");
-                strBodyProduct.Append("<a title='Quick View' data-toggle='modal' data-target='#exampleModal' href='#'><i class='ti-plus'></i></a>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append("</div>");
-                strBodyProduct.Append(" </div>");
-                strBodyProduct.Append(" </div>");
-                var getQuickView = GetQuickView(product._id);
-                strBodyProduct.Append(getQuickView);
+                var itemHtml = @"<tr><h3>Không tồn tại sản phẩm </h3></tr>";
+                strBodyProduct.Append(itemHtml);
+            }
+            else
+            {
+                foreach (var product in productPage.product)
+                {
+                    string price = String.Format("{0:0,00đ}", product.price);
+                    var body = @"<div class='product-width col-lg-6 col-xl-4 col-md-6 col-sm-6'>
+        <div class='product-wrapper mb-10'>
+            <div class='product-img'>
+                <a href='/chi-tiet-san-pham/" + product.productHandle + @"-" + product._id + "-" + product.categoryID + @"'>" + product.productName + @"'>
+                    <img src='" + product.image + @"' alt=''>
+                </a>
+                <div class='product-action'>
+                    <a title='Xem nhanh' data-toggle='modal' data-target='#" + product._id + @"' href='" + product._id + @"'>
+                        <i class='ti-plus'></i>
+                    </a>
+                    <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + product._id + @"'>
+                        <i class='ti-shopping-cart'></i>
+                    </a>
+                </div>
+                <div class='product-action-wishlist'>
+                    <a title='Wishlist' href='#'>
+                        <i class='ti-heart'></i>
+                    </a>
+                </div>
+            </div>
+            <div class='product-content'>
+
+                <h4><a href='/chi-tiet-san-pham/" + product.productHandle + @"-" + product._id + "-" + product.categoryID + @"'>" + product.productName + @"</a></h4>
+                <div class='product-price'>
+                    <span class='new'>" + price + @"</span>
+                </div>
+            </div>
+        </div>
+    </div>";
+                    var getQuickView = GetQuickView(product._id);
+                    strBodyProduct.Append(body);
+                    strBodyProduct.Append(getQuickView);
+                }
+
+
             }
 
 
-            if (strCategory != null && strCategory.Any())
+            var categoryAll = productPage.category;
+            if (categoryAll != null && categoryAll.Any())
             {
-                var categoryParentList = strCategory.Where(x => x.categoryParent.Equals(0));
+                var categoryParentList = categoryAll.Where(x => x.categoryParent.Equals(0));
                 foreach (var category in categoryParentList)
                 {
                     var categortId = category.categoryID;
-                    var categoryChildList = strCategory.Where(x => x.categoryParent.Equals(categortId));
+                    var categoryChildList = categoryAll.Where(x => x.categoryParent.Equals(categortId));
                     var strBChild = new StringBuilder();
                     if (categoryChildList != null && categoryChildList.Any())
                     {
                         foreach (var categoryChild in categoryChildList)
                         {
-                            strBChild.Append("<li><a href='shop-page.html'>" + categoryChild.categoryName + "</a></li>");
+                            strBChild.Append("<li><a href='/san-pham/" + categoryId + @"'>" + categoryChild.categoryName + "</a></li>");
                         }
 
                     }
@@ -141,7 +139,7 @@ namespace DATN.PetShop.User.site.products
                 <div class='breadcrumb-content text-center'>
                     <h2>Trang sản phẩm</h2>
                     <ul>
-                        <li><a href='site/home/home.aspx.cs'>Trang chủ</a></li>
+                        <li><a href='trang-chu'>Trang chủ</a></li>
                         <li class='active'>Sản phẩm</li>
                     </ul>
                 </div>
@@ -200,29 +198,30 @@ namespace DATN.PetShop.User.site.products
         </div>";
 
 
+            //var ketqua = from product in strProduct
+            //             where product.price == 400
+            //             select product;
+
+            //foreach (var product in ketqua)
+            //    Console.WriteLine(product.ToString());
 
 
-
-            html = string.Concat(header, strBodyProduct.ToString(), footer);
+            var html = string.Concat(header, strBodyProduct.ToString(), footer);
 
             return html;
-
-
-
-
         }
 
         public string GetQuickView(string id)
         {
             var baseUrl = Globals.baseAPI;
             var apiProductDetail = Globals.getOneProductAPI + "/" + id;
-            var strBodyProductDetail = new StringBuilder();
-            var productDetail = Restful.Get<ProductModel>(baseUrl, apiProductDetail).Result;
 
+            var productDetail = Restful.Get<ProductModel>(baseUrl, apiProductDetail).Result;
+            string price = String.Format("{0:0,00vnđ}", productDetail.price);
 
             var quickView = @"
         <!-- modal -->
-        <div class='modal fade' id='"+ id +@"' tabindex='-1' role='dialog' aria-hidden='true'>
+        <div class='modal fade' id='" + id + @"' tabindex='-1' role='dialog' aria-hidden='true'>
             <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                 <span class='ti-close' aria-hidden='true'></span>
             </button>
@@ -259,7 +258,7 @@ namespace DATN.PetShop.User.site.products
                             <div class='qwick-view-content'>
                                 <h3>" + productDetail.productName + @"</h3>
                                 <div class='product-price'>
-                                    <span>" + productDetail.price + @"đ</span>
+                                    <span>" + price + @"</span>
                                 </div>
                                 <div class='product-rating'>
                                     <i class='ion-star theme-color'></i>
@@ -275,7 +274,7 @@ namespace DATN.PetShop.User.site.products
                                         <input type = 'text' value='1' name='qtybutton' class='cart-plus-minus-box'>
                                     </div>
                                     <div class='quickview-btn-cart'>
-                                        <a class='btn-style' href='#'>Thêm vào giỏ hàng</a>
+                                        <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productDetail._id + @"'>Thêm vào giỏ hàng</a>
                                     </div>
                                     <div class='quickview-btn-wishlist'>
                                         <a class='btn-hover' href='#'><i class='ti-heart'></i></a>
@@ -291,7 +290,7 @@ namespace DATN.PetShop.User.site.products
             return quickView;
         }
 
-        
+
     }
 }
 

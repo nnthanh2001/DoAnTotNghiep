@@ -20,9 +20,9 @@ namespace DataAccessLayer.Owners.PetHotel.Category
         }
         public Task<List<CategoryModel>> GetCategoryByOderNo()
         {
-            var limit = 18;
+            
             var sort = Builders<CategoryModel>.Sort.Ascending("oderNo");
-            return repository.categoryRepository.GetTopCategory(sort, limit);
+            return repository.categoryRepository.GetTopCategory(sort);
         }
 
         public Task<List<CategoryModel>> GetCategoryChild()

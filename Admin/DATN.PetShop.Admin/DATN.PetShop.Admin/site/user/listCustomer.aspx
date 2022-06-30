@@ -4,7 +4,7 @@
 
     <div class="page-content-tab" id="main" runat="server">
 
-        <div class="container-fluid">
+        <%--<div class="container-fluid">
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
@@ -159,7 +159,7 @@
             </div>
             <!--end row-->
 
-        </div>
+        </div>--%>
 
 
     </div>

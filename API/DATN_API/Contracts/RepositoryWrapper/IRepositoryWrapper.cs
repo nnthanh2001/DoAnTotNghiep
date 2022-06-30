@@ -2,6 +2,7 @@
 using Contracts.Owners.PetHotel.Category;
 using Contracts.Owners.PetHotel.Invoice;
 using Contracts.Owners.PetHotel.Login;
+using Contracts.Owners.PetHotel.Order;
 using Contracts.Owners.PetHotel.Page;
 using Contracts.Owners.PetHotel.Product;
 using Contracts.Owners.PetHotel.Service;
@@ -21,7 +22,7 @@ namespace Contracts.RepositoryWrapper
         IStatusRepository statusRepository { get; }
         IUserFormRepository userFormRepository { get; }
         IPetTypeRepository petTypeRepository { get; }
-       
+        IOrderRepository orderRepository { get; }
         IPageRepository pageRepository { get; }
         IConditionRepository conditionRepository { get; }
         ICategoryRepository categoryRepository { get; }

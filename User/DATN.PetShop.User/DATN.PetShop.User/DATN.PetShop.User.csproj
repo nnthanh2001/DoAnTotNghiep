@@ -43,9 +43,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FireSharp, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FireSharp.1.1.0\lib\net45\FireSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="FireSharp.Serialization.JsonNet, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FireSharp.Serialization.JsonNet.1.1.0\lib\net45\FireSharp.Serialization.JsonNet.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=104.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -188,6 +197,8 @@
     <Content Include="assets\js\owl.carousel.min.js" />
     <Content Include="assets\js\owner\restful\Restful.min.js" />
     <Content Include="assets\js\owner\view\Authentication\signIn\signIn.js" />
+    <Content Include="assets\js\owner\view\Cart\cart.js" />
+    <Content Include="assets\js\owner\view\Product\product.js" />
     <Content Include="assets\js\owner\wrapper\wrapper.js" />
     <Content Include="assets\js\plugins.js" />
     <Content Include="assets\js\popper.js" />
@@ -723,9 +734,10 @@
     <Content Include="assets\plugins\uppy\uppy.min.js" />
     <Content Include="Global.asax" />
     <Content Include="handleRequest\Authentication\signIn\signIn.aspx" />
-    <Content Include="handleRequest\ProductDetail\ProductDetail.aspx" />
-    <Content Include="html\product.html" />
+    <Content Include="handleRequest\Cart\cart.aspx" />
+    <Content Include="handleRequest\Product\ProductFilter.aspx" />
     <Content Include="site\aboutUs\aboutUs.aspx" />
+    <Content Include="site\account\account.aspx" />
     <Content Include="site\blog\blog_1.aspx" />
     <Content Include="site\blog\blog_2.aspx" />
     <Content Include="site\blog\blog_3.aspx" />
@@ -737,7 +749,9 @@
     <Content Include="site\checkout\checkout.aspx" />
     <Content Include="site\contact\contactUs.aspx" />
     <Content Include="site\home\home.aspx" />
+    <Content Include="site\login\HtmlPage1.html" />
     <Content Include="site\login\login.aspx" />
+    <Content Include="site\products\HtmlPage1.html" />
     <Content Include="site\products\productDetail.aspx" />
     <Content Include="site\products\productPage.aspx" />
     <Content Include="site\service\service.aspx" />
@@ -755,12 +769,19 @@
     <Compile Include="handleRequest\Authentication\signIn\signIn.aspx.designer.cs">
       <DependentUpon>signIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="handleRequest\ProductDetail\ProductDetail.aspx.cs">
-      <DependentUpon>ProductDetail.aspx</DependentUpon>
+    <Compile Include="handleRequest\Cart\cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="handleRequest\ProductDetail\ProductDetail.aspx.designer.cs">
-      <DependentUpon>ProductDetail.aspx</DependentUpon>
+    <Compile Include="handleRequest\Cart\cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="handleRequest\Product\ProductFilter.aspx.cs">
+      <DependentUpon>ProductFilter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="handleRequest\Product\ProductFilter.aspx.designer.cs">
+      <DependentUpon>ProductFilter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -776,6 +797,13 @@
     </Compile>
     <Compile Include="site\aboutUs\aboutUs.aspx.designer.cs">
       <DependentUpon>aboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\account\account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\account\account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\blog\blog_1.aspx.cs">
       <DependentUpon>blog_1.aspx</DependentUpon>
@@ -1036,6 +1064,7 @@
     <Content Include="assets\plugins\tabulator\bootstrap\tabulator_bootstrap4.min.css.map" />
     <None Include="packages.config" />
     <Content Include="Site.Master" />
+    <Content Include="site\cart\order.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1053,7 +1082,9 @@
       <Name>HttpClient_API</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="site\order\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div class='slider-area'>
+        <div class='slider-active owl-dot-style owl-carousel'>
+            <div class='single-slider pt-100 pb-100 yellow-bg'>
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col-lg-6 col-md-6 col-12 col-sm-7'>
+                            <div class='slider-content slider-animated-1 pt-114'>
+                                <h3 class='animated'>Chăm sóc bằng cả trái tim.</h3>
+                                <h1 class='animated'>
+                                    Thực phẩm & Vitamins
+                                    <br>
+                                    Dành cho tất cả thú cưng
+                                </h1>
+                                <div class='slider-btn'>
+                                    <a class='animated' href='/san-pham'>Xem sản phẩm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-lg-6 col-md-6 col-12 col-sm-5'>
+                            <div class='slider-single-img slider-animated-1'>
+                                <img class='animated' src='assets/img/slider/slider-single-img.png' alt=''>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='single-slider pt-100 pb-100 yellow-bg'>
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col-lg-6 col-md-6 col-sm-7 col-12'>
+                            <div class='slider-content slider-animated-1 pt-114'>
+                                <h3 class='animated'>We keep pets for pleasure.</h3>
+                                <h1 class='animated'>
+                                    Food & Vitamins
+                                    <br>
+                                    For all Pets
+                                </h1>
+                                <div class='slider-btn'>
+                                    <a class='animated' href='site/products/productPage.aspx'>SHOP NOW</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-lg-6 col-md-6 col-sm-5 col-12'>
+                            <div class='slider-single-img slider-animated-1'>
+                                <img class='animated' src='assets/img/slider/slider-single-img-2.png' alt=''>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='food-category food-category-col pt-100 pb-60'>
+        <div class='container'>
+            <div class='row'>
+                
+            </div>
+        </div>
+    </div>
+    <div class='product-area pt-95 pb-70 gray-bg'>
+        <div class='container'>
+            <div class='section-title text-center mb-55'>
+                <h4>Sản phẩm phổ biến</h4>
+                <h2>Sản phẩm mới</h2>
+            </div>
+            <div class='row'>
+                <div class='col-xl-3 col-lg-4 col-md-6 col-sm-6'>
+                    <div class='product-wrapper mb-10'>
+                        <div class='product-img'>
+                            <a href='/san-pham/" + productNew.productHandle + @"-" + productNew._id + @"'>
+                                <img src='../../assets/img/product/product-4.jpg' alt=''>
+                            </a>
+                            <div class='product-action'>
+                                <a title='Xem nhanh' data-toggle='modal' data-target='#" + productNew._id + @"' href='" + productNew._id + @"'>
+                                    <i class='ti-plus'></i>
+                                </a>
+                                <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productNew._id + @"'>
+                                    <i class='ti-shopping-cart'></i>
+                                </a>
+                            </div>
+                            <div class='product-action-wishlist'>
+                                <a title='Wishlist' href='#'>
+                                    <i class='ti-heart'></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class='product-content'>
+                            <h4><a href='/san-pham/" + productNew.productHandle + @"-" + productNew._id + @"' data_value='productName' value='" + productNew.productName + @"'>" + productNew.productName + @"</a></h4>
+                            <div class='product-price' data_value='price' value='" + productNew.price + @"'>
+                                <span class='new'>" + price + @"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='deal-area bg-img deal-style-white pt-95 pb-100 bg-img' style='background-image:url(assets/img/banner/banner-2.jpg);'>
+
+        <div class='container'>
+            <div class='section-title section-title-white text-center mb-50'>
+
+                <h4>Sản phẩm tốt nhất</h4>
+                <h2>Ưu đãi trong tuần</h2>
+
+            </div>
+            <div class='row'>
+                <div class='col-lg-6 col-md-6'>
+                    <div class='deal-img wow fadeInLeft'>
+                        <a href='/san-pham/{6}-{7}'>
+                            <img src='{0}' alt=''>
+                        </a>
+                    </div>
+                </div>
+                <div class='col-lg-6 col-md-6'>
+                    <div class='deal-content'>
+                        <h3><a href='/san-pham/{6}-{7}'>{1}</a></h3>
+                        <div class='deal-pro-price'>
+                            <span>{2}</span>
+                            <span>{3}</span>
+                        </div>
+                        <p>{4} </p>
+                        <div class='timer timer-style'>
+
+                            <div data-countdown='{5}'></div>
+                        </div>
+                        <div class='discount-btn mt-35'>
+                            <a class='btn-style' href='/san-pham/{6}-{7}'>XEM SẢN PHẨM </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='product-area pt-95 pb-70 gray-bg'>
+        <div class='container'>
+            <div class='section-title text-center mb-60'>
+                <h4>Dịch vụ</h4>
+                <h2>Chăm sóc tận tình</h2>
+            </div>
+            <div class='row'>
+                <div class='col-lg-4 col-md-6'>
+                    <div class='box'>
+                        <div class='blog-img hover-effect'>
+                            <a href='/dich-vu/{3}-{4}'><img alt='' src='https://www.vietnambooking.com/wp-content/uploads/2017/10/khach-san-co-cho-phep-thu-cung-vao-hay-khong-7-7-2018-2.jpg'></a>
+                        </div>
+                        <div class='blog-content'>
+                            <div class='blog-meta'>
+                                <ul>
+                                    <li><span>{0}</span></li>
+                                    <li>{1}</li>
+                                </ul>
+                            </div>
+                            <h4><a href=''>{2}</a></h4>
+                            <div class='discount-btn mt-35'>
+                                <a class='btn-style' href='/dich-vu/{3}-{4}'>Đặt ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='testimonial-area pt-90 pb-70 bg-img' style='background-image: url(assets/img/banner/banner-1.jpg);'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-lg-10 ml-auto mr-auto'>
+                    <div class='testimonial-wrap'>
+                        <div class='testimonial-text-slider text-center'>
+                            <div class='sin-testiText'>
+                                <p>Chú chó của bạn là điều duy nhất trên trái đất</p><p> yêu bạn hơn yêu sinh mạng của chính nó</p>
+                            </div>
+                            <div class='sin-testiText'>
+                                <p>Trên đĩa thức ăn của bạn</p><p> có thể ngày hôm qua đã là người bạn nằm trong vòng tay một đứa trẻ ...</p>
+                            </div>
+                            <div class='sin-testiText'>
+                                <p>Chú chó của bạn là điều duy nhất trên trái đất</p><p> yêu bạn hơn yêu sinh mạng của chính nó</p>
+                            </div>
+                            <div class='sin-testiText'>
+                                <p>Trên đĩa thức ăn của bạn</p><p> có thể ngày hôm qua đã là người bạn nằm trong vòng tay một đứa trẻ ...</p>
+                            </div>
+                        </div>
+                        <div class='testimonial-image-slider text-center'>
+                            <div class='sin-testiImage'>
+                                <img src='assets/img/testi/3.jpg' alt=''>
+                                <h3>Nguyễn Như Thành</h3>
+                                <h5>Customer</h5>
+                            </div>
+                            <div class='sin-testiImage'>
+                                <img src='assets/img/testi/4.jpg' alt=''>
+                                <h3>Trần Quang Khải</h3>
+                                <h5>Customer</h5>
+                            </div>
+                            <div class='sin-testiImage'>
+                                <img src='assets/img/testi/3.jpg' alt=''>
+                                <h3>Nguyễn Như Thành</h3>
+                                <h5>Developer</h5>
+                            </div>
+                            <div class='sin-testiImage'>
+                                <img src='assets/img/testi/5.jpg' alt=''>
+                                <h3>Trần Quang Khải</h3>
+                                <h5>CEO</h5>
+                            </div>
+                        </div>
+                        <div class='testimonial-shap'>
+                            <img src='assets/img/icon-img/testi-shap.png' alt=''>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='service-area bg-img pt-100 pb-65'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-lg-4 col-md-4'>
+                    <div class='service-content text-center mb-30 service-color-1'>
+                        <img src='assets/img/icon-img/shipping.png' alt=''>
+                        <h4>Miễn phí vận chuyển</h4>
+                        <p>Giao hàng miễn phí </p>
+                    </div>
+                </div>
+                <div class='col-lg-4 col-md-4'>
+                    <div class='service-content text-center mb-30 service-color-2'>
+                        <img src='assets/img/icon-img/support.png' alt=''>
+                        <h4>HỖ TRỢ TRỰC TUYẾN</h4>
+                        <p>Hỗ trợ trực tuyến 24 giờ một ngày</p>
+                    </div>
+                </div>
+                <div class='col-lg-4 col-md-4'>
+                    <div class='service-content text-center mb-30 service-color-3'>
+                        <img src='assets/img/icon-img/money.png' alt=''>
+                        <h4>Tích điểm</h4>
+                        <p>Tặng PetCoin cho mỗi hóa đơn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='blog-area pb-70'>
+            <div class='container'>
+                <div class='section-title text-center mb-60'>
+                    <h4>Kiến thức và kinh nghiệm</h4>
+                    <h2>Chăm sóc chó mèo</h2>
+                </div>
+                <div class='row'>
+                    <div class='col-lg-4 col-md-6'>
+                        <div class='blog-wrapper mb-30 gray-bg'>
+                            <div class='blog-img hover-effect'>
+                                <a href='/site/blog/blog_1.aspx'><img style='height: 250px' alt='' src='https://www.petcity.vn/media/news/2705_pasted-image-0-78.png'></a>
+                            </div>
+                            <div style='min-height: 175px' class='blog-content'>
+                                <div class='blog-meta'>
+                                    <ul>
+                                        <li>Tạo bởi: <span>Nguyễn Như Thành</span></li>
+                                        <li>09/06/2022</li>
+                                    </ul>
+                                </div>
+                                <h4><a href='/site/blog/blog_1.aspx'>Bé chó bị bệnh đường ruột - đừng quá lo lắng!</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-lg-4 col-md-6'>
+                        <div class='blog-wrapper mb-30 gray-bg'>
+                            <div class='blog-img hover-effect'>
+                                <a href='/site/blog/blog_2.aspx'><img style='height: 250px' alt='' src='https://asie.vn/wp-content/uploads/2020/11/meo-beo-3.jpg'></a>
+                            </div>
+                            <div style='min-height: 175px' class='blog-content'>
+                                <div class='blog-meta'>
+                                    <ul>
+                                        <li>Tạo bởi: <span>Nguyễn Như Thành</span></li>
+                                        <li>09/06/2022</li>
+                                    </ul>
+                                </div>
+                                <h4><a href='/site/blog/blog_2.aspx'>Cách chăm sóc mèo nhanh béo mà không ảnh hưởng đến sức khỏe</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-lg-4 col-md-6'>
+                        <div class='blog-wrapper mb-30 gray-bg'>
+                            <div class='blog-img hover-effect'>
+                                <a href='/site/blog/blog_3.aspx'><img style='height: 250px' alt='' src='https://www.petcity.vn/media/news/1404_ch___m__o_b____nhi___m_giun_s__n.jpg'></a>
+                            </div>
+                            <div style='min-height: 175px' class='blog-content'>
+                                <div class='blog-meta'>
+                                    <ul>
+                                        <li>Tạo bởi: <span>Nguyễn Như Thành</span></li>
+                                        <li>09/06/2022</li>
+                                    </ul>
+                                </div>
+                                <h4><a href='/site/blog/blog_3.aspx'>Hướng dẫn cách tẩy giun sán cho chó mèo tại nhà an toàn hiệu quả</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

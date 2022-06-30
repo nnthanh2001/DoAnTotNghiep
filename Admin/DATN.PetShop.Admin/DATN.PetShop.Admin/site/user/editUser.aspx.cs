@@ -43,10 +43,10 @@ namespace DATN.PetShop.Admin.site.users.user
             var strListRole = new StringBuilder();
             var strListStatus = new StringBuilder();
 
-            var userList = Restful.Get<UserFormModel>(baseUrl, apiUser).Result;
+            var user = Restful.Get<UserFormModel>(baseUrl, apiUser).Result;
 
-            var roleList = userList.roleList;
-            var statusList = userList.statusList;
+            var roleList = user.roleList;
+            var statusList = user.statusList;
 
 
             if (roleList != null && roleList.Any())
@@ -73,8 +73,8 @@ namespace DATN.PetShop.Admin.site.users.user
                     <div class='page-title-box'>
                         <div class='float-end'>
                             <ol class='breadcrumb'>
-                                <li class='breadcrumb-item'><a href='#'>Trang chủ</a></li>
-                                <li class='breadcrumb-item'><a href='#'>Nhân viên</a></li>
+                                <li class='breadcrumb-item'><a href='thong-ke-doanh-thu'>Trang chủ</a></li>
+                                <li class='breadcrumb-item'><a href='nhan-vien'>Nhân viên</a></li>
                                 <li class='breadcrumb-item active'>Sứa nhân viên</li>
                             </ol>
                         </div>
@@ -96,24 +96,23 @@ namespace DATN.PetShop.Admin.site.users.user
                         <!--end card-header-->
                         <div class='card-body'>
                             <div margin='text-align: left'>
-                               
+
                                 <div class='col-lg-12'>
 
                                     <div class='mb-3 row'>
                                         <label for='example-email-input' class='col-sm-2 col-form-label text-end'>Tên nhân viên</label>
                                         <div class='col-sm-10'>
-                                            <input class='form-control' type='text' id='tensp' placehoder='Nhập tên nhân viên' value='{0}'>
+                                            <input class='form-control' type='text' data_value='userName' placehoder='Nhập tên nhân viên' value='{0}'>
                                         </div>
                                     </div>
                                     <div class='mb-3 row'>
                                         <label class='col-sm-2 col-form-label text-end'>Mã</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' placehoder='Nhập mã nhân viên' value='{1}'/>
+                                            <input class='form-control' data_value='userID' placehoder='Nhập mã nhân viên' value='{1}' />
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Vai trò</label>
                                         <div class='col-sm-4'>
-                                            <select class='form-select' aria-label='Default select example'>
-                                                <option selected=''>{2}</option>
+                                            <select class='form-select' aria-label='Default select example' data_value='roleID'>
                                                 " + strListRole.ToString() + @"
                                                 
                                             </select>
@@ -121,49 +120,48 @@ namespace DATN.PetShop.Admin.site.users.user
 
                                     </div>
                                     <div class='mb-3 row'>
-                                       <label class='col-sm-2 col-form-label text-end'>Email</label>
+                                        <label class='col-sm-2 col-form-label text-end'>Email</label>
                                         <div class='col-sm-10'>
-                                            <input class='form-control' placehoder='Nhập email ' value='{3}'/>
+                                            <input class='form-control' data_value='email' placehoder='Nhập email ' value='{3}' />
                                         </div>
                                     </div>
 
                                     <div class='mb-3 row'>
-                                       <label class='col-sm-2 col-form-label text-end'>Địa chỉ</label>
+                                        <label class='col-sm-2 col-form-label text-end'>Địa chỉ</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' placehoder='Nhập địa chỉ ' value='{4}'/>
+                                            <input class='form-control' data_value='address' placehoder='Nhập địa chỉ ' value='{4}' />
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Liên hệ</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' placehoder='Nhập số điện thoại' value='{5}'/>
+                                            <input class='form-control' data_value='phone' placehoder='Nhập số điện thoại' value='{5}' />
                                         </div>
                                     </div>
 
                                     <div class='mb-3 row'>
+                                        <label class='col-sm-2 col-form-label text-end'>Đặt mật khẩu khác</label>
+                                        <div class='col-sm-4'>
+                                            <input class='form-control' data_value='password' placehoder='Nhập mật khẩu' value='{7}' />
+                                        </div>
                                         <label class='col-sm-2 col-form-label text-end'>Trạng thái</label>
-                                         <div class='col-sm-4'>
-                                           <select class='form-select' aria-label='Default select example'>
-                                              <option selected=''>{6}</option>
-                                              " + strListStatus.ToString() + @"
-                                           </select>
-                                       </div>
+                                        <div class='col-sm-4'>
+                                            <select class='form-select' aria-label='Default select example' data_value='statusID'>
+                                                " + strListStatus.ToString() + @"
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                
                 <!--end card-body-->
             </div>
-
-            <button class='btn btn-primary' type='submit' onclick='executeExample('threeButtons')'>Xác nhận sửa</button>
-
+            <button class='btn btn-primary' type='submit' jsaction='editUserButton' value='" + user._id + @"'>Xác nhận sửa</button>
             <!--end card-->
         </div>";
 
 
-            var htmlEditUser = string.Format(html, userList.userName, userList.userID, userList.roleName, userList.email, userList.address, userList.phone, userList.statusName);
+            var htmlEditUser = string.Format(html, user.userName, user.userID, user.roleName, user.email, user.address, user.phone, user.statusName, user.password);
             strBodyEditUser.Append(htmlEditUser);
 
             html = string.Concat(strBodyEditUser.ToString());

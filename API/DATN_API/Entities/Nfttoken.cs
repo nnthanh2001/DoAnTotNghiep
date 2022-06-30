@@ -17,8 +17,8 @@ namespace Entities
     public partial class Nfttoken : BaseModel
     {
         
-        public string DigitalCollectionId { get; set; }
-        public string CurrencyId { get; set; }
+        public string NFTsCollectionId { get; set; }
+        public string AssetsId { get; set; }
         public long? TokenId { get; set; }
         public string AssetUrl { get; set; }
         public string Image { get; set; }
@@ -26,7 +26,8 @@ namespace Entities
         public string Name { get; set; }
         public MetaData MetaData { get; set; }
         public string Owner { get; set; }
-
+        public bool Visible { get; set; }
+        public string UserGuid { get; set; }
 
     }
 

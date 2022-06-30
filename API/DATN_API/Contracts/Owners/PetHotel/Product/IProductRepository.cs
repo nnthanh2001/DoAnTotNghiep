@@ -1,4 +1,5 @@
-﻿using Entities.OwnerModels.PetHotelModel.Product;
+﻿using Entities.OwnerModels.PetHotelModel.Client.Cart;
+using Entities.OwnerModels.PetHotelModel.Product;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Contracts.Owners.PetHotel.Product
         Task<List<ProductModel>> GetPaging<ProductModel>(string database, string table, FilterDefinition<ProductModel> filter, FilterDefinition<ProductModel> sort, int pageIndex = 1, int pageSize = 10);
         Task<List<ProductModel>> GetProduct();
         Task<ProductModel> GetId(FilterDefinition<ProductModel> filter);
+        Task<List<ProductModel>> GetListProductById(FilterDefinition<ProductModel> filter);
         Task<ProductFormModel> GetProductFormById(FilterDefinition<ProductFormModel> filter);
     }
 }

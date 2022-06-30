@@ -23,18 +23,18 @@ namespace DATN.PetShop.Admin.site.products.product
         {
 
             var baseUrl = Globals.baseAPI;
-            var apiEditProduct = Globals.addProductAPI ;
+            var apiAddProduct = Globals.addProductAPI;
 
 
 
-            var strBodyEditProduct = new StringBuilder();
+            var strBodyAddProduct = new StringBuilder();
             var strPetType = new StringBuilder();
             var strListStatus = new StringBuilder();
             var strListCategory = new StringBuilder();
 
 
 
-            var product = Restful.Get<ProductFormModel>(baseUrl, apiEditProduct).Result;
+            var product = Restful.Get<ProductFormModel>(baseUrl, apiAddProduct).Result;
 
             var petTypeList = product.petTypeList;
             var statusList = product.statusList;
@@ -148,7 +148,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                         <div class='mb-3 row'>
                                                             <label for='example-email-input' class='col-sm-2 col-form-label text-end'>Handle Request</label>
                                                             <div class='col-sm-10'>
-                                                                <input class='form-control' type='text' data_value='productHandle' placeholder='Handle Request Name' value='" + product.productHandle + @"'>
+                                                                <input class='form-control' type='text' data_value='productHandle' placeholder='Handle Request Name' value='{8}'>
                                                             </div>
                                                         </div>
                                                         <div class='mb-3 row'>
@@ -194,15 +194,18 @@ namespace DATN.PetShop.Admin.site.products.product
                     </div>
                 </div>
             </div>
-            <button class='btn btn-primary' type='submit' jsaction='addProductButton' value='" + product._id + @"'>Xác nhận thêm mới</button>
+            <button class='btn btn-primary' type='submit' jsaction='addProductButton'>Xác nhận thêm mới</button>
         </div>
 
 ";
+           
 
-            var htmlEditProductDetail = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price *= 1000, product.statusName, product.description);
-            strBodyEditProduct.Append(htmlEditProductDetail);
 
-            html = string.Concat(strBodyEditProduct.ToString());
+            
+            var htmlAddProduct = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price, product.statusName, product.description, product.productHandle);
+            strBodyAddProduct.Append(htmlAddProduct);
+
+            html = string.Concat(strBodyAddProduct.ToString());
             return html;
         }
     }

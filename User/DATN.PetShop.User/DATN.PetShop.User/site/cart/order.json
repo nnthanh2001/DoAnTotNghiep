@@ -1,0 +1,29 @@
+﻿{
+  "_id": "ObjectId(\"62ba6559e7af45147fe9b74e\")",
+  "payment": "Thanh toán online",
+  "shipping": {
+    "userName": "Nguyễn Như Thành",
+    "phone": "NumberInt(769899125)",
+    "email": "nguyentrungnghia1999@gmail.com",
+    "addressDelivery": "B601 Chung cư Hoàng Quân, Trần Quang Diệu, Vĩnh Hải, Thành phố Nha Trang, Khánh Hòa",
+    "userId": "62849a20c42f05a9c62bbd89"
+  },
+  "status": "Đã nhận hàng",
+  "subTotal": "NumberInt(990000)",
+  "productList": [
+    {
+      "productName": "Thức ăn cho chó vị thịt RoYal",
+      "price": "NumberInt(30000)",
+      "quantity": "NumberInt(2)",
+      "total": "NumberInt(600000)",
+      "productId": "628efcdb894b697abd537c30"
+    },
+    {
+      "productName": "Sữa tắm kháng khuẩn",
+      "price": "NumberInt(465000)",
+      "quantity": "NumberInt(1)",
+      "total": "NumberInt(930000)",
+      "productId": "62997761acfa1169c32c9254"
+    }
+  ]
+}

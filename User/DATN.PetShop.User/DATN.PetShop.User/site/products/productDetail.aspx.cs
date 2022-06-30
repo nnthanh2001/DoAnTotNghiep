@@ -9,6 +9,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entities.ProductDetailPage;
 
 namespace DATN.PetShop.User.site.products
 {
@@ -27,45 +28,51 @@ namespace DATN.PetShop.User.site.products
                 var id = request["_id"] != null && request["_id"].ToString() != ""
                ? request["_id"].ToString().ToLower().Trim()
                : "";
+                var categoryID = request["categoryID"] != null && request["categoryID"].ToString() != ""
+              ? request["categoryID"].ToString().ToLower().Trim()
+              : "";
 
-                var getProduct = GetDataProductDetail(id);
-                main.InnerHtml = getProduct;
+                    var categoryId = int.Parse(categoryID);
+                    var getProduct = GetDataProductDetail(id, categoryId);
+                    main.InnerHtml = getProduct;
+                
             }
 
 
         }
-        public string GetDataProductDetail(string id)
+        public string GetDataProductDetail(string id , int categoryID)
         {
             var baseUrl = Globals.baseAPI;
-            var apiProductDetail = Globals.getOneProductAPI + "/" + id;
+            var apiProductDetail = Globals.productDetailPage + "?_id=" + id + "&CategoryId=" + categoryID;
 
 
 
             var strBodyProductDetail = new StringBuilder();
 
-            var product = Restful.Get<ProductModel>(baseUrl, apiProductDetail).Result;
+            var product = Restful.Get<ProductDetailModel>(baseUrl, apiProductDetail).Result;
+            var productDeatil = product.productDetail;
+            var productList =product.productList;
 
-
-
+            //HTML Header
             var header = @"<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
             <div class='container'>
                 <div class='breadcrumb-content text-center'>
                     <h2>Chi tiết sản phẩm</h2>
                     <ul>
-                         <li><a href='site/home/home.aspx.cs'>Trang chủ</a></li>
+                         <li><a href='trang-chu'>Trang chủ</a></li>
                         <li class='active'>Chi tiết sản phẩm</li>
                     </ul>
                 </div>
             </div>
         </div>";
 
-
-            var productDetail = @"<div class='shop-area pt-95 pb-100'>
+            
+            var productDetailHTML = @"<div class='shop-area pt-95 pb-100'>
             <div class='container'>
                 <div class='row'>
                     <div class='col-lg-6 col-md-6'>
                         <div class='product-details-img'>
-                            <img id='zoompro' src='assets/img/product-details/l1.jpg' data-zoom-image='assets/img/product-details/bl1.jpg' alt='zoom' />
+                            <img id='zoompro' src='"+ productDeatil.image+@"' data-zoom-image='assets/img/product-details/bl1.jpg' alt='zoom' />
                             <div id='gallery' class='mt-12 product-dec-slider owl-carousel'>
                                 <a data-image='assets/img/product-details/l1.jpg' data-zoom-image='assets/img/product-details/bl1.jpg'>
                                     <img src='assets/img/product-details/s1.jpg' alt=''>
@@ -98,7 +105,7 @@ namespace DATN.PetShop.User.site.products
                             </div>
                             <div class='product-price'>
                                 
-                                <span class='new'>{1}.000đ</span>
+                                <span class='new'>{1}</span>
                                 
                             </div>
                             <div class='in-stock'>
@@ -116,7 +123,7 @@ namespace DATN.PetShop.User.site.products
                             </div>
                             <div class='product-list-action'>
                                 <div class='product-list-action-left'>
-                                    <a class='addtocart-btn' href='#' title='Thêm vào giỏ hàng'>
+                                    <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productDeatil._id + @"'>
                                         <i class='ion-bag'></i>
                                         Thêm vào giỏ hàng
                                     </a>
@@ -236,26 +243,17 @@ namespace DATN.PetShop.User.site.products
             </div>
         </div>";
 
-
-            var htmlProductDetail = string.Format(productDetail, product.productName, product.price, product.statusName, product.productID, product.description);
+            string price = String.Format("{0:0,00vnđ}", productDeatil.price);
+            var htmlProductDetail = string.Format(productDetailHTML, productDeatil.productName, price, productDeatil.statusName, productDeatil.productID, productDeatil.description);
             strBodyProductDetail.Append(htmlProductDetail);
 
-
-
-
-
-
-            var productPopular = @"<div class='related-product-area pt-95 pb-80 gray-bg'>
-            <div class='container'>
-                <div class='section-title text-center mb-55'>
-                    <h4>Phổ biến nhất</h4>
-                    <h2>Sản phẩm tương tự</h2>
-                </div>
-                <div class='related-product-active owl-carousel'>
-                    <div class='product-wrapper'>
+            var strProductPopular = new StringBuilder();
+            foreach(var pro in productList)
+            {
+                var productPopularHTML = @"<div class='product-wrapper'>
                         <div class='product-img'>
-                            <a href='product-details.html'>
-                                <img src='assets/img/product/product-4.jpg' alt=''>
+                            <a href='/chi-tiet-san-pham/" + pro.productHandle + @"-" + pro._id + "-" + pro.categoryID + @"'>
+                                <img src='" + pro.image + @"' alt=''>
                             </a>
                             <div class='product-action'>
                                 <a title='Quick View' data-toggle='modal' data-target='#exampleModal' href='#'>
@@ -272,16 +270,27 @@ namespace DATN.PetShop.User.site.products
                             </div>
                         </div>
                         <div class='product-content'>
-                            <h4><a href='product-details.html'>Dog Calcium Food</a></h4>
+                            <h4><a href='/chi-tiet-san-pham/" + pro.productHandle + @"-" + pro._id + "-" + pro.categoryID + @"'>" + pro.productName + @"</a></h4>
                             <div class='product-price'>
-                                <span class='new'>$20.00 </span>
-                                <span class='old'>$50.00</span>
+                                <span class='new'>" + price + @"</span>
+                                
                             </div>
                         </div>
-                    </div>
+                    </div>";
+                strProductPopular.Append(productPopularHTML);
+            }
+            var productPopular = @"<div class='related-product-area pt-95 pb-80 gray-bg'>
+            <div class='container'>
+                <div class='section-title text-center mb-55'>
+                    <h4>Phổ biến nhất</h4>
+                    <h2>Sản phẩm tương tự</h2>
+                </div>
+                <div class='related-product-active owl-carousel'>
+                    " + strProductPopular.ToString() + @"
                 </div>
             </div>
         </div>";
+
 
 
             var QuickViewProduct = @"<div class='modal fade' id='exampleModal' tabindex='-1' role='dialog' aria-hidden='true'>
@@ -371,10 +380,6 @@ namespace DATN.PetShop.User.site.products
                 </div>
             </div>
         </div>";
-
-
-
-
             var html = string.Concat(header, strBodyProductDetail.ToString(), productPopular, QuickViewProduct);
             return html;
 

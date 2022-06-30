@@ -1,11 +1,9 @@
 ﻿var request = new window.Restful();
 var signIn = new window.SignIn();
-var addProduct = new window.addProduct();
-var editProduct = new window.editProduct();
-var addUser = new window.addUser();
+var product = new window.Product();
+var user = new window.User();
 $(function () {
     signIn.init();
-    addProduct.init();
-    editProduct.init();
-    addUser.init();
+    product.init();
+    user.init();
 });

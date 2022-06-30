@@ -17,7 +17,7 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
             var apiUrl = Globals.loginAPI;
 
 
-           
+
             var result = "";
             var type = Request["type"] != null && Request["type"].ToString() != ""
                  ? Request["type"].ToString().ToLower().Trim()
@@ -46,13 +46,11 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
                             Session["login"] = str;
                             var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","site/product/product.aspx"}
+                            {"href","san-pham"}
                         };
                             result = JsonConvert.SerializeObject(dicResult);
-                            
+
                         }
-
-
                     }
 
                     break;
@@ -64,6 +62,7 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
                     break;
             }
 
+            
             Response.StatusCode = 200;
             Response.Write(result);
             Response.End();

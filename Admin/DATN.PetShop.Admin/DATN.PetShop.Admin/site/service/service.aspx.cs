@@ -31,7 +31,7 @@ namespace DATN.PetShop.Admin.site.products.services
             var strBody = new StringBuilder();
             foreach (var service in strService)
             {
-
+                string price = String.Format("{0:0,00vnđ}", service.price);
                 strBody.Append("<tr>");
                 strBody.Append("<td>" + service.serviceID + "</td>");
                 //strBody.Append("<td> <img src = 'assets/images/products/04.png' alt ='' height = '40'/></td>");
@@ -40,7 +40,7 @@ namespace DATN.PetShop.Admin.site.products.services
                 strBody.Append("<td>" + service.unit + "</td>");
                 strBody.Append("<td>" + service.description + "</td>");
                 strBody.Append("<td>" + service.condition + "</td>");
-                strBody.Append("<td>" + service.price + "</td>");
+                strBody.Append("<td>" + price + "</td>");
                 strBody.Append("<td>" + service.statusName + "</td>");
                 strBody.Append("<td><a href='dich-vu/" + service.serviceHandle + "-" + service._id + "'><i class='las la-pen text-secondary font-16'></i></a> <a href='dich-vu'><i class='las la-trash-alt text-secondary font-16 onclick='executeExample('warningConfirm')''></i></a></td>");
                 strBody.Append("</tr>");

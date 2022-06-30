@@ -28,7 +28,7 @@ namespace DATN.PetShop.Admin.site.products.product
             var strBody = new StringBuilder();
             foreach (var product in strProduct)
             {
-
+                string price = String.Format("{0:0,00đ}", product.price);
                 strBody.Append("<tr>");
                 strBody.Append("<td>" + product.productID + "</td>");
                 //strBody.Append("<td> <img src = 'assets/images/products/04.png' alt ='' height = '40'/></td>");
@@ -38,10 +38,10 @@ namespace DATN.PetShop.Admin.site.products.product
                 strBody.Append("<td>" + product.categoryName + "</td>");
                 strBody.Append("<td>" + product.description + "</td>");
                 strBody.Append("<td>" + product.quantity + "</td>");
-                strBody.Append("<td>" + product.price + "</td>");
+                strBody.Append("<td>" + price + "</td>");
                 strBody.Append("<td>" + product.statusName + "</td>");
                 strBody.Append("<td><a href='/san-pham/" + product.productHandle + "-" + product._id + "'><i class='las la-pen text-secondary font-16'></i></a> ");
-                strBody.Append("<a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton'></i></a></td>");
+                strBody.Append("<a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton' value='" + product._id + "'></i></a></td>");
                 strBody.Append("</tr>");
             }
 
@@ -105,7 +105,7 @@ namespace DATN.PetShop.Admin.site.products.product
                             </div>
                             <div class='row'>
                                 <div class='col'>
-                                    <a class='btn btn-outline-light btn-sm px-4 ' href='site/product/addProduct.aspx'>+ Thêm mới</a>
+                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-san-pham'>+ Thêm mới</a>
                                 </div>
                                 <!--end col-->
 
@@ -142,58 +142,8 @@ namespace DATN.PetShop.Admin.site.products.product
 
 
         </div>
-        <!-- container -->
-        <!--Start Rightbar-->
-        <!--Start Rightbar/offcanvas-->
-        <div class='offcanvas offcanvas-end' tabindex='-1' id='Appearance' aria-labelledby='AppearanceLabel'>
-            <div class='offcanvas-header border-bottom'>
-                <h5 class='m-0 font-14' id='AppearanceLabel'>Appearance</h5>
-                <button type='button' class='btn-close text-reset p-0 m-0 align-self-center' data-bs-dismiss='offcanvas' aria-label='Close'></button>
-            </div>
-            <div class='offcanvas-body'>
-                <h6>Account Settings</h6>
-                <div class='p-2 text-start mt-3'>
-                    <div class='form-check form-switch mb-2'>
-                        <input class='form-check-input' type='checkbox' id='settings-switch1'>
-                        <label class='form-check-label' for='settings-switch1'>Auto updates</label>
-                    </div>
-                    <!--end form-switch-->
-                    <div class='form-check form-switch mb-2'>
-                        <input class='form-check-input' type='checkbox' id='settings-switch2' checked>
-                        <label class='form-check-label' for='settings-switch2'>Location Permission</label>
-                    </div>
-                    <!--end form-switch-->
-                    <div class='form-check form-switch'>
-                        <input class='form-check-input' type='checkbox' id='settings-switch3'>
-                        <label class='form-check-label' for='settings-switch3'>Show offline Contacts</label>
-                    </div>
-                    <!--end form-switch-->
-                </div>
-                <!--end /div-->
-                <h6>General Settings</h6>
-                <div class='p-2 text-start mt-3'>
-                    <div class='form-check form-switch mb-2'>
-                        <input class='form-check-input' type='checkbox' id='settings-switch4'>
-                        <label class='form-check-label' for='settings-switch4'>Show me Online</label>
-                    </div>
-                    <!--end form-switch-->
-                    <div class='form-check form-switch mb-2'>
-                        <input class='form-check-input' type='checkbox' id='settings-switch5' checked>
-                        <label class='form-check-label' for='settings-switch5'>Status visible to all</label>
-                    </div>
-                    <!--end form-switch-->
-                    <div class='form-check form-switch'>
-                        <input class='form-check-input' type='checkbox' id='settings-switch6'>
-                        <label class='form-check-label' for='settings-switch6'>Notifications Popup</label>
-                    </div>
-                    <!--end form-switch-->
-                </div>
-                <!--end /div-->
-            </div>
-            <!--end offcanvas-body-->
-        </div>
-        <!--end Rightbar/offcanvas-->
-        <!--end Rightbar-->";
+       
+        ";
 
             html = string.Concat(header, strBody.ToString(), footer);
             return html;

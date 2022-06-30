@@ -163,7 +163,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                         <div class='mb-3 row'>
                                                             <label for='example-email-input' class='col-sm-2 col-form-label text-end'>Handle Request</label>
                                                             <div class='col-sm-10'>
-                                                                <input class='form-control' type='text' data_value='productHandle' placeholder='Handle Request Name' value='" + product.productHandle + @"'>
+                                                                <input class='form-control' type='text' data_value='productHandle' placeholder='Handle Request Name' value='{8}'>
                                                             </div>
                                                         </div>
                                                         <div class='mb-3 row'>
@@ -215,8 +215,8 @@ namespace DATN.PetShop.Admin.site.products.product
         </div>
 
 ";
-
-            var htmlEditProductDetail = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price, product.statusName, product.description);
+            
+            var htmlEditProductDetail = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price, product.statusName, product.description,  product.productHandle);
             strBodyEditProduct.Append(htmlEditProductDetail);
 
             html = string.Concat(strBodyEditProduct.ToString());

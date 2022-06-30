@@ -12,5 +12,6 @@ namespace BusinessLogicLayer.Owners.PetHotel.Category
         Task<List<CategoryModel>> GetCategoryParent();
         Task<List<CategoryModel>> GetCategoryChild();
         Task<List<CategoryModel>> GetCategoryByOderNo();
+        
     }
 }

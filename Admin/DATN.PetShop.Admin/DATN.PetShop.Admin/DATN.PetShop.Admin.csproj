@@ -323,9 +323,8 @@
     <Content Include="assets\js\json.js" />
     <Content Include="assets\js\owner\restful\Restful.min.js" />
     <Content Include="assets\js\owner\view\authentication\signIn\signIn.js" />
-    <Content Include="assets\js\owner\view\product\addProduct\addProduct.js" />
-    <Content Include="assets\js\owner\view\product\editProduct\editProduct.js" />
-    <Content Include="assets\js\owner\view\user\addUser\addUser.js" />
+    <Content Include="assets\js\owner\view\owner\product\product.js" />
+    <Content Include="assets\js\owner\view\owner\user\user.js" />
     <Content Include="assets\js\owner\wrapper\wrapper.js" />
     <Content Include="assets\pages\analytics-customers.init.js" />
     <Content Include="assets\pages\analytics-index.init.js" />
@@ -894,13 +893,11 @@
     <Content Include="assets\plugins\uppy\uppy.min.js" />
     <Content Include="Global.asax" />
     <Content Include="handleRequest\Authentication\signIn\signIn.aspx" />
-    <Content Include="handleRequest\Product\AddProduct\addProduct.aspx" />
-    <Content Include="handleRequest\Product\DeleteProduct\deleteProduct.aspx" />
-    <Content Include="handleRequest\Product\EditProduct\editProduct.aspx" />
-    <Content Include="handleRequest\User\AddUser\addUser.aspx" />
+    <Content Include="handleRequest\Owner\Product\product.aspx" />
+    <Content Include="handleRequest\Owner\Service\service.aspx" />
+    <Content Include="handleRequest\Owner\User\user.aspx" />
     <Content Include="site\dashboard\dashboard.aspx" />
     <Content Include="site\invoices\invoice.aspx" />
-    <Content Include="site\login\login-backup.aspx" />
     <Content Include="site\login\login.aspx" />
     <Content Include="site\order\order.aspx" />
     <Content Include="site\order\orderDetail.aspx" />
@@ -930,33 +927,26 @@
     <Compile Include="handleRequest\Authentication\signIn\signIn.aspx.designer.cs">
       <DependentUpon>signIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="handleRequest\Product\AddProduct\addProduct.aspx.cs">
-      <DependentUpon>addProduct.aspx</DependentUpon>
+    <Compile Include="handleRequest\Owner\Product\product.aspx.cs">
+      <DependentUpon>product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="handleRequest\Product\AddProduct\addProduct.aspx.designer.cs">
-      <DependentUpon>addProduct.aspx</DependentUpon>
+    <Compile Include="handleRequest\Owner\Product\product.aspx.designer.cs">
+      <DependentUpon>product.aspx</DependentUpon>
     </Compile>
-    <Compile Include="handleRequest\Product\DeleteProduct\deleteProduct.aspx.cs">
-      <DependentUpon>deleteProduct.aspx</DependentUpon>
+    <Compile Include="handleRequest\Owner\Service\service.aspx.cs">
+      <DependentUpon>service.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="handleRequest\Product\DeleteProduct\deleteProduct.aspx.designer.cs">
-      <DependentUpon>deleteProduct.aspx</DependentUpon>
+    <Compile Include="handleRequest\Owner\Service\service.aspx.designer.cs">
+      <DependentUpon>service.aspx</DependentUpon>
     </Compile>
-    <Compile Include="handleRequest\Product\EditProduct\editProduct.aspx.cs">
-      <DependentUpon>editProduct.aspx</DependentUpon>
+    <Compile Include="handleRequest\Owner\User\user.aspx.cs">
+      <DependentUpon>user.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="handleRequest\Product\EditProduct\editProduct.aspx.designer.cs">
-      <DependentUpon>editProduct.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="handleRequest\User\AddUser\addUser.aspx.cs">
-      <DependentUpon>addUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="handleRequest\User\AddUser\addUser.aspx.designer.cs">
-      <DependentUpon>addUser.aspx</DependentUpon>
+    <Compile Include="handleRequest\Owner\User\user.aspx.designer.cs">
+      <DependentUpon>user.aspx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -980,13 +970,6 @@
     </Compile>
     <Compile Include="site\invoices\invoice.aspx.designer.cs">
       <DependentUpon>invoice.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="site\login\login-backup.aspx.cs">
-      <DependentUpon>login-backup.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="site\login\login-backup.aspx.designer.cs">
-      <DependentUpon>login-backup.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\login\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

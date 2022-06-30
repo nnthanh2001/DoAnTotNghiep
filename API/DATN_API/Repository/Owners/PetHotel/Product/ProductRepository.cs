@@ -1,6 +1,7 @@
 ﻿using Contracts.AQL;
 using Contracts.Owners.PetHotel.Product;
 using Entities.Database;
+using Entities.OwnerModels.PetHotelModel.Client.Cart;
 using Entities.OwnerModels.PetHotelModel.Product;
 using MongoDB.Driver;
 using Repository.RepositoryBase;
@@ -27,6 +28,7 @@ namespace Repository.Owners.PetHotel.Product
         public Task<List<ProductFormModel>> GetPaging<ProductFormModel>(string database, string table, FilterDefinition<ProductFormModel> filter, FilterDefinition<ProductFormModel> sort, int pageIndex = 1, int pageSize = 10)
             => query.GetPaging<ProductFormModel>(database, table, filter, sort, pageIndex, pageSize);
         public Task<ProductModel> GetId(FilterDefinition<ProductModel> filter) => query.GetId(db, table, filter);
+        public Task<List<ProductModel>> GetListProductById(FilterDefinition<ProductModel> filter) => query.GetListById(db, table, filter);
         public Task<List<ProductModel>> GetProduct() => query.GetAll<ProductModel>(db, table);
         public Task<List<ProductModel>> GetTopProduct(SortDefinition<ProductModel> sort = null, int limit = 0) => query.GetAll<ProductModel>(db, table, null,sort,limit);
         public Task<bool> Update(FilterDefinition<ProductBaseModel> filter, UpdateDefinition<ProductBaseModel> update) => query.Update(db, table, filter, update);

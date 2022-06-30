@@ -20,7 +20,8 @@ var SignIn = function () {
             var data = { "request": "signIn", "data": json };
             var option = { url: signInHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
-            request.post();
+            request.post()
+               
         });
 
         //$('[data_value="userName"]').off('keypress keyup').on('keypress keyup', function (e) {

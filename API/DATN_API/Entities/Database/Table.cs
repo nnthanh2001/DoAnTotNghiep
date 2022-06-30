@@ -12,7 +12,7 @@ namespace Entities.Database
         Product, PetType , ProductType, ProductForm, Page, wrapper,
         Service, PriceByCondition,
         Invoice,
-        Category, Login,
+        Category, Login,Order
 
     }
 }

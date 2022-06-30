@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="productPage.aspx.cs" Inherits="DATN.PetShop.User.site.products.productPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph" runat="server">
-    <div class="page-content-tab" id="main" runat="server">
-        <div class="breadcrumb-area pt-95 pb-95 bg-img" style="background-image: url(assets/img/banner/banner-2.jpg);">
+  <div class="page-content-tab" id="main" runat="server">
+         <%-- <div class="breadcrumb-area pt-95 pb-95 bg-img" style="background-image: url(assets/img/banner/banner-2.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
                     <h2>Trang sản phẩm</h2>
@@ -232,6 +232,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
 </asp:Content>

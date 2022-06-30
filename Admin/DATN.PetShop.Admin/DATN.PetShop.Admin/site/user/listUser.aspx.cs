@@ -36,8 +36,8 @@ namespace DATN.PetShop.Admin.site.users.user
                 strBody.Append("<td>" + user.address + "</td>");
                 strBody.Append("<td>" + user.phone + "</td>");
                 strBody.Append("<td>" + user.statusName + "</td>");
-                strBody.Append("<td><a href='nhan-vien/" + user.userHandle + "-" + user._id + "'><i class='las la-pen text-secondary font-16'></i></a> <a href='#'><i class='las la-trash-alt text-secondary font-16 onclick='executeExample('warningConfirm')''></i></a></td>");
-
+                strBody.Append("<td><a href='nhan-vien/"+ user.userHandle + "-" + user._id +"'><i class='las la-pen text-secondary font-16'></i></a>");
+                strBody.Append("<a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteUserButton' value='" + user._id + "'></i></a></td>");
                 strBody.Append("</tr>");
             }
 
@@ -144,7 +144,7 @@ namespace DATN.PetShop.Admin.site.users.user
                             <!--end /tableresponsive-->
                             <div class='row'>
                                 <div class='col'>
-                                    <button  class='btn btn-outline-light btn-sm px-4 '><a href='site/user/addUser.aspx'>+ Thêm mới</a></button>
+                                    <button  class='btn btn-outline-light btn-sm px-4 '><a href='them-moi-nhan-vien'>+ Thêm mới</a></button>
                                 </div>
                                 <!--end col-->
                                 <div class='col-auto'>

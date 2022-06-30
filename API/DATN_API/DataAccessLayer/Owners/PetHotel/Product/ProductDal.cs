@@ -2,6 +2,7 @@
 using Contracts.RepositoryWrapper;
 using Entities;
 using Entities.OwnerModels.PetHotelModel.Category;
+using Entities.OwnerModels.PetHotelModel.Client.Cart;
 using Entities.OwnerModels.PetHotelModel.Product;
 using Entities.OwnerModels.PetHotelModel.Status;
 using MongoDB.Bson;
@@ -140,7 +141,7 @@ namespace DataAccessLayer.Owners.PetHotel
         }
         public Task<List<ProductModel>> GetTop()
         {
-            var limit = 4;
+            var limit = 8;
             var sort = Builders<ProductModel>.Sort.Descending("productID");
 
             return repository.productRepository.GetTopProduct(sort, limit);
@@ -217,7 +218,6 @@ namespace DataAccessLayer.Owners.PetHotel
 
             return product;
         }
-
         public async Task<ProductFormModel> AddProduct()
         {
             var statusList = await repository.statusRepository.GetAll();
@@ -233,8 +233,23 @@ namespace DataAccessLayer.Owners.PetHotel
                 statusList = statusList
             };
 
-           
+
             return addProduct;
         }
+        public async Task<List<ProductModel>> GetProductByCategory(int id)
+        {
+            if (id == 0)
+            {
+                return await repository.productRepository.GetAll();
+            }
+            else
+            {
+                var filter = Builders<ProductModel>.Filter.Eq(q => q.categoryID, id);
+                var product = await repository.productRepository.GetListProductById(filter);
+                return product;
+            }
+            
+        }
+
     }
 }
