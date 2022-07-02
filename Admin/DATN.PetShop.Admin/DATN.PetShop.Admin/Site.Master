@@ -227,6 +227,7 @@
     <script src="assets/js/owner/view/owner/product/product.js"></script>
     <script src="assets/js/owner/view/owner/user/user.js"></script>
     <script src="assets/js/owner/wrapper/wrapper.js"></script>
+    <script src="assets/js/upload/jsUpload.js"></script>
     <form runat="server" id="frm"></form>
 </body>
 <!--end body-->

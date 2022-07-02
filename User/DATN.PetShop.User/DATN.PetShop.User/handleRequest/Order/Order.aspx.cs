@@ -51,7 +51,22 @@ namespace DATN.PetShop.User.handleRequest.Order
 
                     break;
                 case "post":
-                    var order = JsonConvert.DeserializeObject<OrderModel>(data);
+                    var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
+                    var dataShipping = JsonConvert.DeserializeObject<Shipping>(data);
+
+                   
+                    var productList = new List<ProductList>();
+                    var lsprod = Session["ProductGuid"] as string;
+                    if (lsprod != null)
+                    {
+                        productList = JsonConvert.DeserializeObject<List<ProductList>>(lsprod);
+                    }
+                    else
+                    {
+
+                    }
+                    order.shipping = dataShipping;
+                    order.productList = productList;
                     var strPost = Restful.Post(baseUrl, apiUrl, order);
                     if (strPost != null && strPost != "")
                     {
@@ -60,7 +75,7 @@ namespace DATN.PetShop.User.handleRequest.Order
 
                             var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            
+
                         };
                             result = JsonConvert.SerializeObject(dicResult);
                         }

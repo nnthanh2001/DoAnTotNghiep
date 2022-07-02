@@ -5641,3 +5641,9 @@ blockquote.importent-title {
 .blog-dec-tags ul li:last-child::after {
     display: none;
 }
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

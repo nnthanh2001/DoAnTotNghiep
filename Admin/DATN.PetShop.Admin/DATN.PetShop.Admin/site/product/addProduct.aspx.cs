@@ -25,7 +25,7 @@ namespace DATN.PetShop.Admin.site.products.product
 
             var baseUrl = Globals.baseAPI;
             var apiAddProduct = Globals.addProductAPI;
-           
+
 
 
             var strBodyAddProduct = new StringBuilder();
@@ -163,10 +163,19 @@ namespace DATN.PetShop.Admin.site.products.product
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class='col-lg-3'>
-                                                <img src='assets/img_product/01.jpg' alt='' height='200' width='200'>
-                                                <button class='btn-de-blue' type='submit'>Chọn ảnh</button>
-                                                <input type='text' data_value='" + product.image+@"'>
+                                            <div class='col-lg-6'>
+                                                <div style='display: none;'>
+                                                    <form method='post' enctype='multipart/form-data'>
+                                                        <input type='file' id='fileUploadVersion' name='fileUploadVersion'>
+                                                    </form>
+                                                </div>
+                                               
+                                                <div data-img='upload'>
+                                                    <img src='' style='width:150px; height:150px;' />
+                                                </div>
+                                                <button class='btn-de-blue' type='submit' id='btnUpload' style='margin-bottom: 10px;'>Chọn ảnh</button>
+                                                <label class='col-sm-4 col-form-label '>Hoặc nhập địa chỉ hình ảnh</label>
+                                                <div class='col-sm-4'><input type='text' data_value='" + product.image + @"' style='width: 300px'></div>
                                             </div>
                                             <div class='col-lg-12'>
                                                 <div class='card'>
@@ -200,7 +209,7 @@ namespace DATN.PetShop.Admin.site.products.product
 
 
             var htmlAddProduct = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price, product.statusName, product.description);
-            
+
             strBodyAddProduct.Append(htmlAddProduct);
 
             html = string.Concat(strBodyAddProduct.ToString());

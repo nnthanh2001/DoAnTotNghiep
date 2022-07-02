@@ -91,7 +91,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                 <tr>
                                                     <th style='white-space: nowrap'>Mã sản phẩm</th>
                                                     <th style='white-space: nowrap'>Tên sản phẩm</th>
-                                                    <!--<th>Tên sản phẩm</th>-->
+                                                    
                                                     <th style='white-space: nowrap'>Loại thú cưng</th>
                                                     <th style='white-space: nowrap'>Loại sản phẩm</th>
                                                     <th>Mô tả</th>

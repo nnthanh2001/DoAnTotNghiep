@@ -58,8 +58,8 @@ namespace DATN.PetShop.User.site.cart
                                             <td class='product-thumbnail'>
                                                 <a href='/chi-tiet-san-pham/" + item.productHandle + "-" + item._id + "-" + item.categoryID + @"'>
                                                     <img src='" + item.image+ @"' alt=''style='height: 150px;'></a>
+                                                    <p>"+ item.productName + @"</p>
                                              </td>
-                                            <td class='product-name'><a href='/chi-tiet-san-pham/" + item.productHandle + "-" + item._id + "-" + item.categoryID + @"'>" + item.productName + @"</a></td>
                                             <td class='product-price-cart'><span class='amount'>" + price + @"</span></td>
                                             <td class='product-quantity'>
                                                 <div class='cart-plus-minus'>
@@ -103,7 +103,7 @@ namespace DATN.PetShop.User.site.cart
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Hình ảnh</th>
+                                            
                                             <th>Tên sản phẩm</th>
                                             <th>Giá sản phẩm</th>
                                             <th>Số lượng</th>
