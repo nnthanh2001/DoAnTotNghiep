@@ -76,6 +76,9 @@ namespace DATN.PetShop.Admin.site.products.services
                         <div class='col-12'>
                             <div class='card'>
                                 <div class='card-header'>
+                                <div class='col'>
+                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-san-pham' style='float:right;'>+ Thêm mới</a>
+                                </div>
                                     <div class='row align-services-center'>
                                         <div class='col'>                      
                                             <h4 class='card-title'>Dịch vụ</h4>             
@@ -104,9 +107,7 @@ namespace DATN.PetShop.Admin.site.products.services
                                 </table>
                             </div>
                             <div class='row'>
-                                <div class='col'>
-                                    <a class='btn btn-outline-light btn-sm px-4 ' href='site/service/addService.aspx'>+ Thêm mới</a>
-                                </div>
+                               
                                 <!--end col-->
 
                                 <div class='col-auto'>

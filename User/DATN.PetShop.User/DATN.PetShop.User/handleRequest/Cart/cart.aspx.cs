@@ -30,52 +30,20 @@ namespace DATN.PetShop.User.handleRequest.Cart
          : "";
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.addOrderAPI;
+
             var jsOrder = @"{ 
-    '_id' :  '62ba6559e7af45147fe9b74e' , 
-    'payment' : 'Thanh toán online', 
+    '_id' :  '' , 
+    'payment' : '', 
     'shipping' : {
-        'userName' : 'Nguyễn Như Thành', 
-        'phone' :   769899125 , 
-        'email' : 'nguyentrungnghia1999@gmail.com', 
-        'addressDelivery' : 'B601 Chung cư Hoàng Quân, Trần Quang Diệu, Vĩnh Hải, Thành phố Nha Trang, Khánh Hòa', 
-        'userId' : '62849a20c42f05a9c62bbd89'
+        
     }, 
-    'status' : 'Đã nhận hàng', 
+    'status' : '', 
     'subTotal' :   0 , 
     'productList' : [
         
     ]
 }
 ";
-            
-            var lsProductGuid = new List<string>();
-            if (Session["ProductGuid"] != null)
-            {
-                lsProductGuid = Session["ProductGuid"] as List<string>;
-            }
-            else
-            {
-                
-            }
-            lsProductGuid.Add(id);
-
-            Session["ProductGuid"] = lsProductGuid;
-            
-
-            var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
-
-            var lsprod = new List<ProductList>();
-            
-            if(lsProductGuid!=null && lsProductGuid.Count > 0)
-            {
-                foreach (var product in lsProductGuid)
-                {
-                    var prod = new ProductList();
-                    prod._id = product;
-                    lsprod.Add(prod);
-                }
-            }
-            order.productList = lsprod;
             
 
             switch (type)
@@ -84,45 +52,114 @@ namespace DATN.PetShop.User.handleRequest.Cart
 
                     break;
                 case "post":
-
-                    var strPost = Restful.Post(baseUrl, apiUrl, order);
-                    if (strPost != null && strPost != "")
+                    try
                     {
-                        Session["Order"] = strPost;
-                        if (strPost != null)
+                        var lsProductGuid = new List<string>();
+                        if (Session["ProductGuid"] != null)
+                        {
+                            lsProductGuid = Session["ProductGuid"] as List<string>;
+                        }
+                        else
                         {
 
-                            var dicResult = new Dictionary<string, object> {
+                        }
+                        lsProductGuid.Add(id);
+
+                        Session["ProductGuid"] = lsProductGuid;
+
+
+                        var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
+
+                        var lsprod = new List<ProductList>();
+
+                        if (lsProductGuid != null && lsProductGuid.Count > 0)
+                        {
+                            foreach (var product in lsProductGuid)
+                            {
+                                var prod = new ProductList();
+                                prod._id = product;
+                                lsprod.Add(prod);
+                            }
+                        }
+                        order.productList = lsprod;
+                        var strPost = Restful.Post(baseUrl, apiUrl, order);
+                        if (strPost != null && strPost != "")
+                        {
+                            Session["Order"] = strPost;
+                            if (strPost != null)
+                            {
+
+                                var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
 
                         };
-                            result = JsonConvert.SerializeObject(dicResult);
+                                result = JsonConvert.SerializeObject(dicResult);
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
 
+                    }
+                    
+                   
                     break;
                 case "put":
                     
                     break;
                 case "delete":
-                    var strDelete = Restful.Delete<OrderModel>(baseUrl, apiUrl);
-                    if (strDelete != null && strDelete != "")
+                    try
                     {
-                        if (strDelete != null)
+                        var lsProductGuid = new List<string>();
+                        if (Session["ProductGuid"] != null)
                         {
-                            var dicResult = new Dictionary<string, object> {
+                            lsProductGuid = Session["ProductGuid"] as List<string>;
+                        }
+                        else
+                        {
+
+                        }
+                        lsProductGuid.Add(id);
+
+                        Session["ProductGuid"] = lsProductGuid;
+
+
+                        var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
+
+                        var lsprod = new List<ProductList>();
+
+                        if (lsProductGuid != null && lsProductGuid.Count > 0)
+                        {
+                            var product = lsProductGuid.Where(x => !x.Equals(id)).ToList();
+
+                        }
+                        order.productList = lsprod;
+                        var strPost = Restful.Post(baseUrl, apiUrl, order);
+                        if (strPost != null && strPost != "")
+                        {
+                            Session["Order"] = strPost;
+                            if (strPost != null)
+                            {
+
+                                var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","san-pham"}
+
                         };
-                            result = JsonConvert.SerializeObject(dicResult);
+                                result = JsonConvert.SerializeObject(dicResult);
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                    
                     break;
             }
 
-            //Response.StatusCode = 200;
-            //Response.Write(result);
-            //Response.End();
+            Response.StatusCode = 200;
+            Response.Write(result);
+            Response.End();
         }
     }
 }

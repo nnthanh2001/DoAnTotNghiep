@@ -122,7 +122,7 @@
 
 </body>
 <footer class="footer-area">
-    <div class="footer-top pt-80 pb-50 gray-bg">
+    <div class="footer-top pt-80 pb-50 gray-bg-4">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -221,6 +221,7 @@
     <script src="assets/js/owner/restful/Restful.min.js"></script>
     <script src="assets/js/owner/view/Authentication/signIn/signIn.js"></script>
     <script src="assets/js/owner/view/Cart/cart.js"></script>
+    <script src="assets/js/owner/view/Order/order.js"></script>
     <script src="assets/js/owner/view/Product/product.js"></script>
     <script src="assets/js/owner/wrapper/wrapper.js"></script>
     <!-- Sweet-Alert  -->

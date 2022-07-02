@@ -81,14 +81,14 @@ namespace DATN.PetShop.Admin.site.user
                                         <table class='table table-striped'>
                                             <thead class='thead-light'>
                                             <tr>
-                                                <th>Mã KH</th>
-                                                <th>Tên KH</th>
+                                                <th style='white-space: nowrap'>Mã KH</th>
+                                                <th style='white-space: nowrap'>Tên KH</th>
                                                
                                                 <th>Email</th>
                                                 <th>Địa chỉ</th>
                                                 <th>Liên hệ</th>
-                                                <th>Trạng thái</th>
-                                                <th>Hành động</th>
+                                                <th style='white-space: nowrap'>Trạng thái</th>
+                                                <th style='white-space: nowrap'>Hành động</th>
                                             </tr>
                                             </thead>
                                             <tbody>";

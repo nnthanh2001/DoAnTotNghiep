@@ -22,21 +22,21 @@ namespace DATN.PetShop.Admin.site.products.product
 
             var strProduct = Restful.Get<List<ProductModel>>(baseUrl, apiUrl).Result;
             var html = "";
-            
-            
+
+
             //body
             var strBody = new StringBuilder();
             foreach (var product in strProduct)
             {
-                string price = String.Format("{0:0,00đ}", product.price);
+                string price = String.Format("{0:0,00₫}", product.price);
                 strBody.Append("<tr>");
                 strBody.Append("<td>" + product.productID + "</td>");
                 //strBody.Append("<td> <img src = 'assets/images/products/04.png' alt ='' height = '40'/></td>");
-                strBody.Append("<td> <img src = '" + product.imageID + "' alt ='' height = '40'/></td>");
-                strBody.Append("<td>" + product.productName + "</td>");
+                strBody.Append("<td> <img src = '" + product.image + "' alt ='' height = '80'/><p>" + product.productName + "</p></td>");
+                //strBody.Append("<td>" + product.productName + "</td>");
                 strBody.Append("<td>" + product.petTypeName + "</td>");
                 strBody.Append("<td>" + product.categoryName + "</td>");
-                strBody.Append("<td>" + product.description + "</td>");
+                strBody.Append("<td><div class='line-clamp'>" + product.description + "</div></td>");
                 strBody.Append("<td>" + product.quantity + "</td>");
                 strBody.Append("<td>" + price + "</td>");
                 strBody.Append("<td>" + product.statusName + "</td>");
@@ -54,11 +54,11 @@ namespace DATN.PetShop.Admin.site.products.product
                     <div class='float-end'>
                         <ol class='breadcrumb'>
                             <li class='breadcrumb-item'>
-                                <a href='#'>Unikit</a>
+                                <a href='#'>NTPet</a>
                             </li>
                             <!--end nav-item-->
                             <li class='breadcrumb-item'>
-                                <a href='#'>Ecommerce</a>
+                                <a href='#'>Sản phẩm</a>
                             </li>
                             <!--end nav-item-->
                             <li class='breadcrumb-item active'>List</li>
@@ -75,6 +75,9 @@ namespace DATN.PetShop.Admin.site.products.product
                         <div class='col-12'>
                             <div class='card'>
                                 <div class='card-header'>
+                                <div class='col'>
+                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-san-pham' style='float:right;'>+ Thêm mới</a>
+                                </div>
                                     <div class='row align-items-center'>
                                         <div class='col'>                      
                                             <h4 class='card-title'>Thực phẩm, đồ dùng, phụ kiện</h4>             
@@ -86,16 +89,16 @@ namespace DATN.PetShop.Admin.site.products.product
                                         <table class='table table-striped'>
                                             <thead class='thead-light'>
                                                 <tr>
-                                                    <th>Mã sản phẩm</th>
-                                                    <th>Hình ảnh</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Loại thú cưng</th>
-                                                    <th>Loại sản phẩm</th>
+                                                    <th style='white-space: nowrap'>Mã sản phẩm</th>
+                                                    <th style='white-space: nowrap'>Tên sản phẩm</th>
+                                                    <!--<th>Tên sản phẩm</th>-->
+                                                    <th style='white-space: nowrap'>Loại thú cưng</th>
+                                                    <th style='white-space: nowrap'>Loại sản phẩm</th>
                                                     <th>Mô tả</th>
-                                                    <th>Số lượng</th>
-                                                    <th>Giá tiền</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Hành động</th>
+                                                    <th style='white-space: nowrap'>Số lượng</th>
+                                                    <th style='white-space: nowrap'>Giá tiền</th>
+                                                    <th style='white-space: nowrap'>Trạng thái</th>
+                                                    <th style='white-space: nowrap'>Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody>";
@@ -104,9 +107,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                 </table>
                             </div>
                             <div class='row'>
-                                <div class='col'>
-                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-san-pham'>+ Thêm mới</a>
-                                </div>
+                                
                                 <!--end col-->
 
                                 <div class='col-auto'>

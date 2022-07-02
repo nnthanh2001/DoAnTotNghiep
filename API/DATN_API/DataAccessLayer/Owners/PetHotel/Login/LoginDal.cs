@@ -65,7 +65,7 @@ namespace DataAccessLayer.Owners.PetHotel.Login
             else
             {
                 response.HttpStatusCode = 400;
-                response.message = "Tài khoản không tồn tại vui lòng nhập lại!";
+                response.message = "Đăng nhập không thành công vui lòng nhập lại!";
             }
             return response;
         }

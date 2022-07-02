@@ -110,7 +110,11 @@ namespace DATN.PetShop.Admin.site.users.user
                     <div class='row'>
                         <div class='col-12'>
                             <div class='card'>
+                                
                                 <div class='card-header'>
+                                <div class='col'>
+                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-san-pham' style='float:right;'>+ Thêm mới</a>
+                                </div>
                                     <div class='row align-users-center'>
                                         <div class='col'>                      
                                             <h4 class='card-title'>Nhân viên của Pet Shop</h4>             
@@ -122,14 +126,14 @@ namespace DATN.PetShop.Admin.site.users.user
                                         <table class='table table-striped'>
                                             <thead class='thead-light'>
                                             <tr>
-                                                <th>Mã nhân viên</th>
-                                                <th>Tên nhân viên</th>
-                                                <th>Vai trò</th>
-                                                <th>Email</th>
+                                                <th style='white-space: nowrap'>ID</th>
+                                                <th style='white-space: nowrap'>Tên nhân viên</th>
+                                                <th style='white-space: nowrap'>Vai trò</th>
+                                                <th style='white-space: nowrap'>Email</th>
                                                 <th>Địa chỉ</th>
                                                 <th>Liên hệ</th>
-                                                <th>Trạng thái</th>
-                                                <th>Hành động</th>
+                                                <th style='white-space: nowrap'>Trạng thái</th>
+                                                <th style='white-space: nowrap'>Hành động</th>
                                             </tr>
                                             </thead>
                                             <tbody>";
@@ -143,9 +147,7 @@ namespace DATN.PetShop.Admin.site.users.user
                             </div>
                             <!--end /tableresponsive-->
                             <div class='row'>
-                                <div class='col'>
-                                    <button  class='btn btn-outline-light btn-sm px-4 '><a href='them-moi-nhan-vien'>+ Thêm mới</a></button>
-                                </div>
+                                
                                 <!--end col-->
                                 <div class='col-auto'>
                                     <nav aria-label='...'>

@@ -7,8 +7,11 @@ using Entities.OwnerModels.PetHotelModel.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DATN_API.Controllers.PetHotel
@@ -23,44 +26,6 @@ namespace DATN_API.Controllers.PetHotel
         {
             this.businessWrapper = businessWrapper;
             this.repository = repository;
-        }
-
-
-
-
-
-        //[HttpGet("Order")]
-        //public async Task<IActionResult> Invoice(string id)
-        //{
-
-        //    var productList = SessionHelper.GetObjectFromJson<List<CartModel>>(HttpContext.Session, "cart");
-        //    if (productList == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var user = await businessWrapper.userForm.GetId(id);
-
-        //    var shoppingCart = new OrderModel();
-
-
-        //    shoppingCart.productList = productList;
-        //    shoppingCart.Shipping = user;
-        //    shoppingCart.subTotal = productList.Sum(item => item.total);
-
-        //    return Ok(shoppingCart);
-        //}
-        [HttpGet]
-        public IActionResult Index(OrderModel cart)
-        {
-            if (cart == null)
-            {
-                return NotFound();
-            }
-            var productList = cart.productList;
-            cart.subTotal = productList.Sum(item => item.total);
-
-            return Ok(cart);
-
         }
 
         [HttpPost("AddOrder")]
@@ -87,9 +52,11 @@ namespace DATN_API.Controllers.PetHotel
                         _id = _pid,
                         productName = item.productName,
                         price = item.price,
+                        image = item.image,
+                        productHandle = item.productHandle,
                         quantity = itemP.quantity = qty,
                     };
-                    
+
                     pl.Add(p);
                 }
 
@@ -98,37 +65,5 @@ namespace DATN_API.Controllers.PetHotel
             cart.productList = pl;
             return Ok(cart);
         }
-
-        //[HttpDelete("DeleteItem/")]
-        //public IActionResult Remove(string id)
-        //{
-        //    if (id == null || id == "")
-        //    {
-        //        return BadRequest();
-        //    }
-        //    else
-        //    {
-        //        List<CartModel> cart = SessionHelper.GetObjectFromJson<List<CartModel>>(HttpContext.Session, "cart");
-        //        int index = isExist(id);
-        //        cart.RemoveAt(index);
-        //        SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
-        //        return RedirectToAction("Index");
-        //    }
-
-        //}
-
-        //private int isExist(string id)
-        //{
-        //    List<CartModel> cart = SessionHelper.GetObjectFromJson<List<CartModel>>(HttpContext.Session, "cart");
-        //    for (int i = 0; i < cart.Count; i++)
-        //    {
-        //        if (cart[i].product._id.Equals(id))
-        //        {
-        //            return i;
-        //        }
-        //    }
-        //    return -1;
-        //}
-
     }
 }

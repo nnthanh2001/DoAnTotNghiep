@@ -19,9 +19,9 @@ namespace Entities.Order
         public string status { get; set; }
     }
     [BsonIgnoreExtraElements]
-    public class ProductList : ProductOnCart
+    public class ProductList : ProductModel
     {
-        
+        public string image { get; set; }
         public int quantity { get; set; }
         public int total
         {

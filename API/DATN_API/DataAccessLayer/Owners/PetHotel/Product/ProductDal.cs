@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer.Owners.PetHotel
@@ -25,6 +26,7 @@ namespace DataAccessLayer.Owners.PetHotel
         }
         public Task<ProductBaseModel> Add(ProductBaseModel doc)
         {
+            doc.productHandle = handler(doc.productName);
             return repository.productRepository.Add(doc);
         }
         public Task<bool> Delete(string _id)
@@ -127,6 +129,7 @@ namespace DataAccessLayer.Owners.PetHotel
         }
         public Task<bool> Update(ProductBaseModel doc, string _id)
         {
+            var handle = doc.productHandle = handler(doc.productName);
             var checkid = Builders<ProductBaseModel>.Filter.Eq(q => q._id, _id);
             var update = Builders<ProductBaseModel>.Update.Set(p => p.productName, doc.productName)
                 .Set(p => p.productID, doc.productID)
@@ -134,10 +137,15 @@ namespace DataAccessLayer.Owners.PetHotel
                 .Set(p => p.categoryID, doc.categoryID)
                 .Set(p => p.petTypeID, doc.petTypeID)
                 .Set(p => p.price, doc.price)
+                .Set(p => p.image, doc.image)
                 .Set(p => p.statusID, doc.statusID)
-                .Set(p => p.description, doc.description);
+                .Set(p => p.description, doc.description)
+                .Set(handle, doc.productHandle);
+                
 
-            return repository.productRepository.Update(checkid, update);
+            var result= repository.productRepository.Update(checkid, update);
+            
+            return result;
         }
         public Task<List<ProductModel>> GetTop()
         {
@@ -222,7 +230,7 @@ namespace DataAccessLayer.Owners.PetHotel
         {
             var statusList = await repository.statusRepository.GetAll();
             var petTypeList = await repository.petTypeRepository.GetAll();
-            var limit = 15;
+            var limit = 17;
             var sort = Builders<CategoryModel>.Sort.Descending("categoryID");
             var categoryList = await repository.categoryRepository.GetTopCategory(sort, limit);
 
@@ -248,8 +256,24 @@ namespace DataAccessLayer.Owners.PetHotel
                 var product = await repository.productRepository.GetListProductById(filter);
                 return product;
             }
-            
-        }
 
+        }
+        public string handler(string text)
+        {
+            var chuyendoi = LoaiDau(text).ToLower();
+            string strPattern = @"[\s]+";
+            Regex rgx = new Regex(strPattern);
+            string Ouput = rgx.Replace(chuyendoi, "-");
+            return Ouput;
+        }
+        public string LoaiDau(string str)
+        {
+            Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+            string temp = str.Normalize(NormalizationForm.FormD);
+            return regex.Replace(temp, String.Empty)
+                        .Replace('đ', 'd').Replace('Đ', 'D');
+
+
+        }
     }
 }

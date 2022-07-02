@@ -51,15 +51,15 @@ namespace DATN.PetShop.User.site.cart
 
                 foreach (var item in order.productList)
                 {
-                    string price = String.Format("{0:0,00vnđ}", item.price);
-                    string total = String.Format("{0:0,00vnđ}", item.total);
+                    string price = String.Format("{0:0,00₫}", item.price);
+                    string total = String.Format("{0:0,00₫}", item.total);
 
                     var itemHtml = @"<tr>
                                             <td class='product-thumbnail'>
-                                                <a href='#'>
-                                                    <img src='"+item.image+@"' alt=''></a>
-                                            </td>
-                                            <td class='product-name'><a href='#'>" + item.productName + @"</a></td>
+                                                <a href='/chi-tiet-san-pham/" + item.productHandle + "-" + item._id + "-" + item.categoryID + @"'>
+                                                    <img src='" + item.image+ @"' alt=''style='height: 150px;'></a>
+                                             </td>
+                                            <td class='product-name'><a href='/chi-tiet-san-pham/" + item.productHandle + "-" + item._id + "-" + item.categoryID + @"'>" + item.productName + @"</a></td>
                                             <td class='product-price-cart'><span class='amount'>" + price + @"</span></td>
                                             <td class='product-quantity'>
                                                 <div class='cart-plus-minus'>
@@ -67,7 +67,7 @@ namespace DATN.PetShop.User.site.cart
                                                 </div>
                                             </td>
                                             <td class='product-subtotal'>" + total + @"</td>
-                                            <td class='product-remove'><a href='#'><i class='ti-trash'></i></a></td>
+                                            <td class='product-remove'><a href='javascript:void(0);' jsaction='deleteItemButton' value='" + item._id + @"'><i class='ti-trash'></i></a></td>
                                         </tr>";
                     itemBody.Append(itemHtml);
 
@@ -157,19 +157,19 @@ namespace DATN.PetShop.User.site.cart
                                                     <div class='col-lg-12 col-md-12'>
                                                         <div class='billing-select card-mrg'>
                                                             <label>Họ và tên (Full name)</label>
-                                                            <input type='text'>
+                                                            <input type='text' data_value='userName'>
                                                         </div>
                                                     </div>
                                                     <div class='col-lg-12 col-md-12'>
                                                         <div class='billing-select card-mrg'>
                                                             <label>Email (Email address)</label>
-                                                            <input type='text'>
+                                                            <input type='text' data_value='email'>
                                                         </div>
                                                     </div>
                                                     <div class='col-lg-12 col-md-12'>
                                                         <div class='billing-select card-mrg'>
                                                             <label>Địa chỉ giao hàng (Address) </label>
-                                                            <input type='text'>
+                                                            <input type='text' data_value='addressDelivery'>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -178,7 +178,7 @@ namespace DATN.PetShop.User.site.cart
                                                     <div class='col-lg-12 col-md-12'>
                                                         <div class='billing-select card-mrg'>
                                                             <label>Số điện thoại (Phone number)</label>
-                                                            <input type='text'>
+                                                            <input type='number' data_value='phone'>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,7 +188,7 @@ namespace DATN.PetShop.User.site.cart
                                                     <a href='site/checkout/checkout.aspx'><i class='ti-arrow-up'></i>Quay lại trang trước</a>
                                                 </div>
                                                 <div class='billing-btn'>
-                                                    <button type='submit'><a href='/thanh-toan'>Tiếp tục</a></button>
+                                                    <button type='submit'><a href='/thanh-toan' jsaction='checkOut'>Tiếp tục</a></button>
                                                 </div>
                                             </div>
                                         </div>

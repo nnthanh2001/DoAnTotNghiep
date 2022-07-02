@@ -40,7 +40,7 @@ namespace DATN.PetShop.User.site.home
             {
                 var categoryId = category.categoryID.ToString();
                 var categoryList = @"<div class='col-lg-4 col-md-4'>
-                    <a href='/san-pham/" + categoryId + @"'>
+                    <a href='/san-pham/" + category.categoryHandle + "-"+categoryId+ @"'>
                         <div class='single-food-category cate-padding-1 text-center mb-30'>
                             <div class='single-food-hover-2'>
                                 <img style='height: 270px' src='" + category.image+ @"' alt='' >
@@ -55,7 +55,7 @@ namespace DATN.PetShop.User.site.home
             }
             foreach (var productNew in home.productNew)
             {
-                string price = String.Format("{0:0,00vnđ}", productNew.price);
+                string price = String.Format("{0:0,00₫}", productNew.price);
                 var productNewHTML = @"<div class='col-xl-3 col-lg-4 col-md-6 col-sm-6'>
                     <div class='product-wrapper mb-10'>
                         <div class='product-img'>
@@ -91,7 +91,7 @@ namespace DATN.PetShop.User.site.home
             }
             foreach (var productBest in home.productBest)
             {
-                string price = String.Format("{0:0,00vnđ}", productBest.price);
+                string price = String.Format("{0:0,00₫}", productBest.price);
                 var productBestHTML = @"<div class='row'>
                 <div class='col-lg-6 col-md-6'>
                     <div class='deal-img wow fadeInLeft'>
@@ -205,7 +205,7 @@ namespace DATN.PetShop.User.site.home
         </div>
     </div>";
             //body
-            var body = @"<div class='food-category food-category-col pt-100 pb-60'>
+            var body = @"<div class='food-category food-category-col pt-100 pb-60' gray-bg-4>
         <div class='container'>
             <div class='row'>
                 " + categoryBody.ToString() + @"
@@ -390,7 +390,7 @@ namespace DATN.PetShop.User.site.home
             var baseUrl = Globals.baseAPI;
             var apiProductDetail = Globals.getOneProductAPI + "/" + id;
             var productDetail = Restful.Get<ProductModel>(baseUrl, apiProductDetail).Result;
-            string price = String.Format("{0:0,00đ}", productDetail.price);
+            string price = String.Format("{0:0,00₫}", productDetail.price);
 
             var quickView = @"
         <!-- modal -->
@@ -405,13 +405,13 @@ namespace DATN.PetShop.User.site.home
                             <div class='quick-view-learg-img'>
                                 <div class='quick-view-tab-content tab-content'>
                                     <div class='tab-pane active show fade' id='modal1' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l1.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                     <div class='tab-pane fade' id='modal2' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l2.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                     <div class='tab-pane fade' id='modal3' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l3.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                 </div>
                             </div>

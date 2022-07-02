@@ -160,12 +160,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class='mb-3 row'>
-                                                            <label for='example-email-input' class='col-sm-2 col-form-label text-end'>Handle Request</label>
-                                                            <div class='col-sm-10'>
-                                                                <input class='form-control' type='text' data_value='productHandle' placeholder='Handle Request Name' value='{8}'>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class='mb-3 row'>
                                                            <label class='col-sm-4 col-form-label text-end'>Sản phẩm tốt nhất</label>
                                                            <div class='col-sm-1'>
@@ -184,7 +179,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                 </div>
                                             </div>
                                             <div class='col-lg-3'>
-                                                <img src='assets/img_product/01.jpg' alt='' height='200' width='200'>
+                                                <img src='" + product.image + @"' alt='' height='200' width='200'>
                                                 <button class='btn-de-blue' type='submit'>Chọn ảnh</button>
                                             </div>
                                             <div class='col-lg-12'>
@@ -216,7 +211,7 @@ namespace DATN.PetShop.Admin.site.products.product
 
 ";
             
-            var htmlEditProductDetail = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price, product.statusName, product.description,  product.productHandle);
+            var htmlEditProductDetail = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price, product.statusName, product.description);
             strBodyEditProduct.Append(htmlEditProductDetail);
 
             html = string.Concat(strBodyEditProduct.ToString());

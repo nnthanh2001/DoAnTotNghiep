@@ -14,7 +14,7 @@ namespace Entities.Route
             routes.RouteExistingFiles = true;
             routes.MapPageRoute("home", "trang-chu", "~/site/home/home.aspx", false);
             routes.MapPageRoute("product", "san-pham", "~/site/products/productPage.aspx", false);
-            routes.MapPageRoute("productFilter", "san-pham/{_id}", "~/site/products/productPage.aspx", false);
+            routes.MapPageRoute("productFilter", "san-pham/{handle}-{_id}", "~/site/products/productPage.aspx", false);
             routes.MapPageRoute("allProduct", "san-pham/", "~/site/products/productPage.aspx", false);
             routes.MapPageRoute("productDetail", "chi-tiet-san-pham/{handle}-{_id}-{categoryID}", "~/site/products/productDetail.aspx", false);
             routes.MapPageRoute("contact", "lien-he", "~/site/contact/contactUs.aspx", false);
@@ -25,7 +25,7 @@ namespace Entities.Route
             routes.MapPageRoute("login", "dang-nhap", "~/site/login/login.aspx", false);
             routes.MapPageRoute("cart", "gio-hang", "~/site/cart/cart.aspx", false);
             routes.MapPageRoute("serviceDetail", "dich-vu/chi-tiet-dich-vu", "~/site/service/service_Detail.aspx", false);
-            routes.MapPageRoute("account", "tai-khoan", "~/site/account/account.aspx", false);
+            routes.MapPageRoute("account", "tai-khoan/{_id}", "~/site/account/account.aspx", false);
 
 
 

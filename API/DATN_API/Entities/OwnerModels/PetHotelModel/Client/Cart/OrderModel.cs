@@ -24,7 +24,8 @@ namespace Entities.OwnerModels.PetHotelModel.Client.Cart
     [BsonIgnoreExtraElements]
     public class ProductList: ProductOnCart
     {
-        
+        public string productHandle { get; set; }
+        public string image { get; set; }
         public int quantity { get; set; }
         public int total { get 
             { 

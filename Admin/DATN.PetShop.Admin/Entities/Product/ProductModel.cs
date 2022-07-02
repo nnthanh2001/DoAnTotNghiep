@@ -33,7 +33,7 @@ namespace Entities.Product
     public class ProductBaseModel : BaseModel
     {
         public int productID { get; set; }
-        public int imageID { get; set; }
+        public string image { get; set; }
         public string productName { get; set; }
         public int petTypeID { get; set; }
         public string description { get; set; }

@@ -20,7 +20,6 @@
                 <h3 class="page-title">Mục giỏ hàng của bạn</h3>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
                         <form action="#">
                             <div class="table-content table-responsive">
                                 <table>

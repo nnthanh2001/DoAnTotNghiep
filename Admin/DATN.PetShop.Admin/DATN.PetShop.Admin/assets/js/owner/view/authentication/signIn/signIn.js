@@ -21,7 +21,7 @@ var SignIn = function () {
             var option = { url: signInHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
             request.post()
-               
+
         });
 
         //$('[data_value="userName"]').off('keypress keyup').on('keypress keyup', function (e) {
@@ -33,20 +33,39 @@ var SignIn = function () {
 
         //        //check email valid,...
         //    };
-            
+
         //});
     };
 
     that.bindValue = function () {
-        var userName =$.trim($('[data_value="userName"]').val());
+        var userName = $.trim($('[data_value="userName"]').val());
         var password = $.trim($('[data_value="password"]').val());
+
+        if (userName != '' || password != '') {
+            if (userName == '') {
+                alert('Chưa nhập tên tài khoản');
+                return false;
+            }
+            else {
+                if (password == '') {
+                    alert('Chưa nhập mật khẩu!');
+                    return false;
+                }
+            }
+        }
+        else {
+            alert('Chưa nhập tài khoản , mật khẩu !');
+            return false;
+        }
+
         var json = { "UserName": userName, "Password": password };
         var doc = JSON.stringify(json);
         return doc;
     };
+
     that.result = function (json) {
 
-        console.log(json);       
+        console.log(json);
         window.location.href = json.href;
     };
 };

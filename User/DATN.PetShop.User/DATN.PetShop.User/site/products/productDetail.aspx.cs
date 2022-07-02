@@ -50,7 +50,7 @@ namespace DATN.PetShop.User.site.products
             var strBodyProductDetail = new StringBuilder();
 
             var product = Restful.Get<ProductDetailModel>(baseUrl, apiProductDetail).Result;
-            var productDeatil = product.productDetail;
+            var productDetail = product.productDetail;
             var productList =product.productList;
 
             //HTML Header
@@ -72,7 +72,7 @@ namespace DATN.PetShop.User.site.products
                 <div class='row'>
                     <div class='col-lg-6 col-md-6'>
                         <div class='product-details-img'>
-                            <img id='zoompro' src='"+ productDeatil.image+@"' data-zoom-image='assets/img/product-details/bl1.jpg' alt='zoom' />
+                            <img id='zoompro' src='"+ productDetail.image+@"' data-zoom-image='assets/img/product-details/bl1.jpg' alt='zoom' />
                             <div id='gallery' class='mt-12 product-dec-slider owl-carousel'>
                                 <a data-image='assets/img/product-details/l1.jpg' data-zoom-image='assets/img/product-details/bl1.jpg'>
                                     <img src='assets/img/product-details/s1.jpg' alt=''>
@@ -123,7 +123,7 @@ namespace DATN.PetShop.User.site.products
                             </div>
                             <div class='product-list-action'>
                                 <div class='product-list-action-left'>
-                                    <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productDeatil._id + @"'>
+                                    <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productDetail._id + @"'>
                                         <i class='ion-bag'></i>
                                         Thêm vào giỏ hàng
                                     </a>
@@ -243,8 +243,8 @@ namespace DATN.PetShop.User.site.products
             </div>
         </div>";
 
-            string price = String.Format("{0:0,00vnđ}", productDeatil.price);
-            var htmlProductDetail = string.Format(productDetailHTML, productDeatil.productName, price, productDeatil.statusName, productDeatil.productID, productDeatil.description);
+            string price = String.Format("{0:0,00₫}", productDetail.price);
+            var htmlProductDetail = string.Format(productDetailHTML, productDetail.productName, price, productDetail.statusName, productDetail.productID, productDetail.description);
             strBodyProductDetail.Append(htmlProductDetail);
 
             var strProductPopular = new StringBuilder();
@@ -293,7 +293,8 @@ namespace DATN.PetShop.User.site.products
 
 
 
-            var QuickViewProduct = @"<div class='modal fade' id='exampleModal' tabindex='-1' role='dialog' aria-hidden='true'>
+            var QuickViewProduct = @"<!-- modal -->
+        <div class='modal fade' id='" + id + @"' tabindex='-1' role='dialog' aria-hidden='true'>
             <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                 <span class='ti-close' aria-hidden='true'></span>
             </button>
@@ -304,13 +305,13 @@ namespace DATN.PetShop.User.site.products
                             <div class='quick-view-learg-img'>
                                 <div class='quick-view-tab-content tab-content'>
                                     <div class='tab-pane active show fade' id='modal1' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l1.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                     <div class='tab-pane fade' id='modal2' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l2.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                     <div class='tab-pane fade' id='modal3' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l3.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                 </div>
                             </div>
@@ -328,9 +329,9 @@ namespace DATN.PetShop.User.site.products
                         </div>
                         <div class='qwick-view-right'>
                             <div class='qwick-view-content'>
-                                <h3>Dog Calcium Food</h3>
+                                <h3>" + productDetail.productName + @"</h3>
                                 <div class='product-price'>
-                                    <span>$19.00 </span>
+                                    <span>" + price + @"</span>
                                 </div>
                                 <div class='product-rating'>
                                     <i class='ion-star theme-color'></i>
@@ -339,36 +340,14 @@ namespace DATN.PetShop.User.site.products
                                     <i class='ion-star theme-color'></i>
                                     <i class='ion-star theme-color'></i>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do amt tempor incididun ut labore et dolore magna aliqua. Ut enim ad mi , quis nostrud veniam exercitation .</p>
-                                <div class='quick-view-select'>
-                                    <div class='select-option-part'>
-                                        <label>Size*</label>
-                                        <select class='select'>
-                                            <option value=''>- Please Select -</option>
-                                            <option value=''>XS</option>
-                                            <option value=''>S</option>
-                                            <option value=''>M</option>
-                                            <option value=''>L</option>
-                                            <option value=''>XL</option>
-                                            <option value=''>XXL</option>
-                                        </select>
-                                    </div>
-                                    <div class='select-option-part'>
-                                        <label>Color*</label>
-                                        <select class='select'>
-                                            <option value=''>- Please Select -</option>
-                                            <option value=''>orange</option>
-                                            <option value=''>pink</option>
-                                            <option value=''>yellow</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                <p>" + productDetail.description + @"</p>
+                                
                                 <div class='quickview-plus-minus'>
                                     <div class='cart-plus-minus'>
-                                        <input type='text' value='2' name='qtybutton' class='cart-plus-minus-box'>
+                                        <input type = 'text' value='1' name='qtybutton' class='cart-plus-minus-box'>
                                     </div>
                                     <div class='quickview-btn-cart'>
-                                        <a class='btn-style' href='#'>add to cart</a>
+                                        <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productDetail._id + @"'>Thêm vào giỏ hàng</a>
                                     </div>
                                     <div class='quickview-btn-wishlist'>
                                         <a class='btn-hover' href='#'><i class='ti-heart'></i></a>

@@ -35,6 +35,7 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
             var data = Request["data"] != null && Request["data"].ToString() != ""
          ? Request["data"].ToString()
          : "";
+            var result = "";
             switch (type)
             {
                 case "get":
@@ -45,32 +46,27 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
                     {
                         if (data != "false")
                         {
-                           
+
                             var login = JsonConvert.DeserializeObject<LoginModel>(data);
                             var strLogin = Restful.Post(baseUrl, apiLoginUrl, login);
-
-                            var user = JsonConvert.DeserializeObject<UserModel>(strLogin);
-                            if (strLogin != null && strLogin != "")
+                            var user = JsonConvert.DeserializeObject<RequestModel<UserModel>>(strLogin);
+                            if(user.HttpStatusCode == 200)
                             {
-                                if (strLogin != null)
-                                {
-                                    Session["login"] = strLogin;
-                                    var dicResult = new Dictionary<string, object> {
+                                Session["login"] = strLogin;
+                                var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","tai-khoan/"+user._id}
+                            {"href","tai-khoan/{_id}"}
                         };
-                                    response.HttpStatusCode = 200;
-                                    response.message = JsonConvert.SerializeObject(dicResult);
-
-                                }
+                                result = JsonConvert.SerializeObject(dicResult);
                             }
+                           
                             else
                             {
-
-
-                                response.HttpStatusCode = 400;
-                                response.message = "Tài khoản không tồn tại vui lòng nhập lại!";
-
+                                var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",400 },
+                            {"message","Tài khoản không tồn tại vui lòng nhập lại!"}
+                        };
+                                result = JsonConvert.SerializeObject(dicResult);
                             }
                         }
 
@@ -91,8 +87,7 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
                             {"HttpStatusCode",200 },
                             {"href","dang-nhap"}
                         };
-                                    response.HttpStatusCode = 200;
-                                    response.message = JsonConvert.SerializeObject(dicResult);
+                                    result = JsonConvert.SerializeObject(dicResult);
 
                                 }
                             }
@@ -115,7 +110,7 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
 
 
             Response.StatusCode = response.HttpStatusCode;
-            Response.Write(response.message);
+            Response.Write(result);
             Response.End();
         }
     }

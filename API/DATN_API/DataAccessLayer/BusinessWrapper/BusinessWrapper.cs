@@ -28,7 +28,6 @@ namespace DataAccessLayer.BusinessWrapper
         IRoleBal _role;
         IStatusBal _status;
         IUserFormBal _userForm;
-
         ICategoryBal _category;
         ILoginBal _login;
 
@@ -111,20 +110,6 @@ namespace DataAccessLayer.BusinessWrapper
             }
         }
 
-        IUserFormBal IBusinessWrapper.userForm
-        {
-            get
-            {
-                if (_userForm == null)
-                {
-                    _userForm = new UserFormDal(repository);
-                }
-                return _userForm;
-            }
-        }
-
-
-
         public ICategoryBal category
         {
             get
@@ -146,6 +131,18 @@ namespace DataAccessLayer.BusinessWrapper
                     _login = new LoginDal(repository);
                 }
                 return _login;
+            }
+        }
+
+        public IUserFormBal userForm
+        {
+            get
+            {
+                if (_userForm == null)
+                {
+                    _userForm = new UserFormDal(repository);
+                }
+                return _userForm;
             }
         }
     }

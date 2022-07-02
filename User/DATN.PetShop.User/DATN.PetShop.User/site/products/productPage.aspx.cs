@@ -54,7 +54,7 @@ namespace DATN.PetShop.User.site.products
 
             //body
 
-            if(productPage.product.Count == 0)
+            if (productPage.product.Count == 0)
             {
                 var itemHtml = @"<tr><h3>Không tồn tại sản phẩm </h3></tr>";
                 strBodyProduct.Append(itemHtml);
@@ -63,11 +63,13 @@ namespace DATN.PetShop.User.site.products
             {
                 foreach (var product in productPage.product)
                 {
-                    string price = String.Format("{0:0,00đ}", product.price);
+                    string price = String.Format("{0:0,00₫}", product.price);
                     var body = @"<div class='product-width col-lg-6 col-xl-4 col-md-6 col-sm-6'>
+      <div class='col-inner'>
         <div class='product-wrapper mb-10'>
+           <div class='product-small box'>
             <div class='product-img'>
-                <a href='/chi-tiet-san-pham/" + product.productHandle + @"-" + product._id + "-" + product.categoryID + @"'>" + product.productName + @"'>
+                <a href='/chi-tiet-san-pham/" + product.productHandle + "-" + product._id + "-" + product.categoryID + @"'>
                     <img src='" + product.image + @"' alt=''>
                 </a>
                 <div class='product-action'>
@@ -85,12 +87,13 @@ namespace DATN.PetShop.User.site.products
                 </div>
             </div>
             <div class='product-content'>
-
                 <h4><a href='/chi-tiet-san-pham/" + product.productHandle + @"-" + product._id + "-" + product.categoryID + @"'>" + product.productName + @"</a></h4>
                 <div class='product-price'>
                     <span class='new'>" + price + @"</span>
                 </div>
             </div>
+           </div>
+          </div>
         </div>
     </div>";
                     var getQuickView = GetQuickView(product._id);
@@ -115,7 +118,7 @@ namespace DATN.PetShop.User.site.products
                     {
                         foreach (var categoryChild in categoryChildList)
                         {
-                            strBChild.Append("<li><a href='/san-pham/" + categoryId + @"'>" + categoryChild.categoryName + "</a></li>");
+                            strBChild.Append("<li><a href='/san-pham/" + categoryChild.categoryHandle + "-" + categoryChild.categoryID + @"'>" + categoryChild.categoryName + "</a></li>");
                         }
 
                     }
@@ -217,7 +220,7 @@ namespace DATN.PetShop.User.site.products
             var apiProductDetail = Globals.getOneProductAPI + "/" + id;
 
             var productDetail = Restful.Get<ProductModel>(baseUrl, apiProductDetail).Result;
-            string price = String.Format("{0:0,00vnđ}", productDetail.price);
+            string price = String.Format("{0:0,00₫}", productDetail.price);
 
             var quickView = @"
         <!-- modal -->
@@ -232,13 +235,13 @@ namespace DATN.PetShop.User.site.products
                             <div class='quick-view-learg-img'>
                                 <div class='quick-view-tab-content tab-content'>
                                     <div class='tab-pane active show fade' id='modal1' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l1.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                     <div class='tab-pane fade' id='modal2' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l2.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                     <div class='tab-pane fade' id='modal3' role='tabpanel'>
-                                        <img src='assets/img/quick-view/l3.jpg' alt=''>
+                                        <img src='" + productDetail.image + @"' alt=''>
                                     </div>
                                 </div>
                             </div>

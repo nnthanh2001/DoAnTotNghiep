@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer.Owners.PetHotel.Invoice;
 using Contracts.RepositoryWrapper;
+using Entities.OwnerModels.PetHotelModel.Client.Cart;
 using Entities.OwnerModels.PetHotelModel.Invoice;
 using MongoDB.Driver;
 using System;
@@ -20,9 +21,9 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
 
         }
 
-        public Task<InvoiceModel> Add(InvoiceModel doc)
+        public Task<OrderModel> Add(OrderModel doc)
         {
-            throw new NotImplementedException();
+            return repository.invoiceRepository.Add(doc);
         }
 
         public Task<bool> Delete(int invoiceID)

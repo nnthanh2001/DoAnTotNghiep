@@ -14,6 +14,7 @@ namespace HttpClient_API.Core.Global
         public static string loginAPI = "api/User/SignIn";
         public static string orderAPI = "api/Cart";
         public static string addOrderAPI = "api/Cart/AddOrder";
+        public static string createOrderAPI = "api/Order";
 
         public static string cartAPI = "api/Cart";
 
