@@ -104,18 +104,6 @@ namespace DATN.PetShop.Admin.site.products.product
                                                                 <input class='form-control' type='text' data_value='productName' placeholder='Nhập tên sản phẩm' value='{0}'>
                                                             </div>
                                                         </div>
-
-                                                        <div class='mb-3 row'>
-                                                            <label class='col-sm-2 col-form-label text-end'>Mã</label>
-                                                            <div class='col-sm-4'>
-                                                                <input class='form-control'placeholder='Mã sản phẩm' data_value='productID' value='{1}' />
-                                                            </div>
-                                                            <label class='col-sm-2 col-form-label text-end'>Số lượng</label>
-                                                            <div class='col-sm-4'>
-                                                                <input class='form-control'  type='number' placeholder='Số lượng' data_value='quantity' value='{2}' />
-                                                            </div>
-
-                                                        </div>
                                                         <div class='mb-3 row'>
                                                           <label class='col-sm-2 col-form-label text-end'>Loại</label>
                                                             <div class='col-sm-10'>
@@ -124,6 +112,12 @@ namespace DATN.PetShop.Admin.site.products.product
                                                                 </select>
                                                             </div>
                                                          </div>
+                                                        <div class='mb-6 row'>
+                                                            <label class='col-sm-2 col-form-label text-end'>Số lượng</label>
+                                                            <div class='col-sm-10'>
+                                                                <input class='form-control'  type='number' placeholder='Số lượng' data_value='quantity' value='{2}' />
+                                                            </div>
+                                                        </div>
                                                         <div class='mb-3 row'>
                                                             <label class='col-sm-2 col-form-label text-end'>Loài</label>
                                                             <div class='col-sm-4'>
@@ -175,7 +169,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                 </div>
                                                 <button class='btn-de-blue' type='submit' id='btnUpload' style='margin-bottom: 10px;'>Chọn ảnh</button>
                                                 <label class='col-sm-4 col-form-label '>Hoặc nhập địa chỉ hình ảnh</label>
-                                                <div class='col-sm-4'><input type='text' data_value='" + product.image + @"' style='width: 300px'></div>
+                                                <div class='col-sm-4'><input type='text' data_value='image' style='width: 300px'></div>
                                             </div>
                                             <div class='col-lg-12'>
                                                 <div class='card'>

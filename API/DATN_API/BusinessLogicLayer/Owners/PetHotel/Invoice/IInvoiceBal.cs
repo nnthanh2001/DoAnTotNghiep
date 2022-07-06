@@ -11,7 +11,7 @@ namespace BusinessLogicLayer.Owners.PetHotel.Invoice
         Task<OrderModel> Add(OrderModel doc);
         Task<bool> Update(FilterDefinition<InvoiceModel> filter, UpdateDefinition<InvoiceModel> update);
         Task<bool> Delete(int invoiceID);
-        Task<List<InvoiceModel>> GetAll();
-        Task<InvoiceModel> GetId(int invoiceID);
+        Task<List<OrderModel>> GetAll();
+        Task<OrderModel> GetId(string id);
     }
 }

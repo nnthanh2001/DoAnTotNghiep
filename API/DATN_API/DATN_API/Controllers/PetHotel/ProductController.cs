@@ -38,25 +38,25 @@ namespace DATN_API.Controllers.PetHotel
             return Ok(await businessWrapper.product.Delete(_id));
         }
         [HttpGet("Admin")]
-        public async Task<IActionResult> GetAllProductFormAdmin()
+        public async Task<IActionResult> GetAllProductFormAdmin(string k ="")
+        {
+            return Ok(await businessWrapper.product.GetProduct(k));
+        }
+        [HttpGet("User")]
+        public async Task<IActionResult> GetAllProduct(string keyWord = " ", int pageIndex = 1)
         {
             return Ok(await businessWrapper.product.GetProduct());
         }
-        //[HttpGet("User")]
-        //public async Task<IActionResult> GetAllProduct(string keyWord = " ", int pageIndex = 1)
-        //{
-        //    return Ok(await businessWrapper.product.GetProduct());
-        //}
-        //[HttpGet("TopProduct(4)")]
-        //public async Task<IActionResult> GetTopProduct()
-        //{
-        //    return Ok(await businessWrapper.product.GetTop());
-        //}
-        //[HttpGet("BestProduct")]
-        //public async Task<IActionResult> GetBestProduct()
-        //{
-        //    return Ok(await businessWrapper.product.GetBest());
-        //}
+        [HttpGet("TopProduct(4)")]
+        public async Task<IActionResult> GetTopProduct()
+        {
+            return Ok(await businessWrapper.product.GetTop());
+        }
+        [HttpGet("BestProduct")]
+        public async Task<IActionResult> GetBestProduct()
+        {
+            return Ok(await businessWrapper.product.GetBest());
+        }
         [HttpGet("{_id}")]
         public  async Task<IActionResult> GetProductID(string _id)
         {

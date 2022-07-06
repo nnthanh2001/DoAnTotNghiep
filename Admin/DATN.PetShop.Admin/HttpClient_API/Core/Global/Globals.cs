@@ -28,7 +28,14 @@ namespace HttpClient_API.Core.Global
         public static string editServiceAPI = "api/Service/EditService";
 
         public static string categoryAPI = "api/Category/GetCategoryByOderNo";
-       
+
+        public static string orderAPI = "api/Order/GetOrder";
+        public static string orderDetailAPI = "api/Order/GetOrderByID";
+
+
+        public static string statisticalAPI = "api/Statistical";
+        public static string statisticalAPI2 = "api/Statistical/GetStatisticalByMonth";
+        
 
         
         

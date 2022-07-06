@@ -7,6 +7,9 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace DataAccessLayer.Owners.PetHotel
 {
@@ -182,24 +185,22 @@ namespace DataAccessLayer.Owners.PetHotel
                 statusList = statusList,
                 roleList = roleList,
             };
-
-
             return addUser;
         }
     }
     public class UserDal : IUserBal
     {
-
         readonly IRepositoryWrapper repository;
-
         public UserDal(IRepositoryWrapper repository)
         {
             this.repository = repository;
 
         }
-
         public async Task<UserBaseModel> Add(UserBaseModel doc)
         {
+            doc.userHandle = handler(doc.userName);
+            doc.userID = randomID();
+            doc.password = GetHash(doc.password);
             return await repository.userRepository.Add(doc);
         }
 
@@ -209,13 +210,11 @@ namespace DataAccessLayer.Owners.PetHotel
 
             return repository.userRepository.Delete(filter);
         }
-
         public Task<List<UserModel>> GetAll()
         {
 
             return repository.userRepository.GetAll();
         }
-
         public async Task<UserModel> GetId(string _id)
         {
             var filter = Builders<UserModel>.Filter.Eq(q => q._id, _id);
@@ -245,13 +244,50 @@ namespace DataAccessLayer.Owners.PetHotel
             return user;
 
         }
-
         public async Task<bool> Update(UserModel user, string _id)
         {
             var checkid = Builders<UserModel>.Filter.Eq(q => q._id, _id);
             var update = Builders<UserModel>.Update.Set(p => p.userName, user.userName).Set(p => p.address, user.address).Set(p => p.email, user.email).Set(p => p.roleID, user.roleID).Set(p => p.phone, user.phone).Set(p => p.statusID, user.statusID);
 
             return await repository.userRepository.Update(checkid, update);
+        }
+        public static string GetHash(string plainText)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            // Compute hash from the bytes of text
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(plainText));
+            // Get hash result after compute it
+            byte[] result = md5.Hash;
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < result.Length; i++)
+            {
+                strBuilder.Append(result[i].ToString("x2"));
+            }
+
+            return strBuilder.ToString();
+        }
+        public int randomID()
+        {
+            Random r = new Random();
+            int n = r.Next();
+            return n;
+        }
+        public string handler(string text)
+        {
+            var chuyendoi = LoaiDau(text).ToLower();
+            string strPattern = @"[\s]+";
+            Regex rgx = new Regex(strPattern);
+            string Ouput = rgx.Replace(chuyendoi, "-");
+            return Ouput;
+        }
+        public string LoaiDau(string str)
+        {
+            Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+            string temp = str.Normalize(NormalizationForm.FormD);
+            return regex.Replace(temp, String.Empty)
+                        .Replace('đ', 'd').Replace('Đ', 'D');
+
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using Entities.OwnerModels.PetHotelModel.Client.Cart;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace DATN_API.Controllers.PetHotel
@@ -15,10 +16,28 @@ namespace DATN_API.Controllers.PetHotel
         {
             this.businessWrapper = businessWrapper;
         }
+        [HttpGet("GetOrder")]
+        public async Task<IActionResult> GetOrder()
+        {
+            return Ok(await businessWrapper.order.GetAll());
+        }
+        [HttpGet("GetOrderByID/{_id}")]
+        public async Task<IActionResult> GetOrderByID(string _id)
+        {
+            return Ok(await businessWrapper.order.GetId(_id));
+        }
+
+        [HttpGet]
+        public int randomID()
+        {
+            Random r = new Random();
+            int n = r.Next();
+            return n;
+        }
         [HttpPost]
         public async Task<IActionResult> Order(OrderModel doc)
         {
-            return Ok(await businessWrapper.invoice.Add(doc));
+            return Ok(await businessWrapper.order.Add(doc));
         }
     }
 }

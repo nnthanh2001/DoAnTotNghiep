@@ -25,47 +25,86 @@ namespace DataAccessLayer.Owners.PetHotel.Login
         }
         public async Task<RequestModel<UserModel>> GetId(LoginModel login)
         {
-               
+
             var response = new RequestModel<UserModel> { HttpStatusCode = 400 };
 
-            var filter = (Builders<UserModel>.Filter.Eq(q => q.email, login.userName) | Builders<UserModel>.Filter.Eq(q => q.phone, login.userName))
-           & Builders<UserModel>.Filter.Eq(q => q.password, login.password);
-            var signin = await repository.loginRepository.GetId(filter);
+            var filterUserName = Builders<UserModel>.Filter.Eq(q => q.email, login.userName);
+            var filter = (Builders<UserModel>.Filter.Eq(q => q.email, login.userName)) & Builders<UserModel>.Filter.Eq(q => q.password, login.password);
+            var checkUserName = await repository.loginRepository.GetId(filterUserName);
+            var signIn = await repository.loginRepository.GetId(filter);
             
 
-            if (signin != null)
+            if (login.userName == "" && login.password == "")
             {
-                var statusid = signin.statusID;
-                var roleid = signin.roleID;
-
-
-                if (statusid > 0)
-                {
-                    var filterStatusid = Builders<StatusModel>.Filter.Eq(q => q.statusID, statusid);
-                    var status = await repository.statusRepository.GetId(filterStatusid);
-                    if (status != null)
-                    {
-                        signin.statusName = status.statusName;
-                    }
-                }
-                if (roleid > 0)
-                {
-                    var filterRoleid = Builders<RoleModel>.Filter.Eq(q => q.roleID, roleid);
-                    var role = await repository.roleRepository.GetId(filterRoleid);
-                    if (role != null)
-                    {
-                        signin.roleName = role.roleName;
-                    }
-                }
-
-                response.model = signin;
-                response.message = "Đăng nhập thành công!";
-                response.HttpStatusCode = 200;
+                response.message = "Bạn chưa nhập tài khoản, mật khẩu!";
             }
             else
             {
-                response.HttpStatusCode = 400;
-                response.message = "Đăng nhập không thành công vui lòng nhập lại!";
+                if (login.userName == "")
+                {
+                    response.message = "Bạn chưa nhập tài khoản!";
+                }
+                else
+                {
+                    if (login.password == "")
+                    {
+                        response.message = "Bạn chưa nhập mật khẩu!";
+                    }
+                    else
+                    {
+                        if (checkUserName == null)
+                        {
+                            response.message = "Tài khoản không tồn tại";
+
+                        }
+                        else
+                        {
+                            if (checkUserName.password != login.password)
+                            {
+                                response.message = "Sai mật khẩu vui lòng nhập lại!";
+                            }
+                            else
+                            {
+                                if (signIn != null)
+                                {
+                                    var statusid = signIn.statusID;
+                                    var roleid = signIn.roleID;
+
+
+                                    if (statusid > 0)
+                                    {
+                                        var filterStatusid = Builders<StatusModel>.Filter.Eq(q => q.statusID, statusid);
+                                        var status = await repository.statusRepository.GetId(filterStatusid);
+                                        if (status != null)
+                                        {
+                                            signIn.statusName = status.statusName;
+                                        }
+                                    }
+                                    if (roleid > 0)
+                                    {
+                                        var filterRoleid = Builders<RoleModel>.Filter.Eq(q => q.roleID, roleid);
+                                        var role = await repository.roleRepository.GetId(filterRoleid);
+                                        if (role != null)
+                                        {
+                                            signIn.roleName = role.roleName;
+                                        }
+                                    }
+
+                                    response.model = signIn;
+                                    response.message = "Đăng nhập thành công!";
+                                    response.HttpStatusCode = 200;
+                                }
+                                else
+                                {
+                                    response.message = "Tài khoản không tồn tại!";
+                                    response.HttpStatusCode = 404;
+                                }
+                            }
+
+
+                        }
+                    }
+                }
             }
             return response;
         }

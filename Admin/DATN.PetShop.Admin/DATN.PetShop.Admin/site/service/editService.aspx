@@ -3,7 +3,7 @@
     <div class="page-content-tab" id ="main" runat ="server" >
 
             
-            <div class="container-fluid">
+           <%-- <div class="container-fluid">
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
@@ -129,7 +129,7 @@
             </div>
             <button class="btn btn-primary" type="submit" onclick="executeExample('threeButtons')">Xác nhận chỉnh sửa</button>
             <!--end card-->
-        </div>
+        </div>--%>
            
         </div>
 </asp:Content>

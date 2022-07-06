@@ -7,6 +7,7 @@ using Contracts.Owners.PetHotel.Page;
 using Contracts.Owners.PetHotel.Product;
 using Contracts.Owners.PetHotel.Service;
 using Contracts.Owners.PetHotel.Staff;
+using Contracts.Owners.PetHotel.Statistical;
 using Contracts.Owners.PetHotel.Status;
 using Contracts.Owners.PetHotel.User;
 
@@ -27,7 +28,7 @@ namespace Contracts.RepositoryWrapper
         IConditionRepository conditionRepository { get; }
         ICategoryRepository categoryRepository { get; }
         ILoginRepository loginRepository { get; }
-
+        IStatisticalRepository statisticalRepository { get; }
 
     }
 }

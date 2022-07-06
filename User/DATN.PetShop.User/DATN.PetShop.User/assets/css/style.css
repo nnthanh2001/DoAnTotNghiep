@@ -2174,7 +2174,7 @@ button.icon-cart span.count-style {
 }
 
 .shopping-cart-title > span {
-    color: #777;
+    color: #f00;
     font-size: 14px;
 }
 
@@ -3990,6 +3990,7 @@ input.cart-plus-minus-box {
 
     .product-price span.new {
         color: #686868;
+        color: #f00000;
         font-size: 16px;
         font-weight: 500;
         margin: 0 12px 0 0;
@@ -4441,7 +4442,7 @@ input.cart-plus-minus-box {
 .table-content table td.product-name a {
     color: #333;
     font-size: 16px;
-    padding-left: 50px;
+    padding-left: 0px;
 }
 
 .table-content table td.product-price-cart span {

@@ -1,7 +1,10 @@
 ﻿using Entities.Login;
+using Entities.MessageBox;
+using Entities.Request;
 using HttpClient_API;
 using HttpClient_API.Core.Global;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel.Channels;
@@ -16,8 +19,6 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.loginAPI;
 
-
-
             var result = "";
             var type = Request["type"] != null && Request["type"].ToString() != ""
                  ? Request["type"].ToString().ToLower().Trim()
@@ -31,27 +32,51 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
             var data = Request["data"] != null && Request["data"].ToString() != ""
          ? Request["data"].ToString()
          : "";
+
+            var request = new RequestModel<LoginModel>();
+            
             switch (type)
             {
                 case "get":
 
                     break;
                 case "post":
-                    var login = JsonConvert.DeserializeObject<LoginModel>(data);
-                    var str = Restful.Post(baseUrl, apiUrl, login);
-                    if (str != null && str != "")
+                    if (data != "false" && data != "")
                     {
-                        if (str != null)
+                        var dataLogin = JsonConvert.DeserializeObject<LoginModel>(data);
+                        var str = Restful.Post(baseUrl, apiUrl, dataLogin);
+                        
+                        if (str != null && str != "")
                         {
-                            Session["login"] = str;
-                            var dicResult = new Dictionary<string, object> {
-                            {"HttpStatusCode",200 },
-                            {"href","san-pham"}
-                        };
-                            result = JsonConvert.SerializeObject(dicResult);
+                            var transfer = JsonConvert.DeserializeObject<RequestModel<LoginModel>>(str);
+                            request = transfer;
+                            if (transfer != null)
+                            {
+                                if(request.HttpStatusCode == 200)
+                                {
+                                    Session["login"] = str;
 
+                                    var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",200 },
+                            {"href","san-pham"} ,
+                            {"message","Đăng nhập thành công!"}
+                                    };
+                                    result = JsonConvert.SerializeObject(dicResult);
+                                }
+                                else
+                                {
+                                    request.HttpStatusCode = 200;
+                                    result = JsonConvert.SerializeObject(request);
+                                }
+                            }
                         }
                     }
+                    else
+                    {
+
+
+                    }
+
 
                     break;
                 case "put":
@@ -62,7 +87,7 @@ namespace DATN.PetShop.Admin.handleRequest.Authentication.signIn
                     break;
             }
 
-            
+
             Response.StatusCode = 200;
             Response.Write(result);
             Response.End();

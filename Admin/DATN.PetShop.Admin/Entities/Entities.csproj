@@ -133,11 +133,14 @@
     <Compile Include="Condition\ConditionModel.cs" />
     <Compile Include="Invoice\InvoiceModel.cs" />
     <Compile Include="Login\LoginModel.cs" />
+    <Compile Include="MessageBox\WebMsgBox.cs" />
+    <Compile Include="Order\orderModel.cs" />
     <Compile Include="Product\PetTypeModel.cs" />
     <Compile Include="Product\ProductModel.cs" />
     <Compile Include="Request\RequestModel.cs" />
     <Compile Include="Route\Routed.cs" />
     <Compile Include="Service\ServiceModel.cs" />
+    <Compile Include="Statistical\StatisticalModel.cs" />
     <Compile Include="Status\StatusModel.cs" />
     <Compile Include="User\RoleModel.cs" />
     <Compile Include="User\UserModel.cs" />

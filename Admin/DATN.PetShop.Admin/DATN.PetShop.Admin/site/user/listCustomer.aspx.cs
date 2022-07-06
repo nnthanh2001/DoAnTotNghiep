@@ -25,7 +25,7 @@ namespace DATN.PetShop.Admin.site.user
 
 
             var strUser = Restful.Get<List<UserModel>>(baseUrl, apiUrl).Result;
-            var html = "";
+          
 
             //body
             var strBody = new StringBuilder();
@@ -141,7 +141,7 @@ namespace DATN.PetShop.Admin.site.user
         ";
 
 
-            html = string.Concat(header, strBody.ToString(), footer);
+            var html = string.Concat(header, strBody.ToString(), footer);
 
             return html;
         }

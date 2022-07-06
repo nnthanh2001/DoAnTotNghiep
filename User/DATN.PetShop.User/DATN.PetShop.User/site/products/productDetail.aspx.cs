@@ -32,10 +32,10 @@ namespace DATN.PetShop.User.site.products
               ? request["categoryID"].ToString().ToLower().Trim()
               : "";
 
-                    var categoryId = int.Parse(categoryID);
-                    var getProduct = GetDataProductDetail(id, categoryId);
-                    main.InnerHtml = getProduct;
-                
+                var categoryId = int.Parse(categoryID);
+                var getProduct = GetDataProductDetail(id, categoryId);
+                main.InnerHtml = getProduct;
+
             }
 
 
@@ -72,24 +72,8 @@ namespace DATN.PetShop.User.site.products
                 <div class='row'>
                     <div class='col-lg-6 col-md-6'>
                         <div class='product-details-img'>
-                            <img id='zoompro' src='"+ productDetail.image+@"' data-zoom-image='assets/img/product-details/bl1.jpg' alt='zoom' />
-                            <div id='gallery' class='mt-12 product-dec-slider owl-carousel'>
-                                <a data-image='assets/img/product-details/l1.jpg' data-zoom-image='assets/img/product-details/bl1.jpg'>
-                                    <img src='assets/img/product-details/s1.jpg' alt=''>
-                                </a>
-                                <a data-image='assets/img/product-details/l2.jpg' data-zoom-image='assets/img/product-details/bl2.jpg'>
-                                    <img src='assets/img/product-details/s2.jpg' alt=''>
-                                </a>
-                                <a data-image='assets/img/product-details/l3.jpg' data-zoom-image='assets/img/product-details/bl3.jpg'>
-                                    <img src='assets/img/product-details/s3.jpg' alt=''>
-                                </a>
-                                <a data-image='assets/img/product-details/l4.jpg' data-zoom-image='assets/img/product-details/bl4.jpg'>
-                                    <img src='assets/img/product-details/s4.jpg' alt=''>
-                                </a>
-                                <a data-image='assets/img/product-details/l3.jpg' data-zoom-image='assets/img/product-details/bl3.jpg'>
-                                    <img src='assets/img/product-details/s3.jpg' alt=''>
-                                </a>
-                            </div>
+                            <img id='zoompro' src='"+ productDetail.image+ @"' data-zoom-image='" + productDetail.image + @"' alt='zoom' />
+                           
                         </div>
                     </div>
                     <div class='col-lg-6 col-md-6'>
@@ -134,15 +118,6 @@ namespace DATN.PetShop.User.site.products
                                         <i class='ti-heart'></i>
                                     </a>
                                 </div>
-                            </div>
-                            <div class='social-icon mt-30'>
-                                <ul>
-                                    <li><a href='#'><i class='icon-social-twitter'></i></a></li>
-                                    <li><a href='#'><i class='icon-social-instagram'></i></a></li>
-                                    <li><a href='#'><i class='icon-social-linkedin'></i></a></li>
-                                    <li><a href='#'><i class='icon-social-skype'></i></a></li>
-                                    <li><a href='#'><i class='icon-social-dribbble'></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -250,16 +225,17 @@ namespace DATN.PetShop.User.site.products
             var strProductPopular = new StringBuilder();
             foreach(var pro in productList)
             {
+                string pricePop = String.Format("{0:0,00₫}", pro.price);
                 var productPopularHTML = @"<div class='product-wrapper'>
                         <div class='product-img'>
                             <a href='/chi-tiet-san-pham/" + pro.productHandle + @"-" + pro._id + "-" + pro.categoryID + @"'>
                                 <img src='" + pro.image + @"' alt=''>
                             </a>
                             <div class='product-action'>
-                                <a title='Quick View' data-toggle='modal' data-target='#exampleModal' href='#'>
+                                 <a title='Xem nhanh' data-toggle='modal' data-target='#" + pro._id + @"' href='" + pro._id + @"'>
                                     <i class='ti-plus'></i>
                                 </a>
-                                <a title='Add To Cart' href='#'>
+                                <a title='Add To Cart' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + pro._id + @"'>
                                     <i class='ti-shopping-cart'></i>
                                 </a>
                             </div>
@@ -272,7 +248,7 @@ namespace DATN.PetShop.User.site.products
                         <div class='product-content'>
                             <h4><a href='/chi-tiet-san-pham/" + pro.productHandle + @"-" + pro._id + "-" + pro.categoryID + @"'>" + pro.productName + @"</a></h4>
                             <div class='product-price'>
-                                <span class='new'>" + price + @"</span>
+                                <span class='new'>" + pricePop + @"</span>
                                 
                             </div>
                         </div>
@@ -315,17 +291,6 @@ namespace DATN.PetShop.User.site.products
                                     </div>
                                 </div>
                             </div>
-                            <div class='quick-view-list nav' role='tablist'>
-                                <a class='active' href='#modal1' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s1.jpg' alt=''>
-                                </a>
-                                <a href='#modal2' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s2.jpg' alt=''>
-                                </a>
-                                <a href='#modal3' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s3.jpg' alt=''>
-                                </a>
-                            </div>
                         </div>
                         <div class='qwick-view-right'>
                             <div class='qwick-view-content'>
@@ -343,15 +308,11 @@ namespace DATN.PetShop.User.site.products
                                 <p>" + productDetail.description + @"</p>
                                 
                                 <div class='quickview-plus-minus'>
-                                    <div class='cart-plus-minus'>
-                                        <input type = 'text' value='1' name='qtybutton' class='cart-plus-minus-box'>
-                                    </div>
+                                  
                                     <div class='quickview-btn-cart'>
                                         <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productDetail._id + @"'>Thêm vào giỏ hàng</a>
                                     </div>
-                                    <div class='quickview-btn-wishlist'>
-                                        <a class='btn-hover' href='#'><i class='ti-heart'></i></a>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

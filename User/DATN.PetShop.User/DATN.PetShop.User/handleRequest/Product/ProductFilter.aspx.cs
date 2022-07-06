@@ -58,7 +58,19 @@ namespace DATN.PetShop.User.handleRequest.Product
 
                     break;
                 case "delete":
+                    var strDelete = Restful.Delete<ProductPage>(baseUrl, apiUrl + "/" + id);
+                    if (strDelete != null && strDelete != "")
+                    {
+                        if (strDelete != null)
+                        {
 
+                            var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",200 },
+                            {"href","san-pham"}
+                        };
+                            result = JsonConvert.SerializeObject(dicResult);
+                        }
+                    }
                     break;
             }
 

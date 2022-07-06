@@ -29,6 +29,11 @@ namespace Entities.Route
 
             routes.MapPageRoute("service", "dich-vu", "~/site/service/service.aspx", false);
             routes.MapPageRoute("editService", "dich-vu/{handle}-{_id}", "~/site/service/editService.aspx", false);
+
+            routes.MapPageRoute("order", "don-hang", "~/site/order/order.aspx", false);
+            routes.MapPageRoute("orderDetail", "chi-tiet-don-hang-{_id}", "~/site/order/orderDetail.aspx", false);
+
+            routes.MapPageRoute("costDetail", "chi-tiet-chi-phí-{_id}", "~/site/dashboard/costDetail.aspx", false);
         
 
             

@@ -15,11 +15,13 @@ namespace Entities.OwnerModels.PetHotelModel.Client.Cart
     [BsonIgnoreExtraElements]
     public class OrderModel : BaseModel
     {
+        public int orderID { get; set; }
         public Shipping shipping { get; set; }
         public List<ProductList> productList { get; set; }
         public string payment { get; set; }
         public int subTotal { get; set; }
         public string status { get; set; }
+        public string date { get; set; }
     }
     [BsonIgnoreExtraElements]
     public class ProductList: ProductOnCart
@@ -27,11 +29,8 @@ namespace Entities.OwnerModels.PetHotelModel.Client.Cart
         public string productHandle { get; set; }
         public string image { get; set; }
         public int quantity { get; set; }
-        public int total { get 
-            { 
-                return quantity * price; 
-            } 
-        }
+        public int total { get; set; }
+        
            
 
     }
@@ -40,7 +39,7 @@ namespace Entities.OwnerModels.PetHotelModel.Client.Cart
     {
         public string userId { get; set; }
         public string userName { get; set; }
-        public int phone { get; set; }
+        public long phone { get; set; }
         public string email { get; set; }
         public string addressDelivery { get; set; }
     }

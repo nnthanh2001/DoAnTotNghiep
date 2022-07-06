@@ -9,6 +9,7 @@ namespace Entities.Condition
 {
     public class ConditionModel : BaseModel
     {
+        public string select { get; set; }
         public int conditionID { get; set; }
         public int price { get; set; }
         public string condition { get; set; }

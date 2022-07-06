@@ -23,7 +23,7 @@ namespace DATN.PetShop.User.site.login
                 ? request["handle"].ToString().ToLower().Trim()
                 : "";
                 main.InnerHtml = loginData();
-                 
+
             }
         }
         public string loginData()
@@ -60,7 +60,7 @@ namespace DATN.PetShop.User.site.login
                                     <div class='login-form-container'>
                                         <div class='login-register-form'>
                                             <form action='#' method='post'>
-                                                <input type='text' data_value='userName' placeholder='Email / Số điện thoại'>
+                                                <input type='text' data_value='userName' placeholder='Email'>
                                                 <input type='password' data_value='password' placeholder='Mật khẩu'>
                                                 <div class='button-box'>
                                                     <div class='login-toggle-btn'>

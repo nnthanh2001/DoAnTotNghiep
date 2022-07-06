@@ -29,7 +29,7 @@ namespace Entities.OwnerModels.PetHotelModel.User
         public int roleID { get; set; }
         public string email { get; set; }
         public string address { get; set; }
-        public string phone { get; set; }
+        public long phone { get; set; }
         public int statusID { get; set; }
         public string userHandle { get; set; }
         public string password { get; set; }

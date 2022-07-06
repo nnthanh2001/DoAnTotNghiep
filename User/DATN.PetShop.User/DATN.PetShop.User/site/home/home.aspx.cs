@@ -36,7 +36,7 @@ namespace DATN.PetShop.User.site.home
             var productBestBody = new StringBuilder();
             var serviceBody = new StringBuilder();
 
-            foreach (var category in home.category)
+            foreach (var category in @home.category)
             {
                 var categoryId = category.categoryID.ToString();
                 var categoryList = @"<div class='col-lg-4 col-md-4'>
@@ -205,7 +205,7 @@ namespace DATN.PetShop.User.site.home
         </div>
     </div>";
             //body
-            var body = @"<div class='food-category food-category-col pt-100 pb-60' gray-bg-4>
+            var body = @"<div class='food-category food-category-col pt-100 pb-60 gray-bg-4'>
         <div class='container'>
             <div class='row'>
                 " + categoryBody.ToString() + @"
@@ -443,14 +443,8 @@ namespace DATN.PetShop.User.site.home
                                 <p>" + productDetail.description + @"</p>
                                 
                                 <div class='quickview-plus-minus'>
-                                    <div class='cart-plus-minus'>
-                                        <input type = 'text' value='1' name='qtybutton' class='cart-plus-minus-box'>
-                                    </div>
                                     <div class='quickview-btn-cart'>
                                         <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productDetail._id + @"'>Thêm vào giỏ hàng</a>
-                                    </div>
-                                    <div class='quickview-btn-wishlist'>
-                                        <a class='btn-hover' href='#'><i class='ti-heart'></i></a>
                                     </div>
                                 </div>
                             </div>

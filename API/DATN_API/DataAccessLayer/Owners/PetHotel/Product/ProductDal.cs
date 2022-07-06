@@ -24,8 +24,15 @@ namespace DataAccessLayer.Owners.PetHotel
             this.repository = repository;
 
         }
+        public int randomID()
+        {
+            Random r = new Random();
+            int n = r.Next();
+            return n;
+        }
         public Task<ProductBaseModel> Add(ProductBaseModel doc)
         {
+            doc.productID = randomID();
             doc.productHandle = handler(doc.productName);
             return repository.productRepository.Add(doc);
         }
@@ -34,11 +41,19 @@ namespace DataAccessLayer.Owners.PetHotel
             var checkid = Builders<ProductModel>.Filter.Eq(q => q._id, _id);
             return repository.productRepository.Delete(checkid);
         }
-        public async Task<List<ProductModel>> GetProduct()
+        public async Task<List<ProductModel>> GetProduct(string k = "")
         {
-            var productList = await repository.productRepository.GetProduct();
+            var filter = Builders<ProductModel>.Filter.Empty;
+            var mongoBuilder = Builders<ProductModel>.Filter;
+            
+            if (!string.IsNullOrEmpty(k))
+            {
+                k = "/.*" + k + ".*/i";
+                filter = filter & mongoBuilder.Regex(y => y.productName, new BsonRegularExpression(k));
+            }
+            var sort = Builders<ProductModel>.Sort.Descending("_id");
+            var productList = await repository.productRepository.GetProduct(sort, filter);
             var petTypeList = await repository.petTypeRepository.GetAll();
-
             var statusList = await repository.statusRepository.GetAll();
             var categoryList = await repository.categoryRepository.GetAll();
 
@@ -129,6 +144,10 @@ namespace DataAccessLayer.Owners.PetHotel
         }
         public Task<bool> Update(ProductBaseModel doc, string _id)
         {
+            if(doc.productID == 0)
+            {
+                doc.productID = randomID();
+            }    
             var handle = doc.productHandle = handler(doc.productName);
             var checkid = Builders<ProductBaseModel>.Filter.Eq(q => q._id, _id);
             var update = Builders<ProductBaseModel>.Update.Set(p => p.productName, doc.productName)
@@ -141,10 +160,10 @@ namespace DataAccessLayer.Owners.PetHotel
                 .Set(p => p.statusID, doc.statusID)
                 .Set(p => p.description, doc.description)
                 .Set(handle, doc.productHandle);
-                
 
-            var result= repository.productRepository.Update(checkid, update);
-            
+
+            var result = repository.productRepository.Update(checkid, update);
+
             return result;
         }
         public Task<List<ProductModel>> GetTop()
@@ -275,5 +294,6 @@ namespace DataAccessLayer.Owners.PetHotel
 
 
         }
+
     }
 }

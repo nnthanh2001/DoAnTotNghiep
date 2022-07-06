@@ -5,6 +5,7 @@ using BusinessLogicLayer.Owners.PetHotel.Invoice;
 using BusinessLogicLayer.Owners.PetHotel.Login;
 using BusinessLogicLayer.Owners.PetHotel.Product;
 using BusinessLogicLayer.Owners.PetHotel.Service;
+using BusinessLogicLayer.Owners.PetHotel.Statistical;
 using BusinessLogicLayer.Owners.PetHotel.Status;
 using BusinessLogicLayer.Owners.PetHotel.User;
 using Contracts.RepositoryWrapper;
@@ -14,6 +15,7 @@ using DataAccessLayer.Owners.PetHotel.Invoice;
 using DataAccessLayer.Owners.PetHotel.Login;
 using DataAccessLayer.Owners.PetHotel.Product;
 using DataAccessLayer.Owners.PetHotel.Service;
+using DataAccessLayer.Owners.PetHotel.Statistical;
 using DataAccessLayer.Owners.PetHotel.Status;
 using DataAccessLayer.Owners.PetHotel.User;
 
@@ -30,7 +32,7 @@ namespace DataAccessLayer.BusinessWrapper
         IUserFormBal _userForm;
         ICategoryBal _category;
         ILoginBal _login;
-
+        IStatisticalBal _statistical;
         readonly IRepositoryWrapper repository;
 
         public BusinessWrapper(IRepositoryWrapper repository)
@@ -49,7 +51,6 @@ namespace DataAccessLayer.BusinessWrapper
                 return _user;
             }
         }
-
         public IProductBal product
         {
             get
@@ -61,7 +62,6 @@ namespace DataAccessLayer.BusinessWrapper
                 return _product;
             }
         }
-
         public IServiceBal service
         {
             get
@@ -73,8 +73,7 @@ namespace DataAccessLayer.BusinessWrapper
                 return _serivice;
             }
         }
-
-        public IInvoiceBal invoice
+        public IInvoiceBal order
         {
             get
             {
@@ -85,7 +84,6 @@ namespace DataAccessLayer.BusinessWrapper
                 return _invoice;
             }
         }
-
         public IRoleBal role
         {
             get
@@ -97,7 +95,6 @@ namespace DataAccessLayer.BusinessWrapper
                 return _role;
             }
         }
-
         public IStatusBal status
         {
             get
@@ -109,7 +106,6 @@ namespace DataAccessLayer.BusinessWrapper
                 return _status;
             }
         }
-
         public ICategoryBal category
         {
             get
@@ -121,7 +117,6 @@ namespace DataAccessLayer.BusinessWrapper
                 return _category;
             }
         }
-
         public ILoginBal login
         {
             get
@@ -133,7 +128,6 @@ namespace DataAccessLayer.BusinessWrapper
                 return _login;
             }
         }
-
         public IUserFormBal userForm
         {
             get
@@ -143,6 +137,17 @@ namespace DataAccessLayer.BusinessWrapper
                     _userForm = new UserFormDal(repository);
                 }
                 return _userForm;
+            }
+        }
+        public IStatisticalBal statistical
+        {
+            get
+            {
+                if (_statistical == null)
+                {
+                    _statistical = new StatisticalDal(repository);
+                }
+                return _statistical;
             }
         }
     }

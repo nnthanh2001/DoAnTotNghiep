@@ -30,9 +30,39 @@ namespace DATN.PetShop.Admin.handleRequest.Product.Product
          : "";
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.productAPI;
+            var searchProductApiUrl = Globals.listProductAPI + "?k=" + id;
             switch (type)
             {
                 case "get":
+                    var strProduct = Restful.Get<List<ProductModel>>(baseUrl, searchProductApiUrl).Result;
+                    if (strProduct != null)
+                    {
+                        foreach (var product in strProduct)
+                        {
+                            string price = String.Format("{0:0,00₫}", product.price);
+                            var strProductList = @" <tr>
+                <td>" + product.productID + @"</td>
+                <td>
+                     <img src='" + product.image + @"' alt='' height='40' class='me-2'>
+                     <p class='d-inline-block align-middle mb-0'>
+                     <a href='/san-pham/" + product.productHandle + @"-" + product._id + @"' class='d-inline-block align-middle mb-0 product-name'>" + product.productName + @"</a>
+                     <br>
+                     </p>
+                </td>
+                <td>" + product.petTypeName + @"</td>
+                <td>" + product.categoryName + @"</td>
+                <td><div class='line-clamp'>" + product.description + @" </div></td>
+                <td>" + product.quantity + @"</td>
+                <td>" + price + @"</td>
+                <td>" + product.statusName + @"</td>
+                <td><a href='/san-pham/" + product.productHandle + @"-" + product._id + @"'><i class='las la-pen text-secondary font-16'></i></a> 
+                <a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton' value='" + product._id + @"'></i></a></td>
+                </tr>";
+
+                            
+                        }
+                    }
+                   
 
                     break;
                 case "post":

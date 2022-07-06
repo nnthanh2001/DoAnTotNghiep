@@ -27,6 +27,7 @@ namespace Repository.Owners.PetHotel.Order
         public Task<bool> Delete(FilterDefinition<OrderModel> filter) => query.Delete(db, table, filter);
         public Task<List<OrderModel>> GetAll() => query.GetAll<OrderModel>(db, table);
         public Task<OrderModel> GetId(FilterDefinition<OrderModel> filter) => query.GetId(db, table, filter);
+        public Task<List<OrderModel>> GetListOrderById(FilterDefinition<OrderModel> filter) => query.GetListById(db, table, filter);
         public Task<bool> Update(FilterDefinition<OrderModel> filter, UpdateDefinition<OrderModel> update) => query.Update(db, table, filter, update);
     }
 }

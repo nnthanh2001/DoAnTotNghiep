@@ -13,7 +13,7 @@ namespace BusinessLogicLayer.Owners.PetHotel
         Task<ProductBaseModel> Add(ProductBaseModel doc);
         Task<bool> Update(ProductBaseModel doc, string _id);
         Task<bool> Delete(string _id);
-        Task<List<ProductModel>> GetProduct();
+        Task<List<ProductModel>> GetProduct(string k="");
         Task<List<ProductModel>> GetTop();
         Task<List<ProductModel>> GetBest();
         Task<ProductModel> GetId(string _id);

@@ -1,5 +1,7 @@
 ﻿using Entities.Order;
 using Entities.Product;
+using Entities.Request;
+using Entities.User;
 using HttpClient_API;
 using HttpClient_API.Core.Global;
 using Newtonsoft.Json;
@@ -40,26 +42,34 @@ namespace DATN.PetShop.User.site.cart
             var baseUrl = Globals.baseAPI;
             var orderApi = Globals.orderAPI + "/" + id;
             var itemBody = new StringBuilder();
+            var checkLoginHtml = new StringBuilder();
+            var strcheckCart = new StringBuilder();
             //var order = Restful.Get<OrderModel>(baseUrl, orderApi).Result;
+
+
             string subTotal = "0";
+            
             if (Session["Order"] != null)
             {
+                
                 var strorder = Session["Order"].ToString();
-
                 var order = JsonConvert.DeserializeObject<OrderModel>(strorder);
                 subTotal = String.Format("{0:0,00đ}", order.subTotal);
-
+                
                 foreach (var item in order.productList)
                 {
+                    
+                    
                     string price = String.Format("{0:0,00₫}", item.price);
                     string total = String.Format("{0:0,00₫}", item.total);
 
-                    var itemHtml = @"<tr>
+                    var itemHtml = @" <tbody><tr>
+                                            <td class='product-remove'><a href='javascript:void(0);' jsaction='deleteItemButton' value='" + item._id + @"'><i class='ti-trash'></i></a></td>
                                             <td class='product-thumbnail'>
                                                 <a href='/chi-tiet-san-pham/" + item.productHandle + "-" + item._id + "-" + item.categoryID + @"'>
-                                                    <img src='" + item.image+ @"' alt=''style='height: 150px;'></a>
-                                                    <p>"+ item.productName + @"</p>
+                                                    <img src='" + item.image + @"' alt=''style='height: 150px;'></a>
                                              </td>
+                                            <td class='product-name'><a href='/chi-tiet-san-pham/" + item.productHandle + "-" + item._id + "-" + item.categoryID + @"'>" + item.productName + @"</a></td>
                                             <td class='product-price-cart'><span class='amount'>" + price + @"</span></td>
                                             <td class='product-quantity'>
                                                 <div class='cart-plus-minus'>
@@ -67,19 +77,119 @@ namespace DATN.PetShop.User.site.cart
                                                 </div>
                                             </td>
                                             <td class='product-subtotal'>" + total + @"</td>
-                                            <td class='product-remove'><a href='javascript:void(0);' jsaction='deleteItemButton' value='" + item._id + @"'><i class='ti-trash'></i></a></td>
-                                        </tr>";
+                                           
+                                        </tr>
+                                      </tbody>";
                     itemBody.Append(itemHtml);
 
 
                 }
             }
-            else
+            if (Session["Order"] == null || Session["Order"].ToString() == "")
             {
-                var itemHtml = @"<tr><h3>Hiện tại không có sản phẩm nào trong giỏ hàng! </h3></tr>";
+                var itemHtml = @"<h4 style='text-align: center;'>Hiện tại không có sản phẩm nào trong giỏ hàng!</h4>";
                 itemBody.Append(itemHtml);
             }
 
+            
+            if (Session["login"] == null)
+            {
+                var checkLogin = @"<div class='panel-heading'>
+                                    <h5 class='panel-title'><a data-toggle='collapse'href='javascript:void(0);' jsaction='notification'>Tiến hành thanh toán</a></h5>
+                                </div>";
+                checkLoginHtml.AppendLine(checkLogin);
+            }
+            else
+            {
+                var strCustomer = Session["login"].ToString();
+                var customer = JsonConvert.DeserializeObject<RequestModel<UserModel>>(strCustomer);
+                var user = customer.model;
+
+                if (Session["Order"] != null)
+                {
+                    var strorder = Session["Order"].ToString();
+                    var order = JsonConvert.DeserializeObject<OrderModel>(strorder);
+                    var checkCart = order.productList.Count;
+                    
+                    if (checkCart == 0)
+                    {
+                        var buttonCheckout = @"<div class='billing-btn'>
+                    <button type='submit'><a jsaction='checkListProduct'>Tiếp tục</a></button>
+                </div>";
+                        strcheckCart.Append(buttonCheckout);
+                    }
+                    else
+                    {
+                        var buttonCheckout = @"<div class='billing-btn'>
+                    <button type='submit'><a jsaction='checkOut' href='thanh-toan'>Tiếp tục</a></button>
+                </div>";
+                        strcheckCart.Append(buttonCheckout);
+                    }
+                }
+                    
+                var checkLogin = @"
+<div class='panel-heading'>
+    <h5 class='panel-title'><a data-toggle='collapse' data-parent='#faq' href='#payment-5'>Tiến hành thanh toán</a></h5>
+</div>
+<div id='payment-5' class='panel-collapse collapse'>
+    <div class='panel-body'>
+        <div class='payment-info-wrapper'>
+            <h4>Thông tin nhận hàng</h4>
+            <div class='payment-info'>
+                <div class='row'>
+                    <div class='col-lg-12 col-md-12'>
+                        <div class='billing-select card-mrg'>
+                            <label>Họ và tên (Full name)</label>
+                            <input type='text' data_value='userName' value='" + user.userName + @"'>
+                        </div>
+                    </div>
+                    <div class='col-lg-12 col-md-12'>
+                        <div class='billing-select card-mrg'>
+                            <label>Email (Email address)</label>
+                            <input type='text' data_value='email' value='" + user.email + @"'>
+                        </div>
+                    </div>
+                    <div class='col-lg-12 col-md-12'>
+                        <div class='billing-select card-mrg'>
+                            <label>Địa chỉ giao hàng (Address) </label>
+                            <input type='text' data_value='addressDelivery' value='" + user.address + @"'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='col-lg-12 col-md-12'>
+                        <div class='billing-select card-mrg'>
+                            <label>Số điện thoại (Phone number)</label>
+                            <input type='number' data_value='phone' value='" + user.phone + @"'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='ship-wrapper'>
+            <h6>Phương thức thanh toán:</h6>
+                <div class='single-ship' data_value='payment'>
+                    <input type='radio' checked='' value='1'>
+                    <label>Thanh toán sau khi nhận hàng </label>
+                </div>
+                <div class='single-ship'>
+                    <input type='radio' value='2'>
+                    <label>Thanh toán online </label>
+                </div>
+            </div>
+            <div class='billing-back-btn'>
+                <div class='billing-back'>
+                    <a href='site/checkout/checkout.aspx'><i class='ti-arrow-up'></i>Quay lại trang trước</a>
+                </div>
+                " + strcheckCart.ToString() + @"
+
+            </div>
+        </div>
+    </div>
+</div>";
+                checkLoginHtml.Append(checkLogin);
+            }
+            
             var header = @"<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
             <div class='container'>
                 <div class='breadcrumb-content text-center'>
@@ -93,114 +203,52 @@ namespace DATN.PetShop.User.site.cart
         </div>";
 
             var body = @"<div class='cart-main-area pt-95 pb-100'>
-            <div class='container'>
-                <h3 class='page-title'>Mục giỏ hàng của bạn</h3>
-                <div class='row'>
-                    <div class='col-lg-12 col-md-12 col-sm-12 col-12'>
-
-                        <form action='#'>
-                            <div class='table-content table-responsive'>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            
-                                            <th>Tên sản phẩm</th>
-                                            <th>Giá sản phẩm</th>
-                                            <th>Số lượng</th>
-                                            <th>Tổng tiền</th>
-                                            <th>Xóa</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        " + itemBody.ToString() + @"
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class='row'>
-                                <div class='col-lg-12'>
-                                    <div class='cart-shiping-update-wrapper'>
-                                        <div class='cart-shiping-update'>
-                                            <a href='san-pham'>Tiếp tục mua hàng</a>
-                                            <a href='#'>Cập nhật giỏ hàng</a>
-                                        </div>
-                                        <div class='cart-clear'>
-                                            <a href='#'>Xóa toàn bộ sản phẩm trong giỏ hàng</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
+    <div class='container'>
+        <h3 class='page-title'>Mục giỏ hàng của bạn</h3>
+        <div class='row'>
+            <div class='col-lg-12 col-md-12 col-sm-12 col-12'>
+                <form action='#'>
+                    <div class='table-content table-responsive'>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Xóa</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng tiền</th>
+                                </tr>
+                            </thead>
+                           
+                                " + itemBody.ToString() + @"
+                            
+                        </table>
+                    </div>
+                    <div class='row'>
                         <div class='col-lg-12'>
-                            <div class='grand-totall'>
-                               
-                                <h5>Tổng tiền:   " + subTotal + @"</h5>
-                                <div class='panel-heading'>
-                                    <h5 class='panel-title'><a data-toggle='collapse' data-parent='#faq' href='#payment-5'>Tiến hành thanh toán</a></h5>
+                            <div class='cart-shiping-update-wrapper'>
+                                <div class='cart-shiping-update'>
+                                    <a href='san-pham'>Tiếp tục mua hàng</a>
+                                    <a href='#'>Cập nhật giỏ hàng</a>
                                 </div>
-
-                                <div id='payment-5' class='panel-collapse collapse'>
-                                    <div class='panel-body'>
-                                        <div class='payment-info-wrapper'>
-                                            <div class='ship-wrapper'>
-                                                <div class='single-ship'>
-                                                    <input type='radio' checked='' value='address' name='address'>
-                                                    <label>Thanh toán online </label>
-                                                </div>
-                                                <div class='single-ship'>
-                                                    <input type='radio' value='dadress' name='address'>
-                                                    <label>Thanh toán sau khi nhận hàng </label>
-                                                </div>
-                                            </div>
-                                            <div class='payment-info'>
-                                                <div class='row'>
-                                                    <div class='col-lg-12 col-md-12'>
-                                                        <div class='billing-select card-mrg'>
-                                                            <label>Họ và tên (Full name)</label>
-                                                            <input type='text' data_value='userName'>
-                                                        </div>
-                                                    </div>
-                                                    <div class='col-lg-12 col-md-12'>
-                                                        <div class='billing-select card-mrg'>
-                                                            <label>Email (Email address)</label>
-                                                            <input type='text' data_value='email'>
-                                                        </div>
-                                                    </div>
-                                                    <div class='col-lg-12 col-md-12'>
-                                                        <div class='billing-select card-mrg'>
-                                                            <label>Địa chỉ giao hàng (Address) </label>
-                                                            <input type='text' data_value='addressDelivery'>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class='row'>
-                                                    <div class='col-lg-12 col-md-12'>
-                                                        <div class='billing-select card-mrg'>
-                                                            <label>Số điện thoại (Phone number)</label>
-                                                            <input type='number' data_value='phone'>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class='billing-back-btn'>
-                                                <div class='billing-back'>
-                                                    <a href='site/checkout/checkout.aspx'><i class='ti-arrow-up'></i>Quay lại trang trước</a>
-                                                </div>
-                                                <div class='billing-btn'>
-                                                    <button type='submit'><a href='/thanh-toan' jsaction='checkOut'>Tiếp tục</a></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class='cart-clear' jsaction='deleteAllButton'>
+                                    <a href='gio-hang'>Xóa toàn bộ sản phẩm trong giỏ hàng</a>
                                 </div>
                             </div>
                         </div>
-
+                    </div>
+                </form>
+                <div class='col-lg-12'>
+                    <div class='grand-totall'>
+                        <h5>Tổng tiền:" + subTotal + @"</h5>
+                        " + checkLoginHtml.ToString() + @"     
                     </div>
                 </div>
             </div>
-        </div>";
+        </div>
+    </div>
+</div>";
 
             var footer = @"";
 

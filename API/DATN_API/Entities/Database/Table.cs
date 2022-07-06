@@ -12,7 +12,8 @@ namespace Entities.Database
         Product, PetType , ProductType, ProductForm, Page, wrapper,
         Service, PriceByCondition,
         Invoice,
-        Category, Login,Order
+        Category, Login,Order,
+            Statistical,
 
     }
 }

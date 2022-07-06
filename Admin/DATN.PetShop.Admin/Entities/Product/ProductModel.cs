@@ -29,15 +29,16 @@ namespace Entities.Product
         public string categoryName { get; set; }
         public int productTypeID { get; set; }
         public string productHandle { get; set; }
+        
     }
     public class ProductBaseModel : BaseModel
     {
+        public int quantity { get; set; }
         public int productID { get; set; }
         public string image { get; set; }
         public string productName { get; set; }
         public int petTypeID { get; set; }
         public string description { get; set; }
-        public int quantity { get; set; }
         public int price { get; set; }
         public int statusID { get; set; }
         public int categoryID { get; set; }

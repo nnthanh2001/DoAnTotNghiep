@@ -83,9 +83,10 @@
                                             </tr>
                                         </tfoot>
                                     </table>
+                                  
                                 </section>
                                 <p>Cảm ơn quý khách đã đặt hàng. Nhân viên của chúng tôi sẽ gọi điện lại cho quý khách để xác nhận đơn hàng, thông báo phí giao hàng (nếu có) và hướng dẫn quý khách các phương thức thanh toán. Mọi chi tiết xin liên hệ Tổng đài 024.7106.9906 – 028.7106.9906 để được hỗ trợ.</p>
-                                <button class="btn-style" type="button" jsaction="Order">Xác nhận</button>
+                                <button class="btn-style" type="button" jsaction="Order"><a href="hoan-tat-dat-hang">Xác nhận</a></button>
                             </div>
                         </div>
                     </div>

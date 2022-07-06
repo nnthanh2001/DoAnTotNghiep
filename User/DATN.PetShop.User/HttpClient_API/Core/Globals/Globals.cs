@@ -23,5 +23,6 @@ namespace HttpClient_API.Core.Global
         public static string productDetailPage = "api/Product/Client/ProductDetailPage";
         public static string getOneProductAPI = "api/Product";
 
+        public static string listProductAPI = "/api/Product/Admin";
     }
 }

@@ -20,7 +20,7 @@ var SignIn = function () {
             var data = { "request": "signIn", "data": json };
             var option = { url: signInHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
-            request.post()
+            request.post();
 
         });
 
@@ -36,28 +36,21 @@ var SignIn = function () {
 
         //});
     };
-
+    function isEmail(email) {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+    }
     that.bindValue = function () {
+
         var userName = $.trim($('[data_value="userName"]').val());
         var password = $.trim($('[data_value="password"]').val());
-
-        if (userName != '' || password != '') {
-            if (userName == '') {
-                alert('Chưa nhập tên tài khoản');
+        if (userName != "") {
+            if (isEmail(userName) == false) {
+                alert("Email không chính xác, vui lòng nhập lại!")
                 return false;
             }
-            else {
-                if (password == '') {
-                    alert('Chưa nhập mật khẩu!');
-                    return false;
-                }
-            }
         }
-        else {
-            alert('Chưa nhập tài khoản , mật khẩu !');
-            return false;
-        }
-
+       
         var json = { "UserName": userName, "Password": password };
         var doc = JSON.stringify(json);
         return doc;
@@ -66,6 +59,10 @@ var SignIn = function () {
     that.result = function (json) {
 
         console.log(json);
-        window.location.href = json.href;
+        alert(json.message);
+        if (json.message == "Đăng nhập thành công!") {
+            window.location.href = json.href;
+        }
+       
     };
 };

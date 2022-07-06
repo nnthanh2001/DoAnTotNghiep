@@ -8,6 +8,7 @@ using Contracts.Owners.PetHotel.Page;
 using Contracts.Owners.PetHotel.Product;
 using Contracts.Owners.PetHotel.Service;
 using Contracts.Owners.PetHotel.Staff;
+using Contracts.Owners.PetHotel.Statistical;
 using Contracts.Owners.PetHotel.Status;
 using Contracts.Owners.PetHotel.User;
 using Contracts.RepositoryWrapper;
@@ -19,6 +20,7 @@ using Repository.Owners.PetHotel.Order;
 using Repository.Owners.PetHotel.Page;
 using Repository.Owners.PetHotel.Product;
 using Repository.Owners.PetHotel.Service;
+using Repository.Owners.PetHotel.Statistical;
 using Repository.Owners.PetHotel.Status;
 using Repository.Owners.PetHotel.User;
 
@@ -39,7 +41,7 @@ namespace Repository.RepositoryWrapper
         IConditionRepository _conditionRepository;
         ICategoryRepository _categoryRepository;
         ILoginRepository _loginRepository;
-
+        IStatisticalRepository _statisticalRepository;
         private readonly IQuery query;
         public RepositoryWrapper(IQuery Query)
         {
@@ -84,7 +86,7 @@ namespace Repository.RepositoryWrapper
             {
                 if (_invoiceRepository == null)
                 {
-                    _invoiceRepository = new InvoiceRepository(query);
+                    _invoiceRepository = new Owners.PetHotel.Invoice.OrderRepository(query);
                 }
                 return _invoiceRepository;
             }
@@ -185,9 +187,21 @@ namespace Repository.RepositoryWrapper
             {
                 if (_orderRepository == null)
                 {
-                    _orderRepository = new OrderRepository(query);
+                    _orderRepository = new Owners.PetHotel.Order.OrderRepository(query);
                 }
                 return _orderRepository;
+
+            }
+        }
+        public IStatisticalRepository statisticalRepository
+        {
+            get
+            {
+                if (_statisticalRepository == null)
+                {
+                    _statisticalRepository = new StatisticalRepository(query);
+                }
+                return _statisticalRepository;
 
             }
         }

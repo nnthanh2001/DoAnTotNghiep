@@ -125,8 +125,9 @@
                                     </li>
                                     <!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/hoa-don"><i class="ti ti-file-invoice menu-icon"></i><span>Danh sách hóa đơn</span></a>
+                                        <a class="nav-link" href="/don-hang"><i class="ti ti-file-invoice menu-icon"></i><span>Đơn hàng</span></a>
                                     </li>
+                                    
                                     <!--end nav-item-->
 
                                 </ul>
@@ -169,7 +170,7 @@
     <!-- end leftbar-tab-menu-->
     <!-- Top Bar Start -->
     <!-- Top Bar Start -->
-    <div class="topbar">
+    <%--<div class="topbar">
         <!-- Navbar -->
         <nav class="navbar-custom" id="navbar-custom">
             <ul class="list-unstyled topbar-nav mb-0">
@@ -187,7 +188,7 @@
             </ul>
         </nav>
         <!-- end navbar-->
-    </div>
+    </div>--%>
     <!-- Top Bar End -->
     <!-- Top Bar End -->
 
@@ -226,6 +227,8 @@
     <script src="assets/js/owner/view/Authentication/signIn/signIn.js"></script>
     <script src="assets/js/owner/view/owner/product/product.js"></script>
     <script src="assets/js/owner/view/owner/user/user.js"></script>
+    <script src="assets/js/owner/view/owner/order/order.js"></script>
+    <script src="assets/js/owner/view/owner/service/service.js"></script>
     <script src="assets/js/owner/wrapper/wrapper.js"></script>
     <script src="assets/js/upload/jsUpload.js"></script>
     <form runat="server" id="frm"></form>

@@ -41,7 +41,7 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.Service
 
                     if (data != null)
                     {
-                        var addUser = JsonConvert.DeserializeObject<ServiceModel>(data);
+                        var addUser = JsonConvert.DeserializeObject<ServiceFormModel>(data);
                         var str = Restful.Post(baseUrl, apiUrl, addUser);
                         if (str != null && str != "")
                         {
@@ -50,7 +50,7 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.Service
 
                                 var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","nhan-vien"}
+                            
                         };
                                 result = JsonConvert.SerializeObject(dicResult);
                             }
@@ -59,7 +59,7 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.Service
 
                     break;
                 case "put":
-                    var editUser = JsonConvert.DeserializeObject<ServiceModel>(data);
+                    var editUser = JsonConvert.DeserializeObject<ServiceFormModel>(data);
                     var strPut = Restful.Put(baseUrl, apiUrl + "/" + id, editUser);
                     if (strPut != null && strPut != "")
                     {
@@ -67,7 +67,7 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.Service
                         {
                             var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","nhan-vien"}
+                           {"href","dich-vu"}
                         };
                             result = JsonConvert.SerializeObject(dicResult);
                         }
@@ -82,7 +82,7 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.Service
 
                             var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","nhan-vien"}
+                           
                         };
                             result = JsonConvert.SerializeObject(dicResult);
                         }

@@ -753,7 +753,7 @@
     <Content Include="site\home\home.aspx" />
     <Content Include="site\login\HtmlPage1.html" />
     <Content Include="site\login\login.aspx" />
-    <Content Include="site\products\HtmlPage1.html" />
+    <Content Include="site\orderComplete\orderComplete.aspx" />
     <Content Include="site\products\productDetail.aspx" />
     <Content Include="site\products\productPage.aspx" />
     <Content Include="site\service\service.aspx" />
@@ -899,6 +899,13 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\ModalQuickView\GetQuickView.cs" />
+    <Compile Include="site\orderComplete\orderComplete.aspx.cs">
+      <DependentUpon>orderComplete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\orderComplete\orderComplete.aspx.designer.cs">
+      <DependentUpon>orderComplete.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\products\productDetail.aspx.cs">
       <DependentUpon>productDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1091,12 +1098,13 @@
       <Name>HttpClient_API</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="site\order\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
@@ -1109,12 +1117,15 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53860</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44382/</IISUrl>
+          <IISUrl>https://localhost:44383/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:53860/" workingDir="" />
+          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

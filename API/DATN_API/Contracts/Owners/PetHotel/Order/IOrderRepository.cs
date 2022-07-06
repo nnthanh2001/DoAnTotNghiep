@@ -14,6 +14,7 @@ namespace Contracts.Owners.PetHotel.Order
         Task<bool> Update(FilterDefinition<OrderModel> filter, UpdateDefinition<OrderModel> update);
         Task<bool> Delete(FilterDefinition<OrderModel> filter);
         Task<List<OrderModel>> GetAll();
+        Task<List<OrderModel>> GetListOrderById(FilterDefinition<OrderModel> filter);
         Task<OrderModel> GetId(FilterDefinition<OrderModel> filter);
     }
 }

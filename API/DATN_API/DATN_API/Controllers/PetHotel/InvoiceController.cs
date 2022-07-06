@@ -20,12 +20,12 @@ namespace DATN_API.Controllers.PetHotel
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await businessWrapper.invoice.GetAll());
+            return Ok(await businessWrapper.order.GetAll());
         }
         [HttpDelete]
         public async Task<IActionResult> DeleteInvoice(int id)
         {
-            return Ok(await businessWrapper.invoice.Delete(id));
+            return Ok(await businessWrapper.order.Delete(id));
         }
     }
 }

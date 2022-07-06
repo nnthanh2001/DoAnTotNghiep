@@ -56,8 +56,8 @@ namespace DATN_API.Controllers.PetHotel
         [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn(LoginModel login)
         {
-            var add = await BusinessWrapper.login.GetId(login);
-            return Ok(add);
+            var mess = await BusinessWrapper.login.GetId(login);
+            return Ok(mess);
         }
         [HttpGet("EditUser/{_id}")]
         public async Task<IActionResult> EditUser(string _id)

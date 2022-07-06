@@ -42,12 +42,35 @@ namespace DATN.PetShop.Admin.site.products.services
                 strBody.Append("<td>" + service.condition + "</td>");
                 strBody.Append("<td>" + price + "</td>");
                 strBody.Append("<td>" + service.statusName + "</td>");
-                strBody.Append("<td><a href='dich-vu/" + service.serviceHandle + "-" + service._id + "'><i class='las la-pen text-secondary font-16'></i></a> <a href='dich-vu'><i class='las la-trash-alt text-secondary font-16 onclick='executeExample('warningConfirm')''></i></a></td>");
+                strBody.Append("<td><a href='dich-vu/" + service.serviceHandle + "-" + service._id + "'><i class='las la-pen text-secondary font-16'></i></a> <a href='dich-vu'><i class='las la-trash-alt text-secondary font-16 jsaction='deleteServiceButton' value='" + service._id + @"'></i></a></td>");
                 strBody.Append("</tr>");
             }
 
             //header
-            var header = @"<div class='container-fluid'>
+            var header = @"<div class='topbar'>
+        <!-- Navbar -->
+        <nav class='navbar-custom' id='navbar-custom'>
+            <ul class='list-unstyled topbar-nav mb-0'>
+                <li>
+                    <button class='nav-link button-menu-mobile nav-icon' id='togglemenu'>
+                        <i class='ti ti-menu-2'></i>
+                    </button>
+                </li>
+                <li class='hide-phone app-search'>
+                    <form role='k' action='' method='get'>
+                        <input type='k' name='k' class='form-control top-search mb-0' placeholder='Tìm kiếm...'>
+                        <button type='submit'><i class='ti ti-search'></i></button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <!-- end navbar-->
+    </div>
+
+
+
+
+<div class='container-fluid'>
         <!-- Page-Title -->
         <div class='row'>
             <div class='col-sm-12'>

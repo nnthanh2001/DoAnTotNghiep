@@ -29,7 +29,7 @@ namespace Repository.Owners.PetHotel.Product
             => query.GetPaging<ProductFormModel>(database, table, filter, sort, pageIndex, pageSize);
         public Task<ProductModel> GetId(FilterDefinition<ProductModel> filter) => query.GetId(db, table, filter);
         public Task<List<ProductModel>> GetListProductById(FilterDefinition<ProductModel> filter) => query.GetListById(db, table, filter);
-        public Task<List<ProductModel>> GetProduct() => query.GetAll<ProductModel>(db, table);
+        public Task<List<ProductModel>> GetProduct(SortDefinition<ProductModel> sort = null, FilterDefinition<ProductModel> filter=null) => query.GetAll<ProductModel>(db, table, filter, sort);
         public Task<List<ProductModel>> GetTopProduct(SortDefinition<ProductModel> sort = null, int limit = 0) => query.GetAll<ProductModel>(db, table, null,sort,limit);
         public Task<bool> Update(FilterDefinition<ProductBaseModel> filter, UpdateDefinition<ProductBaseModel> update) => query.Update(db, table, filter, update);
         public Task<ProductFormModel> GetProductFormById(FilterDefinition<ProductFormModel> filter) => query.GetId(db, table, filter);

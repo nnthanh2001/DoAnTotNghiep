@@ -23,6 +23,10 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
 
         public Task<OrderModel> Add(OrderModel doc)
         {
+            string currentDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            doc.status = "Đang xác nhận";
+            doc.payment = "Thanh toán sau khi nhận hàng";
+            doc.date = currentDate;
             return repository.invoiceRepository.Add(doc);
         }
 
@@ -32,14 +36,15 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
             return repository.invoiceRepository.Delete(filter);
         }
 
-        public Task<List<InvoiceModel>> GetAll()
+        public Task<List<OrderModel>> GetAll()
         {
-            return repository.invoiceRepository.GetAll();
+            var sort = Builders<OrderModel>.Sort.Descending("_id");
+            return repository.invoiceRepository.GetAll(sort);
         }
 
-        public Task<InvoiceModel> GetId(int invoiceID)
+        public Task<OrderModel> GetId(string id)
         {
-            var filter = Builders<InvoiceModel>.Filter.Eq(q => q.invoiceID, invoiceID);
+            var filter = Builders<OrderModel>.Filter.Eq(q => q._id, id);
             return repository.invoiceRepository.GetId(filter);
         }
 

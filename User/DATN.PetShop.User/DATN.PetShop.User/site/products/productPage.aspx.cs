@@ -20,6 +20,12 @@ namespace DATN.PetShop.User.site.products
             var request = Route.Values;
             if (!Page.IsPostBack)
             {
+                var keyword = Request["k"] != null && Request["k"].ToString() != ""
+               ? Request["k"].ToString().ToLower().Trim()
+               : "";
+                var pageIndex = Request["p"] != null && Request["p"].ToString() != ""
+               ? int.Parse(Request["p"]?.ToString() ?? "0")
+               : 0;
                 var handle = request["handle"] != null && request["handle"].ToString() != ""
                 ? request["handle"].ToString().ToLower().Trim()
                 : "";
@@ -29,24 +35,27 @@ namespace DATN.PetShop.User.site.products
                 if (id == null || id == "")
                 {
                     var categoryID = 0;
-                    var getProduct = GetDataProduct(categoryID);
+                    var getProduct = GetDataProduct(categoryID, keyword);
                     main.InnerHtml = getProduct;
                 }
                 else
                 {
                     var categoryId = int.Parse(id);
-                    var getProduct = GetDataProduct(categoryId);
+                    var getProduct = GetDataProduct(categoryId, keyword);
                     main.InnerHtml = getProduct;
                 }
             }
 
         }
-        public string GetDataProduct(int categoryId)
+        public string GetDataProduct(int categoryId, string k = "")
         {
 
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.productPageAPI + "?id=" + categoryId;
+            var productList = Globals.listProductAPI;
+            if (k != "") productList += "?k=" + k;
 
+            var strProduct = Restful.Get<List<ProductModel>>(baseUrl, productList).Result;
             var productPage = Restful.Get<ProductPage>(baseUrl, apiUrl).Result;
 
             var strBodyProduct = new StringBuilder();
@@ -184,8 +193,8 @@ namespace DATN.PetShop.User.site.products
                             <div class='shop-widget'>
                                 <h4 class='shop-sidebar-title'>Tìm kiếm sản phẩm</h4>
                                 <div class='shop-search mt-25 mb-50'>
-                                    <form class='shop-search-form'>
-                                        <input type='text' placeholder='Nhập từ khóa'>
+                                    <form class='shop-search-form' role='k' action='' method='get'>
+                                        <input type='k' name='k' class='form-control top-search mb-0' placeholder='Tìm kiếm...'>
                                         <button type='submit'>
                                             <i class='icon-magnifier'></i>
                                         </button>
@@ -273,15 +282,11 @@ namespace DATN.PetShop.User.site.products
                                 <p>" + productDetail.description + @"</p>
                                 
                                 <div class='quickview-plus-minus'>
-                                    <div class='cart-plus-minus'>
-                                        <input type = 'text' value='1' name='qtybutton' class='cart-plus-minus-box'>
-                                    </div>
+                                   
                                     <div class='quickview-btn-cart'>
                                         <a title='Thêm vào giỏ hàng' href='javascript:void(0);' jsaction='addItemToCartButton' value='" + productDetail._id + @"'>Thêm vào giỏ hàng</a>
                                     </div>
-                                    <div class='quickview-btn-wishlist'>
-                                        <a class='btn-hover' href='#'><i class='ti-heart'></i></a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

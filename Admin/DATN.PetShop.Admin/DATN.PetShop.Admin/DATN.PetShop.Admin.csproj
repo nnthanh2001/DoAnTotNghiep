@@ -323,7 +323,9 @@
     <Content Include="assets\js\json.js" />
     <Content Include="assets\js\owner\restful\Restful.min.js" />
     <Content Include="assets\js\owner\view\authentication\signIn\signIn.js" />
+    <Content Include="assets\js\owner\view\owner\order\order.js" />
     <Content Include="assets\js\owner\view\owner\product\product.js" />
+    <Content Include="assets\js\owner\view\owner\service\service.js" />
     <Content Include="assets\js\owner\view\owner\user\user.js" />
     <Content Include="assets\js\owner\wrapper\wrapper.js" />
     <Content Include="assets\js\upload\jsUpload.js" />
@@ -894,9 +896,11 @@
     <Content Include="assets\plugins\uppy\uppy.min.js" />
     <Content Include="Global.asax" />
     <Content Include="handleRequest\Authentication\signIn\signIn.aspx" />
+    <Content Include="handleRequest\Owner\Order\order.aspx" />
     <Content Include="handleRequest\Owner\Product\product.aspx" />
     <Content Include="handleRequest\Owner\Service\service.aspx" />
     <Content Include="handleRequest\Owner\User\user.aspx" />
+    <Content Include="site\dashboard\costDetail.aspx" />
     <Content Include="site\dashboard\dashboard.aspx" />
     <Content Include="site\invoices\invoice.aspx" />
     <Content Include="site\login\login.aspx" />
@@ -905,6 +909,7 @@
     <Content Include="site\product\addProduct.aspx" />
     <Content Include="site\product\editProduct.aspx" />
     <Content Include="site\product\product.aspx" />
+    <Content Include="site\service\addService.aspx" />
     <Content Include="site\service\editService.aspx" />
     <Content Include="site\service\service.aspx" />
     <Content Include="site\user\addUser.aspx" />
@@ -930,6 +935,13 @@
     </Compile>
     <Compile Include="handleRequest\Authentication\signIn\signIn.aspx.designer.cs">
       <DependentUpon>signIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="handleRequest\Owner\Order\order.aspx.cs">
+      <DependentUpon>order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="handleRequest\Owner\Order\order.aspx.designer.cs">
+      <DependentUpon>order.aspx</DependentUpon>
     </Compile>
     <Compile Include="handleRequest\Owner\Product\product.aspx.cs">
       <DependentUpon>product.aspx</DependentUpon>
@@ -960,6 +972,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="site\dashboard\costDetail.aspx.cs">
+      <DependentUpon>costDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\dashboard\costDetail.aspx.designer.cs">
+      <DependentUpon>costDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\dashboard\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
@@ -1016,6 +1035,13 @@
     </Compile>
     <Compile Include="site\product\product.aspx.designer.cs">
       <DependentUpon>product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\service\addService.aspx.cs">
+      <DependentUpon>addService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\service\addService.aspx.designer.cs">
+      <DependentUpon>addService.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\service\editService.aspx.cs">
       <DependentUpon>editService.aspx</DependentUpon>

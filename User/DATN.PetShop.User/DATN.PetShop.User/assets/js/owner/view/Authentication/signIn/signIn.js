@@ -17,11 +17,11 @@ var SignIn = function () {
             var id = $(this).attr('value');
             var json = that.bindValue();
             console.log(data);
-            var data = { "request": "signIn", "_id": id,"data": json };
+            var data = { "request": "signIn", "_id": id, "data": json };
             var option = { url: signInHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
             request.post()
-            
+
         });
         $('[jsaction="register"]').off('click').on('click', function () {
             var json = that.registerValue();
@@ -30,7 +30,19 @@ var SignIn = function () {
             var option = { url: signInHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
             request.post()
-            
+
+        });
+        $('[jsaction="signOut"]').off('click').on('click', function () {
+           
+            var data = { "request": "register"};
+            var option = { url: signInHandlerUrl, data: data, callback: that.result };
+            request.constructor(option);
+            request.get()
+
+        });
+        $('[jsaction="notification"]').off('click').on('click', function () {
+            alert("Bạn chưa đăng nhập! Vui lòng đăng nhập để tiến hành thanh toán...")
+
         });
 
         //$('[data_value="userName"]').off('keypress keyup').on('keypress keyup', function (e) {
@@ -45,28 +57,19 @@ var SignIn = function () {
 
         //});
     };
-
+    function isEmail(email) {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+    }
     that.bindValue = function () {
         var UserName = $.trim($('[data_value="userName"]').val());
         var Password = $.trim($('[data_value="password"]').val());
-
-        if (UserName != '' || Password != '') {
-            if (UserName == '') {
-                alert('Chưa nhập tên tài khoản');
+        if (UserName != "") {
+            if (isEmail(UserName) == false) {
+                alert("Email không chính xác, vui lòng nhập lại!")
                 return false;
             }
-            else {
-                if (Password == '') {
-                    alert('Chưa nhập mật khẩu!');
-                    return false;
-                }
-            }
-        } else {
-            alert('Chưa nhập tài khoản , mật khẩu !');
-            return false;
         }
-
-        
         var json = { "userName": UserName, "password": Password };
         var doc = JSON.stringify(json);
         return doc;
@@ -91,6 +94,12 @@ var SignIn = function () {
                 alert('Chưa nhập email!');
                 return false;
             }
+            else {
+                if (isEmail(email) == false) {
+                    alert("Email không chính xác, vui lòng nhập lại!")
+                    return false;
+                }
+            }
             if (phone == '') {
                 alert('Chưa nhập số điện thoại');
                 return false;
@@ -105,13 +114,16 @@ var SignIn = function () {
             return false;
         }
 
-        var json = { "userName": userNameRegister, "password": passwordRegister, "email": email, "phone": phone, "address": address, "roleID": 5, "userHandle": "khach-hang","statusID": 1};
+        var json = { "userName": userNameRegister, "password": passwordRegister, "email": email, "phone": phone, "address": address, "roleID": 5, "userHandle": "khach-hang", "statusID": 1 };
         var doc = JSON.stringify(json);
         return doc;
     };
     that.result = function (json) {
 
         console.log(json);
-        window.location.href = json.href;
+        alert(json.message);
+        if (json.message == "Đăng nhập thành công!") {
+            window.location.href = json.href;
+        }
     };
 };

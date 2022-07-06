@@ -26,6 +26,7 @@ namespace Entities.Route
             routes.MapPageRoute("cart", "gio-hang", "~/site/cart/cart.aspx", false);
             routes.MapPageRoute("serviceDetail", "dich-vu/chi-tiet-dich-vu", "~/site/service/service_Detail.aspx", false);
             routes.MapPageRoute("account", "tai-khoan/{_id}", "~/site/account/account.aspx", false);
+            routes.MapPageRoute("orderComplete", "hoan-tat-dat-hang", "~/site/orderComplete/orderComplete.aspx", false);
 
 
 

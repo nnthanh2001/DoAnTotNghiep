@@ -141,11 +141,11 @@ namespace DATN.PetShop.User.site.account
                                 </div>
                                 <div class='panel panel-default'>
                                     <div class='panel-heading'>
-                                        <h5 class='panel-title'><span>4</span> <a href='wishlist.html'>Modify your wish list   </a></h5>
+                                        <h5 class='panel-title'><span>3</span> <a href='wishlist.html'>Danh sách sản phẩm yêu thích</a></h5>
                                     </div>
                                 </div>
                                 <div class='billing-btn'>
-                                    <button type='submit'>Đăng xuất</button>
+                                    <button type='submit'jsaction='signOut'>Đăng xuất</button>
                                 </div>
                             </div>
                         </div>

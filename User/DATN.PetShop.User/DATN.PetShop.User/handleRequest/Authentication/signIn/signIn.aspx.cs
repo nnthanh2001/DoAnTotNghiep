@@ -36,37 +36,49 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
          ? Request["data"].ToString()
          : "";
             var result = "";
+            var request = new RequestModel<LoginModel>();
             switch (type)
             {
                 case "get":
+                    Session["login"] = null;
 
+                    var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",200 },
+                            {"href","trang-chu"} ,
+                                    };
+                    result = JsonConvert.SerializeObject(dicResult);
                     break;
                 case "post":
                     if (rq == "signin")
                     {
-                        if (data != "false")
+                        if (data != "false" && data != "")
                         {
+                            var dataLogin = JsonConvert.DeserializeObject<LoginModel>(data);
+                            var str = Restful.Post(baseUrl, apiLoginUrl, dataLogin);
 
-                            var login = JsonConvert.DeserializeObject<LoginModel>(data);
-                            var strLogin = Restful.Post(baseUrl, apiLoginUrl, login);
-                            var user = JsonConvert.DeserializeObject<RequestModel<UserModel>>(strLogin);
-                            if(user.HttpStatusCode == 200)
+                            if (str != null && str != "")
                             {
-                                Session["login"] = strLogin;
-                                var dicResult = new Dictionary<string, object> {
+                                var transfer = JsonConvert.DeserializeObject<RequestModel<LoginModel>>(str);
+                                request = transfer;
+                                if (transfer != null)
+                                {
+                                    if (request.HttpStatusCode == 200)
+                                    {
+                                        Session["login"] = str;
+
+                                         dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","tai-khoan/{_id}"}
-                        };
-                                result = JsonConvert.SerializeObject(dicResult);
-                            }
-                           
-                            else
-                            {
-                                var dicResult = new Dictionary<string, object> {
-                            {"HttpStatusCode",400 },
-                            {"message","Tài khoản không tồn tại vui lòng nhập lại!"}
-                        };
-                                result = JsonConvert.SerializeObject(dicResult);
+                            {"href","gio-hang"} ,
+                            {"message","Đăng nhập thành công!"}
+                                    };
+                                        result = JsonConvert.SerializeObject(dicResult);
+                                    }
+                                    else
+                                    {
+                                        request.HttpStatusCode = 200;
+                                        result = JsonConvert.SerializeObject(request);
+                                    }
+                                }
                             }
                         }
 
@@ -80,19 +92,15 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
                             var strRegister = Restful.Post(baseUrl, apiRegisterUrl, register);
                             if (strRegister != null && strRegister != "")
                             {
-                                if (strRegister != null)
-                                {
-                                    Session["register"] = strRegister;
-                                    var dicResult = new Dictionary<string, object> {
-                            {"HttpStatusCode",200 },
-                            {"href","dang-nhap"}
-                        };
-                                    result = JsonConvert.SerializeObject(dicResult);
 
-                                }
-                            }
-                            else
-                            {
+                                Session["register"] = strRegister;
+                                 dicResult = new Dictionary<string, object> {
+                                    {"HttpStatusCode",200 },
+                                    {"href","dang-nhap"},
+                                    { "message","Đăng ký thành công!, Mời bạn qua phần đăng nhập để vào tài khoản của mình"}
+                                };
+                                result = JsonConvert.SerializeObject(dicResult);
+
 
                             }
                         }
@@ -109,7 +117,7 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
             }
 
 
-            Response.StatusCode = response.HttpStatusCode;
+            Response.StatusCode = 200;
             Response.Write(result);
             Response.End();
         }

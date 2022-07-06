@@ -12,7 +12,7 @@ namespace Entities.Service
     public class ServiceFormModel : ServiceModel
     {
         public List<StatusModel> statusList { get; set; }
-        public List<ConditionModel> conditions { get; set; }
+        public List<ConditionModel> conditionList { get; set; }
     }
     public class ServiceModel : ServiceBaseModel
     {

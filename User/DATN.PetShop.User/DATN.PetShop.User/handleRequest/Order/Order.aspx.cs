@@ -31,55 +31,45 @@ namespace DATN.PetShop.User.handleRequest.Order
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.createOrderAPI;
 
-
-            var jsOrder = @"{ 
-    '_id' :  '' , 
-    'payment' : '', 
-    'shipping' : {
-        
-    }, 
-    'status' : '', 
-    'subTotal' :   0 , 
-    'productList' : [
-        
-    ]
-}
-";
+            
             switch (type)
             {
                 case "get":
 
                     break;
                 case "post":
-                    var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
-                    var dataShipping = JsonConvert.DeserializeObject<Shipping>(data);
 
-                   
-                    var productList = new List<ProductList>();
-                    var lsprod = Session["ProductGuid"] as string;
-                    if (lsprod != null)
+                    if (Session["Order"] != null)
                     {
-                        productList = JsonConvert.DeserializeObject<List<ProductList>>(lsprod);
+                        var strorder = Session["Order"].ToString();
+
+                        var order = JsonConvert.DeserializeObject<OrderModel>(strorder);
+                        
+                        var strPost = Restful.Post(baseUrl, apiUrl, order);
+                        if (strPost != null && strPost != "")
+                        {
+                            if (strPost != null)
+                            {
+
+                                var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",200 },
+                            {"href","thanh-toan" }
+                        };
+                                result = JsonConvert.SerializeObject(dicResult);
+                                Session["Order"] = null;
+                            }
+                        }
                     }
                     else
                     {
-
-                    }
-                    order.shipping = dataShipping;
-                    order.productList = productList;
-                    var strPost = Restful.Post(baseUrl, apiUrl, order);
-                    if (strPost != null && strPost != "")
-                    {
-                        if (strPost != null)
-                        {
-
-                            var dicResult = new Dictionary<string, object> {
-                            {"HttpStatusCode",200 },
-
+                        var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",400 },
+                            {"message",""}
                         };
-                            result = JsonConvert.SerializeObject(dicResult);
-                        }
+                        result = JsonConvert.SerializeObject(dicResult);
                     }
+
+
 
 
                     break;
@@ -91,6 +81,9 @@ namespace DATN.PetShop.User.handleRequest.Order
 
                     break;
             }
+            Response.StatusCode = 200;
+            Response.Write(result);
+            Response.End();
         }
     }
 }

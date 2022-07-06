@@ -40,11 +40,38 @@ var Product = function () {
             request.delete();
             alert("Xóa sản phẩm thành công");
         });
+        //$('[jsaction="search"]').keypress(function (event) {
+        //    var keycode = (event.keyCode ? event.keyCode : event.which);
+        //    if (keycode == '13') {
+        //        var id = $.trim($('[value=""]').val());
+        //        var data = { "request": "searchProduct", "_id": id };
+        //        var option = { url: productHandlerUrl, data: data, callback: that.result };
+        //        request.constructor(option);
+        //        request.get();
+        //        alert("tìm kiếm");
+        //    }
+        //});
+        $('[jsaction="search"]').keypress(function (event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+                changeUrl(a.attr('href'));
+            }
+        });
+        //$('a').click(function () {
+        //    changeUrl(a.attr('href'));
+        //});
+        //$('a').attr('href', '#');
+        //$('button').off('click').on('click', function (e) {
+        //    if (e.keyCode == 13) {
+        //        //event
+        //    }
+        //});
     };
 
     that.bindValue = function () {
         var productName = $.trim($('[data_value="productName"]').val());
         var productID = $.trim($('[data_value="productID"]').val());
+        var image = $.trim($('[data_value="image"]').val());
         var quantity = $.trim($('[data_value="quantity"]').val());
         var price = $.trim($('[data_value="price"]').val());
         var petTypeID = $.trim($('[data_value="petTypeID"]').val());
@@ -55,10 +82,11 @@ var Product = function () {
         var usingExpired = $('[data_value="usingExpired"]')[0].checked;
         var bestProductExpired = $.trim($('[data_value="bestProductExpired"]').val());
 
-        var json = { "productName": productName, "productID": productID, "quantity": quantity, "price": price, "petTypeID": petTypeID, "statusID": statusID, "categoryID": categoryID, "description": description, "productHandle": productHandle, "usingExpired": usingExpired, "bestProductExpired": bestProductExpired, };
+        var json = { "productName": productName, "productID": 0, "image": image, "quantity": quantity, "price": price, "petTypeID": petTypeID, "statusID": statusID, "categoryID": categoryID, "description": description, "productHandle": productHandle, "usingExpired": usingExpired, "bestProductExpired": bestProductExpired, };
         var doc = JSON.stringify(json);
         return doc;
     };
+
     that.result = function (json) {
 
         console.log(json);

@@ -17,7 +17,7 @@ namespace Contracts.Owners.PetHotel.Product
         Task<List<ProductModel>> GetAll();
         Task<List<ProductModel>> GetTopProduct(SortDefinition<ProductModel> sort = null, int limit = 0);
         Task<List<ProductModel>> GetPaging<ProductModel>(string database, string table, FilterDefinition<ProductModel> filter, FilterDefinition<ProductModel> sort, int pageIndex = 1, int pageSize = 10);
-        Task<List<ProductModel>> GetProduct();
+        Task<List<ProductModel>> GetProduct(SortDefinition<ProductModel> sort = null, FilterDefinition<ProductModel> filter = null);
         Task<ProductModel> GetId(FilterDefinition<ProductModel> filter);
         Task<List<ProductModel>> GetListProductById(FilterDefinition<ProductModel> filter);
         Task<ProductFormModel> GetProductFormById(FilterDefinition<ProductFormModel> filter);

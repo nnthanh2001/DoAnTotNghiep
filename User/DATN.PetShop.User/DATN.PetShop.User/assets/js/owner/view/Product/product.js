@@ -14,7 +14,6 @@ var Product = function () {
     };
     that.event = function () {
         $('[jsaction="filterProductByCategory"]').off('click').on('click', function () {
-            
             var id = $(this).attr('value');
             var data = { "request": "filterProduct", "_id": id };
             var option = { url: productHandlerUrl, data: data, callback: that.result };
@@ -23,6 +22,14 @@ var Product = function () {
 
         });
     };
+    $('[jsaction="deleteProductButton"]').off('click').on('click', function () {
+        var id = $(this).attr('value');
+        var data = { "request": "deleteProduct", "_id": id };
+        var option = { url: productHandlerUrl, data: data, callback: that.result };
+        request.constructor(option);
+        request.delete();
+        alert("Xóa sản phẩm thành công");
+    });
     that.bindValue = function () {
 
     };

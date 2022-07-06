@@ -44,7 +44,7 @@ namespace DATN.PetShop.User.handleRequest.Cart
     ]
 }
 ";
-            
+
 
             switch (type)
             {
@@ -59,10 +59,11 @@ namespace DATN.PetShop.User.handleRequest.Cart
                         {
                             lsProductGuid = Session["ProductGuid"] as List<string>;
                         }
-                        else
-                        {
-
-                        }
+                        //else
+                        //{
+                        //    lsProductGuid = new List<string>();
+                        //    lsProductGuid = Session["ProductGuid"] as List<string>;
+                        //}
                         lsProductGuid.Add(id);
 
                         Session["ProductGuid"] = lsProductGuid;
@@ -81,79 +82,119 @@ namespace DATN.PetShop.User.handleRequest.Cart
                                 lsprod.Add(prod);
                             }
                         }
+
+                        var dataShipping = JsonConvert.DeserializeObject<Shipping>(data);
+
+                        order.shipping = dataShipping;
                         order.productList = lsprod;
+
+                        //Session["Order"] = order;
+
                         var strPost = Restful.Post(baseUrl, apiUrl, order);
-                        if (strPost != null && strPost != "")
+
+                        //if (strPost != null && strPost != "")
                         {
                             Session["Order"] = strPost;
-                            if (strPost != null)
-                            {
+                            //Response.Redirect(Page.Request.Path);
+                            //Response.Redirect(Request.RawUrl, true);
+                            //var dicResult = new Dictionary<string, object> {
+                            //        {"HttpStatusCode",200 },
+                            //        {"href","thanh-toan" }
 
-                                var dicResult = new Dictionary<string, object> {
-                            {"HttpStatusCode",200 },
-
-                        };
-                                result = JsonConvert.SerializeObject(dicResult);
-                            }
+                            //    };
+                            //result = JsonConvert.SerializeObject(dicResult);
                         }
+                        
                     }
                     catch (Exception ex)
                     {
 
                     }
-                    
-                   
+
+
                     break;
                 case "put":
-                    
+
                     break;
                 case "delete":
-                    try
+                    if (rq == "deleteitem")
                     {
-                        var lsProductGuid = new List<string>();
-                        if (Session["ProductGuid"] != null)
+                        try
                         {
-                            lsProductGuid = Session["ProductGuid"] as List<string>;
-                        }
-                        else
-                        {
-
-                        }
-                        lsProductGuid.Add(id);
-
-                        Session["ProductGuid"] = lsProductGuid;
-
-
-                        var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
-
-                        var lsprod = new List<ProductList>();
-
-                        if (lsProductGuid != null && lsProductGuid.Count > 0)
-                        {
-                            var product = lsProductGuid.Where(x => !x.Equals(id)).ToList();
-
-                        }
-                        order.productList = lsprod;
-                        var strPost = Restful.Post(baseUrl, apiUrl, order);
-                        if (strPost != null && strPost != "")
-                        {
-                            Session["Order"] = strPost;
-                            if (strPost != null)
+                            var lsProductGuid = new List<string>();
+                            if (Session["ProductGuid"] != null)
                             {
+                                lsProductGuid = Session["ProductGuid"] as List<string>;
+                            }
 
-                                var dicResult = new Dictionary<string, object> {
+                            var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
+
+                            var lsprod = new List<ProductList>();
+                            if (lsProductGuid != null && lsProductGuid.Count > 0)
+                            {
+                                lsProductGuid = lsProductGuid.Where(x => !x.Equals(id)).ToList();
+                                foreach (var product in lsProductGuid)
+                                {
+                                    var prod = new ProductList();
+                                    prod._id = product;
+                                    lsprod.Add(prod);
+                                }
+
+                            }
+                            order.productList = lsprod;
+                            Session["ProductGuid"] = lsProductGuid;
+
+                            var strPost = Restful.Post(baseUrl, apiUrl, order);
+                            if (strPost != null && strPost != "")
+                            {
+                                Session["Order"] = strPost;
+                                if (strPost != null)
+                                {
+
+                                    var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
+                            {"href","gio-hang" }
 
                         };
-                                result = JsonConvert.SerializeObject(dicResult);
+                                    result = JsonConvert.SerializeObject(dicResult);
+                                }
                             }
                         }
+                        catch (Exception ex)
+                        {
+                            throw;
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        throw;
+                        if (rq == "deleteall")
+                        {
+                            var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
+                            var lsprod = new List<ProductList>();
+
+                            Session["ProductGuid"] = null;
+                            var strPost = Restful.Post(baseUrl, apiUrl, order);
+                            if (strPost != null && strPost != "")
+                            {
+                                Session["Order"] = strPost;
+                                if (strPost != null)
+                                {
+
+                                    var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",200 },
+                            {"href","gio-hang" }
+
+                        };
+                                    result = JsonConvert.SerializeObject(dicResult);
+                                }
+                            }
+
+
+
+                        }
+
                     }
-                    
+
                     break;
             }
 

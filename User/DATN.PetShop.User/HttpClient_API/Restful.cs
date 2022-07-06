@@ -133,15 +133,15 @@ namespace HttpClient_API
                                 response = json;
                             }
                         }
-                        //else
-                        //{
-                        //    var result = request.Result.EnsureSuccessStatusCode();
-                        //    if (result.StatusCode == System.Net.HttpStatusCode.NotFound)
-                        //    {
-                        //        var err = result.Content.ReadAsStringAsync().Result;
-                        //        response = err;
-                        //    }
-                        //}
+                        else
+                        {
+                            var result = request.Result.EnsureSuccessStatusCode();
+                            if (result.StatusCode == System.Net.HttpStatusCode.NotFound)
+                            {
+                                var err = result.Content.ReadAsStringAsync().Result;
+                                response = err;
+                            }
+                        }
                     }
                 }
             }

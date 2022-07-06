@@ -1,9 +1,11 @@
 ﻿using Entities.Product;
 using HttpClient_API;
 using HttpClient_API.Core.Global;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Web;
 
 namespace DATN.PetShop.Admin.site.products.product
 {
@@ -11,17 +13,35 @@ namespace DATN.PetShop.Admin.site.products.product
     {
         public void Page_Load(object sender, EventArgs e)
         {
-            var getProduct = GetDataProduct();
-            main.InnerHtml = getProduct;
+            var Route = HttpContext.Current.Request.RequestContext.RouteData;
+            if (Route.Route == null) return;
+            var request = Route.Values;
+            if (!Page.IsPostBack)
+            {
+                var keyword = Request["k"] != null && Request["k"].ToString() != ""
+                ? Request["k"].ToString().ToLower().Trim()
+                : "";
+                var pageIndex = Request["p"] != null && Request["p"].ToString() != ""
+               ?int.Parse(Request["p"]?.ToString()??"0")
+               : 0;
+
+                var getProduct = GetDataProduct(keyword, pageIndex);
+                main.InnerHtml = getProduct;
+            }
+           
+
+
         }
-        public string GetDataProduct()
+        public string GetDataProduct(string k = "",int pageIndex=1)
         {
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.listProductAPI;
-
+            if (k != "") apiUrl += "?k=" + k+"&pageIndex="+ pageIndex;
 
             var strProduct = Restful.Get<List<ProductModel>>(baseUrl, apiUrl).Result;
-            var html = "";
+            
+            
+
 
 
             //body
@@ -29,24 +49,52 @@ namespace DATN.PetShop.Admin.site.products.product
             foreach (var product in strProduct)
             {
                 string price = String.Format("{0:0,00₫}", product.price);
-                strBody.Append("<tr>");
-                strBody.Append("<td>" + product.productID + "</td>");
-                //strBody.Append("<td> <img src = 'assets/images/products/04.png' alt ='' height = '40'/></td>");
-                strBody.Append("<td> <img src = '" + product.image + "' alt ='' height = '80'/><p>" + product.productName + "</p></td>");
-                //strBody.Append("<td>" + product.productName + "</td>");
-                strBody.Append("<td>" + product.petTypeName + "</td>");
-                strBody.Append("<td>" + product.categoryName + "</td>");
-                strBody.Append("<td><div class='line-clamp'>" + product.description + "</div></td>");
-                strBody.Append("<td>" + product.quantity + "</td>");
-                strBody.Append("<td>" + price + "</td>");
-                strBody.Append("<td>" + product.statusName + "</td>");
-                strBody.Append("<td><a href='/san-pham/" + product.productHandle + "-" + product._id + "'><i class='las la-pen text-secondary font-16'></i></a> ");
-                strBody.Append("<a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton' value='" + product._id + "'></i></a></td>");
-                strBody.Append("</tr>");
+                var strProductList = @" <tr>
+                <td>" + product.productID + @"</td>
+                <td>
+                     <img src='" + product.image + @"' alt='' height='40' class='me-2'>
+                     <p class='d-inline-block align-middle mb-0'>
+                     <a href='/san-pham/" + product.productHandle + @"-" + product._id + @"' class='d-inline-block align-middle mb-0 product-name' style='width: 111px;'>" + product.productName + @"</a>
+                     <br>
+                     </p>
+                </td>
+                <td>" + product.petTypeName + @"</td>
+                <td>" + product.categoryName + @"</td>
+                <td><div class='line-clamp'>" + product.description + @" </div></td>
+                <td>" + product.quantity + @"</td>
+                <td>" + price + @"</td>
+                <td>" + product.statusName + @"</td>
+                <td><a href='/san-pham/" + product.productHandle + @"-" + product._id + @"'><i class='las la-pen text-secondary font-16'></i></a> 
+                <a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton' value='" + product._id + @"'></i></a></td>
+                </tr>";
+
+                strBody.Append(strProductList);
             }
 
             //header
-            var header = @"<div class='container-fluid'>
+            var header = @"<div class='topbar'>
+        <!-- Navbar -->
+        <nav class='navbar-custom' id='navbar-custom'>
+            <ul class='list-unstyled topbar-nav mb-0'>
+                <li>
+                    <button class='nav-link button-menu-mobile nav-icon' id='togglemenu'>
+                        <i class='ti ti-menu-2'></i>
+                    </button>
+                </li>
+                <li class='hide-phone app-search'>
+                    <form role='k' action='' method='get'>
+                        <input type='k' name='k' class='form-control top-search mb-0' placeholder='Tìm kiếm...'>
+                        <button type='submit'><i class='ti ti-search'></i></button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <!-- end navbar-->
+    </div>
+
+
+
+<div class='container-fluid'>
         <!-- Page-Title -->
         <div class='row'>
             <div class='col-sm-12'>
@@ -89,7 +137,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                         <table class='table table-striped'>
                                             <thead class='thead-light'>
                                                 <tr>
-                                                    <th style='white-space: nowrap'>Mã sản phẩm</th>
+                                                    <th style='white-space: nowrap'>ID</th>
                                                     <th style='white-space: nowrap'>Tên sản phẩm</th>
                                                     
                                                     <th style='white-space: nowrap'>Loại thú cưng</th>
@@ -146,7 +194,7 @@ namespace DATN.PetShop.Admin.site.products.product
        
         ";
 
-            html = string.Concat(header, strBody.ToString(), footer);
+            var html = string.Concat(header, strBody.ToString(), footer);
             return html;
         }
     }

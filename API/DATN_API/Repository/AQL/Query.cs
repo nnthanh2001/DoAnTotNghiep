@@ -86,12 +86,12 @@ namespace Repository.AQL
             return data;
         }
 
-        public async Task<List<TEntity>> GetListById<TEntity>(string database, string table, FilterDefinition<TEntity> filter)
+        public Task<List<TEntity>> GetListById<TEntity>(string database, string table, FilterDefinition<TEntity> filter)
         {
             var db = _mongoClient.GetDatabase(database);
             var collection = db.GetCollection<TEntity>(table);
 
-            var data = collection.Find(filter).ToList();
+            var data =  collection.Find(filter).ToListAsync();
             
             return data;
         }
