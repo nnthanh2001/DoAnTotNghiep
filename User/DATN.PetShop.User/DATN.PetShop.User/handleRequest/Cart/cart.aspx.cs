@@ -46,6 +46,23 @@ namespace DATN.PetShop.User.handleRequest.Cart
 ";
 
 
+           var a = @"<ul>
+                                        <li class='single - shopping - cart'>
+                                               < div class='row'>
+                                            <div class='shopping-cart-img'>
+                                                <a href = '/chi-tiet-san-pham/thuc-an-cho-me-o-gold-6299776bacfa1169c32c9255-0' >
+                                                    < img alt='' src='https://www.petmart.vn/wp-content/uploads/2019/04/pate-cho-cho-vi-thit-bo-iris-one-care-beef100g.jpg'></a>
+                                            </div>
+                                            <div class='shopping-cart-title' style='width: 300px;'>
+                                                <h4><a href = '/chi-tiet-san-pham/thuc-an-cho-me-o-gold-6299776bacfa1169c32c9255-0' > Pate cho chó vị thịt bò IRIS One Care Beef</a></h4>
+                                                <h6>Số lượng: 1</h6>
+                                                <span>176,000₫</span>
+                                            </div>
+                                           </div>
+                                        </li>
+                                    </ul>";
+
+
             switch (type)
             {
                 case "get":
@@ -92,26 +109,27 @@ namespace DATN.PetShop.User.handleRequest.Cart
 
                         var strPost = Restful.Post(baseUrl, apiUrl, order);
 
-                        //if (strPost != null && strPost != "")
+                        if (strPost != null && strPost != "")
                         {
                             Session["Order"] = strPost;
-                            //Response.Redirect(Page.Request.Path);
-                            //Response.Redirect(Request.RawUrl, true);
-                            //var dicResult = new Dictionary<string, object> {
-                            //        {"HttpStatusCode",200 },
-                            //        {"href","thanh-toan" }
+                            var dicResult = new Dictionary<string, object> {
+                                    {"HttpStatusCode",200 },
+                                    {"href","thanh-toan" },
+                                    {"htmlItemToCart", a }
 
-                            //    };
-                            //result = JsonConvert.SerializeObject(dicResult);
+                                };
+                           
+
+                            result = JsonConvert.SerializeObject(dicResult);
                         }
-                        
+
                     }
                     catch (Exception ex)
                     {
 
                     }
 
-
+                   
                     break;
                 case "put":
 
@@ -182,7 +200,7 @@ namespace DATN.PetShop.User.handleRequest.Cart
 
                                     var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","gio-hang" }
+                            
 
                         };
                                     result = JsonConvert.SerializeObject(dicResult);

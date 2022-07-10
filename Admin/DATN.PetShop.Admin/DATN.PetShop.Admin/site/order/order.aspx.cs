@@ -4,6 +4,7 @@ using HttpClient_API.Core.Global;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Web;
 
 namespace DATN.PetShop.Admin.site.order
 {
@@ -11,17 +12,40 @@ namespace DATN.PetShop.Admin.site.order
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var orderList = DataOrder();
-            main.InnerHtml = orderList;
+            var Route = HttpContext.Current.Request.RequestContext.RouteData;
+            if (Route.Route == null) return;
+            var request = Route.Values;
+            if (!Page.IsPostBack)
+            {
+                var month = Request["m"] != null && Request["m"].ToString() != ""
+                ? Request["m"].ToString().ToLower().Trim()
+                : "";
+                var date = Request["d"] != null && Request["d"].ToString() != ""
+               ? Request["d"].ToString().ToLower().Trim()
+               : "";
+                var pageIndex = Request["p"] != null && Request["p"].ToString() != ""
+               ? int.Parse(Request["p"]?.ToString() ?? "0")
+               : 0;
+
+                var orderList = DataOrder(date);
+                main.InnerHtml = orderList;
+            }
+          
         }
-        public string DataOrder()
+        public string DataOrder(string d = "")
         {
            
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.orderAPI;
-            var orderList = Restful.Get<List<OrderModel>>(baseUrl, apiUrl).Result;
+            var apiUrlGetOrderByDay = Globals.orderByDayAPI + "?date=" + d;
+
+
+            var strGetOrderByDay = Restful.Get<List<OrderModel>>(baseUrl, apiUrlGetOrderByDay).Result;
+            //var orderList = Restful.Get<List<OrderModel>>(baseUrl, apiUrl).Result;
             var value = new StringBuilder();
-            foreach (var order in orderList)
+
+
+            foreach (var order in strGetOrderByDay)
             {
                 string subTotal = String.Format("{0:0,00₫}", order.subTotal);
                 var str = @"<tr>

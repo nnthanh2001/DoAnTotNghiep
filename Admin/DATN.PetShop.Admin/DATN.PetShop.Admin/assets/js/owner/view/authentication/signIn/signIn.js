@@ -46,7 +46,7 @@ var SignIn = function () {
         var password = $.trim($('[data_value="password"]').val());
         if (userName != "") {
             if (isEmail(userName) == false) {
-                alert("Email không chính xác, vui lòng nhập lại!")
+                executeExample(Swal.fire('Email không chính xác vui lòng nhập lại!'));
                 return false;
             }
         }
@@ -55,14 +55,15 @@ var SignIn = function () {
         var doc = JSON.stringify(json);
         return doc;
     };
-
+    
     that.result = function (json) {
-
-        console.log(json);
-        alert(json.message);
+        console.log(json.message);
+        executeExample(Swal.fire(json.message));
         if (json.message == "Đăng nhập thành công!") {
+            executeExample('mixin');
             window.location.href = json.href;
         }
+       
        
     };
 };

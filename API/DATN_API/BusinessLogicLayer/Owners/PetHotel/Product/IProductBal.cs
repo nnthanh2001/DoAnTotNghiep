@@ -17,7 +17,7 @@ namespace BusinessLogicLayer.Owners.PetHotel
         Task<List<ProductModel>> GetTop();
         Task<List<ProductModel>> GetBest();
         Task<ProductModel> GetId(string _id);
-        Task<List<ProductModel>> GetProductByCategory(int id);
+        Task<List<ProductModel>> GetProductByCategory(int id=0, string k = "");
         Task<ProductFormModel> EditProduct(string _id);
         Task<ProductFormModel> AddProduct();
 

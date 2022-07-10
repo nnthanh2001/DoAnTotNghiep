@@ -28,7 +28,7 @@ namespace Repository.Owners.PetHotel.Category
         public Task<CategoryModel> GetId(FilterDefinition<CategoryModel> filter) => query.GetId(db, table, filter);
 
         public Task<List<CategoryModel>> GetTopCategory(SortDefinition<CategoryModel> sort = null, int limit = 0)
-         => query.GetAll<CategoryModel>(db, table, null, sort, limit);
+         => query.GetAll(db, table, null, sort, limit);
 
         public Task<bool> Update(FilterDefinition<CategoryModel> filter, UpdateDefinition<CategoryModel> update) => query.Update(db, table, filter, update);
     }

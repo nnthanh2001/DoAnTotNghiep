@@ -39,5 +39,10 @@ namespace DATN_API.Controllers.PetHotel
         {
             return Ok(await businessWrapper.order.Add(doc));
         }
+        [HttpGet("GetOrderByDay")]
+        public async Task<IActionResult> GetOrderByDay(string date)
+        {
+            return Ok(await businessWrapper.order.GetOrderByDay(date));
+        }
     }
 }

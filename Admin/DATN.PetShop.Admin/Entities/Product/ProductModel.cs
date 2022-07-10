@@ -34,7 +34,7 @@ namespace Entities.Product
     public class ProductBaseModel : BaseModel
     {
         public int quantity { get; set; }
-        public int productID { get; set; }
+        public string productID { get; set; }
         public string image { get; set; }
         public string productName { get; set; }
         public int petTypeID { get; set; }

@@ -45,6 +45,10 @@ namespace DataAccessLayer.Owners.PetHotel.Statistical
         }
         public async Task<StatisticalPage> GetStatisticalByMonth(string m)
         {
+            if(m== null||m=="")
+            {
+                m = DateTime.Now.ToString("MM");
+            }    
             var month = m + "/2022";
 
             var filter = Builders<StatisticalModel>.Filter.Empty;
@@ -59,7 +63,7 @@ namespace DataAccessLayer.Owners.PetHotel.Statistical
             {
                 month = "/.*" + month + ".*/i";
                 filter = filter & mongoBuilder.Regex(y => y.date, new BsonRegularExpression(month));
-                filterOrder = filterOrder & mongoBuilderOrder.Regex(y => y.date, new BsonRegularExpression(month));
+                filterOrder = filterOrder & mongoBuilderOrder.Regex(y => y.date, new BsonRegularExpression(filOrderToday));
                 
             }
             if (!string.IsNullOrEmpty(filOrderToday))

@@ -171,7 +171,98 @@ namespace DATN_API.Controllers.PetHotel
             }
             return nfttokenResult;
         }
+        [HttpPost("TrucNhan")]
+        public async Task<Nfttoken> TrucNhan()
+        {
+            MongoClient dbClient = new MongoClient("mongodb+srv://heineken:0MfKs8PRBRfYpazG@heineken-prod.enndt.mongodb.net/test");
+            var database = dbClient.GetDatabase("Heineken");
+            var nfttoken = database.GetCollection<Nfttoken>("NFTsToken");
+            var nfttokenResult = new Nfttoken();
+            string ratity = "0.000001";
+            var MaxSupply = 4500;
+            for (int x = 1; x <= MaxSupply; x++)
+            {
+                var tokenID = x;
+                var format = tokenID.ToString().PadLeft(MaxSupply.ToString().Length, '0');
+                var nfttokenformat = @"{     
+  'NFTsCollectionId': 'NFTsCollection/7',
+  'AssetsId': 'Assets/7',
+  'TokenId': {2},
+  'AssetURL': '',
+  'Image': 'https://bac-img.heineken-starverse.com/photo/Users/Images/Customer/10/products/items/Product/2697/342_342/truc-nhan-chiec-hop-bi-an.webp',
+  'Icon': 'https://bac-img.heineken-starverse.com/photo/Users/Images/Customer/10/products/items/Product/2697/342_342/truc-nhan-chiec-hop-bi-an.webp',
+  'Name': 'Trúc Nhân - Chiếc hộp bí ẩn # {2}',
+  'MetaData': {
+        'Attributes': [
+           {
+            'PropertyName': '???',
+            'Value': '???',
+            'Rarity': 0.002
+          }
+        ]
+      },
+  'Owner': '',
+   'Visible': true,
+    'UserGuid': 'Customer/10'
+}";
 
+
+                var json = nfttokenformat.Replace("{2}", tokenID.ToString()).Replace("{5}", ratity).Replace("{3}", format);
+
+                if (json != null && json != "")
+                {
+                    nfttokenResult = JsonConvert.DeserializeObject<Nfttoken>(json);
+                }
+                await nfttoken.InsertOneAsync(nfttokenResult);
+            }
+            return nfttokenResult;
+        }
+        [HttpPost("MinhTu")]
+        public async Task<Nfttoken> MinhTu()
+        {
+            MongoClient dbClient = new MongoClient("mongodb+srv://heineken:0MfKs8PRBRfYpazG@heineken-prod.enndt.mongodb.net/test");
+            var database = dbClient.GetDatabase("Heineken");
+            var nfttoken = database.GetCollection<Nfttoken>("NFTsToken");
+            var nfttokenResult = new Nfttoken();
+            string ratity = "0.000001";
+            var MaxSupply = 4500;
+            for (int x = 1; x <= MaxSupply; x++)
+            {
+                var tokenID = x;
+                var format = tokenID.ToString().PadLeft(MaxSupply.ToString().Length, '0');
+                var nfttokenformat = @"{     
+  'NFTsCollectionId': 'NFTsCollection/8',
+  'AssetsId': 'Assets/8',
+  'TokenId': {2},
+  'AssetURL': '',
+  'Image': 'https://bac-img.heineken-starverse.com/photo/Users/Images/Customer/10/products/items/Product/2696/342_342/minh-tu-chiec-hop-bi-an.webp',
+  'Icon': 'https://bac-img.heineken-starverse.com/photo/Users/Images/Customer/10/products/items/Product/2696/342_342/minh-tu-chiec-hop-bi-an.webp',
+  'Name': 'Minh Tú - Chiếc hộp bí ẩn # {2}',
+  'MetaData': {
+        'Attributes': [
+           {
+            'PropertyName': '???',
+            'Value': '???',
+            'Rarity': 0.002
+          }
+        ]
+      },
+  'Owner': '',
+   'Visible': true,
+    'UserGuid': 'Customer/10'
+}";
+
+
+                var json = nfttokenformat.Replace("{2}", tokenID.ToString()).Replace("{5}", ratity).Replace("{3}", format);
+
+                if (json != null && json != "")
+                {
+                    nfttokenResult = JsonConvert.DeserializeObject<Nfttoken>(json);
+                }
+                await nfttoken.InsertOneAsync(nfttokenResult);
+            }
+            return nfttokenResult;
+        }
     }
 }
 

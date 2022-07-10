@@ -25,11 +25,10 @@ namespace DataAccessLayer.Owners.PetHotel.Category
             return repository.categoryRepository.GetTopCategory(sort);
         }
 
-        public Task<List<CategoryModel>> GetCategoryChild()
+        public Task<List<CategoryModel>> GetCategory()
         {
-            var limit = 15;
             var sort = Builders<CategoryModel>.Sort.Descending("categoryID");
-            return repository.categoryRepository.GetTopCategory(sort, limit);
+            return repository.categoryRepository.GetTopCategory(sort);
         }
 
         public Task<List<CategoryModel>> GetCategoryParent()

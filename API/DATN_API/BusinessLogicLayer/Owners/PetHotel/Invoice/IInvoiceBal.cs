@@ -13,5 +13,6 @@ namespace BusinessLogicLayer.Owners.PetHotel.Invoice
         Task<bool> Delete(int invoiceID);
         Task<List<OrderModel>> GetAll();
         Task<OrderModel> GetId(string id);
+        Task<List<OrderModel>> GetOrderByDay(string date);
     }
 }

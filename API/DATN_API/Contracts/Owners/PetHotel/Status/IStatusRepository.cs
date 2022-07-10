@@ -10,7 +10,7 @@ namespace Contracts.Owners.PetHotel.Status
 {
     public interface IStatusRepository
     {
-        Task<List<StatusModel>> GetAll();
+        Task<List<StatusModel>> GetAll(SortDefinition<StatusModel> sort = null, int limit = 0);
         Task<StatusModel> Add(StatusModel doc);
         Task<bool> Update(FilterDefinition<StatusModel> filter, UpdateDefinition<StatusModel> update);
         Task<bool> Delete(FilterDefinition<StatusModel> filter);

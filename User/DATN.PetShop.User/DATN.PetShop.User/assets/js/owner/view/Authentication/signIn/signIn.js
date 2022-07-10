@@ -41,7 +41,7 @@ var SignIn = function () {
 
         });
         $('[jsaction="notification"]').off('click').on('click', function () {
-            alert("Bạn chưa đăng nhập! Vui lòng đăng nhập để tiến hành thanh toán...")
+            executeExample('check-login');
 
         });
 
@@ -119,10 +119,11 @@ var SignIn = function () {
         return doc;
     };
     that.result = function (json) {
-
+        
         console.log(json);
-        alert(json.message);
+        
         if (json.message == "Đăng nhập thành công!") {
+            executeExample('mixin');
             window.location.href = json.href;
         }
     };

@@ -30,11 +30,13 @@ namespace HttpClient_API.Core.Global
         public static string categoryAPI = "api/Category/GetCategoryByOderNo";
 
         public static string orderAPI = "api/Order/GetOrder";
+        public static string orderByDayAPI = "api/Order/GetOrderByDay";
         public static string orderDetailAPI = "api/Order/GetOrderByID";
 
 
         public static string statisticalAPI = "api/Statistical";
         public static string statisticalAPI2 = "api/Statistical/GetStatisticalByMonth";
+
         
 
         

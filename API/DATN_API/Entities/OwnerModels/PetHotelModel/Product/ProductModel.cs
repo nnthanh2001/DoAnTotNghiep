@@ -53,7 +53,7 @@ namespace Entities.OwnerModels.PetHotelModel.Product
         public string bestProductExpired { get; set; }
         public bool usingExpired { get; set; }
         public string productHandle { get; set; }
-        public int productID { get; set; }
+        public string productID { get; set; }
 
     }
     [BsonIgnoreExtraElements]

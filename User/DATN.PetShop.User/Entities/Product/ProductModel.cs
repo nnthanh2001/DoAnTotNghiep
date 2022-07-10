@@ -27,7 +27,7 @@ namespace Entities.Product
     public class ProductModel : ProductOnCart
     {
         public int categoryID { get; set; }
-        public int productID { get; set; }
+        public string productID { get; set; }
         public int petTypeID { get; set; }
         public string petTypeName { get; set; }
         public string description { get; set; }

@@ -26,7 +26,7 @@ namespace Repository.Owners.PetHotel.Status
 
         public Task<StatusModel> Add(StatusModel doc) => query.Add(db, table, doc);
         public Task<bool> Delete(FilterDefinition<StatusModel> filter) => query.Delete(db, table, filter);
-        public Task<List<StatusModel>> GetAll() => query.GetAll<StatusModel>(db, table);
+        public Task<List<StatusModel>> GetAll(SortDefinition<StatusModel> sort = null, int limit = 0) => query.GetAll(db, table, null, sort, limit);
         public Task<StatusModel> GetId(FilterDefinition<StatusModel> filter) => query.GetId(db, table, filter);
         public Task<bool> Update(FilterDefinition<StatusModel> filter, UpdateDefinition<StatusModel> update) => query.Update(db, table, filter, update);
 

@@ -73,10 +73,10 @@ namespace DATN_API.Controllers.PetHotel
             return Ok(await businessWrapper.product.AddProduct());
         }
         [HttpGet("Client/ProductPage")]
-        public async Task<IActionResult> ProductPage(int id)
+        public async Task<IActionResult> ProductPage(int id,string k)
         {
-            var category = await businessWrapper.category.GetCategoryByOderNo();
-            var product = await businessWrapper.product.GetProductByCategory(id);
+            var category = await businessWrapper.category.GetCategory();
+            var product = await businessWrapper.product.GetProductByCategory(id, k);
             var productPage = new ProductPage();
             productPage.category = category;
             productPage.product = product;

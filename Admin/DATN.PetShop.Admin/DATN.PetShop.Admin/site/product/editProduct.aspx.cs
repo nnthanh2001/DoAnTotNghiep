@@ -220,11 +220,27 @@ namespace DATN.PetShop.Admin.site.products.product
         </div>
 
 ";
-            
+            var template = @"<template id='my-template'>
+                                                    <swal-title>
+                                                      Xác nhận việc thay đổi?
+                                                    </swal-title>
+                                                    <swal-icon type='warning' color='red'></swal-icon>
+                                                    <swal-button type='confirm' jsaction='Save'>
+                                                     Lưu
+                                                    </swal-button>
+                                                    <swal-button type='cancel'>
+                                                      Hủy
+                                                    </swal-button>
+                                                    <swal-button type='deny'>
+                                                      Đóng chỉnh sửa và không lưu
+                                                    </swal-button>
+                                                    <swal-param name='allowEscapeKey' value='false'>
+                                                    <swal-param name='customClass' value='{ &quot;popup&quot;: &quot;my-popup&quot; }'>
+                                                  </swal-param></swal-param></template>  ";         
             var htmlEditProductDetail = string.Format(html, product.productName, product.productID, product.quantity, product.petTypeName, product.categoryName, product.price, product.statusName, product.description);
             strBodyEditProduct.Append(htmlEditProductDetail);
 
-            html = string.Concat(strBodyEditProduct.ToString());
+            html = string.Concat(strBodyEditProduct.ToString(), template.ToString());
             return html;
         }
     }

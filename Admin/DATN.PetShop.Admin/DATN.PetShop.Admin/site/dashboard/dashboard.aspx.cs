@@ -1,4 +1,5 @@
-﻿using Entities.Statistical;
+﻿using Entities.Order;
+using Entities.Statistical;
 using HttpClient_API;
 using HttpClient_API.Core.Global;
 using System;
@@ -23,6 +24,9 @@ namespace DATN.PetShop.Admin.site.dashboard
                 var month = Request["m"] != null && Request["m"].ToString() != ""
                 ? Request["m"].ToString().ToLower().Trim()
                 : "";
+                var date = Request["d"] != null && Request["d"].ToString() != ""
+               ? Request["d"].ToString().ToLower().Trim()
+               : "";
                 var pageIndex = Request["p"] != null && Request["p"].ToString() != ""
                ? int.Parse(Request["p"]?.ToString() ?? "0")
                : 0;
@@ -31,15 +35,17 @@ namespace DATN.PetShop.Admin.site.dashboard
             }
             
         }
-        public string DataDashboard(string 
-            m = "")
+        public string DataDashboard(string m = "")
         {
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.statisticalAPI2 + "?month=" + m;
+           
             string currentMonth = DateTime.Now.ToString("MM");
             string currentDate = DateTime.Now.ToString("dd/MM/yyyy");
 
             var strStatistical = Restful.Get<StatisticalPage>(baseUrl, apiUrl).Result;
+            
+
             string totalOfAllBill = String.Format("{0:0,00₫}", strStatistical.totalOfAllBill);
             string totalMoneyToDay = String.Format("{0:0,00₫}", strStatistical.totalMoneyToDay);
             var strStatisticalList = new StringBuilder();
@@ -50,7 +56,7 @@ namespace DATN.PetShop.Admin.site.dashboard
                 string turnover = String.Format("{0:0,00₫}", statistical.turnover);
                 var statisticalList = @" <tbody>
                                         <tr>
-                                            <td>" + statistical.date + @"</td>
+                                            <td><a href='don-hang?d=" + statistical.date + @"'>" + statistical.date + @"</td>
                                             <td>" + statistical.nuberOfOrder + @"</td>
                                             <td>" + totalIncome + @"</td>
                                             <td><a href='chi-tiet-chi-phí-" + statistical._id + @"'  class='text-danger'>" + totalCost + @"</td>
@@ -64,7 +70,8 @@ namespace DATN.PetShop.Admin.site.dashboard
             var monthList = new StringBuilder();
             for(int i =1;i<=12;i++)
             {
-                var a = @"<option value='"+i+@"'>"+i+@"/2022</option>";
+                var a = @"<option value='"+i+ @"'>" + i+@"/2022</option>";
+               
                 monthList.Append(a);
             }
 
@@ -175,8 +182,8 @@ namespace DATN.PetShop.Admin.site.dashboard
                                 <div class='col'>
                                     <div class='input-group'>
                                         <select class='form-select'>
-                                            <option selected></option>
-                                            "+ monthList.ToString() + @"
+                                            <option selected type='m' name='m'></option>
+                                            " + monthList.ToString() + @"
                                            
                                         </select>
                                         <button class='btn btn-soft-primary btn-sm' type='button'><i class='las la-search'></i></button>

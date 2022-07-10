@@ -22,9 +22,9 @@ namespace DATN_API.Controllers.PetHotel
             return Ok(await businessWrapper.category.GetCategoryParent());
         }
         [HttpGet("GetCategoryChild")]
-        public async Task<IActionResult> GetCategoryChild()
+        public async Task<IActionResult> GetCategory()
         {
-            return Ok(await businessWrapper.category.GetCategoryChild());
+            return Ok(await businessWrapper.category.GetCategory());
         }
         [HttpGet("GetCategoryByOderNo")]
         public async Task<IActionResult> GetCategoryByOderNo()

@@ -2,6 +2,8 @@
 using Contracts.RepositoryWrapper;
 using Entities.OwnerModels.PetHotelModel.Client.Cart;
 using Entities.OwnerModels.PetHotelModel.Invoice;
+using Entities.OwnerModels.PetHotelModel.Product;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -21,33 +23,60 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
 
         }
 
-        public Task<OrderModel> Add(OrderModel doc)
+        public async Task<OrderModel> Add(OrderModel doc)
         {
             string currentDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             doc.status = "Đang xác nhận";
             doc.payment = "Thanh toán sau khi nhận hàng";
             doc.date = currentDate;
-            return repository.invoiceRepository.Add(doc);
+            foreach (var product in doc.productList)
+            {
+
+                var productId = Builders<ProductModel>.Filter.Eq(q => q._id, product._id);
+                var productIdBase = Builders<ProductBaseModel>.Filter.Eq(q => q._id, product._id);
+
+                var productInStock = await repository.productRepository.GetId(productId);
+                productInStock.quantity -= product.quantity;
+                var update =  Builders<ProductBaseModel>.Update.Set(q=>q.quantity, productInStock.quantity);
+                var updateStockProduct = await repository.productRepository.Update(productIdBase, update);
+            }
+
+
+
+
+
+            return await repository.invoiceRepository.Add(doc);
         }
 
-        public Task<bool> Delete(int invoiceID)
+        public async Task<bool> Delete(int invoiceID)
         {
             var filter = Builders<InvoiceModel>.Filter.Eq(q => q.invoiceID, invoiceID);
-            return repository.invoiceRepository.Delete(filter);
+            return await repository.invoiceRepository.Delete(filter);
         }
 
-        public Task<List<OrderModel>> GetAll()
+        public async Task<List<OrderModel>> GetAll()
         {
             var sort = Builders<OrderModel>.Sort.Descending("_id");
-            return repository.invoiceRepository.GetAll(sort);
+            return await repository.invoiceRepository.GetAll(sort);
         }
 
-        public Task<OrderModel> GetId(string id)
+        public async Task<OrderModel> GetId(string id)
         {
             var filter = Builders<OrderModel>.Filter.Eq(q => q._id, id);
-            return repository.invoiceRepository.GetId(filter);
+            return await repository.invoiceRepository.GetId(filter);
         }
-
+        public async Task<List<OrderModel>> GetOrderByDay(string date = "" )
+        {
+            var filter = Builders<OrderModel>.Filter.Empty;
+            var mongoBuilder = Builders<OrderModel>.Filter;
+            if (!string.IsNullOrEmpty(date))
+            {
+                date = "/.*" + date + ".*/i";
+                filter = filter & mongoBuilder.Regex(y => y.date, new BsonRegularExpression(date));
+            }
+            var sort = Builders<OrderModel>.Sort.Descending("_id");
+            return await repository.invoiceRepository.GetListOrderByDate(filter, sort);
+        }
         public Task<bool> Update(FilterDefinition<InvoiceModel> filter, UpdateDefinition<InvoiceModel> update)
         {
             throw new NotImplementedException();

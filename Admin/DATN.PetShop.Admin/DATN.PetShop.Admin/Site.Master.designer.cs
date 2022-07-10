@@ -15,6 +15,15 @@ namespace DATN.PetShop.Admin
     {
 
         /// <summary>
+        /// leftSidebar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl leftSidebar;
+
+        /// <summary>
         /// cph control.
         /// </summary>
         /// <remarks>

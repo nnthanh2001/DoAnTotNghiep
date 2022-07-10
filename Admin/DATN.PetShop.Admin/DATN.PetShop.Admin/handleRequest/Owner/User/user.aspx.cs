@@ -39,7 +39,7 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.User
                     break;
                 case "post":
 
-                    if (data != null)
+                    if (data != "false" && data != "" && data != null)
                     {
                         var addUser = JsonConvert.DeserializeObject<UserBaseModel>(data);
                         var str = Restful.Post(baseUrl, apiUrl, addUser);
@@ -50,7 +50,8 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.User
 
                                 var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","nhan-vien"}
+                            {"href","nhan-vien"},
+                                    {"message","Đã thêm 1 nhân viên"}
                         };
                                 result = JsonConvert.SerializeObject(dicResult);
                             }
@@ -59,17 +60,21 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.User
 
                     break;
                 case "put":
-                    var editUser = JsonConvert.DeserializeObject<UserBaseModel>(data);
-                    var strPut = Restful.Put(baseUrl, apiUrl + "/" + id, editUser);
-                    if (strPut != null && strPut != "")
+                    if (data != "false" && data != "" && data != null)
                     {
-                        if (strPut != null)
+                        var editUser = JsonConvert.DeserializeObject<UserBaseModel>(data);
+                        var strPut = Restful.Put(baseUrl, apiUrl + "/" + id, editUser);
+                        if (strPut != null && strPut != "")
                         {
-                            var dicResult = new Dictionary<string, object> {
+                            if (strPut != null)
+                            {
+                                var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","nhan-vien"}
+                            {"href","nhan-vien"},
+                             {"message","Lưu thay đổi thành công"}
                         };
-                            result = JsonConvert.SerializeObject(dicResult);
+                                result = JsonConvert.SerializeObject(dicResult);
+                            }
                         }
                     }
                     break;
@@ -82,7 +87,8 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.User
 
                             var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","nhan-vien"}
+                            {"href","nhan-vien"},
+                             {"message","Đã xóa 1 nhân viên"}
                         };
                             result = JsonConvert.SerializeObject(dicResult);
                         }

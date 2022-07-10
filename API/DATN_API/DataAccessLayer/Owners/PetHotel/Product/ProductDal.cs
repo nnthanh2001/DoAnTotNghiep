@@ -5,6 +5,7 @@ using Entities.OwnerModels.PetHotelModel.Category;
 using Entities.OwnerModels.PetHotelModel.Client.Cart;
 using Entities.OwnerModels.PetHotelModel.Product;
 using Entities.OwnerModels.PetHotelModel.Status;
+using Entities.OwnerModels.Request;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -32,7 +33,8 @@ namespace DataAccessLayer.Owners.PetHotel
         }
         public Task<ProductBaseModel> Add(ProductBaseModel doc)
         {
-            doc.productID = randomID();
+
+            doc.productID = "SP" + randomID();
             doc.productHandle = handler(doc.productName);
             return repository.productRepository.Add(doc);
         }
@@ -43,9 +45,11 @@ namespace DataAccessLayer.Owners.PetHotel
         }
         public async Task<List<ProductModel>> GetProduct(string k = "")
         {
+
+
+
             var filter = Builders<ProductModel>.Filter.Empty;
             var mongoBuilder = Builders<ProductModel>.Filter;
-            
             if (!string.IsNullOrEmpty(k))
             {
                 k = "/.*" + k + ".*/i";
@@ -53,26 +57,25 @@ namespace DataAccessLayer.Owners.PetHotel
             }
             var sort = Builders<ProductModel>.Sort.Descending("_id");
             var productList = await repository.productRepository.GetProduct(sort, filter);
-            var petTypeList = await repository.petTypeRepository.GetAll();
-            var statusList = await repository.statusRepository.GetAll();
-            var categoryList = await repository.categoryRepository.GetAll();
-
-
             foreach (var product in productList)
             {
 
-                if (statusList.Count > 0)
+
+                if (product.statusID > 0)
                 {
-                    var status = statusList.Where(x => x.statusID == product.statusID).FirstOrDefault();
+                    var filterStatusID = Builders<StatusModel>.Filter.Eq(q => q.statusID, product.statusID);
+
+                    var status = await repository.statusRepository.GetId(filterStatusID);
+
                     if (status != null)
                     {
                         product.statusName = status.statusName;
                     }
                 }
-
-                if (petTypeList.Count > 0)
+                if (product.petTypeID > 0)
                 {
-                    var petType = petTypeList.Where(x => x.petTypeID == product.petTypeID).FirstOrDefault();
+                    var filterPetTypeID = Builders<PetTypeModel>.Filter.Eq(q => q.petTypeID, product.petTypeID);
+                    var petType = await repository.petTypeRepository.GetId(filterPetTypeID);
                     if (petType != null)
                     {
                         product.petTypeName = petType.petTypeName;
@@ -80,9 +83,10 @@ namespace DataAccessLayer.Owners.PetHotel
 
                 }
 
-                if (categoryList.Count > 0)
+                if (product.categoryID > 0)
                 {
-                    var category = categoryList.Where(x => x.categoryID == product.categoryID).FirstOrDefault();
+                    var filterCategoryID = Builders<CategoryModel>.Filter.Eq(q => q.categoryID, product.categoryID);
+                    var category = await repository.categoryRepository.GetId(filterCategoryID);
                     if (category != null)
                     {
                         product.categoryName = category.categoryName;
@@ -144,10 +148,11 @@ namespace DataAccessLayer.Owners.PetHotel
         }
         public Task<bool> Update(ProductBaseModel doc, string _id)
         {
-            if(doc.productID == 0)
+
+            if (doc.productID == "")
             {
-                doc.productID = randomID();
-            }    
+                doc.productID = "SP" + randomID();
+            }
             var handle = doc.productHandle = handler(doc.productName);
             var checkid = Builders<ProductBaseModel>.Filter.Eq(q => q._id, _id);
             var update = Builders<ProductBaseModel>.Update.Set(p => p.productName, doc.productName)
@@ -247,11 +252,14 @@ namespace DataAccessLayer.Owners.PetHotel
         }
         public async Task<ProductFormModel> AddProduct()
         {
-            var statusList = await repository.statusRepository.GetAll();
+            var limit = 2;
+            var sortStatus = Builders<StatusModel>.Sort.Descending("statusID");
+
+            var statusList = await repository.statusRepository.GetAll(sortStatus, limit);
             var petTypeList = await repository.petTypeRepository.GetAll();
-            var limit = 17;
+           
             var sort = Builders<CategoryModel>.Sort.Descending("categoryID");
-            var categoryList = await repository.categoryRepository.GetTopCategory(sort, limit);
+            var categoryList = await repository.categoryRepository.GetTopCategory(sort);
 
             var addProduct = new ProductFormModel
             {
@@ -263,18 +271,70 @@ namespace DataAccessLayer.Owners.PetHotel
 
             return addProduct;
         }
-        public async Task<List<ProductModel>> GetProductByCategory(int id)
+        public async Task<List<ProductModel>> GetProductByCategory(int id = 0, string k = "")
         {
-            if (id == 0)
+            var productList = new List<ProductModel>();
+            var filterKeyword = Builders<ProductModel>.Filter.Empty;
+            var mongoBuilder = Builders<ProductModel>.Filter;
+            var filterCategory = Builders<ProductModel>.Filter.Eq(q => q.categoryID, id);
+            var sort = Builders<ProductModel>.Sort.Descending("_id");
+
+            if (id == 0 &&  k == null)
             {
-                return await repository.productRepository.GetAll();
+                productList = await repository.productRepository.GetAll();
             }
             else
             {
-                var filter = Builders<ProductModel>.Filter.Eq(q => q.categoryID, id);
-                var product = await repository.productRepository.GetListProductById(filter);
-                return product;
+                if (!string.IsNullOrEmpty(k))
+                {
+
+                    k = "/.*" + k + ".*/i";
+                    filterKeyword = filterKeyword & mongoBuilder.Regex(y => y.productName, new BsonRegularExpression(k));
+                    productList = await repository.productRepository.GetProduct(sort, filterKeyword);
+                }
+                else
+                {
+                    if (id > 0)
+                    {
+                        productList = await repository.productRepository.GetListProductById(filterCategory);
+                    }
+                    else
+                    {
+                        if( id>0 && !string.IsNullOrEmpty(k))
+                        {
+                            k = "/.*" + k + ".*/i";
+                            filterKeyword = filterKeyword & mongoBuilder.Regex(y => y.productName, new BsonRegularExpression(k));
+
+                            productList = await repository.productRepository.GetListProductById(filterCategory);
+                            productList = await repository.productRepository.GetProduct(sort, filterKeyword);
+
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
             }
+           
+           
+            
+            if (id > 0 && !string.IsNullOrEmpty(k))
+            {
+               
+                k = "/.*" + k + ".*/i";
+                filterKeyword = filterKeyword & mongoBuilder.Regex(y => y.productName, new BsonRegularExpression(k));
+               
+                var productListFilter = await repository.productRepository.GetListProductById(filterCategory);
+                if (productListFilter.Count > 0)
+                {
+                    //productList = await productListFilter.Where(q => q.productName == filterKeyword);
+                }    
+               
+            }
+
+
+            return productList;
 
         }
         public string handler(string text)

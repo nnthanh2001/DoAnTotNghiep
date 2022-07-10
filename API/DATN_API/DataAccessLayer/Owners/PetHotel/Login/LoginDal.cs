@@ -31,8 +31,8 @@ namespace DataAccessLayer.Owners.PetHotel.Login
             var filterUserName = Builders<UserModel>.Filter.Eq(q => q.email, login.userName);
             var filter = (Builders<UserModel>.Filter.Eq(q => q.email, login.userName)) & Builders<UserModel>.Filter.Eq(q => q.password, login.password);
             var checkUserName = await repository.loginRepository.GetId(filterUserName);
-            var signIn = await repository.loginRepository.GetId(filter);
-            
+            var user = await repository.loginRepository.GetId(filter);
+           
 
             if (login.userName == "" && login.password == "")
             {
@@ -65,34 +65,47 @@ namespace DataAccessLayer.Owners.PetHotel.Login
                             }
                             else
                             {
-                                if (signIn != null)
+                                if (user != null)
                                 {
-                                    var statusid = signIn.statusID;
-                                    var roleid = signIn.roleID;
-
-
-                                    if (statusid > 0)
+                                    var statusid = user.statusID;
+                                    var roleid = user.roleID;
+                                    if (statusid == 2)
                                     {
-                                        var filterStatusid = Builders<StatusModel>.Filter.Eq(q => q.statusID, statusid);
-                                        var status = await repository.statusRepository.GetId(filterStatusid);
-                                        if (status != null)
-                                        {
-                                            signIn.statusName = status.statusName;
-                                        }
+                                        response.message = "Tài khoản đã ngưng hoạt động!";
                                     }
-                                    if (roleid > 0)
+                                    else
                                     {
-                                        var filterRoleid = Builders<RoleModel>.Filter.Eq(q => q.roleID, roleid);
-                                        var role = await repository.roleRepository.GetId(filterRoleid);
-                                        if (role != null)
+                                        if(roleid == 5)
                                         {
-                                            signIn.roleName = role.roleName;
+                                            response.message = "Tài khoản không phải của nhân viên!";
                                         }
-                                    }
+                                        else
+                                        {
+                                            if (statusid > 0)
+                                            {
 
-                                    response.model = signIn;
-                                    response.message = "Đăng nhập thành công!";
-                                    response.HttpStatusCode = 200;
+                                                var filterStatusid = Builders<StatusModel>.Filter.Eq(q => q.statusID, statusid);
+                                                var status = await repository.statusRepository.GetId(filterStatusid);
+                                                if (status != null)
+                                                {
+                                                    user.statusName = status.statusName;
+                                                }
+                                            }
+                                            if (roleid > 0)
+                                            {
+                                                var filterRoleid = Builders<RoleModel>.Filter.Eq(q => q.roleID, roleid);
+                                                var role = await repository.roleRepository.GetId(filterRoleid);
+                                                if (role != null)
+                                                {
+                                                    user.roleName = role.roleName;
+                                                }
+                                            }
+
+                                            response.model = user;
+                                            response.message = "Đăng nhập thành công!";
+                                            response.HttpStatusCode = 200;
+                                        }
+                                    } 
                                 }
                                 else
                                 {

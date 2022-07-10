@@ -73,9 +73,13 @@ namespace DATN.PetShop.Admin.site.users.user
                     <div class='page-title-box'>
                         <div class='float-end'>
                             <ol class='breadcrumb'>
-                                <li class='breadcrumb-item'><a href='thong-ke-doanh-thu'>Trang chủ</a></li>
-                                <li class='breadcrumb-item'><a href='nhan-vien'>Nhân viên</a></li>
-                                <li class='breadcrumb-item active'>Sứa nhân viên</li>
+                                  <li class='breadcrumb-item'><a href='#'>Pet Shop</a>
+                                </li>
+                                <!--end nav-item-->
+                                <li class='breadcrumb-item'><a href='nhan-vien'>Nhân viên</a>
+                                </li>
+                                <!--end nav-item-->
+                                <li class='breadcrumb-item active'>Chỉnh sửa thông tin</li>
                             </ol>
                         </div>
                         <h4 class='page-title'>Chỉnh sửa thông tin </h4>
@@ -87,7 +91,7 @@ namespace DATN.PetShop.Admin.site.users.user
             <!-- end page title end breadcrumb -->
 
             <div class='row'>
-                <div class='col-lg-6'>
+                <div class='col-lg-6' style='width: 80%;'>
                     <div class='card'>
                         <div class='card-header'>
                             <h4 class='align-self-xxl-baseline'>Thông tin cơ bản</h4>
@@ -106,9 +110,15 @@ namespace DATN.PetShop.Admin.site.users.user
                                         </div>
                                     </div>
                                     <div class='mb-3 row'>
-                                        <label class='col-sm-2 col-form-label text-end'>Mã</label>
+                                        <label class='col-sm-2 col-form-label text-end'>Email</label>
+                                        <div class='col-sm-10'>
+                                            <input class='form-control' data_value='email' placeholder='Nhập email ' value='{3}' />
+                                        </div>
+                                    </div>
+                                    <div class='mb-3 row'>
+                                        <label class='col-sm-2 col-form-label text-end'>Địa chỉ</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='userID' placehoder='Nhập mã nhân viên' value='{1}' />
+                                            <input class='form-control' data_value='address' placeholder='Nhập địa chỉ ' value='{4}' />
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Vai trò</label>
                                         <div class='col-sm-4'>
@@ -117,30 +127,24 @@ namespace DATN.PetShop.Admin.site.users.user
                                                 
                                             </select>
                                         </div>
-
                                     </div>
-                                    <div class='mb-3 row'>
-                                        <label class='col-sm-2 col-form-label text-end'>Email</label>
-                                        <div class='col-sm-10'>
-                                            <input class='form-control' data_value='email' placehoder='Nhập email ' value='{3}' />
-                                        </div>
-                                    </div>
+                                    
 
                                     <div class='mb-3 row'>
-                                        <label class='col-sm-2 col-form-label text-end'>Địa chỉ</label>
+                                       <label class='col-sm-2 col-form-label text-end'>Nhập mật khẩu</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='address' placehoder='Nhập địa chỉ ' value='{4}' />
+                                            <input class='form-control' data_value='password' placeholder='Nhập mật khẩu' value='' />
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Liên hệ</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='phone' placehoder='Nhập số điện thoại' value='{5}' />
+                                            <input class='form-control' data_value='phone' placeholder='Nhập số điện thoại' value='{5}' />
                                         </div>
                                     </div>
 
                                     <div class='mb-3 row'>
-                                        <label class='col-sm-2 col-form-label text-end'>Đặt mật khẩu khác</label>
+                                        <label class='col-sm-2 col-form-label text-end'>Mật khẩu mới</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='password' placehoder='Nhập mật khẩu' value='{7}' />
+                                            <input class='form-control' data_value='password' placeholder='Nhập mật khẩu mới' value='' />
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Trạng thái</label>
                                         <div class='col-sm-4'>

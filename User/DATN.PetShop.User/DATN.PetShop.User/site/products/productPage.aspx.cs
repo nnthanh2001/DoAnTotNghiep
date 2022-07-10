@@ -51,7 +51,7 @@ namespace DATN.PetShop.User.site.products
         {
 
             var baseUrl = Globals.baseAPI;
-            var apiUrl = Globals.productPageAPI + "?id=" + categoryId;
+            var apiUrl = Globals.productPageAPI + "?id=" + categoryId + "&k=" + k;
             var productList = Globals.listProductAPI;
             if (k != "") productList += "?k=" + k;
 
@@ -270,7 +270,7 @@ namespace DATN.PetShop.User.site.products
                             <div class='qwick-view-content'>
                                 <h3>" + productDetail.productName + @"</h3>
                                 <div class='product-price'>
-                                    <span>" + price + @"</span>
+                                    <span style='font-size: 20px;color: red;'>" + price + @"</span>
                                 </div>
                                 <div class='product-rating'>
                                     <i class='ion-star theme-color'></i>

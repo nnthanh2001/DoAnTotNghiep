@@ -118,7 +118,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                                 <input class='form-control'  type='number' placeholder='Số lượng' data_value='quantity' value='{2}' />
                                                             </div>
                                                         </div>
-                                                        <div class='mb-3 row'>
+                                                        <div class='mb-3 row' style='margin-top: 20px;'>
                                                             <label class='col-sm-2 col-form-label text-end'>Loài</label>
                                                             <div class='col-sm-4'>
                                                                 <select class='form-select' aria-label='Default select example' placeholder='Chó' data_value='petTypeID'>
@@ -165,7 +165,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                 </div>
                                                
                                                 <div data-img='upload'>
-                                                    <img src='' style='width:150px; height:150px;' />
+                                                    <img src='https://media.istockphoto.com/vectors/picture-gallery-icon-logo-vector-illustrattion-photo-gallery-icon-vector-id1219544458?k=20&m=1219544458&s=170667a&w=0&h=pOS74M1YmaSx9awGtS_JH1cEnT7wpNUx3mC3Curkqzg=' style='width:150px; height:150px;' />
                                                 </div>
                                                 <button class='btn-de-blue' type='submit' id='btnUpload' style='margin-bottom: 10px;'>Chọn ảnh</button>
                                                 <label class='col-sm-4 col-form-label '>Hoặc nhập địa chỉ hình ảnh</label>
@@ -178,7 +178,7 @@ namespace DATN.PetShop.Admin.site.products.product
                                                         <div class='col-lg-12'>
                                                             <div class='mb-3 row'>
                                                                 <div class='col-sm-12'>
-                                                                    <textarea class='form-control' rows='3' data_value='description' placeholder='Mô tả'>{7}</textarea>
+                                                                    <textarea class='form-control' rows='3' data_value='description' placeholder='Nhập mô tả'>{7}</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>

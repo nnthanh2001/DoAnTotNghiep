@@ -17,6 +17,8 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="assets/plugins/animate/animate.min.css" rel="stylesheet" />
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -84,7 +86,6 @@
                                                     <button type="button" class="btn  btn-primary" jsaction="signIn">Đăng nhập</button>
 
                                                 </div>
-
                                             </div>
                                             <!--end col-->
                                         </div>
@@ -110,7 +111,9 @@
     <!--end container-->
 
     <!-- App js -->
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/owner/restful/Restful.min.js"></script>
     <script src="assets/js/owner/view/Authentication/signIn/signIn.js"></script>
@@ -119,7 +122,15 @@
     <script src="assets/js/owner/view/owner/order/order.js"></script>
     <script src="assets/js/owner/view/owner/service/service.js"></script>
     <script src="assets/js/owner/wrapper/wrapper.js"></script>
-
+    <script src="assets/pages/sweet-alert.init.js"></script>
+    <%--<div class="mt-2">
+        <input type="email" class="form-control is-valid" placeholder="Email của bạn" aria-label="Email" aria-describedby="basic-addon1" required></div>
+    <div class="mt-2">
+        <input type="password" class="form-control is-invalid" placeholder="Nhập mật khẩu" aria-label="Password" aria-describedby="basic-addon2" required />
+        <div id="validationServer03Feedback" class="invalid-feedback">
+            Please provide a valid Password.
+        </div>
+    </div>--%>
 
 </body>
 

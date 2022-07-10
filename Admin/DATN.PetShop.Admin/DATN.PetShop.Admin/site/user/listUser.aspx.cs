@@ -51,11 +51,8 @@ namespace DATN.PetShop.Admin.site.users.user
                             <div class='page-title-box'>
                                 <div class='float-end'>
                                     <ol class='breadcrumb'>
-                                        <li class='breadcrumb-user'><a href='#'>PetShop</a>
-                                        </li><!--end nav-user-->
-                                        <li class='breadcrumb-user'><a href='#'>User</a>
-                                        </li><!--end nav-user-->
-                                        <li class='breadcrumb-user active'>User</li>
+                                       <li class='breadcrumb-item'><a href='#'>Pet shop</a></li>
+                                        <li class='breadcrumb-item active'>Nhân viên</li>
                                     </ol>
                                 </div>
                                 <h4 class='page-title'>Chức vụ nhân Viên</h4>
@@ -113,7 +110,7 @@ namespace DATN.PetShop.Admin.site.users.user
                                 
                                 <div class='card-header'>
                                 <div class='col'>
-                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-san-pham' style='float:right;'>+ Thêm mới</a>
+                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-nhan-vien' style='float:right;'>+ Thêm mới</a>
                                 </div>
                                     <div class='row align-users-center'>
                                         <div class='col'>                      

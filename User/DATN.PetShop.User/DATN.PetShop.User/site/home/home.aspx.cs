@@ -104,7 +104,7 @@ namespace DATN.PetShop.User.site.home
                     <div class='deal-content'>
                         <h3><a href='/chi-tiet-san-pham/" + productBest.productHandle + "-" + productBest._id + @"'>" + productBest.productName + @"</a></h3>
                         <div class='deal-pro-price'>
-                            <span>" + price + @"</span>
+                            <span style='color: #b1ff89;'>" + price + @"</span>
                            
                         </div>
                         <p>" + productBest.description + @"</p>
@@ -431,7 +431,7 @@ namespace DATN.PetShop.User.site.home
                             <div class='qwick-view-content'>
                                 <h3>" + productDetail.productName + @"</h3>
                                 <div class='product-price'>
-                                    <span>" + price + @"</span>
+                                    <span style='font-size: 20px;color: red;'>" + price + @"</span>
                                 </div>
                                 <div class='product-rating'>
                                     <i class='ion-star theme-color'></i>

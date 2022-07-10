@@ -59,40 +59,49 @@ namespace DATN.PetShop.Admin.handleRequest.Product.Product
                 <a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton' value='" + product._id + @"'></i></a></td>
                 </tr>";
 
-                            
+
                         }
                     }
-                   
+
 
                     break;
                 case "post":
-                    var addProduct = JsonConvert.DeserializeObject<ProductBaseModel>(data);
-                    var strPost = Restful.Post(baseUrl, apiUrl, addProduct);
-                    if (strPost != null && strPost != "")
+                    if (data != "false" && data != "" && data != null)
                     {
-                        if (strPost != null)
+                        var addProduct = JsonConvert.DeserializeObject<ProductBaseModel>(data);
+                        var strPost = Restful.Post(baseUrl, apiUrl, addProduct);
+                        if (strPost != null && strPost != "")
                         {
+                            if (strPost != null)
+                            {
 
-                            var dicResult = new Dictionary<string, object> {
+                                var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","san-pham"}
+                            {"href","san-pham"},
+                            {"message","Đã thêm 1 sản phẩm"}
                         };
-                            result = JsonConvert.SerializeObject(dicResult);
+                                result = JsonConvert.SerializeObject(dicResult);
+                            }
                         }
                     }
+
                     break;
                 case "put":
-                    var editProduct = JsonConvert.DeserializeObject<ProductBaseModel>(data);
-                    var strPut = Restful.Put(baseUrl, apiUrl + "/" + id, editProduct);
-                    if (strPut != null && strPut != "")
+                    if (data != "false" && data != "" && data != null)
                     {
-                        if (strPut != null)
+                        var editProduct = JsonConvert.DeserializeObject<ProductBaseModel>(data);
+                        var strPut = Restful.Put(baseUrl, apiUrl + "/" + id, editProduct);
+                        if (strPut != null && strPut != "")
                         {
-                            var dicResult = new Dictionary<string, object> {
+                            if (strPut != null)
+                            {
+                                var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","san-pham"}
+                            {"href","san-pham"},
+                                {"message","Lưu sản phẩm thành công"}
                         };
-                            result = JsonConvert.SerializeObject(dicResult);
+                                result = JsonConvert.SerializeObject(dicResult);
+                            }
                         }
                     }
                     break;
@@ -105,7 +114,8 @@ namespace DATN.PetShop.Admin.handleRequest.Product.Product
 
                             var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","san-pham"}
+                            {"href","san-pham"},
+                                 {"message","1 sản phẩm đã bị xóa!"}
                         };
                             result = JsonConvert.SerializeObject(dicResult);
                         }

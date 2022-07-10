@@ -31,26 +31,33 @@ namespace DATN.PetShop.User.site.checkout
         }
         public string DataCheckout()
         {
-            
+
             //var strorder = Session["Order"] != null?Session["Order"]?.ToString():"";
-            var strorder = Session["Order"]?.ToString()??"";
-            var order = JsonConvert.DeserializeObject<OrderModel>(strorder);
-            var orderID = order.orderID;
+            var strOrder = Session["Order"]?.ToString() ?? "";
+            var order = JsonConvert.DeserializeObject<OrderModel>(strOrder);
+            var orderID = 0;
+            string subTotal = "";
             var itemBody = new StringBuilder();
-            string subTotal = String.Format("{0:0,00₫}", order.subTotal);
-            string currentDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            order.date=currentDate;
-            foreach (var item in order.productList)
+            if (order != null)
             {
-                string price = String.Format("{0:0,00₫}", item.price);
-                string total = String.Format("{0:0,00₫}", item.total);
-                var proHTML = @"<tr>
+                orderID = order.orderID;
+
+                subTotal = String.Format("{0:0,00₫}", order.subTotal);
+                string currentDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                order.date = currentDate;
+                foreach (var item in order.productList)
+                {
+                    string price = String.Format("{0:0,00₫}", item.price);
+                    string total = String.Format("{0:0,00₫}", item.total);
+                    var proHTML = @"<tr>
                                     <td class='product-name' style='padding-left:20px;'> " + item.productName + @"</td>
                                      <td class='product-quantity-cart' style='text-align: center;'><span class='amount'>" + price + @"<b>x" + item.quantity + @"</b></span></td>
                                     <td class='product-subtotal'>" + total + @"</td>
                                 </tr>";
-                itemBody.Append(proHTML);
+                    itemBody.Append(proHTML);
+                }
             }
+
 
 
             var header = @"<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
@@ -101,7 +108,7 @@ namespace DATN.PetShop.User.site.checkout
                                         <tfoot>
                                             <tr>
                                                 <th scope='row'>Mã đơn hàng:</th>
-                                                <td>"+ orderID + @"</td>
+                                                <td>" + orderID + @"</td>
                                             </tr>
                                             <tr>
                                                 <th scope='row'style='white-space: nowrap'>Phương thức thanh toán:</th>

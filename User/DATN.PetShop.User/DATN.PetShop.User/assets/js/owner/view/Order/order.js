@@ -19,8 +19,8 @@ var Order = function () {
             var data = { "request": "order" };
             var option = { url: orderHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
-            request.post();
-            alert("Đơn hàng của bạn đã được nhận. Cảm ơn bạn đã mua hàng");
+                request.post();
+            executeExample('basicMessage');
 
         });
     };

@@ -40,17 +40,21 @@ namespace DATN.PetShop.Admin.site.dashboard
 
             var strStatistical = Restful.Get<StatisticalModel>(baseUrl, apiUrl).Result;
             var value = new StringBuilder();
-            foreach (var cost in strStatistical.costList)
+            if(strStatistical.costList.Count > 0)
             {
-                string price = String.Format("{0:0,00₫}", cost.costPrice);
-                var str = @"<tr>
+                foreach (var cost in strStatistical.costList)
+                {
+                    string price = String.Format("{0:0,00₫}", cost.costPrice);
+                    var str = @"<tr>
                                             <td>" + cost.costID + @"</a></td>
                                             <td>" + cost.costName + @"</td>
                                             <td>" + price + @"</td>
                                             
                                         </tr>";
-                value.Append(str);
-            }
+                    value.Append(str);
+                }
+            }    
+           
 
             var html = @"<div class='topbar'>
         <!-- Navbar -->

@@ -168,8 +168,8 @@ namespace DATN.PetShop.User.site.cart
             </div>
             <div class='ship-wrapper'>
             <h6>Phương thức thanh toán:</h6>
-                <div class='single-ship' data_value='payment'>
-                    <input type='radio' checked='' value='1'>
+                <div class='single-ship' checked=''>
+                    <input type='radio'  value='1'>
                     <label>Thanh toán sau khi nhận hàng </label>
                 </div>
                 <div class='single-ship'>

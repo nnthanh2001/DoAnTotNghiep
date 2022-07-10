@@ -33,11 +33,11 @@ namespace DATN.PetShop.Admin.site.user
             {
                 strBody.Append("<tr>");
                 strBody.Append("<td>" + user.userID + "</td>");
-                strBody.Append("<td>" + user.userName + "</td>");
+                strBody.Append("<td style='width: 190px;'>" + user.userName + "</td>");
                 strBody.Append("<td>" + user.email + "</td>");
                 strBody.Append("<td>" + user.address + "</td>");
                 strBody.Append("<td>" + user.phone + "</td>");
-                strBody.Append("<td>" + user.statusName + "</td>");
+                strBody.Append("<td style='width: 160px;'>" + user.statusName + "</td>");
                 strBody.Append("<td><a href='nhan-vien/" + user.userHandle + "-" + user._id + "'><i class='las la-pen text-secondary font-16'></i></a> ");
                 strBody.Append("<a href='#'><i class='las la-trash-alt text-secondary font-16 onclick='executeExample('warningConfirm')''></i></a></td>");
                 strBody.Append("</tr>");
