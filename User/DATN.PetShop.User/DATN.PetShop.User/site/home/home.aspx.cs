@@ -36,7 +36,7 @@ namespace DATN.PetShop.User.site.home
             var productBestBody = new StringBuilder();
             var serviceBody = new StringBuilder();
 
-            foreach (var category in @home.category)
+            foreach (var category in home.category)
             {
                 var categoryId = category.categoryID.ToString();
                 var categoryList = @"<div class='col-lg-4 col-md-4'>

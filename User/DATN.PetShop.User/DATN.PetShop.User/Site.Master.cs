@@ -81,18 +81,18 @@ namespace DATN.PetShop.User
             {
                 
                 var strCustomer = Session["login"].ToString();
-                var customer = JsonConvert.DeserializeObject<RequestModel<UserModel>>(strCustomer);
-                var customerName = customer.model.userName;
+                var request = JsonConvert.DeserializeObject<RequestModel<UserModel>>(strCustomer);
+                var customer = request.model;
 
                 var checkLoginButtonAccount = @"<div class='header-login same-style'>
-                                <a href='/tai-khoan/{_id}'>
+                                <a href='/"+customer.userHandle+"-"+customer._id+@"'>
                                     <i class='icon-user icons'></i>
                                 </a>
                             </div>";
                 checkLoginHtml2.Append(checkLoginButtonAccount);
 
                 var customerNameHtml = @"<div class='header-cart same-style'>
-                                <p style='width: 160px;'>"+ customerName + @"</p>
+                                <p style='width: 160px;'>"+ customer.userName + @"</p>
                             </div>";
                 checkLoginHtml3.Append(customerNameHtml);
 

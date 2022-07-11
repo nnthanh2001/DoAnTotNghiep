@@ -33,8 +33,8 @@ var SignIn = function () {
 
         });
         $('[jsaction="signOut"]').off('click').on('click', function () {
-           
-            var data = { "request": "register"};
+
+            var data = { "request": "register" };
             var option = { url: signInHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
             request.get()
@@ -60,15 +60,25 @@ var SignIn = function () {
     function isEmail(email) {
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         return regex.test(email);
-    }
+    };
+    function isPassword(password) {
+        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$/;
+        return regex.test(password);
+    };
     that.bindValue = function () {
         var UserName = $.trim($('[data_value="userName"]').val());
         var Password = $.trim($('[data_value="password"]').val());
         if (UserName != "") {
             if (isEmail(UserName) == false) {
-                alert("Email không chính xác, vui lòng nhập lại!")
+                executeExample(Swal.fire('Email không chính xác, vui lòng nhập lại!'));
                 return false;
             }
+        }
+
+        if (isPassword(Password) == false) {
+            executeExample(Swal.fire('Mật khẩu phải chứa ít nhất 8 kí tự, tối đa 15 kí tự, một chữ số, một kí tự đặc biệt và một chữ in hoa!'));
+            return false;
+
         }
         var json = { "userName": UserName, "password": Password };
         var doc = JSON.stringify(json);
@@ -83,34 +93,47 @@ var SignIn = function () {
 
         if (userNameRegister != '' || passwordRegister != '' || email != '' || phone != '' || address != '') {
             if (userNameRegister == '') {
-                alert('Chưa nhập tên tài khoản!');
+                executeExample(Swal.fire('Chưa nhập tên tài khoản!'));
                 return false;
             }
             if (passwordRegister == '') {
-                alert('Chưa nhập mật khẩu!');
+                executeExample(Swal.fire('Chưa nhập mật khẩu!'));
                 return false;
             }
+            else {
+                if (isPassword(passwordRegister) == false) {
+                    executeExample(Swal.fire('Mật khẩu phải chứa ít nhất 8 kí tự, tối đa 15 kí tự, một chữ số, một kí tự đặc biệt và một chữ in hoa!'));
+                    return false;
+
+                }
+            }
             if (email == '') {
-                alert('Chưa nhập email!');
+                executeExample(Swal.fire('Chưa nhập Email!'));
                 return false;
             }
             else {
                 if (isEmail(email) == false) {
-                    alert("Email không chính xác, vui lòng nhập lại!")
+                    executeExample(Swal.fire('Email không chính xác, vui lòng nhập lại!'));
                     return false;
                 }
             }
             if (phone == '') {
-                alert('Chưa nhập số điện thoại');
+                executeExample(Swal.fire('Chưa nhập số điện thoại!'));
                 return false;
             }
+            else {
+                if (phone <= 1000000000 || phone >= 100000000000) {
+                    executeExample(Swal.fire('Vui lòng nhập đúng số điện thoại!'));
+                    return false;
+                }
+            }
             if (address == '') {
-                alert('Chưa nhập địa chỉ!');
+                executeExample(Swal.fire('Chưa nhập địa chỉ!'));
                 return false;
             }
         }
         else {
-            alert('Bạn chưa điền đầy đủ thông tin!');
+            executeExample(Swal.fire('Bạn chưa điền đầy đủ thông tin!'));
             return false;
         }
 
@@ -119,11 +142,11 @@ var SignIn = function () {
         return doc;
     };
     that.result = function (json) {
-        
-        console.log(json);
-        
+
+        console.log(json.message);
+        executeExample(Swal.fire(json.message));
         if (json.message == "Đăng nhập thành công!") {
-            executeExample('mixin');
+            
             window.location.href = json.href;
         }
     };

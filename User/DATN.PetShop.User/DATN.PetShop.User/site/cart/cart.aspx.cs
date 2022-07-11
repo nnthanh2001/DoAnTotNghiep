@@ -41,25 +41,28 @@ namespace DATN.PetShop.User.site.cart
         {
             var baseUrl = Globals.baseAPI;
             var orderApi = Globals.orderAPI + "/" + id;
+
             var itemBody = new StringBuilder();
             var checkLoginHtml = new StringBuilder();
             var strcheckCart = new StringBuilder();
             //var order = Restful.Get<OrderModel>(baseUrl, orderApi).Result;
-
-
             string subTotal = "0";
             
-            if (Session["Order"] != null)
+            if (Session["Order"] == null)
             {
-                
+                var itemHtml = @"<h4 style='text-align: center;'>Hiện tại không có sản phẩm nào trong giỏ hàng!</h4>";
+                itemBody.Append(itemHtml);
+            }
+            else
+            {
                 var strorder = Session["Order"].ToString();
                 var order = JsonConvert.DeserializeObject<OrderModel>(strorder);
                 subTotal = String.Format("{0:0,00đ}", order.subTotal);
-                
+
                 foreach (var item in order.productList)
                 {
-                    
-                    
+
+
                     string price = String.Format("{0:0,00₫}", item.price);
                     string total = String.Format("{0:0,00₫}", item.total);
 
@@ -81,17 +84,10 @@ namespace DATN.PetShop.User.site.cart
                                         </tr>
                                       </tbody>";
                     itemBody.Append(itemHtml);
-
-
                 }
             }
-            if (Session["Order"] == null || Session["Order"].ToString() == "")
-            {
-                var itemHtml = @"<h4 style='text-align: center;'>Hiện tại không có sản phẩm nào trong giỏ hàng!</h4>";
-                itemBody.Append(itemHtml);
-            }
 
-            
+
             if (Session["login"] == null)
             {
                 var checkLogin = @"<div class='panel-heading'>
@@ -99,7 +95,8 @@ namespace DATN.PetShop.User.site.cart
                                 </div>";
                 checkLoginHtml.AppendLine(checkLogin);
             }
-            else
+
+            if (Session["login"] != null)
             {
                 var strCustomer = Session["login"].ToString();
                 var customer = JsonConvert.DeserializeObject<RequestModel<UserModel>>(strCustomer);
@@ -107,11 +104,8 @@ namespace DATN.PetShop.User.site.cart
 
                 if (Session["Order"] != null)
                 {
-                    var strorder = Session["Order"].ToString();
-                    var order = JsonConvert.DeserializeObject<OrderModel>(strorder);
-                    var checkCart = order.productList.Count;
-                    
-                    if (checkCart == 0)
+                   
+                    if (Session["ProductGuid"] == null)
                     {
                         var buttonCheckout = @"<div class='billing-btn'>
                     <button type='submit'><a jsaction='checkListProduct'>Tiếp tục</a></button>
@@ -127,7 +121,7 @@ namespace DATN.PetShop.User.site.cart
                     }
                 }
                     
-                var checkLogin = @"
+                var dataOrder = @"
 <div class='panel-heading'>
     <h5 class='panel-title'><a data-toggle='collapse' data-parent='#faq' href='#payment-5'>Tiến hành thanh toán</a></h5>
 </div>
@@ -151,7 +145,7 @@ namespace DATN.PetShop.User.site.cart
                     </div>
                     <div class='col-lg-12 col-md-12'>
                         <div class='billing-select card-mrg'>
-                            <label>Địa chỉ giao hàng (Address) </label>
+                            <label>Địa chỉ giao hàng (Vui lòng nhập chính xác, đây sẽ là địa chỉ hàng giao đến) </label>
                             <input type='text' data_value='addressDelivery' value='" + user.address + @"'>
                         </div>
                     </div>
@@ -187,7 +181,7 @@ namespace DATN.PetShop.User.site.cart
         </div>
     </div>
 </div>";
-                checkLoginHtml.Append(checkLogin);
+                checkLoginHtml.Append(dataOrder);
             }
             
             var header = @"<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
@@ -195,7 +189,7 @@ namespace DATN.PetShop.User.site.cart
                 <div class='breadcrumb-content text-center'>
                     <h2>Giỏ hàng</h2>
                     <ul>
-                        <li><a href='site/home/home.aspx.cs'>Trang chủ</a></li>
+                        <li><a href='trang-chu'>Trang chủ</a></li>
                         <li class='active'>Cart Page</li>
                     </ul>
                 </div>
@@ -233,7 +227,7 @@ namespace DATN.PetShop.User.site.cart
                                     <a href='#'>Cập nhật giỏ hàng</a>
                                 </div>
                                 <div class='cart-clear' jsaction='deleteAllButton'>
-                                    <a href='gio-hang'>Xóa toàn bộ sản phẩm trong giỏ hàng</a>
+                                    Xóa toàn bộ sản phẩm trong giỏ hàng
                                 </div>
                             </div>
                         </div>

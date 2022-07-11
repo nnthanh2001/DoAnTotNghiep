@@ -11,6 +11,7 @@ namespace BusinessLogicLayer.Owners.PetHotel.Login
 {
     public interface ILoginBal
     {
-        Task<RequestModel<UserModel>> GetId(LoginModel login);
+        Task<RequestModel<UserModel>> GetIdStaff(LoginModel login);
+        Task<RequestModel<UserModel>> GetIdCustomer(LoginModel login);
     }
 }

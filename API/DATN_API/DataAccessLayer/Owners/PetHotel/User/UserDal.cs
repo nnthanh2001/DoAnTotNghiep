@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using Entities.OwnerModels.Request;
 
 namespace DataAccessLayer.Owners.PetHotel
 {
@@ -39,7 +40,7 @@ namespace DataAccessLayer.Owners.PetHotel
             var statusList = await repository.statusRepository.GetAll();
             var roleList = await repository.roleRepository.GetAll();
             var userList = await repository.userRepository.GetAll();
-           
+
 
             foreach (var user in userList)
             {
@@ -61,10 +62,10 @@ namespace DataAccessLayer.Owners.PetHotel
                         user.statusName = status.statusName;
                     }
                 }
-               
-               
+
+
             }
-            return userList.Where(x=>x.roleID != 5).ToList();
+            return userList.Where(x => x.roleID != 5).ToList();
         }
 
         public async Task<UserModel> GetId(string _id)
@@ -92,7 +93,7 @@ namespace DataAccessLayer.Owners.PetHotel
                     user.roleName = role.roleName;
                 }
             }
-            
+
             return user;
         }
         public async Task<List<UserModel>> GetByCondition(int condition)
@@ -196,12 +197,53 @@ namespace DataAccessLayer.Owners.PetHotel
             this.repository = repository;
 
         }
-        public async Task<UserBaseModel> Add(UserBaseModel doc)
+        public async Task<RequestModel<UserBaseModel>> Add(UserBaseModel doc)
         {
+            var response = new RequestModel<UserBaseModel> { HttpStatusCode = 400 };
             doc.userHandle = handler(doc.userName);
             doc.userID = randomID();
             doc.password = GetHash(doc.password);
-            return await repository.userRepository.Add(doc);
+
+            var userList = await repository.userRepository.GetAll();
+
+            foreach (var user in userList)
+            {
+                if (doc.userName == user.userName)
+                {
+                    response.message = "Tên tài khoản đã tồn tại, vui lòng nhập tên khác!";
+                    return response;
+
+                }
+                else
+                {
+                    if (doc.phone == user.phone)
+                    {
+                        response.message = "Số điện thoại đã được đăng ký, vui lòng đăng ký tài khoản bằng số điện thoại khác!";
+                        return response;
+
+                    }
+                    else
+                    {
+                        if (doc.email == user.email)
+                        {
+
+                            response.message = "Email đã được đăng ký, vui lòng đăng ký tài khoản bằng email khác!";
+                            return response;
+
+                        }
+                      
+                    }
+                    
+                }
+            }
+            var addUser = await repository.userRepository.Add(doc);
+            response.message = "Đăng ký thành công!";
+            response.HttpStatusCode = 200;
+            response.model = addUser;
+
+            return response;
+
+
         }
 
         public Task<bool> Delete(string _id)

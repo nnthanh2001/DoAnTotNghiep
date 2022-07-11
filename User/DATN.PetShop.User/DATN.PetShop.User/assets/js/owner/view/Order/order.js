@@ -19,15 +19,15 @@ var Order = function () {
             var data = { "request": "order" };
             var option = { url: orderHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
-                request.post();
-            executeExample('basicMessage');
-
+            request.post();
+            
         });
     };
 
     that.result = function (json) {
 
         console.log(json);
-        //window.location.href = json.href;
+        executeExample('basicMessage');
+        window.location.href = json.href;
     };
 };

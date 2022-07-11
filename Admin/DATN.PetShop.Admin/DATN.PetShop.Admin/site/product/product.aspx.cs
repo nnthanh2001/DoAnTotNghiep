@@ -64,7 +64,7 @@ namespace DATN.PetShop.Admin.site.products.product
                 <td>" + product.quantity + @"</td>
                 <td>" + price + @"</td>
                 <td>" + product.statusName + @"</td>
-                <td><a href='/san-pham/" + product.productHandle + @"-" + product._id + @"'><i class='las la-pen text-secondary font-16'></i></a> 
+                <td><a href='/san-pham/" + product.productHandle + "-" + product._id + @"'><i class='las la-pen text-secondary font-16'></i></a> 
                 <a type='button'><i class='las la-trash-alt text-secondary font-16' jsaction='deleteProductButton' value='" + product._id + @"'></i></a></td>
                 </tr>";
 

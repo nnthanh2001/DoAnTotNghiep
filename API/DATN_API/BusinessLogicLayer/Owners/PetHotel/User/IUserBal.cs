@@ -1,5 +1,6 @@
 ﻿using Entities.OwnerModels.PetHotelModel.Status;
 using Entities.OwnerModels.PetHotelModel.User;
+using Entities.OwnerModels.Request;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace BusinessLogicLayer.Owners.PetHotel
     }
     public interface IUserBal
     {
-        Task<UserBaseModel> Add(UserBaseModel doc);
+        Task<RequestModel<UserBaseModel>> Add(UserBaseModel doc);
         Task<bool> Update(UserModel doc, string _id);
         Task<bool> Delete(string _id);
         Task<List<UserModel>> GetAll();

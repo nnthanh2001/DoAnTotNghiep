@@ -70,7 +70,7 @@ namespace DATN.PetShop.Admin.site.order
                     </button>
                 </li>
                 <li class='hide-phone app-search'>
-                    <form role='k' action='' method='get'>
+                    <form role='' action='' method='get'>
                         <input type='k' name='k' class='form-control top-search mb-0' placeholder='Tìm kiếm...'>
                         <button type='submit'><i class='ti ti-search'></i></button>
                     </form>

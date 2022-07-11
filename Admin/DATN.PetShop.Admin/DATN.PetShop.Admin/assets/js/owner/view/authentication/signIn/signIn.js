@@ -40,6 +40,10 @@ var SignIn = function () {
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         return regex.test(email);
     }
+    function isPassword(password) {
+        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$/;
+        return regex.test(password);
+    }
     that.bindValue = function () {
 
         var userName = $.trim($('[data_value="userName"]').val());

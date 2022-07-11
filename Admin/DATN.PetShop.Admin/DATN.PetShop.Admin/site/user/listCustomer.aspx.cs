@@ -32,14 +32,15 @@ namespace DATN.PetShop.Admin.site.user
             foreach (var user in strUser)
             {
                 strBody.Append("<tr>");
-                strBody.Append("<td>" + user.userID + "</td>");
-                strBody.Append("<td style='width: 190px;'>" + user.userName + "</td>");
+                //strBody.Append("<td>" + user.userID + "</td>");
+                strBody.Append("<td style='white-space: nowrap'>" + user.userName + "</td>");
                 strBody.Append("<td>" + user.email + "</td>");
-                strBody.Append("<td>" + user.address + "</td>");
+                strBody.Append("<td style='width: 380px;'>" + user.address + "</td>");
                 strBody.Append("<td>" + user.phone + "</td>");
-                strBody.Append("<td style='width: 160px;'>" + user.statusName + "</td>");
-                strBody.Append("<td><a href='nhan-vien/" + user.userHandle + "-" + user._id + "'><i class='las la-pen text-secondary font-16'></i></a> ");
-                strBody.Append("<a href='#'><i class='las la-trash-alt text-secondary font-16 onclick='executeExample('warningConfirm')''></i></a></td>");
+                strBody.Append("<td>" + user.statusName + "</td>");
+
+                //strBody.Append("<td><a href='nhan-vien/" + user.userHandle + "-" + user._id + "'><i class='las la-pen text-secondary font-16'></i></a> ");
+                //strBody.Append("<a href='#'><i class='las la-trash-alt text-secondary font-16 onclick='executeExample('warningConfirm')''></i></a></td>");
                 strBody.Append("</tr>");
             }
 
@@ -81,14 +82,14 @@ namespace DATN.PetShop.Admin.site.user
                                         <table class='table table-striped'>
                                             <thead class='thead-light'>
                                             <tr>
-                                                <th style='white-space: nowrap'>Mã KH</th>
+                                                
                                                 <th style='white-space: nowrap'>Tên KH</th>
                                                
                                                 <th>Email</th>
                                                 <th>Địa chỉ</th>
                                                 <th>Liên hệ</th>
                                                 <th style='white-space: nowrap'>Trạng thái</th>
-                                                <th style='white-space: nowrap'>Hành động</th>
+                                                
                                             </tr>
                                             </thead>
                                             <tbody>";

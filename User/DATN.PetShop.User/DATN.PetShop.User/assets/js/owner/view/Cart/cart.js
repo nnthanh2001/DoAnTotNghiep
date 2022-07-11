@@ -14,15 +14,11 @@ var Cart = function () {
     };
     that.event = function () {
         $('[jsaction="addItemToCartButton"]').off('click').on('click', function () {
-
             var id = $(this).attr('value');
             var data = { "request": "addItem", "_id": id };
             var option = { url: cartHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
             request.post();
-
-
-
         });
         $('[jsaction="deleteItemButton"]').off('click').on('click', function () {
             var id = $(this).attr('value');
@@ -40,17 +36,7 @@ var Cart = function () {
             location.reload(true);
 
         });
-        $('[jsaction="checkOut"]').off('click').on('click', function () {
-            var id = $(this).attr('value');
-            var json = that.bindValue();
-            console.log(json);
-            var data = { "request": "order", "_id": id, "data": json };
-            var option = { url: cartHandlerUrl, data: data, callback: that.result };
-            request.constructor(option);
-            request.post();
 
-
-        });
         $('[jsaction="checkListProduct"]').off('click').on('click', function () {
             executeExample('basicMessage');
         });
@@ -71,16 +57,14 @@ var Cart = function () {
         executeExample('mixin');
         if (request != null) {
             location.reload(true);
-
         }
-
     };
 
     that.result = function (json) {
 
         console.log(json);
         that.addItemToCart();
-        //window.location.href = json.href;
+        window.location.href = json.href;
 
 
     };

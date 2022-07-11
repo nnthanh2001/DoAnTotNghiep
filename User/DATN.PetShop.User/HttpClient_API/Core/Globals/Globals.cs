@@ -11,7 +11,7 @@ namespace HttpClient_API.Core.Global
         public static string baseAPI = "https://localhost:44309";
         public static string userAPI = "api/User";
        
-        public static string loginAPI = "api/User/SignIn";
+        public static string loginAPI = "api/User/SignInCustomer";
         public static string orderAPI = "api/Cart";
         public static string addOrderAPI = "api/Cart/AddOrder";
         public static string createOrderAPI = "api/Order";

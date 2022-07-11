@@ -23,7 +23,7 @@ namespace DataAccessLayer.Owners.PetHotel.Login
             this.repository = repository;
 
         }
-        public async Task<RequestModel<UserModel>> GetId(LoginModel login)
+        public async Task<RequestModel<UserModel>> GetIdStaff(LoginModel login)
         {
 
             var response = new RequestModel<UserModel> { HttpStatusCode = 400 };
@@ -106,6 +106,104 @@ namespace DataAccessLayer.Owners.PetHotel.Login
                                             response.HttpStatusCode = 200;
                                         }
                                     } 
+                                }
+                                else
+                                {
+                                    response.message = "Tài khoản không tồn tại!";
+                                    response.HttpStatusCode = 404;
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+            }
+            return response;
+        }
+        public async Task<RequestModel<UserModel>> GetIdCustomer(LoginModel login)
+        {
+
+            var response = new RequestModel<UserModel> { HttpStatusCode = 400 };
+
+            var filterUserName = Builders<UserModel>.Filter.Eq(q => q.email, login.userName);
+            var filter = (Builders<UserModel>.Filter.Eq(q => q.email, login.userName)) & Builders<UserModel>.Filter.Eq(q => q.password, login.password);
+            var checkUserName = await repository.loginRepository.GetId(filterUserName);
+            var user = await repository.loginRepository.GetId(filter);
+
+
+            if (login.userName == "" && login.password == "")
+            {
+                response.message = "Bạn chưa nhập tài khoản, mật khẩu!";
+            }
+            else
+            {
+                if (login.userName == "")
+                {
+                    response.message = "Bạn chưa nhập tài khoản!";
+                }
+                else
+                {
+                    if (login.password == "")
+                    {
+                        response.message = "Bạn chưa nhập mật khẩu!";
+                    }
+                    else
+                    {
+                        if (checkUserName == null)
+                        {
+                            response.message = "Tài khoản không tồn tại";
+
+                        }
+                        else
+                        {
+                            if (checkUserName.password != login.password)
+                            {
+                                response.message = "Sai mật khẩu vui lòng nhập lại!";
+                            }
+                            else
+                            {
+                                if (user != null)
+                                {
+                                    var statusid = user.statusID;
+                                    var roleid = user.roleID;
+                                    if (statusid == 2)
+                                    {
+                                        response.message = "Tài khoản đã ngưng hoạt động!";
+                                    }
+                                    else
+                                    {
+                                        if (roleid == 5)
+                                        {
+                                            if (statusid > 0)
+                                            {
+
+                                                var filterStatusid = Builders<StatusModel>.Filter.Eq(q => q.statusID, statusid);
+                                                var status = await repository.statusRepository.GetId(filterStatusid);
+                                                if (status != null)
+                                                {
+                                                    user.statusName = status.statusName;
+                                                }
+                                            }
+                                            if (roleid > 0)
+                                            {
+                                                var filterRoleid = Builders<RoleModel>.Filter.Eq(q => q.roleID, roleid);
+                                                var role = await repository.roleRepository.GetId(filterRoleid);
+                                                if (role != null)
+                                                {
+                                                    user.roleName = role.roleName;
+                                                }
+                                            }
+
+                                            response.model = user;
+                                            response.message = "Đăng nhập thành công!";
+                                            response.HttpStatusCode = 200;
+                                        }
+                                        else
+                                        {
+                                            response.message = "";
+                                        }
+                                    }
                                 }
                                 else
                                 {

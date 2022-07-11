@@ -53,10 +53,16 @@ namespace DATN_API.Controllers.PetHotel
             return Ok(del);
 
         }
-        [HttpPost("SignIn")]
-        public async Task<IActionResult> SignIn(LoginModel login)
+        [HttpPost("SignInAdmin")]
+        public async Task<IActionResult> GetIdStaff(LoginModel login)
         {
-            var mess = await BusinessWrapper.login.GetId(login);
+            var mess = await BusinessWrapper.login.GetIdStaff(login);
+            return Ok(mess);
+        }
+        [HttpPost("SignInCustomer")]
+        public async Task<IActionResult> GetIdCustomer(LoginModel login)
+        {
+            var mess = await BusinessWrapper.login.GetIdCustomer(login);
             return Ok(mess);
         }
         [HttpGet("EditUser/{_id}")]

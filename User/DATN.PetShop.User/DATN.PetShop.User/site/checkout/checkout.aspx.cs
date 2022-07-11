@@ -138,7 +138,7 @@ namespace DATN.PetShop.User.site.checkout
                                     </table>
                                 </section>
                                 <p>Cảm ơn quý khách đã đặt hàng. Nhân viên của chúng tôi sẽ gọi điện lại cho quý khách để xác nhận đơn hàng, thông báo phí giao hàng (nếu có) và hướng dẫn quý khách các phương thức thanh toán. Mọi chi tiết xin liên hệ Tổng đài 0987654321 – 0123456789 để được hỗ trợ.</p>
-                                <button class='btn-style' type='button'><a href='hoan-tat-dat-hang' jsaction='Order'>Xác nhận</a></button>
+                                <button class='btn-style' type='button'><a jsaction='Order' href='cam-on'>Xác nhận</a></button>
                             </div>
                         </div>
                     </div>

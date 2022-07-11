@@ -53,7 +53,7 @@ namespace DATN.PetShop.User.handleRequest.Order
 
                                 var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","thanh-toan" }
+                            {"href","cam-on" }
                         };
                                 result = JsonConvert.SerializeObject(dicResult);
                                 Session["Order"] = null;

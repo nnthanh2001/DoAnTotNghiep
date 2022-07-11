@@ -3,9 +3,11 @@ var signIn = new window.SignIn();
 var cart = new window.Cart();
 var order = new window.Order();
 var product = new window.Product();
-$(function () {
+var checkout = new window.Checkout();
+;$(function () {
     signIn.init();
     cart.init();
     order.init();
     product.init();
+    checkout.init();
 });

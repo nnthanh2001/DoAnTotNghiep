@@ -232,7 +232,9 @@
 <script src="assets/js/owner/view/Cart/cart.js"></script>
 <script src="assets/js/owner/view/Order/order.js"></script>
 <script src="assets/js/owner/view/Product/product.js"></script>
+<script src="assets/js/owner/view/Checkout/checkout.js"></script>
 <script src="assets/js/owner/wrapper/wrapper.js"></script>
+
 <script src="assets-2/plugins/sweet-alert2/sweetalert2.min.js"></script>
 <script src="assets-2/pages/sweet-alert.init.js"></script>
 <!-- Sweet-Alert  -->

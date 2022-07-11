@@ -29,8 +29,8 @@ namespace DATN.PetShop.Admin.site.users.user
             foreach (var user in strUser)
             {
                 strBody.Append("<tr>");
-                strBody.Append("<td>" + user.userID + "</td>");
-                strBody.Append("<td>" + user.userName + "</td>");
+                //strBody.Append("<td>" + user.userID + "</td>");
+                strBody.Append("<td style='white-space: nowrap'><a href='nhan-vien/" + user.userHandle + "-" + user._id + "'>" + user.userName + "</td>");
                 strBody.Append("<td>" + user.roleName +"</td>");
                 strBody.Append("<td>" + user.email + "</td>");
                 strBody.Append("<td>" + user.address + "</td>");
@@ -123,7 +123,7 @@ namespace DATN.PetShop.Admin.site.users.user
                                         <table class='table table-striped'>
                                             <thead class='thead-light'>
                                             <tr>
-                                                <th style='white-space: nowrap'>ID</th>
+                                                
                                                 <th style='white-space: nowrap'>Tên nhân viên</th>
                                                 <th style='white-space: nowrap'>Vai trò</th>
                                                 <th style='white-space: nowrap'>Email</th>

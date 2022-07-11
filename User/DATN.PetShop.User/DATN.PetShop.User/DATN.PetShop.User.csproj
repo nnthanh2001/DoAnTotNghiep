@@ -897,6 +897,7 @@
     <Content Include="assets\js\owner\restful\Restful.min.js" />
     <Content Include="assets\js\owner\view\Authentication\signIn\signIn.js" />
     <Content Include="assets\js\owner\view\Cart\cart.js" />
+    <Content Include="assets\js\owner\view\Checkout\checkout.js" />
     <Content Include="assets\js\owner\view\Order\order.js" />
     <Content Include="assets\js\owner\view\Product\product.js" />
     <Content Include="assets\js\owner\wrapper\wrapper.js" />
@@ -1435,6 +1436,7 @@
     <Content Include="Global.asax" />
     <Content Include="handleRequest\Authentication\signIn\signIn.aspx" />
     <Content Include="handleRequest\Cart\cart.aspx" />
+    <Content Include="handleRequest\Checkout\Checkout.aspx" />
     <Content Include="handleRequest\Order\Order.aspx" />
     <Content Include="handleRequest\Product\ProductFilter.aspx" />
     <Content Include="site\aboutUs\aboutUs.aspx" />
@@ -1450,7 +1452,6 @@
     <Content Include="site\checkout\checkout.aspx" />
     <Content Include="site\contact\contactUs.aspx" />
     <Content Include="site\home\home.aspx" />
-    <Content Include="site\login\HtmlPage1.html" />
     <Content Include="site\login\login.aspx" />
     <Content Include="site\orderComplete\orderComplete.aspx" />
     <Content Include="site\products\productDetail.aspx" />
@@ -1476,6 +1477,13 @@
     </Compile>
     <Compile Include="handleRequest\Cart\cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="handleRequest\Checkout\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="handleRequest\Checkout\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="handleRequest\Order\Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>

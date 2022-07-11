@@ -9,9 +9,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DATN.PetShop.User.handleRequest.Cart
+namespace DATN.PetShop.User.handleRequest.Checkout
 {
-    public partial class cart : System.Web.UI.Page
+    public partial class Checkout : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace DATN.PetShop.User.handleRequest.Cart
 ";
 
 
-           var a = @"<ul>
+            var a = @"<ul>
                                         <li class='single - shopping - cart'>
                                                < div class='row'>
                                             <div class='shopping-cart-img'>
@@ -114,11 +114,11 @@ namespace DATN.PetShop.User.handleRequest.Cart
                             Session["Order"] = strPost;
                             var dicResult = new Dictionary<string, object> {
                                     {"HttpStatusCode",200 },
-                                    
-                                    
+                                    {"href","thanh-toan" },
+
 
                                 };
-                           
+
 
                             result = JsonConvert.SerializeObject(dicResult);
                         }
@@ -129,90 +129,14 @@ namespace DATN.PetShop.User.handleRequest.Cart
 
                     }
 
-                   
+
+
                     break;
                 case "put":
 
                     break;
                 case "delete":
-                    if (rq == "deleteitem")
-                    {
-                        try
-                        {
-                            var lsProductGuid = new List<string>();
-                            if (Session["ProductGuid"] != null)
-                            {
-                                lsProductGuid = Session["ProductGuid"] as List<string>;
-                            }
-
-                            var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
-
-                            var lsprod = new List<ProductList>();
-                            if (lsProductGuid != null && lsProductGuid.Count > 0)
-                            {
-                                lsProductGuid = lsProductGuid.Where(x => !x.Equals(id)).ToList();
-                                foreach (var product in lsProductGuid)
-                                {
-                                    var prod = new ProductList();
-                                    prod._id = product;
-                                    lsprod.Add(prod);
-                                }
-
-                            }
-                            order.productList = lsprod;
-                            Session["ProductGuid"] = lsProductGuid;
-
-                            var strPost = Restful.Post(baseUrl, apiUrl, order);
-                            if (strPost != null && strPost != "")
-                            {
-                                Session["Order"] = strPost;
-                                if (strPost != null)
-                                {
-
-                                    var dicResult = new Dictionary<string, object> {
-                            {"HttpStatusCode",200 },
-                            {"href","gio-hang" }
-
-                        };
-                                    result = JsonConvert.SerializeObject(dicResult);
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            throw;
-                        }
-                    }
-                    else
-                    {
-                        if (rq == "deleteall")
-                        {
-                            var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
-                            var lsprod = new List<ProductList>();
-
-                            Session["ProductGuid"] = null;
-                            var strPost = Restful.Post(baseUrl, apiUrl, order);
-                            if (strPost != null && strPost != "")
-                            {
-                                Session["Order"] = strPost;
-                                if (strPost != null)
-                                {
-
-                                    var dicResult = new Dictionary<string, object> {
-                            {"HttpStatusCode",200 },
-                            
-
-                        };
-                                    result = JsonConvert.SerializeObject(dicResult);
-                                }
-                            }
-
-
-
-                        }
-
-                    }
-
+                   
                     break;
             }
 
