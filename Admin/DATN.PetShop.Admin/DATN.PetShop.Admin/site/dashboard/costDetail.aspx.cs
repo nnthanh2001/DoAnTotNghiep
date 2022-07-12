@@ -39,6 +39,7 @@ namespace DATN.PetShop.Admin.site.dashboard
             var apiUrl = Globals.statisticalAPI + "/" + id;
 
             var strStatistical = Restful.Get<StatisticalModel>(baseUrl, apiUrl).Result;
+            string totalCost = String.Format("{0:0,00₫}", strStatistical.totalCost);
             var value = new StringBuilder();
             if(strStatistical.costList.Count > 0)
             {
@@ -53,8 +54,8 @@ namespace DATN.PetShop.Admin.site.dashboard
                                         </tr>";
                     value.Append(str);
                 }
-            }    
-           
+            }
+
 
             var html = @"<div class='topbar'>
         <!-- Navbar -->
@@ -118,6 +119,9 @@ namespace DATN.PetShop.Admin.site.dashboard
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div class='card-footer'>
+                            <h4 class='card-title'>Tổng chi phí: " + totalCost + @"</h4>
                         </div>
                     </div>
                 </div>

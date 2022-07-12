@@ -125,10 +125,9 @@ function executeExample(sub) {
                 cancelButtonText: 'Hủy!',
                 reverseButtons: true
             }).then((result) => {
-                request.delete();
-                location.reload(true);
+                
                 if (result.isConfirmed) {
-                    
+                    request.delete();
                     swalWithBootstrapButtons.fire(
                         'Deleted!',
                         'Sản phẩm đã bị xóa.',
@@ -140,7 +139,7 @@ function executeExample(sub) {
                 ) {
                     swalWithBootstrapButtons.fire(
                         'Cancelled',
-                        'Đúng vậy sản phẩm này rất tốt :)',
+                        'Hủy',
                         'error'
                     )
                 }

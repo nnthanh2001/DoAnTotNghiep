@@ -1,4 +1,6 @@
 ﻿using Entities.Order;
+using Entities.Request;
+using Entities.User;
 using HttpClient_API;
 using HttpClient_API.Core.Global;
 using Newtonsoft.Json;
@@ -44,7 +46,11 @@ namespace DATN.PetShop.User.handleRequest.Order
                         var strorder = Session["Order"].ToString();
 
                         var order = JsonConvert.DeserializeObject<OrderModel>(strorder);
+
+                        var strCustomer = Session["login"].ToString();
+                        var request = JsonConvert.DeserializeObject<RequestModel<UserModel>>(strCustomer);
                         
+                        order.shipping.userId = request.model._id;
                         var strPost = Restful.Post(baseUrl, apiUrl, order);
                         if (strPost != null && strPost != "")
                         {
@@ -57,6 +63,7 @@ namespace DATN.PetShop.User.handleRequest.Order
                         };
                                 result = JsonConvert.SerializeObject(dicResult);
                                 Session["Order"] = null;
+                                Session["ProductGuid"] = null;
                             }
                         }
                     }

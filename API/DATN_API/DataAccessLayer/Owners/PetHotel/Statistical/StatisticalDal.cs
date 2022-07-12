@@ -25,14 +25,6 @@ namespace DataAccessLayer.Owners.PetHotel.Statistical
         public async Task<List<StatisticalModel>> GetAll()
         {
             var statisticalList = await repository.statisticalRepository.GetAll();
-            if (statisticalList != null && statisticalList.Count > 0)
-            {
-                foreach(var statistical in statisticalList)
-                {
-                    statistical.turnover = statistical.totalIncome - statistical.totalCost;
-                }    
-                
-            }
             return statisticalList;
         }
         public async Task<StatisticalModel> GetId(string _id)
@@ -45,47 +37,66 @@ namespace DataAccessLayer.Owners.PetHotel.Statistical
         }
         public async Task<StatisticalPage> GetStatisticalByMonth(string m)
         {
-            if(m== null||m=="")
-            {
-                m = DateTime.Now.ToString("MM");
-            }    
-            var month = m + "/2022";
-
-            var filter = Builders<StatisticalModel>.Filter.Empty;
-            var mongoBuilder = Builders<StatisticalModel>.Filter;
-
-            var filterOrder = Builders<OrderModel>.Filter.Empty;
-            var mongoBuilderOrder = Builders<OrderModel>.Filter;
-
-            var filOrderToday = DateTime.Now.ToString("dd/MM/yyyy");
-            var filterOrderToday = Builders<OrderModel>.Filter.Empty;
-            if (!string.IsNullOrEmpty(month))
-            {
-                month = "/.*" + month + ".*/i";
-                filter = filter & mongoBuilder.Regex(y => y.date, new BsonRegularExpression(month));
-                filterOrder = filterOrder & mongoBuilderOrder.Regex(y => y.date, new BsonRegularExpression(filOrderToday));
-                
-            }
-            if (!string.IsNullOrEmpty(filOrderToday))
-            {
-                filOrderToday = "/.*" + filOrderToday + ".*/i";
-                filterOrderToday = filterOrderToday & mongoBuilderOrder.Regex(y => y.date, new BsonRegularExpression(filOrderToday));
-            }
-            var orderList = await repository.orderRepository.GetListOrderById(filterOrder);
-            var statisticalPerMonth = await repository.statisticalRepository.GetListStatisticalById(filter);
-            var orderListToDay = await repository.orderRepository.GetListOrderById(filterOrderToday);
-
-
+            
+            var statisticalList = new List<StatisticalModel>();
             var statisticalPage = new StatisticalPage();
-                
-            statisticalPage.totalOrder = orderList.Count();
-            statisticalPage.statisticalList = statisticalPerMonth;
-            statisticalPage.totalOfAllBill = statisticalPerMonth.Sum(q => q.turnover);
-            statisticalPage.totalMoneyToDay = orderListToDay.Sum(q => q.subTotal);
 
+
+
+
+            var curentOrderDate = new List<OrderModel>();
+           
+
+            var curentDate = DateTime.Now.Day;
+            var curentMonth = DateTime.Now.Month;
+            for(var i = 1; i <= curentMonth;i++ )
+            {
+
+                
+                m = i.ToString();
+
+                var month = m + "/2022";
+                var filter = Builders<OrderModel>.Filter.Empty;
+                var mongoBuilder = Builders<OrderModel>.Filter;
+                if (!string.IsNullOrEmpty(month))
+                {
+                    var monthFilter = "/.*" + month + ".*/i";
+                    filter = filter & mongoBuilder.Regex(y => y.date, new BsonRegularExpression(monthFilter));
+                }
+                var sort = Builders<OrderModel>.Sort.Descending("_id");
+                var statisticalPerMonth = await repository.invoiceRepository.GetListOrderByDate(filter, sort);
+
+                var statistical = new StatisticalModel
+                {
+                    month = month,
+                    nuberOfOrder = statisticalPerMonth.Count(),
+                    totalIncome = statisticalPerMonth.Sum(q => q.subTotal),
+                    totalCost = 50000000 
+            };
+                //statistical.totalCost = statistical.costList.Sum(q => q.costPrice);
+
+                if(i == curentMonth)
+                {
+                    var currentDate =DateTime.Parse( curentDate + "/" + m + "/2022").ToString("dd/MM/yyyy");
+                    curentOrderDate = statisticalPerMonth.Where(x => DateTime.Parse(x.date).ToString("dd/MM/yyyy").Equals(currentDate)).ToList();
+                }    
+
+                statisticalList.Add(statistical);
+            }
+
+
+
+
+            statisticalPage.totalOrderToDay = curentOrderDate.Count();
+            statisticalPage.totalOfAllBill = statisticalList.Sum(q => q.totalIncome);
+            statisticalPage.totalMoneyToDay = curentOrderDate.Sum(q => q.subTotal);
+            statisticalPage.statisticalList = statisticalList;
 
             return statisticalPage;
-
         }
+
+
+
+
     }
 }

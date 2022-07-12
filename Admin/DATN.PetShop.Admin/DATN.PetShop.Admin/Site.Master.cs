@@ -146,6 +146,9 @@ namespace DATN.PetShop.Admin
                             <!--end sidebarTables-->
                         </li>
                         <li class='nav-item'>
+                            <a class='nav-link active' href='https://dashboard.vchat.vn/'><span>Tư vấn khách hàng</span></a>
+                        </li>
+                        <li class='nav-item'>
                             <a class='nav-link active' href='dang-nhap'><span>Đăng xuất</span></a>
                         </li>
                         <!--end nav-item-->

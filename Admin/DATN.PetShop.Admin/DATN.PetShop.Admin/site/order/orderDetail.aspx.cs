@@ -95,7 +95,7 @@ namespace DATN.PetShop.Admin.site.order
                         <div class='card-header'>
                             <div class='row align-items-center'>
                                 <div class='col'>
-                                    <h4 class='card-title'>Đơn hàng: " + order.orderID + @"</h4>
+                                    <h4 class='card-title'>Đơn hàng: DH" + order.orderID + @"</h4>
                                 </div>
                                 <!--end col-->
                             </div>
@@ -104,6 +104,8 @@ namespace DATN.PetShop.Admin.site.order
                         <!--end card-header-->
                         <div class='card-body'>
                             <p class='mb-4 text-muted'>Khách hàng: " + order.shipping.userName + @"</p>
+                            <p class='mb-4 text-muted'>Email: " + order.shipping.email + @"</p>
+                            <p class='mb-4 text-muted'>Địa chỉ: " + order.shipping.addressDelivery + @"</p>
                             <div class='table-responsive'>
                                 <table class='table mb-0'>
                                     <thead>
@@ -143,7 +145,7 @@ namespace DATN.PetShop.Admin.site.order
                                                 </tr>
                                                 <tr>
                                                     <td class='border-bottom-0'>Tổng hóa đơn</td>
-                                                    <td class='text-dark border-bottom-0'><strong>" + subTotal+20000 + @"</strong></td>
+                                                    <td class='text-dark border-bottom-0'><strong>" + subTotal + @"</strong></td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -61,7 +61,7 @@ namespace DATN.PetShop.User
                 }
             }
 
-            var checkLoginHtml = new StringBuilder();
+           
             var checkLoginHtml2 = new StringBuilder();
             var checkLoginHtml3 = new StringBuilder();
             if(Session["login"] == null)
@@ -74,8 +74,7 @@ namespace DATN.PetShop.User
                 checkLoginHtml2.Append(checkLoginButtonAccount);
 
 
-                var checkLoginInButtonPay = @" <a href='/dang-nhap'>Thanh toán</a>";
-                checkLoginHtml.AppendLine(checkLoginInButtonPay);
+               
             }
             else
             {
@@ -85,7 +84,7 @@ namespace DATN.PetShop.User
                 var customer = request.model;
 
                 var checkLoginButtonAccount = @"<div class='header-login same-style'>
-                                <a href='/"+customer.userHandle+"-"+customer._id+@"'>
+                                <a href='/tai-khoan/"+customer.userHandle+"-"+customer._id+@"'>
                                     <i class='icon-user icons'></i>
                                 </a>
                             </div>";
@@ -96,8 +95,7 @@ namespace DATN.PetShop.User
                             </div>";
                 checkLoginHtml3.Append(customerNameHtml);
 
-                var checkLoginInButtonPay = @" <a href='/thanh-toan'>Thanh toán</a>";
-                checkLoginHtml.Append(checkLoginInButtonPay);
+                
             }
 
             var header = @"<div class='header-bottom transparent-bar'>
@@ -153,7 +151,6 @@ namespace DATN.PetShop.User
                                     </div>
                                     <div class='shopping-cart-btn'>
                                         <a href='/gio-hang'>Giỏ hàng</a>
-                                       " + checkLoginHtml.ToString() + @"
                                     </div>
                                 </div>
                             </div>

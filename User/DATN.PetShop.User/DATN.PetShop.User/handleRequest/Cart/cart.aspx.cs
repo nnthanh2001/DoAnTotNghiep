@@ -114,7 +114,7 @@ namespace DATN.PetShop.User.handleRequest.Cart
                             Session["Order"] = strPost;
                             var dicResult = new Dictionary<string, object> {
                                     {"HttpStatusCode",200 },
-                                    
+                                {"href","javascript:void(0);" }
                                     
 
                                 };
@@ -190,19 +190,20 @@ namespace DATN.PetShop.User.handleRequest.Cart
                             var order = JsonConvert.DeserializeObject<OrderModel>(jsOrder);
                             var lsprod = new List<ProductList>();
 
-                            Session["ProductGuid"] = null;
+                            
                             var strPost = Restful.Post(baseUrl, apiUrl, order);
                             if (strPost != null && strPost != "")
                             {
                                 Session["Order"] = strPost;
                                 if (strPost != null)
                                 {
-
+                                    Session["ProductGuid"] = null;
                                     var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            
+                            {"href","gio-hang" }
 
                         };
+
                                     result = JsonConvert.SerializeObject(dicResult);
                                 }
                             }

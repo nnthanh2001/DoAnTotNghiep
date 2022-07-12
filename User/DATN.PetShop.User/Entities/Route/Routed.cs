@@ -25,8 +25,10 @@ namespace Entities.Route
             routes.MapPageRoute("login", "dang-nhap", "~/site/login/login.aspx", false);
             routes.MapPageRoute("cart", "gio-hang", "~/site/cart/cart.aspx", false);
             routes.MapPageRoute("serviceDetail", "dich-vu/chi-tiet-dich-vu", "~/site/service/service_Detail.aspx", false);
-            routes.MapPageRoute("account", "{handle}-{_id}", "~/site/account/account.aspx", false);
+            routes.MapPageRoute("account", "tai-khoan/{handle}-{_id}", "~/site/account/account.aspx", false);
             routes.MapPageRoute("thankyou", "cam-on", "~/site/orderComplete/orderComplete.aspx", false);
+            routes.MapPageRoute("history", "lich-su-don-hang", "~/site/historyOrder/historyOrder.aspx", false);
+            routes.MapPageRoute("historyDetail", "chi-tiet-don-hang-{_id}", "~/site/historyOrder/detailOrder.aspx", false);
 
 
 

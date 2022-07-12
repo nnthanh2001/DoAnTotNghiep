@@ -114,7 +114,8 @@ namespace DATN.PetShop.User.handleRequest.Checkout
                             Session["Order"] = strPost;
                             var dicResult = new Dictionary<string, object> {
                                     {"HttpStatusCode",200 },
-                                    {"href","thanh-toan" },
+                                    //{"href","thanh-toan" },
+                                    {"href","http://localhost:16262/" },
 
 
                                 };

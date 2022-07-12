@@ -201,7 +201,7 @@ namespace DataAccessLayer.Owners.PetHotel
         {
             var response = new RequestModel<UserBaseModel> { HttpStatusCode = 400 };
             doc.userHandle = handler(doc.userName);
-            doc.userID = randomID();
+            doc.userID = "KH" + randomID();
             doc.password = GetHash(doc.password);
 
             var userList = await repository.userRepository.GetAll();

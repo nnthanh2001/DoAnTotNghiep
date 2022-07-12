@@ -37,12 +37,15 @@ namespace DATN.PetShop.User.site.account
             var baseUrl = Globals.baseAPI;
             var apiUser = Globals.userAPI + "/" + id;
             var user = Restful.Get<UserModel>(baseUrl, apiUser).Result;
-            
-            var html = @" <div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
+
+            var html = "";
+            if (Session["login"] != null)
+            {
+                 html = @" <div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
             <div class='container'>
                 <div class='breadcrumb-content text-center'>
                     <h2>Tài khoản</h2>
-                    <h2>"+ user.userName + @"</h2>
+                    <h2>" + user.userName + @"</h2>
                 </div>
             </div>
         </div>
@@ -61,7 +64,7 @@ namespace DATN.PetShop.User.site.account
                                             <div class='billing-information-wrapper'>
                                                 <div class='account-info-wrapper'>
                                                     <h4>Thông tin tài khoản</h4>
-                                                    <h5>"+ user.userName + @"</h5>
+                                                    <h5>" + user.userName + @"</h5>
                                                 </div>
                                                 <div class='row'>
                                                     <div class='col-lg-12 col-md-12'>
@@ -91,9 +94,6 @@ namespace DATN.PetShop.User.site.account
                                                     </div>
                                                 </div>
                                                 <div class='billing-back-btn'>
-                                                    <div class='billing-back'>
-                                                        <a href='#'><i class='ti-arrow-up'></i></a>
-                                                    </div>
                                                     <div class='billing-btn'>
                                                         <button type='submit'>Lưu thay đổi</button>
                                                     </div>
@@ -128,9 +128,7 @@ namespace DATN.PetShop.User.site.account
                                                     </div>
                                                 </div>
                                                 <div class='billing-back-btn'>
-                                                    <div class='billing-back'>
-                                                        <a href='#'><i class=' ti-arrow-up'></i></a>
-                                                    </div>
+                                                  
                                                     <div class='billing-btn'>
                                                         <button type='submit'>Lưu thay đổi</button>
                                                     </div>
@@ -139,9 +137,9 @@ namespace DATN.PetShop.User.site.account
                                         </div>
                                     </div>
                                 </div>
-                                <div class='panel panel-default'>
+                               <div class='panel panel-default'>
                                     <div class='panel-heading'>
-                                        <h5 class='panel-title'><span>3</span> <a href='wishlist.html'>Danh sách sản phẩm yêu thích</a></h5>
+                                        <h5 class='panel-title'><span>3</span> <a href='lich-su-don-hang?u="+ user._id+ @"'>Lịch sử đơn hàng</a></h5>
                                     </div>
                                 </div>
                                 <div class='billing-btn'>
@@ -154,9 +152,17 @@ namespace DATN.PetShop.User.site.account
             </div>
         </div>";
 
+                html = string.Concat(html.ToString());
+            }
+            else
+            {
+                Response.Redirect("dang-nhap");
+            }
 
-           
-            html = string.Concat(html.ToString());
+
+
+
+
             return html;
         }
     }

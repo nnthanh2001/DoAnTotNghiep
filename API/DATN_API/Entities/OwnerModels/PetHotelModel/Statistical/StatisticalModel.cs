@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 
 namespace Entities.OwnerModels.PetHotelModel.Statistical
 {
-    public class StatisticalModel:BaseModel
+    public class StatisticalModel : BaseModel
     {
-        public string date { get; set; }
+        public string month { get; set; }
         public long totalCost { get; set; }
         public int nuberOfOrder { get; set; }
         public long totalIncome { get; set; }
-        public long turnover { get; set; }
+        public long turnover
+        {
+            get
+            {
+                return totalIncome - totalCost; 
+            }
+        }
         public int turnoverID { get; set; }
         public List<CostList> costList { get; set; }
     }

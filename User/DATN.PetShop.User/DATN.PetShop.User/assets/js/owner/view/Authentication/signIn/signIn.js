@@ -75,11 +75,7 @@ var SignIn = function () {
             }
         }
 
-        if (isPassword(Password) == false) {
-            executeExample(Swal.fire('Mật khẩu phải chứa ít nhất 8 kí tự, tối đa 15 kí tự, một chữ số, một kí tự đặc biệt và một chữ in hoa!'));
-            return false;
-
-        }
+       
         var json = { "userName": UserName, "password": Password };
         var doc = JSON.stringify(json);
         return doc;
@@ -122,7 +118,7 @@ var SignIn = function () {
                 return false;
             }
             else {
-                if (phone <= 1000000000 || phone >= 100000000000) {
+                if (phone <= 100000000 || phone >= 100000000000) {
                     executeExample(Swal.fire('Vui lòng nhập đúng số điện thoại!'));
                     return false;
                 }
@@ -146,6 +142,10 @@ var SignIn = function () {
         console.log(json.message);
         executeExample(Swal.fire(json.message));
         if (json.message == "Đăng nhập thành công!") {
+            
+            window.location.href = json.href;
+        }
+        if (json.message == "Đăng xuất thành công!") {
             
             window.location.href = json.href;
         }

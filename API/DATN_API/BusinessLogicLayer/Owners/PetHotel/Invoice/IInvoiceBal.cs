@@ -14,5 +14,6 @@ namespace BusinessLogicLayer.Owners.PetHotel.Invoice
         Task<List<OrderModel>> GetAll();
         Task<OrderModel> GetId(string id);
         Task<List<OrderModel>> GetOrderByDay(string date);
+        Task<List<OrderModel>> GetOrderByCustomer(string userid);
     }
 }

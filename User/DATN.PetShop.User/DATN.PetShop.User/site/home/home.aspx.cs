@@ -104,7 +104,7 @@ namespace DATN.PetShop.User.site.home
                     <div class='deal-content'>
                         <h3><a href='/chi-tiet-san-pham/" + productBest.productHandle + "-" + productBest._id + @"'>" + productBest.productName + @"</a></h3>
                         <div class='deal-pro-price'>
-                            <span style='color: #b1ff89;'>" + price + @"</span>
+                            <span style='color: #ff0404;'>" + price + @"</span>
                            
                         </div>
                         <p>" + productBest.description + @"</p>
@@ -268,22 +268,22 @@ namespace DATN.PetShop.User.site.home
                         </div>
                         <div class='testimonial-image-slider text-center'>
                             <div class='sin-testiImage'>
-                                <img src='assets/img/testi/3.jpg' alt=''>
+                                <img src='https://tse2.mm.bing.net/th?id=OIP.o4r2UQptR7ylfDFuLQA4rQAAAA&pid=Api&P=0&w=174&h=174' alt=''>
                                 <h3>Nguyễn Như Thành</h3>
                                 <h5>Customer</h5>
                             </div>
                             <div class='sin-testiImage'>
-                                <img src='assets/img/testi/4.jpg' alt=''>
+                                <img src='https://secure.gravatar.com/avatar/eaa0d8bb7f5ac667114ec4a1321e59d1?s=100&d=https%3A%2F%2Fcntt.caothang.edu.vn%2Fwp-content%2Fthemes%2Funiversity%2Fimages%2Favatar-2x.jpg&r=G' alt=''>
                                 <h3>Trần Quang Khải</h3>
                                 <h5>Customer</h5>
                             </div>
                             <div class='sin-testiImage'>
-                                <img src='assets/img/testi/3.jpg' alt=''>
+                                <img src='https://1.bp.blogspot.com/-lFRY-mRRytA/XqeioA0OSZI/AAAAAAAAjZg/LaCLpUeRlBYTj7QMWDCbcjkOqjTrvcGAgCLcBGAsYHQ/s1600/Hinh-nen-cho-con-Cute%2B%252810%2529.jpg' alt=''>
                                 <h3>Nguyễn Như Thành</h3>
                                 <h5>Developer</h5>
                             </div>
                             <div class='sin-testiImage'>
-                                <img src='assets/img/testi/5.jpg' alt=''>
+                                <img src='https://asie.vn/wp-content/uploads/2020/10/cho-chihuahua-2-1.jpg' alt=''>
                                 <h3>Trần Quang Khải</h3>
                                 <h5>CEO</h5>
                             </div>

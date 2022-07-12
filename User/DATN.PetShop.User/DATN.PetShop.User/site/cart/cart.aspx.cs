@@ -115,7 +115,7 @@ namespace DATN.PetShop.User.site.cart
                     else
                     {
                         var buttonCheckout = @"<div class='billing-btn'>
-                    <button type='submit'><a jsaction='checkOut' href='thanh-toan'>Tiếp tục</a></button>
+                    <button type='submit'><a jsaction='checkOut'>Tiếp tục</a></button>
                 </div>";
                         strcheckCart.Append(buttonCheckout);
                     }
@@ -173,7 +173,7 @@ namespace DATN.PetShop.User.site.cart
             </div>
             <div class='billing-back-btn'>
                 <div class='billing-back'>
-                    <a href='site/checkout/checkout.aspx'><i class='ti-arrow-up'></i>Quay lại trang trước</a>
+                    <a href='#'><i class='ti-arrow-up'></i>Quay lại trang trước</a>
                 </div>
                 " + strcheckCart.ToString() + @"
 
@@ -227,7 +227,7 @@ namespace DATN.PetShop.User.site.cart
                                     <a href='#'>Cập nhật giỏ hàng</a>
                                 </div>
                                 <div class='cart-clear' jsaction='deleteAllButton'>
-                                    Xóa toàn bộ sản phẩm trong giỏ hàng
+                                    <a>Xóa toàn bộ sản phẩm trong giỏ hàng</a>
                                 </div>
                             </div>
                         </div>

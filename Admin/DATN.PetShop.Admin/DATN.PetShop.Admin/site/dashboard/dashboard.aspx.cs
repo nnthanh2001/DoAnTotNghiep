@@ -31,32 +31,37 @@ namespace DATN.PetShop.Admin.site.dashboard
                ? int.Parse(Request["p"]?.ToString() ?? "0")
                : 0;
 
-                main.InnerHtml = DataDashboard(month);
+                main.InnerHtml = DataDashboard();
             }
-            
+
         }
-        public string DataDashboard(string m = "")
+        public string DataDashboard()
         {
-            var baseUrl = Globals.baseAPI;
-            var apiUrl = Globals.statisticalAPI2 + "?month=" + m;
-           
             string currentMonth = DateTime.Now.ToString("MM");
+            //m = currentMonth;
+            var baseUrl = Globals.baseAPI;
+            var apiUrl = Globals.statisticalAPI2 ;
+
+
             string currentDate = DateTime.Now.ToString("dd/MM/yyyy");
 
             var strStatistical = Restful.Get<StatisticalPage>(baseUrl, apiUrl).Result;
-            
-
             string totalOfAllBill = String.Format("{0:0,00₫}", strStatistical.totalOfAllBill);
             string totalMoneyToDay = String.Format("{0:0,00₫}", strStatistical.totalMoneyToDay);
             var strStatisticalList = new StringBuilder();
-            foreach(var statistical in strStatistical.statisticalList)
+
+          
+
+            if(strStatistical != null && strStatistical.statisticalList !=null && strStatistical.statisticalList.Any())
             {
-                string totalIncome = String.Format("{0:0,00₫}", statistical.totalIncome);
-                string totalCost = String.Format("{0:0,00₫}", statistical.totalCost);
-                string turnover = String.Format("{0:0,00₫}", statistical.turnover);
-                var statisticalList = @" <tbody>
+                foreach (var statistical in strStatistical.statisticalList)
+                {
+                    string totalIncome = String.Format("{0:0,00₫}", statistical.totalIncome);
+                    string totalCost = String.Format("{0:0,00₫}", statistical.totalCost);
+                    string turnover = String.Format("{0:0,00₫}", statistical.turnover);
+                    var statisticalList = @" <tbody>
                                         <tr>
-                                            <td><a href='don-hang?d=" + statistical.date + @"'>" + statistical.date + @"</td>
+                                            <td><a href='don-hang?d=" + statistical.month + @"'>" + statistical.month + @"</td>
                                             <td>" + statistical.nuberOfOrder + @"</td>
                                             <td>" + totalIncome + @"</td>
                                             <td><a href='chi-tiet-chi-phí-" + statistical._id + @"'  class='text-danger'>" + totalCost + @"</td>
@@ -64,16 +69,13 @@ namespace DATN.PetShop.Admin.site.dashboard
                                         </tr>
                                         <!--end tr-->
                                     </tbody>";
-                strStatisticalList.Append(statisticalList);
-            }
+                    strStatisticalList.Append(statisticalList);
+                }
+            }    
 
-            var monthList = new StringBuilder();
-            for(int i =1;i<=12;i++)
-            {
-                var a = @"<option value='"+i+ @"'>" + i+@"/2022</option>";
-               
-                monthList.Append(a);
-            }
+            
+
+
 
             var html = @"<div class='container-fluid'>
             <!-- Page-Title -->
@@ -104,7 +106,7 @@ namespace DATN.PetShop.Admin.site.dashboard
                                     <div class='media'>
                                         <img src='assets/images/logos/money-beg.png' alt='' class='align-self-center' height='40'>
                                         <div class='media-body align-self-center ms-3'>
-                                            <h6 class='m-0 font-24 fw-bold'>"+ totalOfAllBill + @"</h6>
+                                            <h6 class='m-0 font-24 fw-bold'>" + totalOfAllBill + @"</h6>
                                             <p class='text-muted mb-0'>Tổng doanh thu năm 2022</p>
                                         </div>
                                         <!--end media body-->
@@ -147,8 +149,8 @@ namespace DATN.PetShop.Admin.site.dashboard
                                 <div class='card-body'>
                                     <div class='row align-items-center'>
                                         <div class='col text-center'>
-                                            <span class='h5  fw-bold'>" + strStatistical.totalOrder + @"</span>
-                                            <h6 class='text-uppercase text-muted mt-2 m-0 font-11'>Đơn hàng hôm nay("+ currentDate + @")</h6>
+                                            <span class='h5  fw-bold'>" + strStatistical.totalOrderToDay + @"</span>
+                                            <h6 class='text-uppercase text-muted mt-2 m-0 font-11'>Đơn hàng hôm nay(" + currentDate + @")</h6>
                                         </div>
                                         <!--end col-->
                                     </div>
@@ -162,40 +164,7 @@ namespace DATN.PetShop.Admin.site.dashboard
                         
                     </div>
                     <!--end row-->
-                    <div class='card'>
-                        <div class='card-header'>
-                            <div class='row align-items-center'>
-                                <div class='col'>
-                                    <h4 class='card-title'>Doanh thu tháng</h4>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!--end row-->
-                        </div>
-                        <!--end card-header-->
-                        <div class='card-body'>
-                            <div class='row align-items-center'>
-                                <div class='col-auto'>
-                                    <i class='las la-file-invoice-dollar font-36 text-muted'></i>
-                                </div>
-                                <!--end col-->
-                                <div class='col'>
-                                    <div class='input-group'>
-                                        <select class='form-select'>
-                                            <option selected type='m' name='m'></option>
-                                            " + monthList.ToString() + @"
-                                           
-                                        </select>
-                                        <button class='btn btn-soft-primary btn-sm' type='button'><i class='las la-search'></i></button>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                            </div>
-                            <!--end row-->
-                        </div>
-                        <!--end card-body-->
-                    </div>
-                    <!--end card-->
+                    
                 </div>
                 <!-- end col-->
                 <div class='col-lg-8'>
@@ -242,7 +211,7 @@ namespace DATN.PetShop.Admin.site.dashboard
                         <div class='card-header'>
                             <div class='row align-items-center'>
                                 <div class='col'>
-                                    <h4 class='card-title'>Danh sách thống kê tháng " + m + @"</h4>
+                                    <h4 class='card-title'>Danh sách thống kê mỗi tháng</h4>
                                 </div>
                                 <!--end col-->
                             </div>
@@ -254,7 +223,7 @@ namespace DATN.PetShop.Admin.site.dashboard
                                 <table class='table mb-0'>
                                     <thead class='thead-light'>
                                         <tr>
-                                            <th class='border-top-0'>Ngày</th>
+                                            <th class='border-top-0'>Tháng</th>
                                             <th class='border-top-0'>Tổng hóa đơn</th>
                                             <th class='border-top-0'>Tổng tiền</th>
                                             <th class='border-top-0'>Chi phí</th>
@@ -280,6 +249,9 @@ namespace DATN.PetShop.Admin.site.dashboard
         </div>";
 
             return html;
+
+
+
         }
     }
 }

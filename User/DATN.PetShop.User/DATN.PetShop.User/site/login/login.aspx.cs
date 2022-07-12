@@ -28,9 +28,11 @@ namespace DATN.PetShop.User.site.login
         }
         public string loginData()
         {
-            
+            var html = "";
+            if (Session["login"] == null)
+            {
 
-            var header = @"<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
+                var header = @"<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
             <div class='container'>
                 <div class='breadcrumb-content text-center'>
                     <h2>Đăng nhập / Đăng ký</h2>
@@ -42,7 +44,7 @@ namespace DATN.PetShop.User.site.login
             </div>
         </div>";
 
-            var body = @"<div class='login-register-area pt-95 pb-100'>
+                var body = @"<div class='login-register-area pt-95 pb-100'>
             <div class='container'>
                 <div class='row'>
                     <div class='col-lg-7 col-md-12 ml-auto mr-auto'>
@@ -99,14 +101,18 @@ namespace DATN.PetShop.User.site.login
             </div>
         </div>";
 
+                html = string.Concat(header, body);
+            }
+            else
+            {
+                Response.Redirect("trang-chu");
+            }
+
+
+
+
+
             
-
-            var footer = @"";
-
-
-
-
-            var html = string.Concat(header, body, footer);
             return html;
         }
     }

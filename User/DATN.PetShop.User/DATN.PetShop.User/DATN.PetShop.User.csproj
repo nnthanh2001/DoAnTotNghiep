@@ -1451,6 +1451,8 @@
     <Content Include="site\cart\cart.aspx" />
     <Content Include="site\checkout\checkout.aspx" />
     <Content Include="site\contact\contactUs.aspx" />
+    <Content Include="site\historyOrder\detailOrder.aspx" />
+    <Content Include="site\historyOrder\historyOrder.aspx" />
     <Content Include="site\home\home.aspx" />
     <Content Include="site\login\login.aspx" />
     <Content Include="site\orderComplete\orderComplete.aspx" />
@@ -1590,6 +1592,20 @@
     </Compile>
     <Compile Include="site\contact\contactUs.aspx.designer.cs">
       <DependentUpon>contactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\historyOrder\detailOrder.aspx.cs">
+      <DependentUpon>detailOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\historyOrder\detailOrder.aspx.designer.cs">
+      <DependentUpon>detailOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\historyOrder\historyOrder.aspx.cs">
+      <DependentUpon>historyOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\historyOrder\historyOrder.aspx.designer.cs">
+      <DependentUpon>historyOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\home\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -2012,7 +2028,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53860</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44383/</IISUrl>
+          <IISUrl>https://localhost:44382/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

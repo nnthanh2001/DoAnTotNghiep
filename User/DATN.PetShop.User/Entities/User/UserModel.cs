@@ -9,7 +9,7 @@ namespace Entities.User
 {
     public class UserModel : BaseModel
     {
-        public int userID { get; set; }
+        public string userID { get; set; }
         public string userName { get; set; }
         public int roleID { get; set; }
         public string email { get; set; }

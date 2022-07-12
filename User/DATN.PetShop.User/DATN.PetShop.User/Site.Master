@@ -14,18 +14,18 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <%--<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">--%>
 
 
 
-   <%-- <link href="assets-2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <%-- <link href="assets-2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets-2/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets-2/css/app.min.css" rel="stylesheet" type="text/css" />
     <link href="assets-2/plugins/animate/animate.min.css" rel="stylesheet" />--%>
     <!-- Sweet Alert -->
     <%--<link href="assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">--%>
     <link href="assets/plugins/animate/animate.min.css" rel="stylesheet" type="text/css">
-    
+
     <!-- all css here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/animate.css">
@@ -41,7 +41,7 @@
 </head>
 <body>
     <header class="header-area" id="header" runat="server">
-        <div class="header-bottom transparent-bar">
+        <%--<div class="header-bottom transparent-bar">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-5">
@@ -122,7 +122,7 @@
 
                 </div>
             </div>
-        </div>
+        </div>--%>
     </header>
     <asp:ContentPlaceHolder ID="cph" runat="server"></asp:ContentPlaceHolder>
     <footer class="footer-area" id="footer" runat="server">
@@ -237,6 +237,7 @@
 
 <script src="assets-2/plugins/sweet-alert2/sweetalert2.min.js"></script>
 <script src="assets-2/pages/sweet-alert.init.js"></script>
+<script lang="javascript">var __vnp = { code: 15998, key: '', secret: 'c06c598e6d34d5f91f2116c4e5d916f6' }; (function () { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.defer = true; ga.src = '//core.vchat.vn/code/tracking.js'; var s = document.getElementsByTagName('script'); s[0].parentNode.insertBefore(ga, s[0]); })();</script>
 <!-- Sweet-Alert  -->
 <%--<script src="assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
 <script src="assets/pages/sweet-alert.init.js"></script>--%>

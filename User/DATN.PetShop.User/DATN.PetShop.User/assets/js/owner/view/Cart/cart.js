@@ -19,22 +19,24 @@ var Cart = function () {
             var option = { url: cartHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
             request.post();
+            executeExample('mixin');
+            
         });
         $('[jsaction="deleteItemButton"]').off('click').on('click', function () {
             var id = $(this).attr('value');
             var data = { "request": "deleteItem", "_id": id };
             var option = { url: cartHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
-            executeExample('handleDismiss');
+            request.delete();
+            
+            
         });
         $('[jsaction="deleteAllButton"]').off('click').on('click', function () {
 
             var data = { "request": "deleteAll" };
             var option = { url: cartHandlerUrl, data: data, callback: that.result };
             request.constructor(option);
-            request.delete();
-            location.reload(true);
-
+            executeExample('handleDismiss');
         });
 
         $('[jsaction="checkListProduct"]').off('click').on('click', function () {
@@ -53,17 +55,17 @@ var Cart = function () {
         return doc;
     };
 
-    that.addItemToCart = function () {
-        executeExample('mixin');
-        if (request != null) {
-            location.reload(true);
-        }
-    };
+    //that.addItemToCart = function () {
+        
+    //    if (request != null) {
+    //        location.reload("Site.Master.cs");
+    //    }
+    //};
 
     that.result = function (json) {
 
         console.log(json);
-        that.addItemToCart();
+        location.reload(true);
         window.location.href = json.href;
 
 

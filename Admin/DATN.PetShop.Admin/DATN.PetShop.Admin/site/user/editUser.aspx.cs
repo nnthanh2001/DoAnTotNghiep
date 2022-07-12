@@ -131,9 +131,11 @@ namespace DATN.PetShop.Admin.site.users.user
                                     
 
                                     <div class='mb-3 row'>
-                                       <label class='col-sm-2 col-form-label text-end'>Nhập mật khẩu</label>
+                                        <label class='col-sm-2 col-form-label text-end'>Trạng thái</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' data_value='password' placeholder='Nhập mật khẩu' value='' />
+                                            <select class='form-select' aria-label='Default select example' data_value='statusID'>
+                                                " + strListStatus.ToString() + @"
+                                            </select>
                                         </div>
                                         <label class='col-sm-2 col-form-label text-end'>Liên hệ</label>
                                         <div class='col-sm-4'>
@@ -141,18 +143,7 @@ namespace DATN.PetShop.Admin.site.users.user
                                         </div>
                                     </div>
 
-                                    <div class='mb-3 row'>
-                                        <label class='col-sm-2 col-form-label text-end'>Mật khẩu mới</label>
-                                        <div class='col-sm-4'>
-                                            <input class='form-control' data_value='password' placeholder='Nhập mật khẩu mới' value='' />
-                                        </div>
-                                        <label class='col-sm-2 col-form-label text-end'>Trạng thái</label>
-                                        <div class='col-sm-4'>
-                                            <select class='form-select' aria-label='Default select example' data_value='statusID'>
-                                                " + strListStatus.ToString() + @"
-                                            </select>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

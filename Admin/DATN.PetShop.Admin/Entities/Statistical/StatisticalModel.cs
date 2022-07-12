@@ -11,12 +11,12 @@ namespace Entities.Statistical
     {
         public List<StatisticalModel> statisticalList { get; set; }
         public long totalOfAllBill { get; set; }
-        public int totalOrder { get; set; }
+        public int totalOrderToDay { get; set; }
         public long totalMoneyToDay { get; set; }
     }
     public class StatisticalModel : BaseModel
     {
-        public string date { get; set; }
+        public string month { get; set; }
         public long totalCost { get; set; }
         public int nuberOfOrder { get; set; }
         public long totalIncome { get; set; }

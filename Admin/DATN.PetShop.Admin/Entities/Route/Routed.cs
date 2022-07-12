@@ -34,6 +34,7 @@ namespace Entities.Route
             routes.MapPageRoute("orderDetail", "chi-tiet-don-hang-{_id}", "~/site/order/orderDetail.aspx", false);
 
             routes.MapPageRoute("costDetail", "chi-tiet-chi-phí-{_id}", "~/site/dashboard/costDetail.aspx", false);
+            routes.MapPageRoute("advise", "tu-van-khach-hang", "~/https://dashboard.vchat.vn/", false);
         
 
             

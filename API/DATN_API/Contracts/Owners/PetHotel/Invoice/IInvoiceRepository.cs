@@ -15,6 +15,7 @@ namespace Contracts.Owners.PetHotel.Invoice
         Task<bool> Update(FilterDefinition<InvoiceModel> filter, UpdateDefinition<InvoiceModel> update);
         Task<bool> Delete(FilterDefinition<InvoiceModel> filter);
         Task<List<OrderModel>> GetAll(SortDefinition<OrderModel> sort = null);
+        Task<List<OrderModel>> GetListOrderByName(FilterDefinition<OrderModel> filter, SortDefinition<OrderModel> sort = null);
         Task<OrderModel> GetId(FilterDefinition<OrderModel> filter);
         Task<List<OrderModel>> GetListOrderByDate(FilterDefinition<OrderModel> filter, SortDefinition<OrderModel> sort = null);
     }

@@ -24,5 +24,8 @@ namespace HttpClient_API.Core.Global
         public static string getOneProductAPI = "api/Product";
 
         public static string listProductAPI = "/api/Product/Admin";
+        public static string getOrderByCustomerAPI = "/api/Order/GetOrderByCustomer";
+
+        public static string orderDetailAPI = "api/Order/GetOrderByID";
     }
 }

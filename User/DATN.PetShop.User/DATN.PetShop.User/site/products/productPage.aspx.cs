@@ -256,13 +256,13 @@ namespace DATN.PetShop.User.site.products
                             </div>
                             <div class='quick-view-list nav' role='tablist'>
                                 <a class='active' href='#modal1' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s1.jpg' alt=''>
+                                    <img src='" + productDetail.image + @"' alt=''>
                                 </a>
                                 <a href='#modal2' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s2.jpg' alt=''>
+                                    <img src='" + productDetail.image + @"' alt=''>
                                 </a>
                                 <a href='#modal3' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s3.jpg' alt=''>
+                                    <img src='" + productDetail.image + @"' alt=''>
                                 </a>
                             </div>
                         </div>

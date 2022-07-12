@@ -14,5 +14,6 @@ namespace Entities.OwnerModels.PetHotelModel.User
         public int roleID { get; set; }
         public string roleName { get; set; }
         public string select { get; set; }
+        public int salary { get; set; }
     }
 }

@@ -13,8 +13,6 @@ var Order = function () {
         that.event();
     };
     that.event = function () {
-
-
         $('[jsaction="Order"]').off('click').on('click', function () {
             var data = { "request": "order" };
             var option = { url: orderHandlerUrl, data: data, callback: that.result };
@@ -27,7 +25,7 @@ var Order = function () {
     that.result = function (json) {
 
         console.log(json);
-        executeExample('basicMessage');
+        /*executeExample('basicMessage');*/
         window.location.href = json.href;
     };
 };

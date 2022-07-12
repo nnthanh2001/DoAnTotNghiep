@@ -36,16 +36,18 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
          ? Request["data"].ToString()
          : "";
             var result = "";
-           
+
             switch (type)
             {
                 case "get":
                     Session["login"] = null;
-
+                    Session["Order"] = null;
+                    Session["ProductGuid"] = null;
                     var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","trang-chu"} ,
-                                    };
+                            {"href","trang-chu"},
+                            {"message","Đăng xuất thành công!"}
+                     };
                     result = JsonConvert.SerializeObject(dicResult);
                     break;
                 case "post":
@@ -59,16 +61,16 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
                             if (str != null && str != "")
                             {
                                 var request = JsonConvert.DeserializeObject<RequestModel<LoginModel>>(str);
-                               
+
                                 if (request != null)
                                 {
                                     if (request.HttpStatusCode == 200)
                                     {
                                         Session["login"] = str;
 
-                                         dicResult = new Dictionary<string, object> {
+                                        dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
-                            {"href","{handle}-{_id}"} ,
+                            {"href","trang-chu"} ,
                             {"message","Đăng nhập thành công!"}
                                     };
                                         result = JsonConvert.SerializeObject(dicResult);
@@ -112,8 +114,8 @@ namespace DATN.PetShop.User.handleRequest.Authentication.signIn
                                         result = JsonConvert.SerializeObject(request);
                                     }
                                 }
-                                
-                              
+
+
 
 
                             }

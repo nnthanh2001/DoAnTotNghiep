@@ -12,7 +12,7 @@ namespace Entities.OwnerModels.PetHotelModel.Client.Statistical
     {
         public List<StatisticalModel> statisticalList { get; set; }
         public long totalOfAllBill { get; set; }
-        public int totalOrder { get; set; }
+        public int totalOrderToDay { get; set; }
         public long totalMoneyToDay { get; set; }
     }
 }

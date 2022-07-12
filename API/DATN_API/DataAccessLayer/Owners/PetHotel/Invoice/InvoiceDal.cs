@@ -29,6 +29,7 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
             doc.status = "Đang xác nhận";
             doc.payment = "Thanh toán sau khi nhận hàng";
             doc.date = currentDate;
+            
             foreach (var product in doc.productList)
             {
 
@@ -37,14 +38,9 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
 
                 var productInStock = await repository.productRepository.GetId(productId);
                 productInStock.quantity -= product.quantity;
-                var update =  Builders<ProductBaseModel>.Update.Set(q=>q.quantity, productInStock.quantity);
+                var update = Builders<ProductBaseModel>.Update.Set(q => q.quantity, productInStock.quantity);
                 var updateStockProduct = await repository.productRepository.Update(productIdBase, update);
             }
-
-
-
-
-
             return await repository.invoiceRepository.Add(doc);
         }
 
@@ -53,7 +49,16 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
             var filter = Builders<InvoiceModel>.Filter.Eq(q => q.invoiceID, invoiceID);
             return await repository.invoiceRepository.Delete(filter);
         }
+        public async Task<List<OrderModel>> GetOrderByCustomer(string userId)
+        {
+           
+            var filter = Builders<OrderModel>.Filter.Eq(q => q.shipping.userId, userId);
+           
+            var sort = Builders<OrderModel>.Sort.Descending("_id");
+            var result = await repository.invoiceRepository.GetListOrderByName(filter, sort);
+            return result;
 
+        }
         public async Task<List<OrderModel>> GetAll()
         {
             var sort = Builders<OrderModel>.Sort.Descending("_id");
@@ -65,7 +70,7 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
             var filter = Builders<OrderModel>.Filter.Eq(q => q._id, id);
             return await repository.invoiceRepository.GetId(filter);
         }
-        public async Task<List<OrderModel>> GetOrderByDay(string date = "" )
+        public async Task<List<OrderModel>> GetOrderByDay(string date = "")
         {
             var filter = Builders<OrderModel>.Filter.Empty;
             var mongoBuilder = Builders<OrderModel>.Filter;
