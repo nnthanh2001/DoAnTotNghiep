@@ -48,7 +48,7 @@ namespace DATN.PetShop.User.site.historyOrder
             {
                 string subTotal = String.Format("{0:0,00₫}", order.subTotal);
                 var str = @"<tr>
-                                            <td><a  href='chi-tiet-don-hang-"+order._id+@"'>" + order.orderID + @"</a></td>
+                                            <td><a  href='chi-tiet-don-hang-"+order._id+@"'>DH" + order.orderID + @"</a></td>
                                             <td>" + order.productList.Count + @"</td>
                                             <td>" + subTotal + @"</td>
                                             <td>" + order.date + @"</td>
@@ -59,11 +59,21 @@ namespace DATN.PetShop.User.site.historyOrder
             }
 
             var html = @"
+<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
+            <div class='container'>
+                <div class='breadcrumb-content text-center'>
+                    <h2>Lịch sử mua hàng</h2>
+                    <ul>
+                        <li><a href='trang-chu'>Trang chủ</a></li>
+                        <li class='active'>Lịch sử mua hàng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
 
-
-<div class='container-fluid'>
-            
+<div class='cart-main-area pt-95 pb-100'>
+        <div class='container'>
             <div class='row'>
                 <div class='col-12'>
                     <div class='card'>
@@ -91,6 +101,7 @@ namespace DATN.PetShop.User.site.historyOrder
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>";
 

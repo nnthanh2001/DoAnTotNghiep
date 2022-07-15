@@ -40,6 +40,7 @@
                 } else {
                     var kq = jQuery.parseJSON(unescape(result));
                     $('[data-img="upload"] img').attr("src", kq[0].url);
+                    $('[data_value="image"]').val(kq[0].url);
                 }
             }
         };

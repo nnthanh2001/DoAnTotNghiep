@@ -36,14 +36,16 @@ namespace DATN.PetShop.User.site.home
             var productBestBody = new StringBuilder();
             var serviceBody = new StringBuilder();
 
-            foreach (var category in home.category)
+            if(home.category != null &&home.productNew != null &&home.productBest != null &&home.service != null  )
             {
-                var categoryId = category.categoryID.ToString();
-                var categoryList = @"<div class='col-lg-4 col-md-4'>
-                    <a href='/san-pham/" + category.categoryHandle + "-"+categoryId+ @"'>
+                foreach (var category in home.category)
+                {
+                    var categoryId = category.categoryID.ToString();
+                    var categoryList = @"<div class='col-lg-4 col-md-4'>
+                    <a href='/san-pham/" + category.categoryHandle + "-" + categoryId + @"'>
                         <div class='single-food-category cate-padding-1 text-center mb-30'>
                             <div class='single-food-hover-2'>
-                                <img style='height: 270px' src='" + category.image+ @"' alt='' >
+                                <img style='height: 270px' src='" + category.image + @"' alt='' >
                              </div>
                             <div class='single-food-content'>
                                 <h3>" + category.categoryName + @"</h3>
@@ -51,16 +53,16 @@ namespace DATN.PetShop.User.site.home
                         </div>
                     </a>
                 </div>";
-                categoryBody.Append(categoryList);
-            }
-            foreach (var productNew in home.productNew)
-            {
-                string price = String.Format("{0:0,00₫}", productNew.price);
-                var productNewHTML = @"<div class='col-xl-3 col-lg-4 col-md-6 col-sm-6'>
+                    categoryBody.Append(categoryList);
+                }
+                foreach (var productNew in home.productNew)
+                {
+                    string price = String.Format("{0:0,00₫}", productNew.price);
+                    var productNewHTML = @"<div class='col-xl-3 col-lg-4 col-md-6 col-sm-6'>
                     <div class='product-wrapper mb-10'>
                         <div class='product-img'>
                             <a href='/chi-tiet-san-pham/" + productNew.productHandle + @"-" + productNew._id + "-" + productNew.categoryID + @"'>
-                                <img src='" +productNew.image+@"' alt=''>
+                                <img src='" + productNew.image + @"' alt=''>
                             </a>
                             <div class='product-action'>
                                 <a title='Xem nhanh' data-toggle='modal' data-target='#" + productNew._id + @"' href='" + productNew._id + @"'>
@@ -77,26 +79,26 @@ namespace DATN.PetShop.User.site.home
                             </div>
                         </div>
                         <div class='product-content'>
-                            <h4><a href='/chi-tiet-san-pham/" + productNew.productHandle + "-" + productNew._id + "-" + productNew.categoryID +"' data_value='productName' value='"+productNew.productName+"'>"+productNew.productName+@"</a></h4>
+                            <h4><a href='/chi-tiet-san-pham/" + productNew.productHandle + "-" + productNew._id + "-" + productNew.categoryID + "' data_value='productName' value='" + productNew.productName + "'>" + productNew.productName + @"</a></h4>
                             <div class='product-price' data_value='price' value='" + productNew.price + @"'>
                                 <span class='new'>" + price + @"</span>
                             </div>
                         </div>
                     </div>
                 </div>";
-                var getQuickView = GetQuickView(productNew._id);
-                productNewBody.Append(productNewHTML);
-                productNewBody.Append(getQuickView);
+                    var getQuickView = GetQuickView(productNew._id);
+                    productNewBody.Append(productNewHTML);
+                    productNewBody.Append(getQuickView);
 
-            }
-            foreach (var productBest in home.productBest)
-            {
-                string price = String.Format("{0:0,00₫}", productBest.price);
-                var productBestHTML = @"<div class='row'>
+                }
+                foreach (var productBest in home.productBest)
+                {
+                    string price = String.Format("{0:0,00₫}", productBest.price);
+                    var productBestHTML = @"<div class='row'>
                 <div class='col-lg-6 col-md-6'>
                     <div class='deal-img wow fadeInLeft'>
                         <a href='/chi-tiet-san-pham/" + productBest.productHandle + "-" + productBest._id + @"'>
-                            <img src='" + productBest.image+ @"' alt=''>
+                            <img src='" + productBest.image + @"' alt=''>
                         </a>
                     </div>
                 </div>
@@ -119,16 +121,16 @@ namespace DATN.PetShop.User.site.home
                 </div>
             </div>";
 
-                productBestBody.Append(productBestHTML);
+                    productBestBody.Append(productBestHTML);
 
-            }
-            foreach (var service in home.service)
-            {
+                }
+                foreach (var service in home.service)
+                {
 
-                var serviceHTML = @"<div class='col-lg-4 col-md-6'>
+                    var serviceHTML = @"<div class='col-lg-4 col-md-6'>
                         <div class='box'>
                             <div class='blog-img hover-effect'>
-                                <a href='/dich-vu/" + service.serviceHandle + "-" + service._id + @"'><img style='height: 300px' alt='' src='" + service.image+@"'></a>
+                                <a href='/dich-vu/" + service.serviceHandle + "-" + service._id + @"'><img style='height: 300px' alt='' src='" + service.image + @"'></a>
                             </div>
                             <div class='blog-content'>
                                 <div class='blog-meta'>
@@ -144,9 +146,12 @@ namespace DATN.PetShop.User.site.home
                         </div>
                     </div>";
 
-                serviceBody.Append(serviceHTML);
+                    serviceBody.Append(serviceHTML);
+
+                }
 
             }
+
 
 
 
@@ -415,17 +420,7 @@ namespace DATN.PetShop.User.site.home
                                     </div>
                                 </div>
                             </div>
-                            <div class='quick-view-list nav' role='tablist'>
-                                <a class='active' href='#modal1' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s1.jpg' alt=''>
-                                </a>
-                                <a href='#modal2' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s2.jpg' alt=''>
-                                </a>
-                                <a href='#modal3' data-toggle='tab' role='tab'>
-                                    <img src='assets/img/quick-view/s3.jpg' alt=''>
-                                </a>
-                            </div>
+                           
                         </div>
                         <div class='qwick-view-right'>
                             <div class='qwick-view-content'>

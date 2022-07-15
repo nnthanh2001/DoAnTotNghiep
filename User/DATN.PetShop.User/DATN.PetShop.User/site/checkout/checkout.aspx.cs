@@ -35,6 +35,7 @@ namespace DATN.PetShop.User.site.checkout
             if (Session["Order"] != null)
             {
                 var strOrder = Session["Order"] != null ? Session["Order"]?.ToString() : "";
+                strOrder = Session["Order"].ToString();
                 //var strOrder = Session["Order"]?.ToString() ?? "";
                 var order = JsonConvert.DeserializeObject<OrderModel>(strOrder);
                 var orderID = 0;
@@ -51,11 +52,15 @@ namespace DATN.PetShop.User.site.checkout
                     {
                         string price = String.Format("{0:0,00₫}", item.price);
                         string total = String.Format("{0:0,00₫}", item.total);
-                        var proHTML = @"<tr>
-                                    <td class='product-name' style='padding-left:20px;'> " + item.productName + @"</td>
-                                     <td class='product-quantity-cart' style='text-align: center;'><span class='amount'>" + price + @"<b>x" + item.quantity + @"</b></span></td>
-                                    <td class='product-subtotal'>" + total + @"</td>
-                                </tr>";
+
+
+                        var proHTML = @" <tr>
+                                               <td style='width: 235px;'>
+                                                    <p class='d-inline-block align-middle mb-0 product-name'>" + item.productName + @"</p>
+                                                </td>
+                                                <td>" + item.price + " * " + item.quantity + @"</td>
+                                                <td>" + total + @"</td>
+                                            </tr>";
                         itemBody.Append(proHTML);
                     }
                 }
@@ -65,7 +70,7 @@ namespace DATN.PetShop.User.site.checkout
                 var header = @"<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
             <div class='container'>
                 <div class='breadcrumb-content text-center'>
-                    <h2>Checkout</h2>
+                    <h2>Kiểm tra đơn hàng</h2>
                     <ul>
                         <li><a href='site/home/home.aspx.cs'>Trang chủ</a></li>
                         <li class='active'>Thanh toán</li>
@@ -74,92 +79,144 @@ namespace DATN.PetShop.User.site.checkout
             </div>
         </div>";
 
+
+
+
                 var body = @"<div class='cart-main-area pt-95 pb-100'>
             <div class='container'>
                 <h3 class='page-title'>Hoàn thành đơn hàng</h3>
                 <div class='row'>
 
-                    <div class='col-lg-7 '>
-                        <div class='table-content table-responsive'>
-                            <table>
-                                <tr>
-                                    <th>Tên sản phẩm</th>
-
-                                    <th>Giá tiền</th>
-                                    <th>Tổng tiền</th>
-                                </tr>
-                               " + itemBody.ToString() + @"
-                            </table>
-                        </div>
-                    </div>
-                    <div class='col-lg-5 '>
-                        <div class='grand-totall'style='width: 580px;'>
-
-
-                            <div class='large-7 col'>
-
-                                <section class='woocommerce-order-details'>
-                                    <h2 class='woocommerce-order-details__title'  style='text-align: center;'>Kiểm tra thông tin</h2>
-                                    <table class='woocommerce-table woocommerce-table--order-details shop_table order_details'>
+                    <div class='col-lg-6'>
+                        <div class='card'>
+                            <div class='card-header'>
+                                <div class='row align-items-center'>
+                                    <div class='col'>
+                                        <h4 class='card-title'>Sản phẩm</h4>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <!--end card-header-->
+                            <div class='card-body'>
+                                <div class='table-responsive shopping-cart'>
+                                    <table class='table mb-0'>
                                         <thead>
                                             <tr>
-                                                <th class='woocommerce-table__product-name product-name'>Tổng tiền hóa đơn</th>
-                                                <th class='woocommerce-table__product-table product-total'>" + subTotal + @"</th>
+                                                <th>Tên</th>
+                                                <th>Giá tiền</th>
+                                                <th>Tổng tiền</th>
                                             </tr>
                                         </thead>
-
-                                        <tfoot>
+                                        <tbody>
+                                            " + itemBody.ToString() + @"
                                             <tr>
-                                                <th scope='row'>Mã đơn hàng:</th>
-                                                <td>" + orderID + @"</td>
+                                                <td class=' border-bottom-0'>
+                                                    <h6>Thành tiền :</h6>
+                                                </td>
+                                                <td class=' border-bottom-0'></td>
+                                                <td class='text-dark border-bottom-0'><strong>" + subTotal + @"</strong></td>
                                             </tr>
-                                            <tr>
-                                                <th scope='row'style='white-space: nowrap'>Phương thức thanh toán:</th>
-                                                <td>Thanh toán sau khi nhận hàng</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope='row'>Ngày mua hàng:</th>
-                                                <td>" + order.date + @"</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope='row'>Họ và tên:</th>
-                                                <td>" + order.shipping.userName + @"</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope='row'>Email:</th>
-                                                <td>" + order.shipping.email + @"</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope='row'>Địa chỉ giao hàng:</th>
-                                                <td>" + order.shipping.addressDelivery + @"</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope='row'>Số điện thoại:</th>
-                                                <td>" + order.shipping.phone + @"</td>
-                                            </tr>
-                                        </tfoot>
+                                        </tbody>
                                     </table>
-                                </section>
-                                <p>Cảm ơn quý khách đã đặt hàng. Nhân viên của chúng tôi sẽ gọi điện lại cho quý khách để xác nhận đơn hàng, thông báo phí giao hàng (nếu có) và hướng dẫn quý khách các phương thức thanh toán. Mọi chi tiết xin liên hệ Tổng đài 0987654321 – 0123456789 để được hỗ trợ.</p>
-                                <button class='btn-style' type='button'><a jsaction='Order' href='cam-on'>Xác nhận</a></button>
+                                </div>
+                                <!--end re-table-->
+                                <div class='total-payment'>
+                                    <table class='table mb-0'>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td class='fw-semibold'>Hình thức thanh toán</td>
+                                                <td>" + order.payment + @"</td>
+                                            </tr>
+                                            <tr>
+                                                <td class='fw-semibold  border-bottom-0'>Tổng hóa đơn</td>
+                                                <td class='text-dark  border-bottom-0'><strong>" + subTotal + @"</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--end table-->
+                                </div>
+                                <!--end total-payment-->
                             </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <div class='col-lg-6'>
+                        <div class='card'>
+                            <div class='card-header'>
+                                <div class='row align-items-center'>
+                                    <div class='col'>
+                                        <h4 class='card-title'>Thông tin giao hàng</h4>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class='card-body'>
+
+                                <div class='mb-6 row'>
+                                    <label class='col-sm-6'>Tổng tiền hóa đơn</label>
+                                    <div class='col-sm-6'>
+                                        <span>" + subTotal + @"</span>
+                                    </div>
+                                </div>
+                                 <div class='mb-6 row'>
+                                    <label class='col-sm-6'>Mã đơn hàng:</label>
+                                    <div class='col-sm-6'>
+                                        <span>HD" + orderID + @"</span>
+                                    </div>
+                                </div>
+                                 <div class='mb-6 row'>
+                                    <label class='col-sm-6'>Ngày mua hàng:</label>
+                                    <div class='col-sm-6'>
+                                        <span>" + order.date + @"</span>
+                                    </div>
+                                </div>
+                                 <div class='mb-6 row'>
+                                    <label class='col-sm-6'>Họ và tên:</label>
+                                    <div class='col-sm-6'>
+                                        <span>" + order.shipping.userName + @"</span>
+                                    </div>
+                                </div>
+                                 <div class='mb-6 row'>
+                                    <label class='col-sm-6'>Email:</label>
+                                    <div class='col-sm-6'>
+                                        <span>" + order.shipping.email + @"</span>
+                                    </div>
+                                </div>
+                                 <div class='mb-6 row'>
+                                    <label class='col-sm-6'>Địa chỉ giao hàng:</label>
+                                    <div class='col-sm-6'>
+                                        <span>" + order.shipping.addressDelivery + @"</span>
+                                    </div>
+                                </div>
+                                <div class='mb-6 row'>
+                                    <label class='col-sm-6'>Số điện thoại:</label>
+                                    <div class='col-sm-6'>
+                                        <span>" + order.shipping.phone + @"</span>
+                                    </div>
+                                </div>
+                                <p>Cảm ơn quý khách đã đặt hàng. Nhân viên của chúng tôi sẽ gọi điện lại cho quý khách để xác nhận đơn hàng, thông báo phí giao hàng (nếu có) và hướng dẫn quý khách các phương thức thanh toán. Mọi chi tiết xin liên hệ Tổng đài 024.7106.9906 – 028.7106.9906 để được hỗ trợ.</p>
+                                <button class='btn-style' type='button' jsaction='Order'><a href='hoan-tat-dat-hang'>Xác nhận</a></button>
+                            </div>
+
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>";
 
 
-
-                 html = string.Concat(header, body);
+                html = string.Concat(header, body);
             }
             else
             {
                 Response.Redirect("trang-chu");
             }
-            
+
             return html;
         }
 

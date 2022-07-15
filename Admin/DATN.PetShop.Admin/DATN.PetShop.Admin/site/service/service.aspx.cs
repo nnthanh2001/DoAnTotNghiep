@@ -38,7 +38,7 @@ namespace DATN.PetShop.Admin.site.products.services
                 strBody.Append("<td> <img src = '" + service.image + "' alt ='' height = '40'/></td>");
                 strBody.Append("<td>" + service.serviceName + "</td>");
                 strBody.Append("<td>" + service.unit + "</td>");
-                strBody.Append("<td>" + service.description + "</td>");
+                //strBody.Append("<td>" + service.description + "</td>");
                 strBody.Append("<td>" + service.condition + "</td>");
                 strBody.Append("<td>" + price + "</td>");
                 strBody.Append("<td>" + service.statusName + "</td>");
@@ -100,7 +100,7 @@ namespace DATN.PetShop.Admin.site.products.services
                             <div class='card'>
                                 <div class='card-header'>
                                 <div class='col'>
-                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-san-pham' style='float:right;'>+ Thêm mới</a>
+                                    <a class='btn btn-outline-light btn-sm px-4' href='them-moi-dich-vu' style='float:right;'>+ Thêm mới</a>
                                 </div>
                                     <div class='row align-services-center'>
                                         <div class='col'>                      
@@ -117,7 +117,7 @@ namespace DATN.PetShop.Admin.site.products.services
                                         <th>Hình ảnh</th>
                                         <th>Tên dịch vụ</th>
                                         <th>Đơn vị tính</th>
-                                        <th>Mô tả</th>
+                                        
                                         <th>Điều kiện</th>
                                         <th>Giá tiền</th>
                                         <th>Trạng thái</th>

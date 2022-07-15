@@ -66,28 +66,21 @@ namespace DATN.PetShop.User.site.historyOrder
 
 
 
-            var html = @"<div class='container-fluid'>
-            <!-- Page-Title -->
-            <div class='row'>
-                <div class='col-sm-12'>
-                    <div class='page-title-box'>
-                        <div class='float-end'>
-                            <ol class='breadcrumb'>
-                                <li class='breadcrumb-item'><a href='#'>Pet Shop</a>
-                                </li>
-                                <!--end nav-item-->
-                                <li class='breadcrumb-item'><a href='don-hang'>Danh sách đơn hàng</a>
-                                </li>
-                                <!--end nav-item-->
-                                <li class='breadcrumb-item active'>Chi tiết đơn hàng</li>
-                            </ol>   
-                        </div>
-                        <h4 class='page-title'>Chi tiết đơn hàng</h4>
-                    </div>
-                    <!--end page-title-box-->
+            var html = @"
+<div class='breadcrumb-area pt-95 pb-95 bg-img' style='background-image: url(assets/img/banner/banner-2.jpg);'>
+            <div class='container'>
+                <div class='breadcrumb-content text-center'>
+                    <h2>Chi tiết đơn hàng</h2>
+                    <ul>
+                        <li><a href='trang-chu'>Trang chủ</a></li>
+                        <li class='active'>Chi tiết đơn hàng</li>
+                    </ul>
                 </div>
-                <!--end col-->
             </div>
+        </div>
+
+<div class='cart-main-area pt-95 pb-100'>
+        <div class='container'>
             <!-- end page title end breadcrumb -->
             <div class='row'>
                 <div class='col-lg-12'>
@@ -103,9 +96,7 @@ namespace DATN.PetShop.User.site.historyOrder
                         </div>
                         <!--end card-header-->
                         <div class='card-body'>
-                            <p class='mb-4 text-muted'>Khách hàng: " + order.shipping.userName + @"</p>
-                            <p class='mb-4 text-muted'>Email: " + order.shipping.email + @"</p>
-                            <p class='mb-4 text-muted'>Địa chỉ: " + order.shipping.addressDelivery + @"</p>
+                            
                             <div class='table-responsive'>
                                 <table class='table mb-0'>
                                     <thead>
@@ -150,7 +141,8 @@ namespace DATN.PetShop.User.site.historyOrder
                 <!--end col-->
             </div>
             <!--end row-->
-        </div>";
+        </div>
+       </div>";
 
             return html;
         }

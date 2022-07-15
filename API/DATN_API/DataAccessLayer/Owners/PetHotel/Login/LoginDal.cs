@@ -28,8 +28,8 @@ namespace DataAccessLayer.Owners.PetHotel.Login
 
             var response = new RequestModel<UserModel> { HttpStatusCode = 400 };
 
-            var filterUserName = Builders<UserModel>.Filter.Eq(q => q.email, login.userName);
-            var filter = (Builders<UserModel>.Filter.Eq(q => q.email, login.userName)) & Builders<UserModel>.Filter.Eq(q => q.password, login.password);
+            var filterUserName = Builders<UserModel>.Filter.Eq(q => q.userID, login.userName);
+            var filter = (Builders<UserModel>.Filter.Eq(q => q.userID, login.userName)) & Builders<UserModel>.Filter.Eq(q => q.password, login.password);
             var checkUserName = await repository.loginRepository.GetId(filterUserName);
             var user = await repository.loginRepository.GetId(filter);
            

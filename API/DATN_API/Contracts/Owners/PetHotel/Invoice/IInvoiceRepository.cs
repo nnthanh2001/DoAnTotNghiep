@@ -12,7 +12,7 @@ namespace Contracts.Owners.PetHotel.Invoice
     public interface IInvoiceRepository
     {
         Task<OrderModel> Add(OrderModel doc);
-        Task<bool> Update(FilterDefinition<InvoiceModel> filter, UpdateDefinition<InvoiceModel> update);
+        Task<bool> Update(FilterDefinition<OrderModel> filter, UpdateDefinition<OrderModel> update);
         Task<bool> Delete(FilterDefinition<InvoiceModel> filter);
         Task<List<OrderModel>> GetAll(SortDefinition<OrderModel> sort = null);
         Task<List<OrderModel>> GetListOrderByName(FilterDefinition<OrderModel> filter, SortDefinition<OrderModel> sort = null);

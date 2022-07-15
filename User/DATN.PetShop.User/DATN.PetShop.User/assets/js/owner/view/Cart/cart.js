@@ -49,6 +49,7 @@ var Cart = function () {
         var email = $.trim($('[data_value="email"]').val());
         var addressDelivery = $.trim($('[data_value="addressDelivery"]').val());
         var phone = $.trim($('[data_value="phone"]').val());
+        
 
         var json = { "userName": userName, "email": email, "addressDelivery": addressDelivery, "phone": phone };
         var doc = JSON.stringify(json);

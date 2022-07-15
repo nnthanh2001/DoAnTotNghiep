@@ -65,7 +65,7 @@ namespace DATN.PetShop.Admin.site.users.user
                             <div class='card'>
                                 <div class='card-body p-0'>
                                     <div class='media p-3  align-users-center'>                                                
-                                        <img src='assets/images/users/user-1.jpg' alt='user' class='rounded-circle thumb-lg'>                                        
+                                        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Degaen.jpg/300px-Degaen.jpg' alt='user' class='rounded-circle thumb-lg'>                                        
                                         <div class='media-body ms-3 align-self-center'>
                                             <h5 class='m-0'>Nguyễn Như Thành<span class='badge badge-warning font-10'>New</span></h5>
                                             <p class='mb-0 text-muted'>Quản lí</p>                                              
@@ -79,7 +79,7 @@ namespace DATN.PetShop.Admin.site.users.user
                             <div class='card'>
                                 <div class='card-body p-0'>
                                     <div class='media p-3  align-users-center'>                                                
-                                        <img src='assets/images/users/user-5.jpg' alt='user' class='rounded-circle thumb-lg'>                                        
+                                        <img src='https://www.sgv.edu.vn/uploads/images/info/con-cho-tieng-nhat-la-gi.png' alt='user' class='rounded-circle thumb-lg'>                                        
                                         <div class='media-body ms-3 align-self-center'>
                                             <h5 class='m-0'>Trung Nghĩa<span class='badge badge-secondary font-10'>New</span></h5>
                                             <p class='mb-0 text-muted'>NV chăm sóc thú cưng</p>                                                
@@ -93,7 +93,7 @@ namespace DATN.PetShop.Admin.site.users.user
                             <div class='card'>
                                 <div class='card-body p-0'>
                                     <div class='media p-3  align-users-center'>                                                
-                                        <img src='assets/images/users/user-8.jpg' alt='user' class='rounded-circle thumb-lg'>                                        
+                                        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRATChac0wMC27bYT2ofXu_7fICHGRxxTk1_Q&usqp=CAU' alt='user' class='rounded-circle thumb-lg'>                                        
                                         <div class='media-body ms-3 align-self-center'>
                                             <h5 class='m-0'>Nguyễn Tuấn Minh</h5>
                                             <p class='mb-0 text-muted'>NV tư vấn</p> 

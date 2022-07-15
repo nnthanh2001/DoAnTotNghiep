@@ -15,6 +15,7 @@ namespace DATN.PetShop.User
         protected void Application_Start(object sender, EventArgs e)
         {
             Routed.Register(RouteTable.Routes);
+           
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -46,5 +47,6 @@ namespace DATN.PetShop.User
         {
 
         }
+        
     }
 }

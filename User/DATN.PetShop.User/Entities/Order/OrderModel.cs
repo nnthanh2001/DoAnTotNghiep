@@ -16,6 +16,7 @@ namespace Entities.Order
         public Shipping shipping { get; set; }
         public List<ProductList> productList { get; set; }
         public string payment { get; set; }
+        
         public int subTotal { get; set; }
         public string status { get; set; }
         public string date { get; set; }
@@ -44,5 +45,6 @@ namespace Entities.Order
         public long phone { get; set; }
         public string email { get; set; }
         public string addressDelivery { get; set; }
+        public int paymentType { get; set; }
     }
 }

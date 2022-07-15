@@ -8,7 +8,7 @@
                 <div class="breadcrumb-content text-center">
                     <h2>Chi tiết sản phẩm</h2>
                     <ul>
-                         <li><a href="site/home/home.aspx.cs">Trang chủ</a></li>
+                        <li><a href="site/home/home.aspx.cs">Trang chủ</a></li>
                         <li class="active">Chi tiết sản phẩm</li>
                     </ul>
                 </div>
@@ -102,7 +102,7 @@
                 <div class="description-review-wrapper gray-bg pt-40">
                     <div class="description-review-topbar nav text-center">
                         <a class="active" data-toggle="tab" href="#des-details1">Mô tả</a>
-                        
+
                         <a data-toggle="tab" href="#des-details3">Đánh giá (2)</a>
                     </div>
                     <div class="tab-content description-review-bottom">
@@ -212,6 +212,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -475,4 +476,7 @@
             </div>
         </div>
     </div>
+
+
+   
 </asp:Content>

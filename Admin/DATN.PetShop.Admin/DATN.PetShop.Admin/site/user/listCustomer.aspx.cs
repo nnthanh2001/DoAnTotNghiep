@@ -33,7 +33,7 @@ namespace DATN.PetShop.Admin.site.user
             {
                 strBody.Append("<tr>");
                 //strBody.Append("<td>" + user.userID + "</td>");
-                strBody.Append("<td style='white-space: nowrap'>" + user.userName + "</td>");
+                strBody.Append("<td style='white-space: nowrap'><a href='don-hang?u=" + user._id + @"'>" + user.userName + "</td>");
                 strBody.Append("<td>" + user.email + "</td>");
                 strBody.Append("<td style='width: 380px;'>" + user.address + "</td>");
                 strBody.Append("<td>" + user.phone + "</td>");

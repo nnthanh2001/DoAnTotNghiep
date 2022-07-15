@@ -131,7 +131,7 @@ namespace DATN.PetShop.User.site.products
                     <div class='description-review-topbar nav text-center'>
                         <a class='active' data-toggle='tab' href='#des-details1'>Mô tả</a>
                         
-                        <a data-toggle='tab' href='#des-details3'>Đánh giá</a>
+                        <a data-toggle='tab' href='#des-details3'>Đánh giá (2)</a>
                     </div>
                     <div class='tab-content description-review-bottom'>
 
@@ -177,11 +177,11 @@ namespace DATN.PetShop.User.site.products
                                 </div>
                             </div>
                             <div class='ratting-form-wrapper'>
-                                <h3>Add your Comments :</h3>
+                                <h3>Bình luận về sản phẩm :</h3>
                                 <div class='ratting-form'>
                                     <form action='#'>
                                         <div class='star-box'>
-                                            <h2>Rating:</h2>
+                                            <h2>Đánh giá:</h2>
                                             <div class='product-rating'>
                                                 <i class='ti-star theme-color'></i>
                                                 <i class='ti-star theme-color'></i>
@@ -194,7 +194,7 @@ namespace DATN.PetShop.User.site.products
                                         <div class='row'>
                                             <div class='col-md-6'>
                                                 <div class='rating-form-style mb-20'>
-                                                    <input placeholder='Name' type='text'>
+                                                    <input placeholder='Tên' type='text'>
                                                 </div>
                                             </div>
                                             <div class='col-md-6'>
@@ -214,6 +214,7 @@ namespace DATN.PetShop.User.site.products
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>";

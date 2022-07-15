@@ -26,10 +26,8 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
         public async Task<OrderModel> Add(OrderModel doc)
         {
             string currentDate = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            doc.status = "Đang xác nhận";
-            doc.payment = "Thanh toán sau khi nhận hàng";
             doc.date = currentDate;
-            
+
             foreach (var product in doc.productList)
             {
 
@@ -49,13 +47,16 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
             var filter = Builders<InvoiceModel>.Filter.Eq(q => q.invoiceID, invoiceID);
             return await repository.invoiceRepository.Delete(filter);
         }
-        public async Task<List<OrderModel>> GetOrderByCustomer(string userId)
+        public async Task<List<OrderModel>> GetOrderByCustomer(string userId = "")
         {
-           
+
             var filter = Builders<OrderModel>.Filter.Eq(q => q.shipping.userId, userId);
-           
+
             var sort = Builders<OrderModel>.Sort.Descending("_id");
             var result = await repository.invoiceRepository.GetListOrderByName(filter, sort);
+
+
+
             return result;
 
         }
@@ -80,11 +81,16 @@ namespace DataAccessLayer.Owners.PetHotel.Invoice
                 filter = filter & mongoBuilder.Regex(y => y.date, new BsonRegularExpression(date));
             }
             var sort = Builders<OrderModel>.Sort.Descending("_id");
-            return await repository.invoiceRepository.GetListOrderByDate(filter, sort);
+            var result = await repository.invoiceRepository.GetListOrderByDate(filter, sort);
+            return result;
         }
-        public Task<bool> Update(FilterDefinition<InvoiceModel> filter, UpdateDefinition<InvoiceModel> update)
+        public async  Task<bool> Update(string _id)
         {
-            throw new NotImplementedException();
+            var checkid = Builders<OrderModel>.Filter.Eq(q => q._id, _id);
+            var update = Builders<OrderModel>.Update.Set(p => p.status, "Đang giao hàng");
+            var updateOrder =  repository.invoiceRepository.Update(checkid, update);
+            
+            return await updateOrder;
         }
     }
 }

@@ -36,10 +36,10 @@ var Checkout = function () {
         var email = $.trim($('[data_value="email"]').val());
         var addressDelivery = $.trim($('[data_value="addressDelivery"]').val());
         var phone = $.trim($('[data_value="phone"]').val());
-        
+        var paymentType = parseInt($('[name="payment"]:checked').attr("data_value")) || 1;
         
 
-        var json = { "userName": userName, "email": email, "addressDelivery": addressDelivery, "phone": phone  };
+        var json = { "userName": userName, "email": email, "addressDelivery": addressDelivery, "phone": phone, "paymentType": paymentType };
         var doc = JSON.stringify(json);
         return doc;
     };

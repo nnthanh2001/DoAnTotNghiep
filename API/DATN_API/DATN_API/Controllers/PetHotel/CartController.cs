@@ -35,9 +35,6 @@ namespace DATN_API.Controllers.PetHotel
             int n = r.Next();
             return n;
         }
-
-
-
         [HttpPost("AddOrder")]
         public async Task<IActionResult> Order(OrderModel cart)
         {

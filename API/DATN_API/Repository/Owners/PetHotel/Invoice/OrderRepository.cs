@@ -24,9 +24,9 @@ namespace Repository.Owners.PetHotel.Invoice
         public Task<OrderModel> Add(OrderModel doc) => query.Add(db, table, doc);
         public Task<bool> Delete(FilterDefinition<InvoiceModel> filter) => query.Delete(db, table, filter);
         public Task<List<OrderModel>> GetAll(SortDefinition<OrderModel> sort = null) => query.GetAll<OrderModel>(db, table, null, sort);
-        public Task<List<OrderModel>> GetListOrderByName(FilterDefinition<OrderModel> filter,SortDefinition<OrderModel> sort = null) => query.GetListById<OrderModel>(db, table, filter, sort);
+        public Task<List<OrderModel>> GetListOrderByName(FilterDefinition<OrderModel> filter,SortDefinition<OrderModel> sort = null) => query.GetListById(db, table, filter, sort);
         public Task<OrderModel> GetId(FilterDefinition<OrderModel> filter) => query.GetId(db, table, filter);
         public Task<List<OrderModel>> GetListOrderByDate(FilterDefinition<OrderModel> filter, SortDefinition<OrderModel> sort = null) => query.GetListById(db, table, filter, sort);
-        public Task<bool> Update(FilterDefinition<InvoiceModel> filter, UpdateDefinition<InvoiceModel> update) => query.Update(db, table, filter, update);
+        public Task<bool> Update(FilterDefinition<OrderModel> filter, UpdateDefinition<OrderModel> update) => query.Update(db, table, filter, update);
     }
 }

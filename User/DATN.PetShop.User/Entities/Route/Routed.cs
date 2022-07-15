@@ -29,7 +29,7 @@ namespace Entities.Route
             routes.MapPageRoute("thankyou", "cam-on", "~/site/orderComplete/orderComplete.aspx", false);
             routes.MapPageRoute("history", "lich-su-don-hang", "~/site/historyOrder/historyOrder.aspx", false);
             routes.MapPageRoute("historyDetail", "chi-tiet-don-hang-{_id}", "~/site/historyOrder/detailOrder.aspx", false);
-
+            routes.MapPageRoute("paymentReturn", "payment/Return", "~/site/Payment/paymentReturn.aspx", false);
 
 
 

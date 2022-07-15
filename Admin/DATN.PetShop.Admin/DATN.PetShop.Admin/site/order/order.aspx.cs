@@ -23,42 +23,78 @@ namespace DATN.PetShop.Admin.site.order
                 var date = Request["d"] != null && Request["d"].ToString() != ""
                ? Request["d"].ToString().ToLower().Trim()
                : "";
+                var userID = Request["u"] != null && Request["u"].ToString() != ""
+              ? Request["u"].ToString().ToLower().Trim()
+              : "";
                 var pageIndex = Request["p"] != null && Request["p"].ToString() != ""
                ? int.Parse(Request["p"]?.ToString() ?? "0")
                : 0;
 
-                var orderList = DataOrder(date);
+                var orderList = DataOrder(date, userID);
                 main.InnerHtml = orderList;
             }
-          
+
         }
-        public string DataOrder(string d = "")
+        public string DataOrder(string d = "", string u = "")
         {
-           
+
             var baseUrl = Globals.baseAPI;
-            var apiUrl = Globals.orderAPI;
+            var apiUrl = Globals.getOrderByCustomerAPI + "?userId=" + u;
             var apiUrlGetOrderByDay = Globals.orderByDayAPI + "?date=" + d;
+            var strGetOrderByCustomer = new List<OrderModel>();
 
 
             var strGetOrderByDay = Restful.Get<List<OrderModel>>(baseUrl, apiUrlGetOrderByDay).Result;
-            //var orderList = Restful.Get<List<OrderModel>>(baseUrl, apiUrl).Result;
+
             var value = new StringBuilder();
 
-
-            foreach (var order in strGetOrderByDay)
+            if (!string.IsNullOrEmpty(u))
             {
-                string subTotal = String.Format("{0:0,00₫}", order.subTotal);
-                var str = @"<tr>
-                                            <td><a  href='chi-tiet-don-hang-" + order._id+ @"'>" + order.orderID+ @"</a></td>
-                                            <td>" + order.shipping.userName + @"</td>
+
+
+
+                strGetOrderByCustomer = Restful.Get<List<OrderModel>>(baseUrl, apiUrl).Result;
+                foreach (var order in strGetOrderByCustomer)
+                {
+
+                    var notification = (order.status == "Đang chờ xác nhận" || order.status == "Đã thanh toán") ? "" : @"<i class='fas fa-bell'></i>";
+
+                    string subTotal = String.Format("{0:0,00₫}", order.subTotal);
+                    var str = @"<tr>
+                                            <td><a href='chi-tiet-don-hang-" + order._id + @"'>" + order.orderID + @"</a></td>
+                                            <td><a href='don-hang?u=" + order.shipping.userId + @"'>" + order.shipping.userName + @"</td>
+                                            <td>" + subTotal + @"</td>
+                                            <td>" + order.date + @"</td>
+                                            <td>" + order.shipping.phone + @"</td>
+                                            <td>" + order.payment + @"</td>
+                                            <td data_value='status'>" + order.status + @"</td>
+                                            <td><a href='javascript:void(0);' jsaction='updateStatusOrder' value='" + order._id + @"'>" + notification + @"</a></td>
+                                        </tr>";
+                    value.Append(str);
+                }
+            }
+            else
+            {
+
+                foreach (var order in strGetOrderByDay)
+                {
+                    var notification = (order.status == "Đang chờ xác nhận" || order.status == "Đã thanh toán") ? "" : @"<i class='fas fa-bell'></i>";
+                    string subTotal = String.Format("{0:0,00₫}", order.subTotal);
+                    var str = @"<tr>
+                                            <td><a href='chi-tiet-don-hang-" + order._id + @"'>" + order.orderID + @"</a></td>
+                                            <td><a href='don-hang?u=" + order.shipping.userId + @"'>" + order.shipping.userName + @"</td>
                                             <td>" + subTotal + @"</td>
                                             <td>" + order.date + @"</td>
                                             <td>" + order.shipping.phone + @"</td>
                                             <td>" + order.payment + @"</td>
                                             <td>" + order.status + @"</td>
+                                            <td><a href='javascript:void(0);' jsaction='updateStatusOrder' value='" + order._id + @"'>" + notification + @"</a></td>
                                         </tr>";
-                value.Append(str);
+                    value.Append(str);
+                }
+
             }
+
 
             var html = @"<div class='topbar'>
         <!-- Navbar -->
@@ -115,6 +151,7 @@ namespace DATN.PetShop.Admin.site.order
                                             <th>Số điện thoại</th>
                                             <th>Hình thức thanh toán</th>
                                             <th>Trạng thái</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>

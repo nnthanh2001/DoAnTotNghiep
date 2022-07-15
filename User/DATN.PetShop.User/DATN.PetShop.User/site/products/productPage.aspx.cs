@@ -63,7 +63,7 @@ namespace DATN.PetShop.User.site.products
 
             //body
 
-            if (productPage.product.Count == 0)
+            if (productPage.product.Count == 0 || productPage.product == null)
             {
                 var itemHtml = @"<tr><h3>Không tồn tại sản phẩm </h3></tr>";
                 strBodyProduct.Append(itemHtml);
@@ -254,17 +254,7 @@ namespace DATN.PetShop.User.site.products
                                     </div>
                                 </div>
                             </div>
-                            <div class='quick-view-list nav' role='tablist'>
-                                <a class='active' href='#modal1' data-toggle='tab' role='tab'>
-                                    <img src='" + productDetail.image + @"' alt=''>
-                                </a>
-                                <a href='#modal2' data-toggle='tab' role='tab'>
-                                    <img src='" + productDetail.image + @"' alt=''>
-                                </a>
-                                <a href='#modal3' data-toggle='tab' role='tab'>
-                                    <img src='" + productDetail.image + @"' alt=''>
-                                </a>
-                            </div>
+                            
                         </div>
                         <div class='qwick-view-right'>
                             <div class='qwick-view-content'>

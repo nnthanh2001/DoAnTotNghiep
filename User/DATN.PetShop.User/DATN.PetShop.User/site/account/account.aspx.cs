@@ -139,7 +139,7 @@ namespace DATN.PetShop.User.site.account
                                 </div>
                                <div class='panel panel-default'>
                                     <div class='panel-heading'>
-                                        <h5 class='panel-title'><span>3</span> <a href='lich-su-don-hang?u="+ user._id+ @"'>Lịch sử đơn hàng</a></h5>
+                                        <h5 class='panel-title'><span>3</span> <a href='lich-su-don-hang?u="+ user._id+ @"'>Lịch sử mua hàng</a></h5>
                                     </div>
                                 </div>
                                 <div class='billing-btn'>

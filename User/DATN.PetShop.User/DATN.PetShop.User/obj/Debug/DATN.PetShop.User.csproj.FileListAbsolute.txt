@@ -74,3 +74,5 @@ C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\DATN.
 C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\DATN.PetShop.User\bin\FireSharp.Serialization.JsonNet.dll
 C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\DATN.PetShop.User\bin\RestSharp.dll
 C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\DATN.PetShop.User\bin\RestSharp.xml
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\DATN.PetShop.User\bin\log4net.dll
+C:\Users\leo\OneDrive\Máy tính\Eshop\DoAn\Project\User\DATN.PetShop.User\DATN.PetShop.User\bin\log4net.xml

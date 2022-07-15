@@ -65,19 +65,7 @@
                                         </div>
                                         <!--end form-group-->
 
-                                        <div class="form-group row mt-3">
-                                            <div class="col-sm-6">
-                                                <div class="form-check form-switch form-switch-success">
-                                                    <input class="form-check-input" type="checkbox" id="customSwitchSuccess">
-                                                    <label class="form-check-label" for="customSwitchSuccess">Ghi nhớ tài khoản</label>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-sm-6 text-end">
-                                                <a href="auth-recover-pw.html" class="text-muted font-13"><i class="dripicons-lock"></i>Quên mật khẩu?</a>
-                                            </div>
-                                            <!--end col-->
-                                        </div>
+                                        
                                         <!--end form-group-->
 
                                         <div class="form-group mb-0 row">

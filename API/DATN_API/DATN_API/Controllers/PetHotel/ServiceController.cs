@@ -15,7 +15,6 @@ namespace DATN_API.Controllers.PetHotel
         {
             this.businessWrapper = businessWrapper;
         }
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

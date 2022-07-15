@@ -33,7 +33,7 @@ namespace DATN.PetShop.User.handleRequest.Order
             var baseUrl = Globals.baseAPI;
             var apiUrl = Globals.createOrderAPI;
 
-            
+
             switch (type)
             {
                 case "get":
@@ -44,28 +44,53 @@ namespace DATN.PetShop.User.handleRequest.Order
                     if (Session["Order"] != null)
                     {
                         var strorder = Session["Order"].ToString();
-
                         var order = JsonConvert.DeserializeObject<OrderModel>(strorder);
-
                         var strCustomer = Session["login"].ToString();
                         var request = JsonConvert.DeserializeObject<RequestModel<UserModel>>(strCustomer);
-                        
                         order.shipping.userId = request.model._id;
-                        var strPost = Restful.Post(baseUrl, apiUrl, order);
-                        if (strPost != null && strPost != "")
-                        {
-                            if (strPost != null)
-                            {
 
-                                var dicResult = new Dictionary<string, object> {
+                        if (order.payment == "Thanh toán sau khi nhận hàng")
+                        {
+                            order.status = "Đang xác nhận";
+                            var strPost = Restful.Post(baseUrl, apiUrl, order);
+                            if (strPost != null && strPost != "")
+                            {
+                                if (strPost != null)
+                                {
+
+                                    var dicResult = new Dictionary<string, object> {
                             {"HttpStatusCode",200 },
                             {"href","cam-on" }
                         };
-                                result = JsonConvert.SerializeObject(dicResult);
-                                Session["Order"] = null;
-                                Session["ProductGuid"] = null;
+                                    result = JsonConvert.SerializeObject(dicResult);
+                                    Session["Order"] = null;
+                                    Session["ProductGuid"] = null;
+                                }
                             }
                         }
+                        else
+                        {
+                            if (order.payment == "Thanh toán trực tuyến")
+                            {
+                                order.status = "Đã thanh toán";
+                                var strPost = Restful.Post(baseUrl, apiUrl, order);
+                                if (strPost != null && strPost != "")
+                                {
+                                    if (strPost != null)
+                                    {
+
+                                        var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",200 },
+                            {"href","cam-on" }
+                        };
+                                        result = JsonConvert.SerializeObject(dicResult);
+                                        Session["Order"] = null;
+                                        Session["ProductGuid"] = null;
+                                    }
+                                }
+                            }
+                        }
+
                     }
                     else
                     {

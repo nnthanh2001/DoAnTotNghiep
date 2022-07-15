@@ -30,8 +30,6 @@ namespace DATN_API.Controllers.PetHotel
             string temp = str.Normalize(NormalizationForm.FormD);
             return regex.Replace(temp, String.Empty)
                         .Replace('đ', 'd').Replace('Đ', 'D');
-
-
         }
         [HttpPost("iphone13")]
         public async Task<Nfttoken> iphone13()

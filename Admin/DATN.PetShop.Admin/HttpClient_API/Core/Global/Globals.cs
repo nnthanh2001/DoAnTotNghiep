@@ -37,9 +37,10 @@ namespace HttpClient_API.Core.Global
         public static string statisticalAPI = "api/Statistical";
         public static string statisticalAPI2 = "api/Statistical/GetStatisticalByMonth";
 
-        
+        public static string getOrderByCustomerAPI = "/api/Order/GetOrderByCustomer";
+        public static string updateOrderAPI = "/api/Order/updateOrder";
 
-        
-        
+
+
     }
 }

@@ -36,24 +36,24 @@ var SignIn = function () {
 
         //});
     };
-    function isEmail(email) {
-        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        return regex.test(email);
-    }
-    function isPassword(password) {
-        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$/;
-        return regex.test(password);
-    }
+    //function isEmail(email) {
+    //    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    //    return regex.test(email);
+    //}
+    //function isPassword(password) {
+    //    var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$/;
+    //    return regex.test(password);
+    //}
     that.bindValue = function () {
 
         var userName = $.trim($('[data_value="userName"]').val());
         var password = $.trim($('[data_value="password"]').val());
-        if (userName != "") {
-            if (isEmail(userName) == false) {
-                executeExample(Swal.fire('Email không chính xác vui lòng nhập lại!'));
-                return false;
-            }
-        }
+        //if (userName != "") {
+        //    if (isEmail(userName) == false) {
+        //        executeExample(Swal.fire('Email không chính xác vui lòng nhập lại!'));
+        //        return false;
+        //    }
+        //}
        
         var json = { "UserName": userName, "Password": password };
         var doc = JSON.stringify(json);

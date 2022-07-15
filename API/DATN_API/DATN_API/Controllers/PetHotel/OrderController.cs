@@ -26,7 +26,6 @@ namespace DATN_API.Controllers.PetHotel
         {
             return Ok(await businessWrapper.order.GetId(_id));
         }
-
         [HttpGet]
         public int randomID()
         {
@@ -47,7 +46,13 @@ namespace DATN_API.Controllers.PetHotel
         [HttpGet("GetOrderByCustomer")]
         public async Task<IActionResult> GetOrderByCustomer(string userId)
         {
-                return Ok(await businessWrapper.order.GetOrderByCustomer(userId));
+            return Ok(await businessWrapper.order.GetOrderByCustomer(userId));
+        }
+        [HttpGet("updateOrder")]
+        public async Task<IActionResult> updateOrder(string _id)
+        {
+            var result = Ok(await businessWrapper.order.Update(_id));
+            return Ok(result);
         }
     }
 }

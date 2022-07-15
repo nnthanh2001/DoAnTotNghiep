@@ -162,12 +162,12 @@ namespace DATN.PetShop.User.site.cart
             </div>
             <div class='ship-wrapper'>
             <h6>Phương thức thanh toán:</h6>
-                <div class='single-ship' checked=''>
-                    <input type='radio'  value='1'>
+                <div class='single-ship'>
+                    <input type='radio'  data_value='1' name='payment' checked=''>
                     <label>Thanh toán sau khi nhận hàng </label>
                 </div>
                 <div class='single-ship'>
-                    <input type='radio' value='2'>
+                    <input type='radio' data_value='2' name='payment'>
                     <label>Thanh toán online </label>
                 </div>
             </div>

@@ -71,7 +71,7 @@ namespace DataAccessLayer.Owners.PetHotel.Statistical
                     month = month,
                     nuberOfOrder = statisticalPerMonth.Count(),
                     totalIncome = statisticalPerMonth.Sum(q => q.subTotal),
-                    totalCost = 50000000 
+                    totalCost = 10000000
             };
                 //statistical.totalCost = statistical.costList.Sum(q => q.costPrice);
 

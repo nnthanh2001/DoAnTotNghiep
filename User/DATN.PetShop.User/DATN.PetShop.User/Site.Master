@@ -24,9 +24,14 @@
     <link href="assets-2/plugins/animate/animate.min.css" rel="stylesheet" />--%>
     <!-- Sweet Alert -->
     <%--<link href="assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">--%>
+
     <link href="assets/plugins/animate/animate.min.css" rel="stylesheet" type="text/css">
 
     <!-- all css here -->
+    <link href="assets-2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets-2/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="assets-2/css/app.min.css" rel="stylesheet" type="text/css">
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/simple-line-icons.css">

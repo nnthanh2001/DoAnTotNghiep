@@ -29,11 +29,12 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.Order
          ? Request["data"].ToString()
          : "";
             var baseUrl = Globals.baseAPI;
-            var apiUrl = Globals.orderDetailAPI + "/" + id;
+            var apiUrl = Globals.orderDetailAPI;
+            var updateStatusOrderApi = Globals.updateOrderAPI ;
             switch (type)
             {
                 case "get":
-                    var orderDetail = Restful.Get<OrderModel>(baseUrl, apiUrl).Result;
+                    var orderDetail = Restful.Get<OrderModel>(baseUrl, apiUrl + "/" + id).Result;
                     if (orderDetail != null)
                     {
                        
@@ -46,10 +47,22 @@ namespace DATN.PetShop.Admin.handleRequest.Owner.Order
                     }
                     break;
                 case "post":
-                  
+                    
+                    var updateStatus = Restful.Get<Object>(baseUrl, updateStatusOrderApi + "?_id=" + id).Result;
+                    if (updateStatus != null)
+                    {
+
+                        var dicResult = new Dictionary<string, object> {
+                            {"HttpStatusCode",200 },
+                            {"href","don-hang"}
+                        };
+                        result = JsonConvert.SerializeObject(dicResult);
+
+                    }
                     break;
+                    
                 case "put":
-                  
+
                     break;
                 case "delete":
                    

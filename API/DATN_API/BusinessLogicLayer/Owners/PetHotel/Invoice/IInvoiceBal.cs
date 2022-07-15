@@ -9,7 +9,7 @@ namespace BusinessLogicLayer.Owners.PetHotel.Invoice
     public interface IInvoiceBal
     {
         Task<OrderModel> Add(OrderModel doc);
-        Task<bool> Update(FilterDefinition<InvoiceModel> filter, UpdateDefinition<InvoiceModel> update);
+        Task<bool> Update(string _id);
         Task<bool> Delete(int invoiceID);
         Task<List<OrderModel>> GetAll();
         Task<OrderModel> GetId(string id);
